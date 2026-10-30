@@ -1,93 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1793368326;
-	b=xcY4XtP7b4V2hAW4yq556mfNFAlAV4oStNzaOk463LcRR0OkCpN3ul9j96KMBnulXNC3
-	 CbXe4oejx/JwZOBZc6N/AkojTjcTUuO9nHzTB9ebIaBCYKSi1A6sop7vOwfcJM9qh1Hs5
-	 dLYcHiSk5c06p4UUBrG746NhVGIGd9KZa96o8mMMoezX9tipgFv/aZCg2VN2GxKSgtTi/
-	 ZfdC7F10BVUvlm52xynB+NN6dQ40pBfkAgQ/35ftcQSuzKx05drUOsvbxtaj0MiU4VYh5
-	 OyyIzgE2dhU4BBOz7QtUmEZjkF35h8PH9FfMPRSGc7A2piHizgusV0f1MsS66O/whMA==
+	t=1793368686;
+	b=siUNEIMptfqFdFWvPYJZPZEy6KmidZq4sco8r4aR11wN93srmaAYPSekrX6jkwdpVhE4
+	 Eg/CNwZvI6hvJRDVZlS/DVY1M9Uhn/HL+fXLXvc73MmhSTdJPxbClASKZ0+MafLxGt3R2
+	 qR7NKy8LToZdsPQ+Kd7lHqJaH4ecbpDzj0l0et0yqGCYt6b1Z0VKyH2dOxAN2sr2yEhAR
+	 PCr1453CcLyWf0EObPSyMdGzm5CX43+kfgXRw3jrpj0h6EtDtFSg8Vq2QZUHKO82ineNy
+	 ANuJ2imTXydCJCEaXKRNvGc5zrCXANWHxXN2OY0lpKFcgbiDSuiaBA7xGpkthv/YBsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1793368326;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=SXBe5FDUaux8CGMgkiRMsJSb/8g4y+WkcIulnsCpl5I=;
-	b=KKXopRHV3G8aw9k13suFn0sqfOMMJa1XMJTEsGPaXtXfucb31VTyKVs5Ko2p6U/N8/N5
-	 tPuPwbTbbFK9tsUcGprPD+EFyFviIDIAMyKtvQt1n5smeZOrWPtgfV+BMZk0BZT2XnzjQ
-	 9ay9wIcDfTyaAdpBcSeYCAaeu1T/2Ybo0rnBxz3FRUglyt/A+BPHyzSSssUOsxajMmrWE
-	 zxB+1KKpYEy6Ak/++rq0ekuYO4SXGxPht5o8PRyutKpAtmmFiyK31BG3T7nMtDFJeSEub
-	 rGDHFI7fZzkDYJDOnaP4e0hh5xGjRjHyhTbyGDiRbA55e2D26yjn/dd+7MCXgupqHig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1793368686;
+	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Transfer-Encoding;
+	bh=kEdtKFjfjrs6u0tdOBxpHnrmoGHrLQkf7eHyg54/lso=;
+	b=0VacdJp379DspgHYoAfgjyArIfhyVaqHqmhlVuRqY4+3pE5+euqdZUiuUXzIsHwRkkgH
+	 v2jlTGOkR2fTXbgmfuGJ5zmWvxAE9HTU7uiClfL1y4AQO3UlM10dLmAsp/d28jZjm7ATs
+	 KbrMt2LSPxchBx8ZWGlyZzEYY/yfJ0NiCD2guhwIZPERYQoXTc7BqWifoHwofUKR2YtUQ
+	 mu1qPaHE71tm/hVAGNWBb7LkofL3bZRrvwAXBrd+W75ZA3JgieL0He6HPrv+XOPrV+A7O
+	 ywluYg+MI8HEx1AaTwtvhchxBX2iA4HuJhDabhqywfrGZPP27XUwLX6qmRs4SDCSVGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ff6E0UBD;
-	arc=none smtp.remote-ip=209.85.221.49
-Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Noz+TIYd;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=04bz13Hg;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81C9B606A31F
-	for <printk@lists.linux.dev>; Fri, 30 Oct 2026 13:52:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81C9B606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 242E4606A31C
+	for <printk@lists.linux.dev>; Fri, 30 Oct 2026 13:58:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 242E4606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ff6E0UBD
-Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-48c4be28b82so758795f8f.2
-        for <printk@lists.linux.dev>; Fri, 30 Oct 2026 06:52:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1793368324; x=1793973124; darn=lists.linux.dev;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SXBe5FDUaux8CGMgkiRMsJSb/8g4y+WkcIulnsCpl5I=;
-        b=ff6E0UBDOx6K4D727CCciQKNSxvPltt6yL2yoofdKcyfBMr7tpALz/ZFCnvsqcyf+g
-         0BhEWVbVYbdZZXRtYKxQ9JmWZNF0tWeP0Olafwrl0LjOJ5ggHXuBNo/85uS27i3GKo98
-         X73OcJ1PxXoxomkbehe8KHRdqUl6YX2SV0KKsAsH/kq8rheMb5d3JSqR95rrAxneJiiZ
-         d4AGGboyRbVIXXYxEa5YDK3dVEdt0t4tL1c6HZsaHSEud/IrxfRTJPveAV3kjLemErGF
-         Oea1UvpzyFEL2CdVnAty6Q2GosFSM+RLdkOoppQpj4K5HInjIEn5zgzTukFzpB00kC8C
-         7gCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793368324; x=1793973124;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SXBe5FDUaux8CGMgkiRMsJSb/8g4y+WkcIulnsCpl5I=;
-        b=d/Ho3JiU6sj9zybZD8PtvnMIR7D6+EivbmRmXlqo9VrMZyQEoLh9PAavNK1G7Yol7Z
-         xDpkd5i3+mLtvb7dg2qKjiFUmLi4OtmNMU4ZccA5MMlUVdmKlwuoQc/qK0A7vHc+FsIw
-         XZTgAfAhYpK4AwNYAGuVMXG7a8koECvY7fPA1wLZAdhSgDW22cDe4Jgd5X/ZGcvkIqmQ
-         WgJCD608iIr1Q8/cM4KnDYX9Xn+4ccAZPhllQB9MU/QZw83xvcGyUx5UmSbDURqhDs2C
-         5ChGXeVmTjNxyN/rcBHNopwAb0+TtTm8MPkNzRV/jxIGNddrs3aeO1qXtd5PrZ8GE2Dj
-         QjEg==
-X-Forwarded-Encrypted: i=1; AKwUvByLevB+4ardvxHDOeR9fzjyZTztn25fQ+H7o3iTBsq791GMOcAWY491FzN0PFMt+9m1UMOz8og=@lists.linux.dev
-X-Gm-Message-State: AFq9FYImCIkemubkYBVIWJOu/wti6mAKEVdxZRaJnpjHffXcAOXcxHBI
-	TjkUo8BVkuky07WvlvTgIiK6JCtYni5QLdUG04G2ZR5dkQDzZtOVmpYBpa9H7pYQrMw=
-X-Gm-Gg: AYBFou1yhmU7Sy8t5oORQd2YnfRtZ6c0XktxgAoKU4+7IOyytVUbpCMywcCYV2fZWgM
-	jOgV8aMSrG/E0ktUpmNnqS4TscJCfwZBNwmmai0cXjoSbv5TRQtlP251qqGUKCM4j3UFZjpM4k5
-	fEwQPdaJK+x6IMuQ8iVCQ9y9Sl71mshNcXBRdJDRMdAdi4As831IBqcePiOeNtu5ay93uZwvS4g
-	jwdoQThg4A7XZ7aOxb8W7DQCBsqA2fZc1NxOoHjAU4Ed1scRGfjrDzJYArRwyfP2RuyZ+pWPEGW
-	nKnPDNpedd5pNTECUc9t4DpUKciC0JuHG1Bb99U7pnI2AYcP7fiQIzgLNx458i6viJ8B+SbLGiW
-	7cVh2i569lqvAtjvyxqX7N0CElvzBABIN6yPNo7+eL581R1AXCsAV04k8CmuB64rYUMCLQYY6Oe
-	tqVfqg69a7UssfeSgNCk4Rd6Bk6iYc486vG25HNrb3Ifja+GF/9BRY3p+oUtE6caaKYUm4+0U8G
-	Aq2RGOtTSF6JeQRTZIFAG+L7NR9PpgrIMEWUTZdi/VszURLGDdcy5EczIgXPswfX4LtWfRiSarw
-	or4XBAEwPCJGlC6TKkRf
-X-Received: by 2002:a05:6000:454b:b0:48c:49bd:62df with SMTP id ffacd0b85a97d-48e6e2bc9c2mr3892543f8f.1.1793368323808;
-        Fri, 30 Oct 2026 06:52:03 -0700 (PDT)
-Received: from pathway ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71ba4ac6sm3514204f8f.52.2026.10.30.06.52.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 06:52:03 -0700 (PDT)
-Date: Fri, 30 Oct 2026 14:52:01 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: John Ogness <john.ogness@linutronix.de>
+	dkim=pass (2048-bit key, unprotected) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Noz+TIYd;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=04bz13Hg
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1793368682;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=kEdtKFjfjrs6u0tdOBxpHnrmoGHrLQkf7eHyg54/lso=;
+	b=Noz+TIYdPcNQAYb9WW8G24HP3zSPmZiN8Gm2cX1updNnOCXZMUlB3wmzYyb97ZQCPxudjr
+	XpBLNJ/w/Va0IXksNMN9tKF6/wVeAsAn/iLfGdyIqhpPtgwGk7VeuOsKlAE9qHLqKU6XLm
+	hkMb9nfFdTzl0lR1jMARU2i247J9wgv4FTNlEPk4jj65nnjr6cFdF8dPxlU/3/sUcbZeWD
+	H9rUFDiBtREgSE+nYp45OweF/GwyfEIsmjjynBzTivvss4HzOGG9K9Uf+u5id8qzO4VYhn
+	DhAqQapThg8+c+dwKKaXOrSYvoBKk/5EfFJZkli/cjaQH0gykkh/xVDa1zpgIQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1793368682;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=kEdtKFjfjrs6u0tdOBxpHnrmoGHrLQkf7eHyg54/lso=;
+	b=04bz13Hg2tM9r7CWtofMzExkXSB5Xd+9++0W8qMI8RKuOn+NyqsrPb2agU4Opp9eW5l5gQ
+	IR6ftrisSYALSwBQ==
+To: Petr Mladek <pmladek@suse.com>
 Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
 	Steven Rostedt <rostedt@goodmis.org>,
-	Derek Barbosa <debarbos@redhat.com>, printk@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH printk] printk: Avoid multiple unregistration in
- unregister_console_locked()
-Message-ID: <auShAQbJAwSqI6gu@pathway>
+	Derek Barbosa <debarbos@redhat.com>,
+	printk@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH printk v2] printk: Avoid multiple unregistration in unregister_console_locked()
+Date: Fri, 30 Oct 2026 15:03:55 +0106
+Message-ID: <20261030135802.663893-1-john.ogness@linutronix.de>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -97,62 +73,115 @@ List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87y0bgwm0y.fsf@jogness.linutronix.deq>
+Content-Transfer-Encoding: 8bit
 
-On Thu 2026-10-29 16:48:53, John Ogness wrote:
-> On 2026-10-29, Sashiko wrote:
-> >> @@ -4471,6 +4493,9 @@ static int __init printk_late_init(void)
-> >>  		}
-> >>  
-> >>  		unregister_console_locked(con);
-> >> +
-> >> +		/* Changed console list, may require printer threads to start/stop. */
-> >> +		printk_kthreads_check_locked();
-> >>  	}
-> >
-> > Should printk_kthreads_check_locked() be called after the
-> > hlist_for_each_entry_safe(con, tmp, &console_list, node) loop in
-> > printk_late_init() rather than inside the loop body?
-> >
-> > In kernel/printk/printk.c:printk_late_init():
-> >
-> >	hlist_for_each_entry_safe(con, tmp, &console_list, node) {
-> >		if (!(con->flags & CON_BOOT))
-> >			continue;
-> >		...
-> >		unregister_console_locked(con);
-> >
-> >		/* Changed console list, may require printer threads to start/stop. */
-> >		printk_kthreads_check_locked();
-> >	}
-> >	console_list_unlock();
-> >
-> > Because printk_kthreads_check_locked() is placed inside the loop,
-> > unregistering the last boot console sets have_boot_console to false and
-> > immediately attempts to start printer kthreads while the loop is still
-> > iterating over console_list.
-> >
-> > If kthread creation in legacy_kthread_create() or nbcon_kthread_create()
-> > fails for the console stored in tmp, printk_kthreads_check_locked() calls
-> > unregister_console_locked() on that console, removing it with
-> > hlist_del_init_rcu(), freeing nbcon resources, and invoking console->exit().
-> > On the next iteration of printk_late_init(), con is set to tmp, accessing the
-> > already-unregistered console and terminating the walk early because
-> > hlist_del_init_rcu() cleared tmp->next.
-> 
-> Geez, sorry. Obviously printk_kthreads_check_locked() needs to be
-> outside of the hlist_for_each_entry_safe(console_list) loop. That was
-> the whole point of the series!
-> 
-> I will wait a day for v2 in case there is any feedback regarding my
-> comments (or lack thereof).
+unregister_console_locked() is called from within
+hlist_for_each_entry_safe(console_list) loops. This would be safe if
+unregister_console_locked() only unregistered the specified console. After
+all, that is what the _safe variant is for.
 
-JFYI, the comments look good to me.
+However, unregister_console_locked() calls printk_kthreads_check_locked(),
+which can unregister _multiple_ consoles if kthreads fail to start. This
+could lead to hlist_for_each_entry_safe() use-after-free scenarios because
+not only was the list entry removed, but possibly the following entry as
+well (the @n temporary storage of the next entry).
 
-It is quite twisted problem. I have got lost again when looking at
-this patch. I am not surprised that the 1st version was not right. ;-)
+Move the call to printk_kthreads_check_locked() outside of
+unregister_console_locked(). Add comments to both functions to clarify
+if they are safe to be used in hlist_for_each_entry_safe(console_list)
+loops.
 
-Best Regards,
-Petr
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/lkml/87ik31iz4x.fsf@jogness.linutronix.de
+Fixes: 76f258bf3f2a ("printk: nbcon: Introduce printer kthreads")
+Signed-off-by: John Ogness <john.ogness@linutronix.de>
+---
+v1: https://lore.kernel.org/lkml/20261029152454.638952-1-john.ogness@linutronix.de
+
+changes since v1:
+
+- In printk_late_init(), move printk_kthreads_check_locked() outside of
+  the hlist_for_each_entry_safe(console_list) loop.
+
+ kernel/printk/printk.c | 34 ++++++++++++++++++++++++++++++----
+ 1 file changed, 30 insertions(+), 4 deletions(-)
+
+diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
+index 9a205f94bfac7..5dbcf8a9909bb 100644
+--- a/kernel/printk/printk.c
++++ b/kernel/printk/printk.c
+@@ -3792,6 +3792,13 @@ static struct syscore printk_syscore = {
+  * If appropriate, start nbcon kthreads and set @printk_kthreads_running.
+  * If any kthreads fail to start, those consoles are unregistered.
+  *
++ * Called after consoles are registered or unregistered.
++ *
++ * This MUST NOT be called within an hlist_for_each_entry_safe(console_list)
++ * loop because it can unregister multiple consoles if any kthreads fail to
++ * start. That would lead to use-after-free scenarios within the
++ * hlist_for_each_entry_safe(console_list) loop of the caller.
++ *
+  * Must be called under console_list_lock().
+  */
+ static void printk_kthreads_check_locked(void)
+@@ -4230,7 +4237,20 @@ void register_console(struct console *newcon)
+ }
+ EXPORT_SYMBOL(register_console);
+ 
+-/* Must be called under console_list_lock(). */
++/*
++ * Unregister the specified console.
++ *
++ * This can be called safely from within an
++ * hlist_for_each_entry_safe(console_list) loop because it unregisters
++ * _only_ the specified console.
++ *
++ * Afterwards the caller should call printk_kthreads_check_locked() since
++ * unregistering a console may require printer threads to start/stop. Note
++ * that printk_kthreads_check_locked() cannot be called safely from within
++ * an hlist_for_each_entry_safe(console_list) loop.
++ *
++ * Must be called under console_list_lock().
++ */
+ static int unregister_console_locked(struct console *console)
+ {
+ 	bool use_device_lock = (console->flags & CON_NBCON) && console->write_atomic;
+@@ -4322,9 +4342,6 @@ static int unregister_console_locked(struct console *console)
+ 	if (console->exit)
+ 		res = console->exit(console);
+ 
+-	/* Changed console list, may require printer threads to start/stop. */
+-	printk_kthreads_check_locked();
+-
+ 	return res;
+ }
+ 
+@@ -4333,7 +4350,12 @@ int unregister_console(struct console *console)
+ 	int res;
+ 
+ 	console_list_lock();
++
+ 	res = unregister_console_locked(console);
++
++	/* Changed console list, may require printer threads to start/stop. */
++	printk_kthreads_check_locked();
++
+ 	console_list_unlock();
+ 	return res;
+ }
+@@ -4472,6 +4494,10 @@ static int __init printk_late_init(void)
+ 
+ 		unregister_console_locked(con);
+ 	}
++
++	/* Changed console list, may require printer threads to start/stop. */
++	printk_kthreads_check_locked();
++
+ 	console_list_unlock();
+ 
+ 	ret = cpuhp_setup_state_nocalls(CPUHP_PRINTK_DEAD, "printk:dead", NULL,
+
+base-commit: 647ef123d19695b5d8c79e03c86fb17c558e30b7
+-- 
+2.47.3
+
