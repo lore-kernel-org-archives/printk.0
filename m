@@ -1,77 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1793309495;
-	b=2dI94JdJ3n/JYwonE0lXHDQCvvtFE4vammgoPU3bBFi/TnyDSDBXaDmu/GObtFB/1h9x
-	 h+S/st41Sgyn+qfQIuGupL81pBwqKzVSh6uEqB6cNtcGs1pzWhtXPvSL9sxWa0Z/KkMdn
-	 SzyGv/DxB+hPw2pb6E9FM+i2eiOUDtTucxJmn6hI+jYynGEc+S5T9WTdUe1zFTWS5S7un
-	 rmwP7v+Qtoa2FtSseXXnyPQsMG5VSKugIWoeTQKalTzQxXUMS6s62V1tSHnv7vi02t6am
-	 uQC3X81STEf8GiexyNEBZXSZqfV45UMaD7EnCiP9/rE37f42gc3deA3lG1BAc4574JA==
+	t=1793368326;
+	b=xcY4XtP7b4V2hAW4yq556mfNFAlAV4oStNzaOk463LcRR0OkCpN3ul9j96KMBnulXNC3
+	 CbXe4oejx/JwZOBZc6N/AkojTjcTUuO9nHzTB9ebIaBCYKSi1A6sop7vOwfcJM9qh1Hs5
+	 dLYcHiSk5c06p4UUBrG746NhVGIGd9KZa96o8mMMoezX9tipgFv/aZCg2VN2GxKSgtTi/
+	 ZfdC7F10BVUvlm52xynB+NN6dQ40pBfkAgQ/35ftcQSuzKx05drUOsvbxtaj0MiU4VYh5
+	 OyyIzgE2dhU4BBOz7QtUmEZjkF35h8PH9FfMPRSGc7A2piHizgusV0f1MsS66O/whMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1793309495;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:Reply-To:References:MIME-Version:In-Reply-To:X-Scanned-By:
-	 X-Mimecast-MFC-PROC-ID:X-Mimecast-Originator:Content-Type:
-	 Content-Disposition;
-	bh=BshqI0ODPfwBdtv44RiABJDFcgwOhUywLdyEsT1OJp8=;
-	b=CQ02kycILPsj5s5p12sE6sH69PsJLmzky3xMJ4NF3neTcCSvUwynqs20lRztP9Kq+NhG
-	 t2cweg6r8Xv8pAcqP0l5E+m6bbq+yVd9IJLGnzLsCcT/bolFIGcQVE3SO4A8OiDIdwE3B
-	 dCwYNbumMruuCZs0T8sU0MWi/1g2PBV523cQUtUemn8+tBW0eFLSS3dHsaVWMLI/KIvqL
-	 Pmhi3m1DjpvM76BEa8/ILmnnvQBqlmwJjNhTSvhKqdRr5omshHQnZ3Yzj/htfzv0HoRsp
-	 +e4+XW645RRIA3m4kh9jP/YvhaaaUVsyjSXS2z1Z5tvGheh8/uN4l2asfjb/EDS9lLA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1793368326;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=SXBe5FDUaux8CGMgkiRMsJSb/8g4y+WkcIulnsCpl5I=;
+	b=KKXopRHV3G8aw9k13suFn0sqfOMMJa1XMJTEsGPaXtXfucb31VTyKVs5Ko2p6U/N8/N5
+	 tPuPwbTbbFK9tsUcGprPD+EFyFviIDIAMyKtvQt1n5smeZOrWPtgfV+BMZk0BZT2XnzjQ
+	 9ay9wIcDfTyaAdpBcSeYCAaeu1T/2Ybo0rnBxz3FRUglyt/A+BPHyzSSssUOsxajMmrWE
+	 zxB+1KKpYEy6Ak/++rq0ekuYO4SXGxPht5o8PRyutKpAtmmFiyK31BG3T7nMtDFJeSEub
+	 rGDHFI7fZzkDYJDOnaP4e0hh5xGjRjHyhTbyGDiRbA55e2D26yjn/dd+7MCXgupqHig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=HCcYJYae;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ff6E0UBD;
+	arc=none smtp.remote-ip=209.85.221.49
+Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7F5A606A31A
-	for <printk@lists.linux.dev>; Thu, 29 Oct 2026 21:31:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7F5A606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81C9B606A31F
+	for <printk@lists.linux.dev>; Fri, 30 Oct 2026 13:52:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81C9B606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=HCcYJYae
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1793309493;
-	h=from:from:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:in-reply-to:in-reply-to:  references:references;
-	bh=BshqI0ODPfwBdtv44RiABJDFcgwOhUywLdyEsT1OJp8=;
-	b=HCcYJYaekC8nI++NBs2rnejOhh5C6uBdQ4wgsYydUBIwZLZ6BaITV03p9+ALWwoSvEpSRz
-	uJSh5G7r9IU/kbqgb698wRZwGmmrlO1Af0x/5OS8BUWLJLv6jocSjb3gTGhNPR14OmHpij
-	zMZnek3CNVGYuUylAr7tdW4Rm+QbJ/M=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-342-9A7_8gxnMlulxo_ly1CiVw-1; Thu,
- 29 Oct 2026 17:31:31 -0400
-X-MC-Unique: 9A7_8gxnMlulxo_ly1CiVw-1
-X-Mimecast-MFC-AGG-ID: 9A7_8gxnMlulxo_ly1CiVw_1793309490
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AACA019560B4;
-	Thu, 29 Oct 2026 21:31:29 +0000 (UTC)
-Received: from localhost (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E5BED1956088;
-	Thu, 29 Oct 2026 21:31:28 +0000 (UTC)
-Date: Thu, 29 Oct 2026 17:31:28 -0400
-From: Derek Barbosa <debarbos@redhat.com>
+	dkim=pass (2048-bit key, unprotected) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ff6E0UBD
+Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-48c4be28b82so758795f8f.2
+        for <printk@lists.linux.dev>; Fri, 30 Oct 2026 06:52:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1793368324; x=1793973124; darn=lists.linux.dev;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SXBe5FDUaux8CGMgkiRMsJSb/8g4y+WkcIulnsCpl5I=;
+        b=ff6E0UBDOx6K4D727CCciQKNSxvPltt6yL2yoofdKcyfBMr7tpALz/ZFCnvsqcyf+g
+         0BhEWVbVYbdZZXRtYKxQ9JmWZNF0tWeP0Olafwrl0LjOJ5ggHXuBNo/85uS27i3GKo98
+         X73OcJ1PxXoxomkbehe8KHRdqUl6YX2SV0KKsAsH/kq8rheMb5d3JSqR95rrAxneJiiZ
+         d4AGGboyRbVIXXYxEa5YDK3dVEdt0t4tL1c6HZsaHSEud/IrxfRTJPveAV3kjLemErGF
+         Oea1UvpzyFEL2CdVnAty6Q2GosFSM+RLdkOoppQpj4K5HInjIEn5zgzTukFzpB00kC8C
+         7gCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793368324; x=1793973124;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SXBe5FDUaux8CGMgkiRMsJSb/8g4y+WkcIulnsCpl5I=;
+        b=d/Ho3JiU6sj9zybZD8PtvnMIR7D6+EivbmRmXlqo9VrMZyQEoLh9PAavNK1G7Yol7Z
+         xDpkd5i3+mLtvb7dg2qKjiFUmLi4OtmNMU4ZccA5MMlUVdmKlwuoQc/qK0A7vHc+FsIw
+         XZTgAfAhYpK4AwNYAGuVMXG7a8koECvY7fPA1wLZAdhSgDW22cDe4Jgd5X/ZGcvkIqmQ
+         WgJCD608iIr1Q8/cM4KnDYX9Xn+4ccAZPhllQB9MU/QZw83xvcGyUx5UmSbDURqhDs2C
+         5ChGXeVmTjNxyN/rcBHNopwAb0+TtTm8MPkNzRV/jxIGNddrs3aeO1qXtd5PrZ8GE2Dj
+         QjEg==
+X-Forwarded-Encrypted: i=1; AKwUvByLevB+4ardvxHDOeR9fzjyZTztn25fQ+H7o3iTBsq791GMOcAWY491FzN0PFMt+9m1UMOz8og=@lists.linux.dev
+X-Gm-Message-State: AFq9FYImCIkemubkYBVIWJOu/wti6mAKEVdxZRaJnpjHffXcAOXcxHBI
+	TjkUo8BVkuky07WvlvTgIiK6JCtYni5QLdUG04G2ZR5dkQDzZtOVmpYBpa9H7pYQrMw=
+X-Gm-Gg: AYBFou1yhmU7Sy8t5oORQd2YnfRtZ6c0XktxgAoKU4+7IOyytVUbpCMywcCYV2fZWgM
+	jOgV8aMSrG/E0ktUpmNnqS4TscJCfwZBNwmmai0cXjoSbv5TRQtlP251qqGUKCM4j3UFZjpM4k5
+	fEwQPdaJK+x6IMuQ8iVCQ9y9Sl71mshNcXBRdJDRMdAdi4As831IBqcePiOeNtu5ay93uZwvS4g
+	jwdoQThg4A7XZ7aOxb8W7DQCBsqA2fZc1NxOoHjAU4Ed1scRGfjrDzJYArRwyfP2RuyZ+pWPEGW
+	nKnPDNpedd5pNTECUc9t4DpUKciC0JuHG1Bb99U7pnI2AYcP7fiQIzgLNx458i6viJ8B+SbLGiW
+	7cVh2i569lqvAtjvyxqX7N0CElvzBABIN6yPNo7+eL581R1AXCsAV04k8CmuB64rYUMCLQYY6Oe
+	tqVfqg69a7UssfeSgNCk4Rd6Bk6iYc486vG25HNrb3Ifja+GF/9BRY3p+oUtE6caaKYUm4+0U8G
+	Aq2RGOtTSF6JeQRTZIFAG+L7NR9PpgrIMEWUTZdi/VszURLGDdcy5EczIgXPswfX4LtWfRiSarw
+	or4XBAEwPCJGlC6TKkRf
+X-Received: by 2002:a05:6000:454b:b0:48c:49bd:62df with SMTP id ffacd0b85a97d-48e6e2bc9c2mr3892543f8f.1.1793368323808;
+        Fri, 30 Oct 2026 06:52:03 -0700 (PDT)
+Received: from pathway ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71ba4ac6sm3514204f8f.52.2026.10.30.06.52.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Oct 2026 06:52:03 -0700 (PDT)
+Date: Fri, 30 Oct 2026 14:52:01 +0100
+From: Petr Mladek <pmladek@suse.com>
 To: John Ogness <john.ogness@linutronix.de>
-Cc: Petr Mladek <pmladek@suse.com>, 
-	Sergey Senozhatsky <senozhatsky@chromium.org>, Steven Rostedt <rostedt@goodmis.org>, printk@lists.linux.dev, 
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Derek Barbosa <debarbos@redhat.com>, printk@lists.linux.dev,
 	linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
 Subject: Re: [PATCH printk] printk: Avoid multiple unregistration in
  unregister_console_locked()
-Message-ID: <auOyyCup1fTYvM_z@debarbos-thinkpadt14gen5.rmtusma.csb>
-Reply-To: debarbos@redhat.com
-References: <20261029152454.638952-1-john.ogness@linutronix.de>
- <87y0bgwm0y.fsf@jogness.linutronix.de>
+Message-ID: <auShAQbJAwSqI6gu@pathway>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -81,14 +97,11 @@ List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-In-Reply-To: <87y0bgwm0y.fsf@jogness.linutronix.de>
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-X-Mimecast-MFC-PROC-ID: pHkUKG1itfFcHypk-P9OrkCITyCbEfizhgONgn_ljeg_1793309490
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <87y0bgwm0y.fsf@jogness.linutronix.deq>
 
-On Thu, Oct 29, 2026 at 04:48:53PM +0106, John Ogness wrote:
+On Thu 2026-10-29 16:48:53, John Ogness wrote:
 > On 2026-10-29, Sashiko wrote:
 > >> @@ -4471,6 +4493,9 @@ static int __init printk_late_init(void)
 > >>  		}
@@ -136,17 +149,10 @@ On Thu, Oct 29, 2026 at 04:48:53PM +0106, John Ogness wrote:
 > I will wait a day for v2 in case there is any feedback regarding my
 > comments (or lack thereof).
 
-Thank you for adding in the comments above check_locked and
-unregister_console_lock :)
+JFYI, the comments look good to me.
 
-In fact, It looks like it even helped Sashiko catch this.
+It is quite twisted problem. I have got lost again when looking at
+this patch. I am not surprised that the 1st version was not right. ;-)
 
-Once v2 is live I will pull it down and spin some tests.
-
-> 
-> John
-> 
-
--- 
-Derek <debarbos@redhat.com>
-
+Best Regards,
+Petr
