@@ -1,95 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1793713921;
-	b=bA/yInmuldn91A/pZSoMPzFb2la2AoFBO/178w7ozc2Side2smsuNI33k2oDyyDH0Sn9
-	 IQWFGpWrXiqFzA2+SGA83dYR3wHOhM1fFMt+2NUvu8CwFrKJ/iFrs7Hyt4WxLigqGoJnv
-	 aXtj4+bp+NLbn5aytZpf5svl8CTrc1tdulpZtG/fpAPpNPml1y6XkNrg94yTDPjZJLc7o
-	 YladcV8BPSu4oMOKFKWhy1Q9m70JqRoBujgIq5PIVPQUN/Yd5KzVCNTQPcBBTbANSZ7ew
-	 0JXNj3SJsbS+CJnWCwQZykDTHSxyaUtjQ6uvs9ifbDXROzFhEGcxMyAYA//7xsl0BnQ==
+	t=1793889277;
+	b=fVlRZtRlNws/zNhigBal67WEL7fAywHcsgCR0ANCV0aINnH3jthGaE2S3l8fvhJiu1da
+	 KhRaJcmZKf1DFoKHO0wNa6VwC5ts+0tAHce+s+vOLLdNh+IShbcPrhBT2ihqWFGWkydRt
+	 erY7/2H+ov+sROqSYgeFN0Eah9pnJRXpzATG6EO3KMwMJrJC1K8sRNQA9hoch8C4j+dGn
+	 gR5c2APDOwZ/kNiAie4ng3YBzEMXXP9HytvUNlJoZK3JpOgHqr1sjYq4PA9QevelL72rx
+	 PcXo+l09t0+4BZ7aXJr13sEFQoKRjeRWieU39K/67z4Mc5mTvWxP6dzVIfwB8ykcjjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1793713921;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=B1Q1TGLPbIUVWrlqriCkZBVHwkEIWrEvexoFYfF54PE=;
-	b=M2OEHK6Bj8lEIFoFh/GQVDqxkXhk7MohoaoKU8H7O6TVpNxB9pYbq41qesFbBiUs9BaW
-	 9g11LuZagi52tyaM0SbaPjMA80H+qFwVj1iOzlo41QaG4rZx16VQ0ao42jetkcIsSQkwG
-	 tk1NRTYAjV2bLpvDZEDs0VB+RA0fErZxTRLZ2d2xMh/lRWCIFOGeEGIqP+srARetwuVda
-	 fXm/6l7hlWYgNyze0+IhwPBJoF6o7v0T2MVT09W2UJwuW2z1ya6YMG4rDN/z+8F0SaGoU
-	 Z2/Im4jpsxmWVnB2+c5i/YsUMi2Dh/6nKCYpznhXFXj2wjbNL5F+zvXacLtykBqfYBQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1793889277;
+	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:
+	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
+	bh=c/yt9uFPnjvQM+fiEYYJRoCxuqKFimMZvvZyEcVri54=;
+	b=LK7JZ7ibqTjWhRS5PB52tSZsf07veVAzfuW8qWbDQJtRXSXs8tz5czFIC9mNDrNKp41y
+	 I+vh0+xNvOo6gosNF6FAIB3+jqd7ivodnnnC5oM3rSksOPaIyDkE0ql7wSwmQEVZy0+11
+	 qnrC+H5l1NL/AhWB9zFAj5gyl04W0a04el3gvzRv5vl32FrB1QnY8KjsfIj4r5ymvZ8Gr
+	 lWLAqs315aDzWM/RkvSV5Vip4N+MMTSQLpypyUCiw1BRaP52Ox63s83MJ4S74rXd+Jw+S
+	 IRsYVIgVCqVngEWrqh57lYzgCY9zHAo0Cgqk0sCKJxBaSnrnnj0obHTmWuRc6n43aYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b="ftmBIw/a";
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=y8kPvgpB;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=ubYMg+wD;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEFF5606A326
-	for <printk@lists.linux.dev>; Tue,  3 Nov 2026 13:51:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEFF5606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C758606A337
+	for <printk@lists.linux.dev>; Thu,  5 Nov 2026 14:34:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C758606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ftmBIw/a
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so31829785e9.0
-        for <printk@lists.linux.dev>; Tue, 03 Nov 2026 05:51:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1793713918; x=1794318718; darn=lists.linux.dev;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=B1Q1TGLPbIUVWrlqriCkZBVHwkEIWrEvexoFYfF54PE=;
-        b=ftmBIw/aya90EgxMTitAdEqsL9n1t6syqgY0J29QafzktUuccLS6LQQFlXDfQYUxOC
-         LZd4x3VtzSt3Xs4bucBgpHYeqcLuLSaDC6g9cnEyGQZuqMFcuX+gzJTupgxic+40BK9o
-         TLpgVa/OhLp6rsaqgdP5uWlBSg0p1l6Nm7/KTfTLFDdjhX7HKAXbsfbm2uBF24kOiKaP
-         u2dQPBOc9HssObfXmphFstcstoEcvV1eEEWbjsi9lCHTAI4rrwXfnTaNtrsQKYqfIVt1
-         msie8AeJhUCPDcvpx0X4uHEP2IO6ODtYRX4/bkQNHZ5oIOmAPgFgjmy0HSX9Hp2m12oq
-         Tmlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793713918; x=1794318718;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=B1Q1TGLPbIUVWrlqriCkZBVHwkEIWrEvexoFYfF54PE=;
-        b=l61q7+kSO8cP2FlyxVL+7GNeMT3cPZ79n/im4JK/mnxpq4r9po9CkauMNxvRufLeyZ
-         TXfmPpZCkENd3G4IReDA+MtAwQvbIt9w8CwD49dYrK1B34KCZOt06ixpltEClHqGADKR
-         bd1E1B2o+qgVsvCaRyFhlZs9WAuMlRCFbQ4ziMqAloX5Md9F99CFqK3wTEzmxoLl5fkN
-         bMWy4hfnnwTlOGj5EqLl782YzJPp7KS4mq4m+7UMdhkiKvWx+VvwKj0s5D0ew9wnsNXS
-         TcLurkD7p9RCwgdfb4KmvCtsjmtDMABl98VOnZ5k76CTuqal+qUCMCTIeSvSHY6dF4ap
-         klkQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzBT+9aZBCKWAfhmHmZYJqo6ffR7K6eNB2B9jxlemTslYW9aP79QIfNdvHBemtp0VIfmBkqxQA=@lists.linux.dev
-X-Gm-Message-State: APuU4Z/f1wZArBUgA9tV8//sXDaTU+JmejerGA1DXv59gUXiYWgN6JIE
-	yeUT3NJzuPV1BxPD+kBeULr55V9WDY3SDGdogndjqBs+W/rHCe44xwPqzEUPNW3Hnw0=
-X-Gm-Gg: AYBFou0UzkgcTn9c5ly+ncBmSItAiEtcDgczZ3W6VDfCRTUfmA+zvR3YhxgwcSKuoZl
-	4TibL4WX5rRXyobgYas01ijKaXo+HPE8KwtIIJ0sJpu+i9FtdCbjzR7+XacMAHkm5kaT5CGkd6x
-	sGGQ6vrwIi+nutPJh/mQuF5plPnnXtmJnwbRuFKY26epAckmlbLnTaTYGrMk7Cemqr6ploXlmSR
-	Q8prvA4YFvKOHzZ7zhkhSysuMJf8jYF1UBOJ5Is9iZKQMKYvsbb+wCeUMvuvXTOlOrcyx72fIzG
-	2zFsDK4Fw7SclQ7vn1jkXimAlWGn8U9hvJHxz7iQ/qVUGM0vCHxNCnV0ACmVL0gYB1iU2Y6QxYs
-	SN6zUPrTrdYPRA+D7/+Ct4diWDoUrvJJ6/QE1HBdhmnyRMFEIu3j1IJW0F67CxqlBrrr1oskQ2C
-	zQqn6yVJ9FScAXKSWKVqTI62OPzffzKnNXWelMBG4RQZfizAqL76a2IK68F5iSjS83SirGWS3FN
-	VgPGNbSDQq+msiouU9mUV3iFVczYQbjElwtnN60EGDK13ScJ0z80q7BuCUA2YtQ0DRM/rM/3eqk
-	kSIsBVN4ku0/1hfTRfmUMKMBtlMUKQ==
-X-Received: by 2002:a05:600c:a45:b0:4a1:da58:1ee with SMTP id 5b1f17b1804b1-4ac1932b43amr309529445e9.31.1793713918332;
-        Tue, 03 Nov 2026 05:51:58 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b2ab00ff3dsm115096725e9.14.2026.11.03.05.51.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 05:51:57 -0800 (PST)
-Date: Tue, 3 Nov 2026 14:51:55 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: John Ogness <john.ogness@linutronix.de>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Derek Barbosa <debarbos@redhat.com>, printk@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH printk v2] printk: Avoid multiple unregistration in
- unregister_console_locked()
-Message-ID: <aunm-2bPiq2xSZFW@pathway.suse.cz>
-References: <20261030135802.663893-1-john.ogness@linutronix.de>
+	dkim=pass (2048-bit key, unprotected) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=y8kPvgpB;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=ubYMg+wD
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1793889273;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c/yt9uFPnjvQM+fiEYYJRoCxuqKFimMZvvZyEcVri54=;
+	b=y8kPvgpBm6pcjhdgIt6MKI76n7YcCOMGFSUhP56keDoTBkv1upezh7+RoupfxlbIzWo9MY
+	Unw2CSO8NPpzqepNUn0jsjs9WcYUBaapCiLMxl2kobyF4M4282CnrnaGAHQF1r7h101McP
+	yDAQ6N/qmHvCX7eBTW2RiMzX42wyfp9q+53te74H1Xgl4QYfI2cRt2G6rzCAGbIBmrG3/z
+	dHujzGKFRQP4pZqPhy6gcCRcXQAtU0IOtxVxrtN2Wm9wxgxBDxSsPwOvtYc/9ZCLmPRaML
+	bOMJc2Y5DPMNiFz/2GHR8CQ8XGoPRluEQEVAZdVOUEH3ZcedwchkzPfxkFLTkw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1793889273;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c/yt9uFPnjvQM+fiEYYJRoCxuqKFimMZvvZyEcVri54=;
+	b=ubYMg+wDtIygfUyemhGW8eaVqxZ9fn6Uuvfta99Fo2lhXCI58yM9flSvWKtHzOodlNSpBE
+	fSGJHxVrI1fE/5BQ==
+To: Breno Leitao <leitao@debian.org>, Petr Mladek <pmladek@suse.com>, Kiryl
+ Shutsemau <kas@kernel.org>
+Cc: linux-kernel@vger.kernel.org, printk@lists.linux.dev,
+ gustavold@gmail.com, samuelcrossley@gmail.com, ryan.roberts@arm.com,
+ brads@mainlining.org, x86@kernel.org, Breno Leitao <leitao@debian.org>,
+ kernel-team@meta.com, stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] printk: nbcon: Flush unsafe consoles from printk()
+ in panic
+In-Reply-To: <20261102-panic_unsafe_flush-v1-1-12d1e22fd6d8@debian.org>
+References: <20261102-panic_unsafe_flush-v1-0-12d1e22fd6d8@debian.org>
+ <20261102-panic_unsafe_flush-v1-1-12d1e22fd6d8@debian.org>
+Date: Thu, 05 Nov 2026 15:40:33 +0106
+Message-ID: <87v76bz6rq.fsf@jogness.linutronix.de>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -99,34 +76,88 @@ List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261030135802.663893-1-john.ogness@linutronix.de>
+Content-Type: text/plain
 
-On Fri 2026-10-30 15:03:55, John Ogness wrote:
-> unregister_console_locked() is called from within
-> hlist_for_each_entry_safe(console_list) loops. This would be safe if
-> unregister_console_locked() only unregistered the specified console. After
-> all, that is what the _safe variant is for.
-> 
-> However, unregister_console_locked() calls printk_kthreads_check_locked(),
-> which can unregister _multiple_ consoles if kthreads fail to start. This
-> could lead to hlist_for_each_entry_safe() use-after-free scenarios because
-> not only was the list entry removed, but possibly the following entry as
-> well (the @n temporary storage of the next entry).
-> 
-> Move the call to printk_kthreads_check_locked() outside of
-> unregister_console_locked(). Add comments to both functions to clarify
-> if they are safe to be used in hlist_for_each_entry_safe(console_list)
-> loops.
-> 
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/lkml/87ik31iz4x.fsf@jogness.linutronix.de
-> Fixes: 76f258bf3f2a ("printk: nbcon: Introduce printer kthreads")
-> Signed-off-by: John Ogness <john.ogness@linutronix.de>
+On 2026-11-02, Breno Leitao <leitao@debian.org> wrote:
+> --- a/kernel/printk/nbcon.c
+> +++ b/kernel/printk/nbcon.c
+> @@ -1688,7 +1692,15 @@ static void __nbcon_atomic_flush_pending(u64 stop_seq)
+>   */
+>  void nbcon_atomic_flush_pending(void)
+>  {
+> -	__nbcon_atomic_flush_pending(prb_next_reserve_seq(prb));
+> +	u64 stop_seq = prb_next_reserve_seq(prb);
+> +
+> +	__nbcon_atomic_flush_pending(stop_seq, false);
+> +
+> +	if (panic_on_this_cpu() && oops_in_progress) {
+> +		panic_nbcon_allow_unsafe_takeover = true;
+> +		__nbcon_atomic_flush_pending(stop_seq, true);
+> +		panic_nbcon_allow_unsafe_takeover = false;
+> +	}
+>  }
+>  
+>  /**
 
-JFYI, the patch has been committed into printk/linux.git,
-branch for-7.4-fixups.
+This part of the patch gave me some ideas. First, I like the idea of
+putting the policy handling code inside
+nbcon_atomic_flush_pending(). This keeps the code outside of
+kernel/printk fairly simple:
 
-Best Regards,
-Petr
+1. In emergency sections, printk() is calling
+nbcon_atomic_flush_pending(), which always skips
+CON_NBCON_ATOMIC_UNSAFE.
+
+2. During panic, printk() is calling nbcon_atomic_flush_pending(), which
+via policy could include CON_NBCON_ATOMIC_UNSAFE (in a 2nd internal
+loop, after all safe atomic consoles are attempted).
+
+3. After kthreads are shutdown, printk() is calling
+nbcon_atomic_flush_pending(), which via policy could include
+CON_NBCON_ATOMIC_UNSAFE (in a 2nd internal loop, after all safe atomic
+consoles are attempted).
+
+For the above situations, no new flushing calls are needed. But there is
+another scenario for CON_NBCON_ATOMIC_UNSAFE (and unsafe printing in
+general):
+
+4. If the kernel ends in a way other than the final panic() loop, (for
+example kexec, sysrq-r, panic+reboot), the above scenarios do not allow
+unsafe printing. For the related code points we could call
+nbcon_atomic_flush_unsafe() and it could handle the policy of unsafe
+flushing depending on the context, which would allow
+CON_NBCON_ATOMIC_UNSAFE to flush here as well.
+
+The unsafe policy flags could be something like:
+
+PANIC_PRINTK
+- panic: all printk() calls during panic
+- checked in nbcon_atomic_flush_pending() of #2
+- if ((policy & PANIC_PRINTK) && panic_in_progress())
+
+NORMAL_FLUSH
+- non-panic: atomic flush calls: shutdown, reboot, kexec
+- checked in nbcon_atomic_flush_pending() of #3
+- checked in nbcon_atomic_flush_unsafe() of #4
+- if ((policy & NORMAL_FLUSH) && !panic_in_progress())
+
+PANIC_FLUSH
+- panic: unsafe atomic flush calls: reboot, kexec
+- checked in nbcon_atomic_flush_unsafe() of #4
+- if ((policy & PANIC_FLUSH) && panic_in_progress())
+
+Netconsole originally wanted by default:
+
+    .policy = NORMAL_FLUSH | PANIC_FLUSH,
+
+But this last series shows that netconsole actually wants:
+
+    .policy = NORMAL_FLUSH | PANIC_FLUSH | PANIC_PRINTK,
+
+These are slightly different policies. But as long as printk supports
+all 3 policy flags, we do not care which policies are chosen.
+
+I am happy to code up a full implementation if you think this has merit
+or you want to see the patch to decide.
+
+John
