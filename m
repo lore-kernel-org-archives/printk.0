@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1793985727;
-	b=Z7D7yv2hjoelUHsoCS6SYOIbHRhAsxOnSo1DZKGz2TkzciyhTaKn42TCzX8t5Yv/3KzZ
-	 DElkEss+LwPSrrVokpz5NxJSHG6v2EfGJrEmNMKitAfTLBQ86LZmULxp6XhQXXemnL8oH
-	 Yz2DXkM8tw0MAyQ/+dewx4MbrQ4E1RfMv+Dhcl3orD4g/ocf4YITEILEAObvCX0ltleWZ
-	 SM8LkQ7bPfxrYp8zm4w1MqYwjQlemPkkZHCellYxxVl+/1Zy/77XtMgWea5rhca4eMV7r
-	 JXGHrG8Gcy8L7qJ6sYuCG5BMKhjpRqZV/uE3FalfUNB0XPFjDCq7UFeYnEvXJufPpEA==
+	t=1793985739;
+	b=A5Hrm+GL7r4y0VwZdVh/aGW8d4Ux31IQcrijURQMYFsVZXBB6sQbJKwajIrqWD1sicRa
+	 /Noz21fIhmbCXaahSjXso/STQtSQrdxPWBbfBIIW8DqbWmqJO5lm3tRYWVVSSsHLfUbug
+	 m4WbTdbPajRgbk2gTRq69luUdalh+OwIaq2/QkeSQRChRQamyKwC3nhFo+31DhV2av3rn
+	 FPm/wurAA8io8tGaSWCIQTnKjsL9wYmDPWi3HKnTB+6aJY4mfM+8JeItyzi8KNtqWV3yB
+	 z9e2YxjKVre44qm9Ytvy61vuOP55n17BCksP+qW7EiGbLQ25x1k4zW1rg7ofd2wpAog==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1793985727;
+	a=rsa-sha256; c=relaxed/relaxed; t=1793985739;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=Z1d9Rq/osPQvOJOvEkzQXVqv9nV0kIEEShdUH3s8pbQ=;
-	b=upu+k/nI3jyLB99+rMtttvJ60ivRdoz3yc03xizMEyY8OtXp/c3Ivv1q/RG4R/SNaNaV
-	 4V9X99iosDQ1LxlEipi45pxGayMZ/bwJt7y9z7yqcVkgMYhQ1W9iF/8NnI8hCzplAPV39
-	 6XuS3oINRdF3SCWsLcQEqWjQnk//hzV4hFCZEDqKx0xGo6xFuJdTcbFNINrCAhbgCs2vk
-	 i3aPKMe6qQeUpKuh0KMc0unZ4qgj3kEzNnsSfYTdnclAxt6TxJ1cR6xTuG4GJXSqf1chB
-	 SlZPkCKJnSFKsf3rBVc0WgSJkvo9HirWkpoKUzeY1qcEousfLn/tLGtFZtSxbmlrXEg==
+	bh=XXKcqZDk+pXy0MzkP8tHfD/BYEj0adOZiSt1qNjNBeo=;
+	b=VAIDn9boW9F1vak4DgvBjcJMA3sLsL4pNS1bDEP8KS01V9pweofNw73kng3BtlMnHG1R
+	 LoV5VgxUEdxK8eqIOGd6UJ+uoJ45MxxgTwvN1UImvaNJnZbT2ASkyRVbYTTS2/TamVF3N
+	 pYXm+8xLelGKDC4P4+RJjS6ZI9b/aLE6Q3xaEP30VVGf9p2gNJaUcy9IhD58YdZRoT+W4
+	 yWJ9wlupDl6Zojhzhy1/gpBCU9YXaE+lsxicmPFzdaMLuf6RIhHgz3XppeCFauwYMvbs+
+	 qn40Bo535Ue+YNCES4EgTFDIEf4iVJ4PCZ+Hz7Qe08bK7ZGOO9MR7O71Zoqeuu8BFQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.com;
 	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=HSHOhKpA;
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Egp7vCFt;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CFFA606A335
-	for <printk@lists.linux.dev>; Fri,  6 Nov 2026 17:22:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CFFA606A335
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67880606A32C
+	for <printk@lists.linux.dev>; Fri,  6 Nov 2026 17:22:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67880606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=HSHOhKpA
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso5805045e9.0
-        for <printk@lists.linux.dev>; Fri, 06 Nov 2026 09:22:07 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Egp7vCFt
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a4d7ae1ae9so8796155e9.1
+        for <printk@lists.linux.dev>; Fri, 06 Nov 2026 09:22:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1793985726; x=1794590526; darn=lists.linux.dev;
+        d=suse.com; s=google; t=1793985738; x=1794590538; darn=lists.linux.dev;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Z1d9Rq/osPQvOJOvEkzQXVqv9nV0kIEEShdUH3s8pbQ=;
-        b=HSHOhKpAJj9H20ROdKb28xPz3NxYPqYKhz/Wre+Qk2Pc/KFGwgpaBO6HTg14z9v5L6
-         Ik9xgjUb2OegcznSJamSiJeHZcEOA7dSzrgiKtmAg7bxXA94BOuY9xnh4lhJExbkFXfX
-         l7eRFHZPqNoB5/xjawykEHFVdYdn6+00Q24huocAusWyN9dAsjEKvZeq/s4Dur0e6TEj
-         kDp+5diVsthNQbIV41bvm5j3ePZJBse2eU48kIuHAgbHV9Ah12sprmnHiq/PRbLM/NqU
-         rsx441FJnTUon1Dr1D1rJjALhi8/rOFV8OQNuWOg8TiUZxQ5d0/xUYAlG+8SjUWy24cE
-         L7Uw==
+        bh=XXKcqZDk+pXy0MzkP8tHfD/BYEj0adOZiSt1qNjNBeo=;
+        b=Egp7vCFtdWAbcWInbqO7MAs2YKveCtG3UoMOTQnc9f1oRHyu7LEUdjvHqakXZWLLYr
+         fAdggplNjLKeN2mMT0MKeGQ5A+Fvtgt6R7H4ZDI+UlBb1A0b5Hi+TMQGuWPskRzyaxGN
+         fL/NMXJTpCNP5EH2++8X/9axHoGAiC+1JIASZKBluzAfNLX3D0X1mD1djjov7S6awNAy
+         GD0K9uhzYH3HgxXLdWqIuVEASRktCnVM4/8UcnBHQz+4+xVrD5lWVL6K+kSPA70hObp6
+         hginnYRSV9Qo4Y+LhpUlBnCeknddPXYK6n595qq5gpo6wkfLd0ejU6eCF0BvHMUMjh+m
+         jwwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793985726; x=1794590526;
+        d=1e100.net; s=20260707; t=1793985738; x=1794590538;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Z1d9Rq/osPQvOJOvEkzQXVqv9nV0kIEEShdUH3s8pbQ=;
-        b=YHsPlbMEDuDKk6uGZKZl5ciOz7gLv7n3+mkYy4iAycwtnEMIokH9fejYMjqyxh+Xhv
-         qHvHCMGGPUcLxhwyswbZMHUybHMZy9Lh13+pfn3BsQSOdrE7ZKkx+jmGOFy5a9NGmF+B
-         12zeF6s7Dv1mIQviFO3af5NrNlQhwIX/F3hnSOxtWnvOrXOS5bckJJHuZMh3OBg2EgB7
-         qp2AFk1BCcK+4eOEkml2a/ifP8f8ngXNd/Vd6w8w33rviGM4f2eTXUMlvNFcWcgFpAjL
-         BAfspPv3fovvE9/UCOLFCr1O7Y7ooj6X3VW39fIh1VQVKefeWg3860BKDjaQ3dSECh5W
-         aj5w==
-X-Forwarded-Encrypted: i=1; AKwUvBwDWXx5+Vdg4GcwdJDsnfHz1jBKFr6cjV+8Fdj5yiCeINMNhyIEs/cNH7EyCm1LQCuLHDq0erQ=@lists.linux.dev
-X-Gm-Message-State: APuU4Z9DmlIAw8uQl8LPMGNK1b0XlunK3N9R5W1Vb3571B+Mh6MKrlnH
-	SBb05oB21WHhGSZywGId8dwHr5UdH4mBdeWaeLXIuc51/AXIHQXEIi0JDUS/JvmCzdc=
-X-Gm-Gg: AYBFou26uWAdq+/Pi/aFZIOr0Y+I3qVGRdmhgQLczykyhUmC0Q53fWzB9ichix9dYmZ
-	6CxIJC1qoTx07Ycfcv2ATsYRJq/LYVMYLXmBSdEz9n+kh4KcPrIywU9LChKNkXmVX0FwmxaA8Ij
-	ljif0ziEDcQbOdzvoSUc87yuJ/SgPP8/xipfKR4r4/76ZKO9s72C5RDjz4xTAkPpv2+cPEGwlPl
-	lqAWr79OQnD/ZtC/n1L8wtXIhc681B5K+O3/BnLCSYqV/hQ3eUQvX7ZHJwhZXkS7j5aQXxRuExO
-	ixnU+7CetPdK8D++B5hQdJIDoEnwrIrSlwnzhP/OiYy+hifBtgB1njnkNmLnZ/dRZhRPt/DsL6/
-	IBpkeahSCOpnDoVS0OSS7Ib3ArTt1wHwoNhm1EA/kNQLQyL55W3IpcURk83lNAJs9MCHd1ONMgf
-	mLgmbzGvTzeRjWsUGgQ6G9rwA87JlD/CdLvADip/lnv4aeDCLDYlUihVjWY8wnB28nMsk8OZ9hN
-	WYcsTQFzc/aQQ/JjNRJlRBFltlIu8qGGopsjIsI4SXVRd8/uuslrrI1Frjku3VxQx/ADNNj9IpU
-	rkPpCmYBolSO4xY2poRVWH1wYZBHjyXS7EAI4aGAEkXii9vxItZc
-X-Received: by 2002:a05:600c:530f:b0:4a2:133:45e1 with SMTP id 5b1f17b1804b1-4b6dfbabcf9mr52591765e9.24.1793985725981;
-        Fri, 06 Nov 2026 09:22:05 -0800 (PST)
+        bh=XXKcqZDk+pXy0MzkP8tHfD/BYEj0adOZiSt1qNjNBeo=;
+        b=IWpici6seTRIAQ341bJH6pVkyQh45N2vsXaiOTb3EP/JwBVBGSCGsJC+kE5JJy8GfQ
+         IeukDh3MVOFiL/zLeWpAU78Rmw50gzEfeks3A4GQHhDRxWlzF9D+nkjoZP16rt9xjvSU
+         njG93QH8yyNOJYNIqAPgT9n6FLIRNWDjI0hfWry5kL67O2G1kxPYTosLppWHB6d0UEaI
+         UisdDhsKIsx+44ovoCPjgg7lrHD8tn6ddNzWmo15u6c4B4vs6Ud9T4hOZBi3c1/od/9x
+         Ai2k750mmWiWJL51JDCu3stc9l8MdVgF/T0CTwyeUM2z78uODwv+dk0cTeRqHN3Uv3mh
+         8NZw==
+X-Forwarded-Encrypted: i=1; AKwUvBzPcHFiOCmRra/AfFQScnOSsHMShn250haH8KKlE6Yipe2fEmOsC47U64KwJ5ofpnmE572I2Es=@lists.linux.dev
+X-Gm-Message-State: APuU4Z/jhs7AlTfqMjhTzbPTNkZt/oTz0Fx/DGq47xDicxFuhp82W1Bs
+	yC/VE5X66ki2xkDGelnUpGoi8+fp1GPgLrmSbgT0fsGKDNoJLpBUzoU3XHAEhjnsNmmJNQ7EZw4
+	IUDa12HE=
+X-Gm-Gg: AYBFou2Smn4P6zGjjZQiOCvMwiwmxO4ddsmYse89ZNxgQoCGkVUSeJDPaSOPeGebobQ
+	0opghQ9pRsoaz6Rxff3vAbrekw9JcrwA2smMiFhateLaP0XWXVTTWREfa+D/1RXpYXlogdyeiKu
+	X55OjiV8HzNzdNzQKQ3PO7M2hhiM7rhKMthBLbD5RH9deFsWpHHl6r4/qvt6u8232VYFUPjHhmF
+	mhd+w+5fP1faibJPgxYoibZ16q9mYwh8LhJ58L7dxSDJ/3L+pctT6RltIqNMDev9WYeXAF6PGZh
+	UlKUSPPvctkUGVc2/NatekuHNNE4rMTe2HCGUI10iQfIJ5lRlQtNi9HF42UvsWQqu7XT3KFR4T5
+	ZJEhFbTZn2AZ4U2tXPG02edafZCamZleN2x/Fg8wc+itHEFmb02Fy5r+GYqXSB0wsfmMM5lsHhA
+	ZZFXZ1kn+sfw4azMpApnS3ez+JPrE5iqf7y3phgLi/S7pksOndO/dYWwmAvWNHjYfRh7cfbo4eG
+	K1jRJ329HbuL11lyKQ/1TRrO9oOt746TL7bC4B62W2mX1ytTmbDqVigXRDIAlWJ+xD/djqy7BTR
+	j0RfG1OXJV7wPBTdMRdruTvoKvsCveg=
+X-Received: by 2002:a05:600c:19d3:b0:4a1:78c5:79f5 with SMTP id 5b1f17b1804b1-4b6e0269264mr56193085e9.33.1793985737841;
+        Fri, 06 Nov 2026 09:22:17 -0800 (PST)
 Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b76cbfa121sm6631065e9.1.2026.11.06.09.22.05
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-492d7cc6187sm4738510f8f.46.2026.11.06.09.22.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Nov 2026 09:22:05 -0800 (PST)
+        Fri, 06 Nov 2026 09:22:17 -0800 (PST)
 From: Petr Mladek <pmladek@suse.com>
 To: John Ogness <john.ogness@linutronix.de>
 Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
@@ -88,9 +89,9 @@ Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
 	printk@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v6 09/16] printk: Do not quietly ignore adding entry for a preferred console when there is no space
-Date: Fri,  6 Nov 2026 18:19:45 +0100
-Message-ID: <20261106171952.207909-10-pmladek@suse.com>
+Subject: [PATCH v6 10/16] printk: Allow to debug misuse of add_or_update_preferred_console()
+Date: Fri,  6 Nov 2026 18:19:46 +0100
+Message-ID: <20261106171952.207909-11-pmladek@suse.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261106171952.207909-1-pmladek@suse.com>
 References: <20261106171952.207909-1-pmladek@suse.com>
@@ -105,32 +106,32 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-It is hard to imagine that anyone would want to add more than 8 preferred
-consoles. But never say never. And do not ignore new entries quietly.
+__add_preferred_console() should always be called only when either @name
+or @devname is defined. Allow to debug the case when they are misused.
+
+Use WARN_ON() because it is rather an implementation problem, it should
+never happen. Also the consoles are typically added during boot so this
+should not panic a running system even when panic_on_warn is enabled.
 
 Signed-off-by: Petr Mladek <pmladek@suse.com>
 Acked-by: Chris Down <chris@chrisdown.name>
-Reviewed-by: John Ogness <john.ogness@linutronix.de>
 ---
- kernel/printk/printk.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ kernel/printk/printk.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 60923b997e4f..1eb542a321a5 100644
+index 1eb542a321a5..49c5624eede0 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -2578,8 +2578,10 @@ static int add_or_update_preferred_console(unsigned int i,
- 	struct preferred_console *pc;
- 	bool is_new_entry = false;
- 
--	if (i >= MAX_PREFERRED_CONSOLES)
-+	if (i >= MAX_PREFERRED_CONSOLES) {
-+		pr_err_once("Reached maximal number of preferred consoles.\n");
- 		return -E2BIG;
-+	}
+@@ -2585,7 +2585,7 @@ static int add_or_update_preferred_console(unsigned int i,
  
  	pc = &preferred_consoles[i];
  
+-	if (!name && !devname)
++	if (WARN_ON(!name && !devname))
+ 		return -EINVAL;
+ 
+ 	if ((name && !name[0]) || (devname && !devname[0])) {
 -- 
 2.56.0
 
