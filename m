@@ -1,59 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1793986206;
-	b=PgN//2VXX9AhvDzCyOXJBD65cDiw5wF5cGNwSZVfIasRs8JY8QwptOUSgZ1U9l0jzsg4
-	 yJb3LA4A4+cWaZZgWpVG71mefAhewSn4yJ98jpqFuxa5bGWtpyyrwVctW1s0YqFk9epEc
-	 QLN1JKivev+O1FCRV6qfiMHf7yyk3JzAAKgxXPBhAEyTft1SzLnrYjz7b5pKDneK2kuaC
-	 8PwIBzp6goP8d9CGES0htdlvD/aZwT2UcesIwI2PH4zcGIttsDGD0j8X1oMdl7V7qurpg
-	 mekVMLw7W6pdM4dTd/sMHA10BGVo7O/Qup47tpSqR2sYlsz++HKG3Sh/qYoPZcfK7PQ==
+	t=1793986539;
+	b=mE64uI2gagI1GPz1Nk2tPxA4nH/9CJNzftoTdCJkKRn3LXFt4FZPYjot84s4ahUq44mW
+	 bfRPxDgX5zNDardnwJfamSJsApXuv+syDYL8j0xmB9+0CfDan1lWspTfVIEf3Sf7oQQub
+	 JHvIBJ8XyCMYTvbsNfRo2AotR0KLXmILZ4tN62US0Q0MTJmQJQt0EzvTNzqdS5gDWRnQD
+	 h6KO15uSUf8tD9E69SuCtmAwl+AZUrU49cTJsn7jHWSc6HmX5RALuDDqOi+W0UQvqxSMP
+	 86Ll8DB+nLVwPYvCH270j7DcXjQEcs1esRIJDtRBdUPjlk24Yn9DDlx50Ls8dOyz5Jg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1793986206;
+	a=rsa-sha256; c=relaxed/relaxed; t=1793986539;
 	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
 	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=mfpjSuZNoTiJCTBF/GzycGMhoKnkdsUk8IJNldM4TU4=;
-	b=cx7ZExq+NaueuSAphEbrlZkHWYl2ibKXRYdi+/GQDMBEIg9yd+KNpl7+9X7ump+HmK6a
-	 7CBEZyBduYbCO1241SDtKPZ49XVRXa3V/sWhzesH28cxvu1SXG/F2VFMf+wpUZPrr17dV
-	 /W+iX3DfdUsl7oS6wQmqEiw80YR6WedQuPBMBxRydzITSIOSM3YBSmyRZAG6JVJ2WYHL9
-	 t5LONYHQxKnvTkJKIEv7BEBsfjfoG2ukyR2JXkixraNtQ1ewJmlm6DlCQIdiiDFKQQAfI
-	 8mkSPQRzyxydQKuqeBk7yHofOemhqqhacP/1EQ1g/vvXc7IsZ181sIdgn7gfdnNbftA==
+	bh=2UXkAwHNfa7anmYIsYgkvRB9LCek7Y+GcrWZO1ZqEmQ=;
+	b=J7uRCD33BSd0O/i/uPT/XMDHv3McM3yqW3pQ0nq5CPCFomYhLYSddzGDNeL8c2SiaGGd
+	 H1yHMMyEdoa2N/D7Luk5rZvwaFPaqHLDi2XWnNjH0tBcNXRnY4O049a7okO0S59KO490n
+	 IGJTvYHWqes6eFlfiIuk4JcSagmz0oa4u0E11Hm7XfCdqAdWlewoQKSTrCV152MCFRZo6
+	 ng5a20OogXLI4MdE8ZHx9aA97FDPCtIqgGr3F38I7DsDjXM5U+QH3mK6g+4/QKN4BPja0
+	 sGJfozXl9zqj4j3a+/Df9eIdJytSZyPzQN5a3+BwguN2vngkjFhDLZOnHRcl84+Ng+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ckWTNY81;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vp+Hfpls;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB809606A32C
-	for <printk@lists.linux.dev>; Fri,  6 Nov 2026 17:30:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63C7C606A330
+	for <printk@lists.linux.dev>; Fri,  6 Nov 2026 17:35:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ckWTNY81
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 679411F0089F;
-	Fri,  6 Nov 2026 17:30:05 +0000 (UTC)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vp+Hfpls
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C34E1F0089F;
+	Fri,  6 Nov 2026 17:35:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793986205;
-	bh=mfpjSuZNoTiJCTBF/GzycGMhoKnkdsUk8IJNldM4TU4=;
+	s=k20260515; t=1793986539;
+	bh=2UXkAwHNfa7anmYIsYgkvRB9LCek7Y+GcrWZO1ZqEmQ=;
 	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=ckWTNY81WmKxibAeJmSYFSQauConH+2st1U62k29PTUrivCkvSmNgZLmj+dy6GG5Q
-	 ad0oqA0yUrHEPcDQXBjzC1dNghuKWfgLg4EVLGzkclUPwffZnyVBZxCMV3ZJFoP8x0
-	 YHf69x4ujwgvD8M2LXaUA14WulDl2A5U3jtjqh6Kh0qnbS9uwGpIjbEx2sq1FKUvs0
-	 BzFARCZSq9gMKZ2PaMs//nj1wZb7v980/R/SDvGFcnm3EKsGomUR1GZdA/DUAGofgp
-	 V+awgfVgnsmVoYRrrqyDZLETWWobY4fcQJWU8jhyhdU4bx8gRl+5QF5j1YEjb9CcRV
-	 YZKBjP5P4w9yw==
-Message-ID: <sashiko-outbox-201935@kernel.org>
+	b=Vp+Hfpls195u3V/jn5RDkXi/m0Dk6fZ5qBKDWS9adavmS36HgOqOIu06F/QzxvBG5
+	 OIZmwhejA5U1Xo036IhgwakBNSsBRFT7lt0kE4G+J2Ywnka/rDfq5UPZbn1nEcVW0D
+	 d/CRvbGD343Y7v5nJqpA77+gnqj9T129PdJMPGTF3gxHa0nvW+P1ghnenkfhU+OOeU
+	 MY9muejQCfchXY5SL/ERSTWfBRV4FvsVilTg1Iow3NdG7qAeaa+KOK2c/sTjOyAzXC
+	 EcC8GBQ79ipsCCp3AVnGEwvzNMVeulSZ5yjaa9/gMkguySEqhUTMuBiAoAK9JVXm5z
+	 owTHnDLtAHZZw==
+Message-ID: <sashiko-outbox-201948@kernel.org>
 From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v6 04/16] printk: Separate code for adding/updating
- preferred console metadata
+Subject: Re: [PATCH v6 16/16] printk: Try enable preferred consoles only
+ when there are any
 Reply-To: sashiko-reviews@lists.linux.dev
 To: "Petr Mladek" <pmladek@suse.com>, "John Ogness" <john.ogness@linutronix.de>
 Cc: "Sergey Senozhatsky" <senozhatsky@chromium.org>, "Steven Rostedt" <rostedt@goodmis.org>, "Marcos
  Paulo de Souza" <mpdesouza@suse.com>, "Chris Down" <chris@chrisdown.name>, "Naveen
  Kumar Chaudhary" <naveen.osdev@gmail.com>, printk@lists.linux.dev
-In-Reply-To: <20261106171952.207909-5-pmladek@suse.com>
+In-Reply-To: <20261106171952.207909-17-pmladek@suse.com>
 References: <20261106171952.207909-1-pmladek@suse.com>
- <20261106171952.207909-5-pmladek@suse.com>
+ <20261106171952.207909-17-pmladek@suse.com>
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-Date: Fri, 06 Nov 2026 17:30:05 +0000
+Date: Fri, 06 Nov 2026 17:35:38 +0000
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -65,60 +65,88 @@ Precedence: list
 
 Thank you for your contribution! Sashiko AI review found 1 potential
 issue to consider:
-- [Low] printk: malformed kernel-doc comment for
-  add_or_update_preferred_console()
+- [Medium] printk: try_enable_console() skips preferred console updated
+  with brl
 --
 
-commit 53283e23ffd138683d26af82f710d22a050dc49e
+commit 72647c5e02d15452d74306497aa4961e3c65fa1a
 Author: Petr Mladek <pmladek@suse.com>
 
-printk: Separate code for adding/updating preferred console metadata
+printk: Try enable preferred consoles only when there are any
 
-This commit splits the logic for adding or updating a preferred console
-entry out of __add_preferred_console() into a new helper function,
-add_or_update_preferred_console().
+This commit moves the try_enable_preferred_console() calls into the else
+branch of the list_empty(&preferred_dev_console) check in
+try_enable_console().
 
 > diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-> index 27bf77a777a2e..24bb6f63c070a 100644
+> index bbef405141573..a45a6fae91669 100644
 > --- a/kernel/printk/printk.c
 > +++ b/kernel/printk/printk.c
-[ ... ]
-> @@ -2543,26 +2544,34 @@ asmlinkage __visible void early_printk(const char=
- *fmt, ...)
->  }
->  #endif
+> @@ -4103,7 +4103,7 @@ static int try_enable_default_console(struct consol=
+e *newcon)
 > =20
-> -static void set_user_specified(struct preferred_console *pc, bool user_s=
-pecified)
-> +/** add_or_update_preferred_console - Add or update a given entry in
-> + *	the preferred_consoles[] array.
-> + *
-> + * @i: index of the entry in @preferred_consoles table which should get =
-updated.
-> + * @name: The name of the preferred console driver.
-> + * @idx: Preferred console index, e.g. port number.
-> + * @devname: The name of the preferred physical device.
-> + * @options: Options used when setting up the console driver.
-> + * @brl_options: Options used when setting up the console driver
-> + *	as a braille console.
-> + * @user_specified: True if preferred via the kernel command line.
-> + *
-> + * The function adds or updates an entry in preferred_consoles[] array. =
-Also
-> + * it updates some global variables which are used to make the right dec=
-isions
-> + * in register_console().
-> + */
-> +static int add_or_update_preferred_console(unsigned int i,
+>  static int try_enable_console(struct console *newcon)
+>  {
+> -	int err;
+> +	int err =3D -ENOENT;
+> =20
+>  	/*
+>  	 * First, try to enable the console driver as a Braille console.
+> @@ -4142,16 +4142,24 @@ static int try_enable_console(struct console *new=
+con)
+>  			if (err !=3D -ENOENT)
+>  				return err;
+>  		}
+> -	}
+> +	} else {
+> +		/* See if this console matches one we selected on the command line */
+> +		err =3D try_enable_preferred_console(newcon, true);
+> +		if (err !=3D -ENOENT)
+> +			return err;
+> =20
+> -	/* See if this console matches one we selected on the command line */
+> -	err =3D try_enable_preferred_console(newcon, true);
+> -	if (err !=3D -ENOENT)
+> -		return err;
+> +		/* If not, try to match against the platform default(s) */
+> +		err =3D try_enable_preferred_console(newcon, false);
+> +		if (err !=3D -ENOENT)
+> +			return err;
+> +	}
 
-[Severity: Low]
-As reported by Chris Down on v5 [1], scripts/kernel-doc requires the opening
-/** marker to be on its own line, so placing the function identifier on that
-first line causes the parser to skip this kernel-doc block, and it is also
-missing a Return: section.
+[Severity: Medium]
+Can this skip a preferred console if the command line specifies the same
+console first without Braille options and then again with them (for
+example, console=3DttyS1,115200 console=3Dbrl,ttyS1,115200)?
 
-[1] https://lore.kernel.org/r/auLwTYSza9exX3ba@chrisdown.name
+When __add_preferred_console() matches an existing entry, it calls
+add_or_update_preferred_console() with is_new_entry set to false:
+
+kernel/printk/printk.c:add_or_update_preferred_console() {
+    ...
+	if (is_new_entry) {
+		pc->options =3D options;
+		braille_set_options(pc, brl_options);
+	}
+    ...
+	if (brl_options) {
+		want_braille_console =3D true;
+		list_del_init(&pc->preferred_dev_node);
+	} else if (!is_braille_console_preferred(pc)) {
+		list_move(&pc->preferred_dev_node, &preferred_dev_console);
+	}
+}
+
+Because braille_set_options() is only called when is_new_entry is true,
+pc->brl_options remains NULL and try_enable_braille_console() ignores the
+entry.  At the same time, the if (brl_options) branch unlinks
+pc->preferred_dev_node from preferred_dev_console.  If no other
+non-Braille console is preferred, preferred_dev_console is now empty, so
+this regression prevents try_enable_preferred_console() from running and
+leaves the console either disabled (if another default console registers
+first) or enabled with default index 0 and NULL options via
+try_enable_default_console().
 
 --=20
 Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261106171952.2079=
-09-1-pmladek@suse.com?part=3D4
+09-1-pmladek@suse.com?part=3D16
