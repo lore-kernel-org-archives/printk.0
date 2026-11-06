@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1793985739;
-	b=A5Hrm+GL7r4y0VwZdVh/aGW8d4Ux31IQcrijURQMYFsVZXBB6sQbJKwajIrqWD1sicRa
-	 /Noz21fIhmbCXaahSjXso/STQtSQrdxPWBbfBIIW8DqbWmqJO5lm3tRYWVVSSsHLfUbug
-	 m4WbTdbPajRgbk2gTRq69luUdalh+OwIaq2/QkeSQRChRQamyKwC3nhFo+31DhV2av3rn
-	 FPm/wurAA8io8tGaSWCIQTnKjsL9wYmDPWi3HKnTB+6aJY4mfM+8JeItyzi8KNtqWV3yB
-	 z9e2YxjKVre44qm9Ytvy61vuOP55n17BCksP+qW7EiGbLQ25x1k4zW1rg7ofd2wpAog==
+	t=1793985751;
+	b=KQ2FqLnASk4A19DdgqV7g0y4TS9inpxOCeUo421Ecl9cHl7iA1cs450aBGT9ju35s9tK
+	 NSiVLH+unVWmQVhH51KVWbjfY9evhQTugemvt+15o/jhqYL807JEU0FiubhsIcCiEH0LH
+	 28nw2hE8NCe0IL1h+5PnE/LrqzQ3NFcwi6UE3onAvAd1+J7EqH2MuNC4prT3qSP/PEHS+
+	 UeVVrgEEeNko+iPDBnfNdQJ1Hd/XDq2D4xUh0edsi0eJRIVRgvkPUkn6B2D8WHuaOUiTs
+	 Cx4W5isU1EDq76DUejkUBDvNFWs4/oMhCooYNxzcVD6Zfq0gkIXxg0ZZPQRTF73QSPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1793985739;
+	a=rsa-sha256; c=relaxed/relaxed; t=1793985751;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=XXKcqZDk+pXy0MzkP8tHfD/BYEj0adOZiSt1qNjNBeo=;
-	b=VAIDn9boW9F1vak4DgvBjcJMA3sLsL4pNS1bDEP8KS01V9pweofNw73kng3BtlMnHG1R
-	 LoV5VgxUEdxK8eqIOGd6UJ+uoJ45MxxgTwvN1UImvaNJnZbT2ASkyRVbYTTS2/TamVF3N
-	 pYXm+8xLelGKDC4P4+RJjS6ZI9b/aLE6Q3xaEP30VVGf9p2gNJaUcy9IhD58YdZRoT+W4
-	 yWJ9wlupDl6Zojhzhy1/gpBCU9YXaE+lsxicmPFzdaMLuf6RIhHgz3XppeCFauwYMvbs+
-	 qn40Bo535Ue+YNCES4EgTFDIEf4iVJ4PCZ+Hz7Qe08bK7ZGOO9MR7O71Zoqeuu8BFQQ==
+	bh=1ZlRTZyG90aBhHc3pJWw9EK0xkQ7hrbVzYow7IEo9Co=;
+	b=mjy7WUMTnDGuNF5c7j0ArzhMXtr+1yVsgmjjtaMa0/Z17G+A6RaZDxqG2br447oFA3oL
+	 bVYT8QQpYLDXoddv+6XKnvlZefZoPO6A4KiaGdh/gfu7CJJamMrlwgRVH8kf/KQnjjj6e
+	 8FweTI+nNkZ2EBmtHXCTkUKKdRmBnpTzTFUBnMlLjgieXxMhhoEF0NXNChPAyo6magzHw
+	 Ft2DfKuvYNNJ4+2MyPr4m/v3BKZq6+HYszFwHNkCyzf2VW682B3yJ2mCWgY7duaWPN41s
+	 yLAHHP/ibGoBQrQ7b4Z4F3QSrJLSBIc6Q3adLNn4lObQrlG+s20hQlfuoUhPUcUyD+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.com;
 	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Egp7vCFt;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=GxxOstF9;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67880606A32C
-	for <printk@lists.linux.dev>; Fri,  6 Nov 2026 17:22:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67880606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37C9C606A326
+	for <printk@lists.linux.dev>; Fri,  6 Nov 2026 17:22:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37C9C606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Egp7vCFt
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a4d7ae1ae9so8796155e9.1
-        for <printk@lists.linux.dev>; Fri, 06 Nov 2026 09:22:19 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=GxxOstF9
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a20bde60a0so7979535e9.3
+        for <printk@lists.linux.dev>; Fri, 06 Nov 2026 09:22:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1793985738; x=1794590538; darn=lists.linux.dev;
+        d=suse.com; s=google; t=1793985750; x=1794590550; darn=lists.linux.dev;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=XXKcqZDk+pXy0MzkP8tHfD/BYEj0adOZiSt1qNjNBeo=;
-        b=Egp7vCFtdWAbcWInbqO7MAs2YKveCtG3UoMOTQnc9f1oRHyu7LEUdjvHqakXZWLLYr
-         fAdggplNjLKeN2mMT0MKeGQ5A+Fvtgt6R7H4ZDI+UlBb1A0b5Hi+TMQGuWPskRzyaxGN
-         fL/NMXJTpCNP5EH2++8X/9axHoGAiC+1JIASZKBluzAfNLX3D0X1mD1djjov7S6awNAy
-         GD0K9uhzYH3HgxXLdWqIuVEASRktCnVM4/8UcnBHQz+4+xVrD5lWVL6K+kSPA70hObp6
-         hginnYRSV9Qo4Y+LhpUlBnCeknddPXYK6n595qq5gpo6wkfLd0ejU6eCF0BvHMUMjh+m
-         jwwQ==
+        bh=1ZlRTZyG90aBhHc3pJWw9EK0xkQ7hrbVzYow7IEo9Co=;
+        b=GxxOstF9YfUjboGh15ENgjgoUnr231o8RRNSj8uJNghkASaw9ru6aY0V8hRPXbzRJL
+         JFe2SZMxzMEilCi2tVrczRfxs2/+OU3+UUpI9iBxpq3ijt2teFBGxK2bIGjZlR1fKuUw
+         2P6U/e/dYgPyTeMZ4FHRHFR1w2ooFUJULC5qXB3XA3WzY5vcdcQrIOCRn3jZ++7qYj/s
+         WrMGl0xrS7womeAdX945sH098+PUl75UC4tezuAz9qMJouQuRx/ALyTajtvlvSja9npC
+         3qA1pNojyt1NEr6Dpz5mLrrVSnhepP5cRE+dPxWnbOOYmLmNxXxAVndRoVArM9WHc1Gw
+         TGyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793985738; x=1794590538;
+        d=1e100.net; s=20260707; t=1793985750; x=1794590550;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XXKcqZDk+pXy0MzkP8tHfD/BYEj0adOZiSt1qNjNBeo=;
-        b=IWpici6seTRIAQ341bJH6pVkyQh45N2vsXaiOTb3EP/JwBVBGSCGsJC+kE5JJy8GfQ
-         IeukDh3MVOFiL/zLeWpAU78Rmw50gzEfeks3A4GQHhDRxWlzF9D+nkjoZP16rt9xjvSU
-         njG93QH8yyNOJYNIqAPgT9n6FLIRNWDjI0hfWry5kL67O2G1kxPYTosLppWHB6d0UEaI
-         UisdDhsKIsx+44ovoCPjgg7lrHD8tn6ddNzWmo15u6c4B4vs6Ud9T4hOZBi3c1/od/9x
-         Ai2k750mmWiWJL51JDCu3stc9l8MdVgF/T0CTwyeUM2z78uODwv+dk0cTeRqHN3Uv3mh
-         8NZw==
-X-Forwarded-Encrypted: i=1; AKwUvBzPcHFiOCmRra/AfFQScnOSsHMShn250haH8KKlE6Yipe2fEmOsC47U64KwJ5ofpnmE572I2Es=@lists.linux.dev
-X-Gm-Message-State: APuU4Z/jhs7AlTfqMjhTzbPTNkZt/oTz0Fx/DGq47xDicxFuhp82W1Bs
-	yC/VE5X66ki2xkDGelnUpGoi8+fp1GPgLrmSbgT0fsGKDNoJLpBUzoU3XHAEhjnsNmmJNQ7EZw4
-	IUDa12HE=
-X-Gm-Gg: AYBFou2Smn4P6zGjjZQiOCvMwiwmxO4ddsmYse89ZNxgQoCGkVUSeJDPaSOPeGebobQ
-	0opghQ9pRsoaz6Rxff3vAbrekw9JcrwA2smMiFhateLaP0XWXVTTWREfa+D/1RXpYXlogdyeiKu
-	X55OjiV8HzNzdNzQKQ3PO7M2hhiM7rhKMthBLbD5RH9deFsWpHHl6r4/qvt6u8232VYFUPjHhmF
-	mhd+w+5fP1faibJPgxYoibZ16q9mYwh8LhJ58L7dxSDJ/3L+pctT6RltIqNMDev9WYeXAF6PGZh
-	UlKUSPPvctkUGVc2/NatekuHNNE4rMTe2HCGUI10iQfIJ5lRlQtNi9HF42UvsWQqu7XT3KFR4T5
-	ZJEhFbTZn2AZ4U2tXPG02edafZCamZleN2x/Fg8wc+itHEFmb02Fy5r+GYqXSB0wsfmMM5lsHhA
-	ZZFXZ1kn+sfw4azMpApnS3ez+JPrE5iqf7y3phgLi/S7pksOndO/dYWwmAvWNHjYfRh7cfbo4eG
-	K1jRJ329HbuL11lyKQ/1TRrO9oOt746TL7bC4B62W2mX1ytTmbDqVigXRDIAlWJ+xD/djqy7BTR
-	j0RfG1OXJV7wPBTdMRdruTvoKvsCveg=
-X-Received: by 2002:a05:600c:19d3:b0:4a1:78c5:79f5 with SMTP id 5b1f17b1804b1-4b6e0269264mr56193085e9.33.1793985737841;
-        Fri, 06 Nov 2026 09:22:17 -0800 (PST)
+        bh=1ZlRTZyG90aBhHc3pJWw9EK0xkQ7hrbVzYow7IEo9Co=;
+        b=qTtpRg/IdjtHZ7HPrjsRVpC/kgSMyEj6kbrhZXi5nWshL5rM2F7YJUIka3Osabnylo
+         +/IQBQZPeAP309Xq0pfGXNWVqCUtgTlYgYt+hM9b9wEBZkO+Sgq+lkQY42Sf6JpUi/dr
+         HWsc6csOlFq6yp3sdMQJDt92YeZONACOBSyx8xF3WYPn7q99QUBuW/9D9ADnkGjtBcV3
+         AnuYPM0+oM9e0kErv8UYx5TnYaEFFgri0L5tct8QSTQebPdXMm6k0ZPcmVX0ln12+H+0
+         SqhrlUNWaTp/VuaKUfaxjFtObAE3D+/HQQoxX/FXnoT+dJ/toInTkme7H+uK3OhwapJm
+         D/ig==
+X-Forwarded-Encrypted: i=1; AKwUvBxfRAyRejIyiLEOgf10Qxf4IwpCb3g+GhTbtgKmmROxicNSkcBrci8fMncTFu95QJDQO+H4DRo=@lists.linux.dev
+X-Gm-Message-State: APuU4Z8Q5TCaFkkgMarK2TpeZz5O5h4G8d0FJsWU8k4OHB7h9hWnSZRk
+	NU+JT5Vb9bVXx3DF/CObJmdh/2z/DUaXaQ17blfXXzZAvStjoGBxa7+gsFg59AbmyGAz2Hlw/BT
+	Mq9kFhPM=
+X-Gm-Gg: AYBFou1q/SE7nO5wCyMLZfYXFIc1jAyiWMaEm9bcx4zRyor/YRkAQJNENa8W6od4WEb
+	ZS8+PY7B0yaXTTLrBhJo6bVIDmKrKYJz24M1xx3ACjkwF7/hgygLgkejj7KOCJGTt1f1sMfC8xl
+	ZnMt4RzSR2SS0K4Ja9Jf9fnLx1OljhrTjRHOwV6YUhCosODsq5CB1YX5dY/Wqrxpet1ZZJdmjRn
+	GlH/kN6jlqr5lL55A+c4dVS1f2KKrwiAgHiOvuXz/E6dR6Nq85bEo8ccXCINJBS55Z0NFu5WOuT
+	/+oUvVVF60AxI0om5NbvVk9skYme+5ZB2IXLq5Djnf+kmVJZbdI9zyYl57Ar9tWXhka3zZDx7+o
+	aitPdbiFAzVuk8A8/TYJWzayEWRx2AhHM/UaEYODkhjASD7cwKb1cGPjHEYb0O5qquJQ9IpKHHD
+	sPm5fXerYDaRjs//7ACy4gZScZYTxQWkrURYJRd0UDCFtacy3kbcLX35zueNInSQQtWMYv+xMuD
+	2uNa76U0lFIBscnqTH5ALp2teQxlgbJlmCjlIC30DHnzDK7X5rlCIVt2+E34Ky2z460mewHlQK1
+	YFcCDYgaFVxv965CzFSoi+d/dCAjYl4=
+X-Received: by 2002:a05:600c:4e11:b0:4a2:59:f568 with SMTP id 5b1f17b1804b1-4b6ddee38a5mr53567455e9.14.1793985749669;
+        Fri, 06 Nov 2026 09:22:29 -0800 (PST)
 Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-492d7cc6187sm4738510f8f.46.2026.11.06.09.22.17
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b76cbe9e31sm10185655e9.2.2026.11.06.09.22.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Nov 2026 09:22:17 -0800 (PST)
+        Fri, 06 Nov 2026 09:22:29 -0800 (PST)
 From: Petr Mladek <pmladek@suse.com>
 To: John Ogness <john.ogness@linutronix.de>
 Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
@@ -88,10 +88,11 @@ Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
 	Naveen Kumar Chaudhary <naveen.osdev@gmail.com>,
 	printk@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v6 10/16] printk: Allow to debug misuse of add_or_update_preferred_console()
-Date: Fri,  6 Nov 2026 18:19:46 +0100
-Message-ID: <20261106171952.207909-11-pmladek@suse.com>
+	Petr Mladek <pmladek@suse.com>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH v6 11/16] console/braille: Lock console->setup() call during the registration
+Date: Fri,  6 Nov 2026 18:19:47 +0100
+Message-ID: <20261106171952.207909-12-pmladek@suse.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261106171952.207909-1-pmladek@suse.com>
 References: <20261106171952.207909-1-pmladek@suse.com>
@@ -106,32 +107,77 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-__add_preferred_console() should always be called only when either @name
-or @devname is defined. Allow to debug the case when they are misused.
+In braille_register_console(), the console->setup() callback must be
+called while holding the console_lock. This prevents a race condition
+with a possible active boot console that might be using the same hardware
+registers.
 
-Use WARN_ON() because it is rather an implementation problem, it should
-never happen. Also the consoles are typically added during boot so this
-should not panic a running system even when panic_on_warn is enabled.
+See also the commit 801410b26a0e ("serial: Lock console when calling into
+driver before registration").
 
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/patchset/20260423130015.85175-1-pmladek%40suse.com
+Suggested-by: John Ogness <john.ogness@linutronix.de>
 Signed-off-by: Petr Mladek <pmladek@suse.com>
 Acked-by: Chris Down <chris@chrisdown.name>
 ---
- kernel/printk/printk.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/accessibility/braille/braille_console.c | 10 +++++-----
+ include/linux/console.h                         |  1 +
+ kernel/printk/printk.c                          |  8 +++++++-
+ 3 files changed, 13 insertions(+), 6 deletions(-)
 
+diff --git a/drivers/accessibility/braille/braille_console.c b/drivers/accessibility/braille/braille_console.c
+index 1b79b4d88bac..bc338e57d8ef 100644
+--- a/drivers/accessibility/braille/braille_console.c
++++ b/drivers/accessibility/braille/braille_console.c
+@@ -408,11 +408,11 @@ int braille_register_console(struct console *console, int index,
+ 		console_options = "57600o8";
+ 	if (braille_co)
+ 		return -ENODEV;
+-	if (console->setup) {
+-		ret = console->setup(console, console_options);
+-		if (ret != 0)
+-			return ret;
+-	}
++
++	ret = console_call_setup(console, console_options);
++	if (ret != 0)
++		return ret;
++
+ 	console->flags |= CON_ENABLED | CON_BRL;
+ 	console->index = index;
+ 	braille_co = console;
+diff --git a/include/linux/console.h b/include/linux/console.h
+index cb8be9ea4a76..b68279a22514 100644
+--- a/include/linux/console.h
++++ b/include/linux/console.h
+@@ -710,6 +710,7 @@ enum con_flush_mode {
+ };
+ 
+ extern int add_preferred_console(const char *name, const short idx, char *options);
++extern int console_call_setup(struct console *newcon, char *options);
+ extern void console_force_preferred_locked(struct console *con);
+ extern void register_console(struct console *);
+ extern int unregister_console(struct console *);
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 1eb542a321a5..49c5624eede0 100644
+index 49c5624eede0..0e68af9a3490 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -2585,7 +2585,7 @@ static int add_or_update_preferred_console(unsigned int i,
+@@ -3957,7 +3957,13 @@ static int __init keep_bootcon_setup(char *str)
  
- 	pc = &preferred_consoles[i];
+ early_param("keep_bootcon", keep_bootcon_setup);
  
--	if (!name && !devname)
-+	if (WARN_ON(!name && !devname))
- 		return -EINVAL;
+-static int console_call_setup(struct console *newcon, char *options)
++/*
++ * The function is intended only for the generic console registration code.
++ * It has been made global only for the Braille console driver which
++ * is partly using the generic console registration code but it is
++ * integrated with VT code instead of printk().
++ */
++int console_call_setup(struct console *newcon, char *options)
+ {
+ 	int err;
  
- 	if ((name && !name[0]) || (devname && !devname[0])) {
 -- 
 2.56.0
 
