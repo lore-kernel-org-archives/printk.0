@@ -1,68 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794242847;
-	b=EU+cM/otft1woR4qWScwvxfFe4jKLw33Cyp1hvrj1Vo6O76QaogVPHp7anNxbs65Fv1n
-	 PDeOwnncmcZz+zXCz02XK4//cuRQjVOd89vVIUBk3UXBDqs35/Ecc4i5D0vMbXCCgdrDk
-	 TvweLEc77whCEUTQ/SsKt/u7WrQIeNXB6u2crS0Qd4H1TOdDdxOuXaK1odtczRKSj8Y88
-	 MWee9aWXdVgh9UB6/LD0q5+4ImK5NIJhBXRzTafPskzrcI64907HaOxmA9QkZ66CCLE/Y
-	 tM8cTjnbZ5tIH2ix3O5/WK0Izz3JDuYGif2EXXFAB5LrCeMIxjC/u1Snegb2WsQz5Tw==
+	t=1794261955;
+	b=KfQqZCfoszxx5XLdh7QR6+sk6jAaR7++bdf+5m0JshxvF9Ypv0OWVgzsGpHrC445/IOU
+	 XR7PEzE/vznkzAQ9i74wVQfecdBXWN6lAYtu2o+1VRQI4lKRnKLyDZi32ujyCz+1AXuBe
+	 psDUEJausT3uSkFGOIk298HvZUA516PakFdFibAxiAdyutm6GNISHGAsFAndWSWQUDvLv
+	 s909Mdfib4583z7cRPv9zhhn9EN6aPjnl5DWojO8p+78kORyoHHZdaaUg3iQQkMyJBfgz
+	 cTq4hZL0pe3QIw8H26m4+1c3h4/DOST8/kGvenmnsMcQiHSNQaeiZvoeCBmRScMy2Sg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794242847;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Debian-User;
-	bh=7QCQMX1YjQnxjMAljTgB/goZ5DEceQMQpw/VVgpYcMs=;
-	b=WkYvv8oDaKsovz/sOzNS+G01X4b89xCMSLFH8qUVwIZ1avEkz4DiPsvWenf68wXq5VZL
-	 KIWN41xU/yVittOzv7u2ESQfuOVYzzvUiUlPOsFWw0qvBgxKWm6l/u4YLLcdivXwKs/89
-	 h+gEbKosH+4lkPlwKYEOwFuhimR4ga2rhLnksO9UjkFQ1f9hjCVzgIKBoHhhqwo8F+uLU
-	 23+vC6ZLs8GTOpq7VBD3O8blOzL8IE22iZ/alydvHhvTcmaBWB/Y9VE55bZ2NPqQTwMYR
-	 Yyv9UPkZ1p2TSNV7gvUjcNw3qmszCDsMOgP/sBAg2IzPdFeXTsnjwP4VEC7uzwa/QOA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794261955;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=/t589UiWWwPBpeNap8eorpHvLnoEI38RS6Gj6TGU3T4=;
+	b=UjagvE8HCmES4BHxklaRAEzG6HJkxcfheaRTd49VepJnOzPBxPu/EWBYbkIjuuIQOF5H
+	 8GXVy7+QEFTkCvGr9QgXVHS0hEsvv2vQB9hgxStEFm/R2vjWO3q9lggWtdMNKci6ynhwx
+	 h7AeJWTG4zY6ghtEgHK8YSiwGHC9EvOVHwYld4GV5kpr90F9/wbm79nni09mKcbozdwYH
+	 OTTzbujAtcRZ+qfjJaU47cgmB6o7X/ofyCOCupn7U3/AihhvlYNKjaGB4TZRw+azNiNg9
+	 Q/cK901JleV9v5l6xlZaJdxXiTlPVyErjWRYVhCxzxtVHqRi1tSdgaSbuVxJziACHrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=debian.org;
-	spf=pass smtp.mailfrom=debian.org;
-	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=IciOi2Ea;
-	arc=none smtp.remote-ip=82.195.75.108
-Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=dbuU83HV;
+	arc=none smtp.remote-ip=192.198.163.11
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57F39606A32A;
-	Mon,  9 Nov 2026 16:47:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57F39606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D47B5606A321
+	for <printk@lists.linux.dev>; Mon,  9 Nov 2026 22:05:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D47B5606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=IciOi2Ea
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=7QCQMX1YjQnxjMAljTgB/goZ5DEceQMQpw/VVgpYcMs=; b=IciOi2EalUVDjRbB5OUGTXNODO
-	rkV1/LhYzpmiMWNxS0A1xxFKSkiO+QzI9vFplgW24p1OsTEo1caT6bzeikKmDF4Q9X5KhWYJD+/1Y
-	TqF82KfcRoWLVw7tEVIqeo4cEIQjdfc3t5Zz1+GRePy3z2ZiNiWB9lkf3Y/rUQdryHdbgYSEchuBE
-	cILT3sN0O6thFzOaI595Wijdsny8EfeIoGfeYVp2zvtY7gmxkOTcjeI5ymgOtE0DMX0KURnSyEVJv
-	ZaUjQhWtX0593JC4Z8Z7s4Cu2q1QIismwYYjKtu8afkDVizNAruRpmJ90N0G92cy4Z0kY/H5iAuwg
-	vtO5znfw==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1xQSWd-00BlNJ-1a;
-	Mon, 09 Nov 2026 16:47:19 +0000
-Date: Mon, 9 Nov 2026 08:47:15 -0800
-From: Breno Leitao <leitao@debian.org>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=dbuU83HV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794261954; x=1825797954;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ym0jDnCGALxDNMgm30e0xqM905yi4RDT1pkp7/cO618=;
+  b=dbuU83HViS7y2oUzsqPk6e9rX60qxFWtPH7JLl5Y8aoS/5oPUrL+ZVAz
+   UR3zFGKU4VLNd3nHkkx9ZUPxS2yLwDT0z2QJkxnIF56pJZEDfB/X7Ioaz
+   xZDABmQH7IbGNKdpJt3tS0K2Y0UZ528gyjRjVAt0zqAWYnvUPDFluxIPM
+   m5RKZgwX3R+F7Hb3ZUEE2SscRAe7OHszqf1UalcoKzkfcMRCd0fFVsNwd
+   2Ux9aO4voN+zOD/y6EQdvlQnRaiue7bApzQM+6nKia2Yr/wnOGQulrq2e
+   32Iw4KOzQ4xnOLMM2/J1tzRX4Jb74VN8mWxu688OBsknupP3kA8GhmZX4
+   g==;
+X-CSE-ConnectionGUID: pT7bEel9S3WaK5DFAczvAA==
+X-CSE-MsgGUID: AURAv4ZWQ0eMFrX3LJ9Ing==
+X-IronPort-AV: E=McAfee;i="6800,10657,11961"; a="2913975"
+X-IronPort-AV: E=Sophos;i="6.27,204,1787036400"; 
+   d="scan'208";a="2913975"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Nov 2026 14:05:53 -0800
+X-CSE-ConnectionGUID: ZZ7Z3tNQTqyz7ThSlP12eQ==
+X-CSE-MsgGUID: iQUJfHslQumdJ0aw017jZA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,204,1787036400"; 
+   d="scan'208";a="8121387"
+Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.244.144])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Nov 2026 14:05:51 -0800
+Date: Tue, 10 Nov 2026 00:05:48 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
 To: John Ogness <john.ogness@linutronix.de>
-Cc: Petr Mladek <pmladek@suse.com>, 
-	Sergey Senozhatsky <senozhatsky@chromium.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, printk@lists.linux.dev, linux-kernel@vger.kernel.org, 
+Cc: Petr Mladek <pmladek@suse.com>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Breno Leitao <leitao@debian.org>, printk@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH printk 3/6] printk: Evaluate flush policy in
- nbcon_allow_unsafe_takeover()
-Message-ID: <avH1ZVs2Hyx62jgQ@gmail.com>
+Subject: Re: [PATCH printk 2/6] console: Introduce unsafe flush policy flags
+Message-ID: <avJDvDl0Hcx_CEGY@ashevche-desk.local>
 References: <20261109123127.489676-1-john.ogness@linutronix.de>
- <20261109123127.489676-4-john.ogness@linutronix.de>
- <avHTDeox8nDGLC6Q@gmail.com>
- <87qzgunkof.fsf@jogness.linutronix.de>
+ <20261109123127.489676-3-john.ogness@linutronix.de>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -74,41 +86,29 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87qzgunkof.fsf@jogness.linutronix.de>
-X-Debian-User: leitao
+In-Reply-To: <20261109123127.489676-3-john.ogness@linutronix.de>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Mon, Nov 09, 2026 at 03:34:32PM +0106, John Ogness wrote:
-> On 2026-11-09, Breno Leitao <leitao@debian.org> wrote:
-> > That is coming from:
-> >
-> >    550 static int nbcon_context_try_acquire_hostile(struct nbcon_context *ctxt,
-> >    551                                              struct nbcon_state *cur)
-> >    552 {
-> >    553         unsigned int cpu = smp_processor_id();
-> >    554         struct console *con = ctxt->console;
-> >    555         struct nbcon_state new;
-> >    556
-> >    557         if (!ctxt->allow_unsafe_takeover)
-> >    558                 return -EPERM;
-> >    559
-> >    560         /* Ensure caller is allowed to perform unsafe hostile takeovers. */
-> >    561         if (WARN_ON_ONCE(ctxt->prio != NBCON_PRIO_PANIC))
-> >    562                 return -EPERM;
+On Mon, Nov 09, 2026 at 01:37:19PM +0106, John Ogness wrote:
+> Prepare for per-console atomic flushing policies by introducing a
+> new nbcon-specific console field @unsafe_flush_flags to store the
+> unsafe flush policies for a console. The policies are represented
+> by bits, specified by enum nbcon_unsafe_flush_flags.
 > 
-> Wow, you managed to get a hostile takeover. Out of curiousity, do you
-> know how dangerous this really is? Can this basically just result in
-> garbage on the network? Or is there dangers of running into the forest
-> with NULL or garbage pointers? And is the danger acceptable?
+> Currently it is expected that any @unsafe_flush_flags bits are set
+> prior to console registration and do not change while registered.
+> 
+> No functional change.
 
-Sure, I was playing with different scenarios, and this was done with a
-test module that forces the takeover:
+...
 
-1) Acquire netcon_ext with nbcon_device_try_acquire(), so the console
-   is owned at NORMAL priority and in an unsafe state
+> +	int			unsafe_flush_flags;
 
-2) mdelay() for a few seconds without releasing it (simulating
-   a possible netpoll busy TX queue -- or some other networkdelay)
+Why are flags signed?
 
-3) echo b > /proc/sysrq-trigger from another CPU
+-- 
+With Best Regards,
+Andy Shevchenko
 
---breno
+
