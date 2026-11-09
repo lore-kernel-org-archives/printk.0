@@ -1,81 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794227494;
-	b=ZkyDXfUdLud+dA/n4m7KrQqn0eaZFmoD0nfU07PQoP8cpk0axnldKaIJ+isMufhuUGdC
-	 RcCLu4RLjpa2NCQo2rzE3WKEdacam6V9EHEB6s855mlYf5cA97+xYJ+Mw8vRkqr/nQamz
-	 8VnQ3qOJj9FCVpnuuGf68Nl5ygjZn+tHiQYJdajhuS4kimhrSffC6c9tudHiX5oTx5hdx
-	 Y6P/cpnX2OORg8uMihYASdX4bcI2JqHvG2iyYKHjrOAVBjuOjO+nwH8+nQ+GLVekmPymz
-	 9DDeoaeQyZCeaXuXiAz7sV8w7dQLS7+IHgeM+jOpgzM0MaUC28OtEa4rcO0D41nqrCw==
+	t=1794230960;
+	b=UIlTwV5wvgtleAB35NRIp32IZtKIlP68Kpo90y+9qeKSJFoa6muntH+wkINnwySqbOJJ
+	 z+1kU9AKrccjrAxmIjmx62Wwq90lixMARNMkBDltCfZk0Z29C8CgxN+It+bw/U9MtNBDE
+	 hD1mAN+BPHrwCbKUZ0+WgRWmJODALF5IfjPJDdVT0F49dhitO9nUwiww6510z+FJ510Zd
+	 wgH1I2ZnOfqzIJPz6L7Hqrbuxe0JHH68SoBjVJyZ3xIXedqRR5cQNu/1B4ryioIGzq36D
+	 yL7xsL6kmfs5sCAmIIx6N4TQLZVNli8658j9kjs4tEoMvLH4nBxn20yeW8ErNS7o9XA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794227494;
-	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=U+Dj0snY+kfTXfG+VRMdB3cQPdoVXWSwHQgeJoQUXLU=;
-	b=dKEJMe98fWoVxWLn+LKrp/btRacO4sB4hQeZsgkigXBxi09bDMI1lo7ECU4+3GnGQgGF
-	 B2zwEigtXcE8f+waQ8vFtkwToXmD93IXRhdxppQPBJmcPV+1cfdcz94a+Wyv0H7aOGcsc
-	 666sG3WFeEafazPuqPMT05w0SLAYGh7OspEUgqJO+T3KvTSRtWhlI7287sUjmCClmqbVS
-	 gdt4RjAAnrRKd3RPAJ/A0ztc1YqXeC8zZMFDhDfWweL0tbHDc+ic9lH3p22xyDjIjaB9W
-	 NfofbIlaxnaHRrBNjZXlW2y5QQCp6C65ieVaXROSBZ54k6EkaY1GVjBMC8vdUss7JQQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794230960;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=p8KeZQ1gDNMPi4Q0Vpjy/FG6SeCgCptXYJ2kECeS9lk=;
+	b=Rh9O5B0oP3HTbEVcr071u6lmbTbvrWPqwRPQPbiYHIcTPfzZh1HeJCJQa6fK3HPSIwx6
+	 d0muZCvf/jPRGiNMvEmgb5K077ldjYP8bPofeuheQ/PrkeWt9YFTA9WRdHBcnm8RYxSU/
+	 TIJOramN9Xr2k4HuA3CJPyWxVJ0aMMvfcbsJZBv4QSl50RxfSA3NII2HGIuMHzSfyP/Xk
+	 eIqTcjadm7SG9XhwVdnhtQpUnzYuCVjjf0SnsyulNrW1+LrzskC1TTzNQb5i8JJqRBq4j
+	 1eWh3IKf6541wvi+556XbdIB8e2KkBQvM8Fz09dczd7rKtdEc9PocWm5dKOVtl+VBNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=YGDzl48j;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=6xr7PFmf;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=V9TQhlQy;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 220F9606D816
-	for <printk@lists.linux.dev>; Mon,  9 Nov 2026 12:31:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 220F9606D816
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 670A5606A323
+	for <printk@lists.linux.dev>; Mon,  9 Nov 2026 13:29:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 670A5606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=YGDzl48j;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=6xr7PFmf
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1794227492;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=U+Dj0snY+kfTXfG+VRMdB3cQPdoVXWSwHQgeJoQUXLU=;
-	b=YGDzl48jYxHNdQWqwzNV5+QEK5o2Kg+YtE6I5R275wGjN0HYtjQdCgRd5ky/lY+rhD0Qeo
-	tHw/E1efPQUfsZ/jlNeTR1oxqYCbkOZGnVg+Uq5Vv8wfKDDtqGaZn/WrDTF9WeWxAURlEB
-	pcZqWoViGMQFsNmPlbCpu+DOuuflw21r0Gnh9BIpQbVgawuzs5a3FXsauNOmusnTnQ70u7
-	GgNqniIODXVigg0MAmdDaZbxdtD9DtTMXx3naSCdTZlXFr2nCt4AKRzJaVPU8/roKKBt6k
-	gzvy1JaX2Opas0XDVcwX4MkVopbyv50xHXVqg7JKBGjAWakNamPG8CMCDsKaEg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1794227492;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=U+Dj0snY+kfTXfG+VRMdB3cQPdoVXWSwHQgeJoQUXLU=;
-	b=6xr7PFmfvnfZEgJrYF2lOI1GpwHyCQZKyXHko+03Y4661Q1+t74W76iQkYV+5jIqHY/Wc4
-	2HCIiZcLDXSmuJAA==
-To: Petr Mladek <pmladek@suse.com>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=V9TQhlQy
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4b7252a32c8so9061115e9.0
+        for <printk@lists.linux.dev>; Mon, 09 Nov 2026 05:29:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1794230959; x=1794835759; darn=lists.linux.dev;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=p8KeZQ1gDNMPi4Q0Vpjy/FG6SeCgCptXYJ2kECeS9lk=;
+        b=V9TQhlQyfTKWphXcorF5a6gXcL5MBWQrGz0bHsUpFgragi5NnZlvU2cMTweH3ZDl/g
+         X1V+Prw7MAtIHE5rDZVgKdyUWTLRNoK27e++VQFTPFfRaI7Sv+Ut0vk1Z/PWyblGhr70
+         q+oDSBS1Tnh7t9oCPTUAKUXtc2QlsDdxaTQZI8RuxPXpf6NW+UAqw0SkoM46nJLuvYOk
+         hWhTj/72DQt9p0G5oSgUo3GQWU5Vz7XViwju41KO8ms2NYVVi0EP0wANXlPaLGD13kcu
+         3P5njhVXKnkoXOcOOpe+dgJkdzlDxvMU+EGh0x2h0uliwPY0iFpvmt/0zvAJE2IqhLaI
+         pFxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794230959; x=1794835759;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=p8KeZQ1gDNMPi4Q0Vpjy/FG6SeCgCptXYJ2kECeS9lk=;
+        b=EnK6oYJoDoEF2Jal8ImG0n4jGGnTgyUv2gxYziDpMxr9GkUOwMo6fanVFvpJ4T+oas
+         ponXrl9A3/SnhpLL8Wj/a6NmSaR9B382Q1mu3Ju/Vz5E3t7stxCJYRqe/axDt5LDyWrU
+         fwvV0EBq2OF+R5jlrdNQkOum22sv5sz4VMyXQQH8GxORXYFRzsKzzAjPhdU/kJeE7UPs
+         NpXTMguMrhl7y36JqBBACQ8r4vTIuG7Yc6V8H/i6/q8Y9RYA2pJCSE2zpOPRhm+srXmx
+         mKSozgO68OQ6KVLmszBirjsu/JrKRd1zeVcodUgDw9KYHf0sdW6GYTFtnWfSOEzqHMGU
+         Y3Wg==
+X-Forwarded-Encrypted: i=1; AL+hErFZrr3pR9He4PgiqragkDFewjfrsoa2aA9z3CHy0K05WbV5FxVuqcmCAfdcxls+VMOGes4fVD8=@lists.linux.dev
+X-Gm-Message-State: APuU4Z/NYeSY+KjgdCm2kzLthj8+DAinIlS1q4sk5Kp7e03SdRS7mxuK
+	FLmSfFPn3DR0DejjXN5/lCsVSaVaNXz6aOvv1jCj3hdsyM9i4mzmIOUg1Y5fjfLfbk4=
+X-Gm-Gg: AYBFou2SIEakg5YGiJjnlskf5ntlzyM0+SkEaUqxMsvyHf8ajzvw6y7YFgFJUD+nqMH
+	Z5CWxYDlWE/rxf7HRCJmmXlDHurnn5T1ZNuxuxxl8SyLq/LPA1l8rCgx/glOXLLVHuaVUW6tIpf
+	csy8+OJfcFEhFlgp/Sy0gRW4S+geEpK+Jfwuz2OJjmXUSrYNBuKpt89IB6EkvwHjZYDYicoW4eX
+	K6YdZ9plrRE6KIXXb8SL2szJ40rTmRGaz4ZT4xFAmUJNpPzRIg8bT8K/Ylp+kAdOC5MU1b4bDbg
+	ewD29ZDuztyMb8iGFiuAjIHbaQP23cyFxKSOTFnK5lXRkyL8H/1FETWt8nD2UvnGgUjSo1wba7H
+	zRSLgzNOTV1gJIsq/hcPJ+WZezpXzfclbN1olU4gYdqaQr/64HWMQLxCdTDykjrXVNHHBSg6xAp
+	jMIaS/af9dfs69HOvqvtXHP52kfiWIJjHHW5pZJ9ern8LEJAHQNeFriIKdUbJvEHyL8ll45xGvC
+	68Go2ZpjvWfbiwWRt5vn593TnDqcb4DQWwJkn1hhArdCjFEKwNtn5EXRWjVE/rjL7eLvxgxRLhU
+	cRtimerGWQbqmrsdsFuAhQ2or5q+8A==
+X-Received: by 2002:a05:600c:46d2:b0:4a0:1fb9:2f51 with SMTP id 5b1f17b1804b1-4b963c814c8mr73950475e9.14.1794230958732;
+        Mon, 09 Nov 2026 05:29:18 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b7efb1b64esm244819165e9.13.2026.11.09.05.29.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Nov 2026 05:29:18 -0800 (PST)
+Date: Mon, 9 Nov 2026 14:29:16 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: sashiko-reviews@lists.linux.dev
+Cc: John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
 	Steven Rostedt <rostedt@goodmis.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Breno Leitao <leitao@debian.org>,
-	printk@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Gustavo Luiz Duarte <gustavold@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org
-Subject: [PATCH printk 6/6] netconsole: Always perform unsafe flushing on panic/kdb/restart
-Date: Mon,  9 Nov 2026 13:37:23 +0106
-Message-ID: <20261109123127.489676-7-john.ogness@linutronix.de>
-In-Reply-To: <20261109123127.489676-1-john.ogness@linutronix.de>
-References: <20261109123127.489676-1-john.ogness@linutronix.de>
+	Marcos Paulo de Souza <mpdesouza@suse.com>,
+	Chris Down <chris@chrisdown.name>,
+	Naveen Kumar Chaudhary <naveen.osdev@gmail.com>,
+	printk@lists.linux.dev
+Subject: Re: [PATCH v6 04/16] printk: Separate code for adding/updating
+ preferred console metadata
+Message-ID: <avHKrPxxBDIuHUBd@pathway.suse.cz>
+References: <20261106171952.207909-1-pmladek@suse.com>
+ <20261106171952.207909-5-pmladek@suse.com>
+ <sashiko-outbox-201935@kernel.org>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -85,45 +104,67 @@ List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <sashiko-outbox-201935@kernel.org>
 
-As a legacy console the netconsole would perform unsafe flushing
-during panic/kdb/restart. With commit 7eab73b18630 ("netconsole:
-convert to NBCON console infrastructure") the netconsole is now an
-NBCON console, however it uses the CON_NBCON_ATOMIC_UNSAFE flag and
-this prevents unsafe flushing except for at the very end of panic().
+On Fri 2026-11-06 17:30:05, sashiko-bot@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue to consider:
+> - [Low] printk: malformed kernel-doc comment for
+>   add_or_update_preferred_console()
+> --
+> 
+> commit 53283e23ffd138683d26af82f710d22a050dc49e
+> Author: Petr Mladek <pmladek@suse.com>
+> 
+> printk: Separate code for adding/updating preferred console metadata
+> 
+> This commit splits the logic for adding or updating a preferred console
+> entry out of __add_preferred_console() into a new helper function,
+> add_or_update_preferred_console().
+> 
+> > diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
+> > index 27bf77a777a2e..24bb6f63c070a 100644
+> > --- a/kernel/printk/printk.c
+> > +++ b/kernel/printk/printk.c
+> [ ... ]
+> > @@ -2543,26 +2544,34 @@ asmlinkage __visible void early_printk(const char *fmt, ...)
+> >  }
+> >  #endif
+> >  
+> > -static void set_user_specified(struct preferred_console *pc, bool user_specified)
+> > +/** add_or_update_preferred_console - Add or update a given entry in
+> > + *	the preferred_consoles[] array.
+> > + *
+> > + * @i: index of the entry in @preferred_consoles table which should get updated.
+> > + * @name: The name of the preferred console driver.
+> > + * @idx: Preferred console index, e.g. port number.
+> > + * @devname: The name of the preferred physical device.
+> > + * @options: Options used when setting up the console driver.
+> > + * @brl_options: Options used when setting up the console driver
+> > + *	as a braille console.
+> > + * @user_specified: True if preferred via the kernel command line.
+> > + *
+> > + * The function adds or updates an entry in preferred_consoles[] array. Also
+> > + * it updates some global variables which are used to make the right decisions
+> > + * in register_console().
+> > + */
+> > +static int add_or_update_preferred_console(unsigned int i,
+> 
+> [Severity: Low]
+> As reported by Chris Down on v5 [1], scripts/kernel-doc requires the opening
+> /** marker to be on its own line, so placing the function identifier on that
+> first line causes the parser to skip this kernel-doc block, and it is also
+> missing a Return: section.
+> 
+> [1] https://lore.kernel.org/r/auLwTYSza9exX3ba@chrisdown.name
 
-Enable unsafe flushing policies to allow the netconsole to perform
-unsafe flushing during all panic/kdb/restart variations, just as it
-did when it was a legacy console.
+Ah, I misunderstood the probem. I added an empty space after the
+title. But it wants to have "/**" on a separate line.
 
-Signed-off-by: John Ogness <john.ogness@linutronix.de>
----
- drivers/net/netconsole.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Will fix in v7 or when committing.
 
-diff --git a/drivers/net/netconsole.c b/drivers/net/netconsole.c
-index 267254f046de9..6c1587958e915 100644
---- a/drivers/net/netconsole.c
-+++ b/drivers/net/netconsole.c
-@@ -2695,6 +2695,8 @@ static void free_param_target(struct netconsole_target *nt)
- static struct console netconsole_ext = {
- 	.name = "netcon_ext",
- 	.flags = CON_ENABLED | CON_EXTENDED | CON_NBCON | CON_NBCON_ATOMIC_UNSAFE,
-+	.unsafe_flush_flags = NBCON_PANIC_FLUSH | NBCON_PANIC_PRINTK | NBCON_KDB |
-+			      NBCON_NORMAL_NOTHREAD,
- 	.write_thread = netconsole_write_ext,
- 	.write_atomic = netconsole_write_ext,
- 	.device_lock = netconsole_device_lock,
-@@ -2704,6 +2706,8 @@ static struct console netconsole_ext = {
- static struct console netconsole = {
- 	.name = "netcon",
- 	.flags = CON_ENABLED | CON_NBCON | CON_NBCON_ATOMIC_UNSAFE,
-+	.unsafe_flush_flags = NBCON_PANIC_FLUSH | NBCON_PANIC_PRINTK | NBCON_KDB |
-+			      NBCON_NORMAL_NOTHREAD,
- 	.write_thread = netconsole_write_basic,
- 	.write_atomic = netconsole_write_basic,
- 	.device_lock = netconsole_device_lock,
--- 
-2.47.3
+Best Regards,
+Petr
 
