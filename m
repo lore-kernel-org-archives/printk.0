@@ -1,99 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794242394;
-	b=qrhCjOKgmi2AMRfCSrsH0VZtot+2lRvZ+AY1pTysRfb6P5FHU0QzmMc6OrgcRxn+h5wj
-	 NiNftH8DYWfvXG541d43CYow0vzRQ+53w9UhS47GfJkleM+ZxppJ1vjlTEFg+vIH4bGFD
-	 XYDGrCPMlFmXB6BMehchrSAjdAZsXkhioUul/JjGocUOJ6tAwsDEhP6tQCrxkFChheSG+
-	 zD9yVW500/jn1sPwQenj8ENNRG9kBBqfdLsPXxWzjRzLToMuj3RUyYajt4Hby4PEhjSAl
-	 rf9ArwxCYHfn7istf3d2hYpdnqqt6/uFvPav5/mzn9z/dvUNTd56II1ohna/IBQmDVw==
+	t=1794242847;
+	b=EU+cM/otft1woR4qWScwvxfFe4jKLw33Cyp1hvrj1Vo6O76QaogVPHp7anNxbs65Fv1n
+	 PDeOwnncmcZz+zXCz02XK4//cuRQjVOd89vVIUBk3UXBDqs35/Ecc4i5D0vMbXCCgdrDk
+	 TvweLEc77whCEUTQ/SsKt/u7WrQIeNXB6u2crS0Qd4H1TOdDdxOuXaK1odtczRKSj8Y88
+	 MWee9aWXdVgh9UB6/LD0q5+4ImK5NIJhBXRzTafPskzrcI64907HaOxmA9QkZ66CCLE/Y
+	 tM8cTjnbZ5tIH2ix3O5/WK0Izz3JDuYGif2EXXFAB5LrCeMIxjC/u1Snegb2WsQz5Tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794242394;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=WB+NnUFeCMCsVOxK+oV+Ndnf6qqRZy22YpXN6vlA5YI=;
-	b=2mDTDJvVmLz4lFtOkxygPVD85Fc/KCIKe2LT60Ugo6THO4AoRIxycJNMY7GFyW9YzEs+
-	 IyDhwFMeW1x3ImXGjoqX0ZeVLEW/yShNOLDvIDrWJx86DIBW5K0fmweWtvhnp28JlN8Hj
-	 8dSdToZUaH00m7m4vQPauuDuTEDFmdryvolhr/dlC9RzESaScas+y84qwryksNcXHMC+m
-	 ZpddXzmhgoCrvqyCxjogd1actxSdqq92e2b3Z8EC+BxlItps3rOfgoFelJqIG7/L58JXS
-	 cLdLyRviUxyUvsCkm2f1MygxaOj6TOAStAIHnH96tMNbtRVYk5ousGHEeIkjYdHVzpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794242847;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Debian-User;
+	bh=7QCQMX1YjQnxjMAljTgB/goZ5DEceQMQpw/VVgpYcMs=;
+	b=WkYvv8oDaKsovz/sOzNS+G01X4b89xCMSLFH8qUVwIZ1avEkz4DiPsvWenf68wXq5VZL
+	 KIWN41xU/yVittOzv7u2ESQfuOVYzzvUiUlPOsFWw0qvBgxKWm6l/u4YLLcdivXwKs/89
+	 h+gEbKosH+4lkPlwKYEOwFuhimR4ga2rhLnksO9UjkFQ1f9hjCVzgIKBoHhhqwo8F+uLU
+	 23+vC6ZLs8GTOpq7VBD3O8blOzL8IE22iZ/alydvHhvTcmaBWB/Y9VE55bZ2NPqQTwMYR
+	 Yyv9UPkZ1p2TSNV7gvUjcNw3qmszCDsMOgP/sBAg2IzPdFeXTsnjwP4VEC7uzwa/QOA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=c5+bp0TX;
-	arc=none smtp.remote-ip=192.198.163.14
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=IciOi2Ea;
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29EF2606AAC6;
-	Mon,  9 Nov 2026 16:39:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29EF2606AAC6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57F39606A32A;
+	Mon,  9 Nov 2026 16:47:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57F39606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=c5+bp0TX
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794242393; x=1825778393;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qH7YxGJ9MhlbamqziXGD7CqNVxvvHmoJYm/8MPEQnoQ=;
-  b=c5+bp0TX27FhS9VqBt8es5gs7A3bDKHIKAgN4Ix8/BFJU8Aeb7gZ+fYg
-   TqnCc7MI2TEkdqAd8lQB2IYAadBUO1q8JBnCEZQ9zqt89q8Oq1W+D0SEw
-   Y/vGpI2QVJ18vUAlkLM//RV+2+ssbi7tX67XEy6a4FnZiBeFpeMMpIy9q
-   J6chRdPtF/LtLD3hJdNJBYT7gPj0gyRjbCyIl7LNkg0SmyX17t/NfOwGi
-   ryKZj9Zb5o+KqYMalRZk7bzs4xSt6QC3uM4hqBgLKKgEpfFWcYh3Ikj9z
-   0nMqTiUv3IL2Gj3RFEdfibRzOvikiRw424n4VETLMr51+8gx1Pc30ZiiE
-   g==;
-X-CSE-ConnectionGUID: DPre067WQ0aRl85BiO/e8g==
-X-CSE-MsgGUID: PRDJ0bq0SAajJrLbnmcUxQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11961"; a="3003916"
-X-IronPort-AV: E=Sophos;i="6.27,204,1787036400"; 
-   d="scan'208";a="3003916"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Nov 2026 08:37:59 -0800
-X-CSE-ConnectionGUID: GmDWVMvLTauuUilaK9NuLg==
-X-CSE-MsgGUID: r/dUjpvoQKy3cqvMwTbmrA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,204,1787036400"; 
-   d="scan'208";a="8073800"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 09 Nov 2026 08:37:52 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xQSNQ-00000000uud-40BN;
-	Mon, 09 Nov 2026 16:37:48 +0000
-Date: Tue, 10 Nov 2026 00:37:41 +0800
-From: kernel test robot <lkp@intel.com>
-To: John Ogness <john.ogness@linutronix.de>, Petr Mladek <pmladek@suse.com>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Breno Leitao <leitao@debian.org>, printk@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	Feng Tang <feng.tang@linux.alibaba.com>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Mukesh Kumar Chaurasiya <mchauras@linux.ibm.com>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
-	Bradley Morgan <include@grrlz.net>,
-	"Christian Brauner (Amutable)" <brauner@kernel.org>,
-	"Cen Zhang (Microsoft)" <blbllhy@gmail.com>,
-	Petr Pavlu <petr.pavlu@suse.com>, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH printk 1/6] printk: Introduce and specify flush reasons
-Message-ID: <202611100015.e1CNRy54-lkp@intel.com>
-References: <20261109123127.489676-2-john.ogness@linutronix.de>
+	dkim=pass (2048-bit key) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=IciOi2Ea
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=7QCQMX1YjQnxjMAljTgB/goZ5DEceQMQpw/VVgpYcMs=; b=IciOi2EalUVDjRbB5OUGTXNODO
+	rkV1/LhYzpmiMWNxS0A1xxFKSkiO+QzI9vFplgW24p1OsTEo1caT6bzeikKmDF4Q9X5KhWYJD+/1Y
+	TqF82KfcRoWLVw7tEVIqeo4cEIQjdfc3t5Zz1+GRePy3z2ZiNiWB9lkf3Y/rUQdryHdbgYSEchuBE
+	cILT3sN0O6thFzOaI595Wijdsny8EfeIoGfeYVp2zvtY7gmxkOTcjeI5ymgOtE0DMX0KURnSyEVJv
+	ZaUjQhWtX0593JC4Z8Z7s4Cu2q1QIismwYYjKtu8afkDVizNAruRpmJ90N0G92cy4Z0kY/H5iAuwg
+	vtO5znfw==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1xQSWd-00BlNJ-1a;
+	Mon, 09 Nov 2026 16:47:19 +0000
+Date: Mon, 9 Nov 2026 08:47:15 -0800
+From: Breno Leitao <leitao@debian.org>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: Petr Mladek <pmladek@suse.com>, 
+	Sergey Senozhatsky <senozhatsky@chromium.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ryan Roberts <ryan.roberts@arm.com>, printk@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [PATCH printk 3/6] printk: Evaluate flush policy in
+ nbcon_allow_unsafe_takeover()
+Message-ID: <avH1ZVs2Hyx62jgQ@gmail.com>
+References: <20261109123127.489676-1-john.ogness@linutronix.de>
+ <20261109123127.489676-4-john.ogness@linutronix.de>
+ <avHTDeox8nDGLC6Q@gmail.com>
+ <87qzgunkof.fsf@jogness.linutronix.de>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -105,32 +74,41 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261109123127.489676-2-john.ogness@linutronix.de>
+In-Reply-To: <87qzgunkof.fsf@jogness.linutronix.de>
+X-Debian-User: leitao
 
-Hi John,
+On Mon, Nov 09, 2026 at 03:34:32PM +0106, John Ogness wrote:
+> On 2026-11-09, Breno Leitao <leitao@debian.org> wrote:
+> > That is coming from:
+> >
+> >    550 static int nbcon_context_try_acquire_hostile(struct nbcon_context *ctxt,
+> >    551                                              struct nbcon_state *cur)
+> >    552 {
+> >    553         unsigned int cpu = smp_processor_id();
+> >    554         struct console *con = ctxt->console;
+> >    555         struct nbcon_state new;
+> >    556
+> >    557         if (!ctxt->allow_unsafe_takeover)
+> >    558                 return -EPERM;
+> >    559
+> >    560         /* Ensure caller is allowed to perform unsafe hostile takeovers. */
+> >    561         if (WARN_ON_ONCE(ctxt->prio != NBCON_PRIO_PANIC))
+> >    562                 return -EPERM;
+> 
+> Wow, you managed to get a hostile takeover. Out of curiousity, do you
+> know how dangerous this really is? Can this basically just result in
+> garbage on the network? Or is there dangers of running into the forest
+> with NULL or garbage pointers? And is the danger acceptable?
 
-kernel test robot noticed the following build warnings:
+Sure, I was playing with different scenarios, and this was done with a
+test module that forces the takeover:
 
-[auto build test WARNING on d01f86a7da8161aac8c6304b377cf58fb75861ca]
+1) Acquire netcon_ext with nbcon_device_try_acquire(), so the console
+   is owned at NORMAL priority and in an unsafe state
 
-url:    https://github.com/intel-lab-lkp/linux/commits/John-Ogness/printk-Introduce-and-specify-flush-reasons/20261109-133718
-base:   d01f86a7da8161aac8c6304b377cf58fb75861ca
-patch link:    https://lore.kernel.org/r/20261109123127.489676-2-john.ogness%40linutronix.de
-patch subject: [PATCH printk 1/6] printk: Introduce and specify flush reasons
-config: openrisc-defconfig (https://download.01.org/0day-ci/archive/20261110/202611100015.e1CNRy54-lkp@intel.com/config)
-compiler: or1k-linux-gcc (GCC) 16.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261110/202611100015.e1CNRy54-lkp@intel.com/reproduce)
+2) mdelay() for a few seconds without releasing it (simulating
+   a possible netpoll busy TX queue -- or some other networkdelay)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611100015.e1CNRy54-lkp@intel.com/
+3) echo b > /proc/sysrq-trigger from another CPU
 
-All warnings (new ones prefixed by >>):
-
->> Warning: kernel/printk/printk.c:4735 function parameter 'reason' not described in 'printk_trigger_flush'
->> Warning: kernel/printk/printk.c:4735 function parameter 'reason' not described in 'printk_trigger_flush'
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+--breno
