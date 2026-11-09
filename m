@@ -1,64 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794001671;
-	b=kEVllRLzqCY0EJ/TWB8vM94Q6jZjpcWkNEG8ZnoW1b571diIzXgVENAedz3iRjnBM/9E
-	 sNUID2vTwJm8ffLFsuz69pTrCcVMRpXneFh9EPUUlFK5vLjVB/N+f74tcEsBLaXabdZ7z
-	 f1lGmA3puGw8jc7pdwwEZPEgbNEl8tPR/kHMA63ST2aekXmtT8t1Y39cOST3ZNZsiFzJn
-	 X8kgOgOf4TZSwg/qYJpjh5Tm9jDGZDTQNifiQQtt/i30vUq7rMC6RauYrx0mLAjZ5IjCc
-	 LVmqvr0DrCYgyPkHbSYXehpKmjCGoRWTmVm0amVm2BKSF2RXnGXgdY5WNUXULQjCXLg==
+	t=1794227492;
+	b=XNxJzbf3zew8JzXJQ+TivBdNqvhDpHQVi/QDHVrVJIlP3PzPPH66kt3PSNCApqq/yM/t
+	 B5BPKK4SO0bDD7ZseIzw6WCsiiTBB0JV8F+nx2iw3Wuj93fDJdkeJLfaesSWvl3/O1D3A
+	 r16TiwhMT8P5Vyxd0hfc2vouv9YADNtakohxobMl445jWpXPb8wWW2eK81dhKa2Htci3y
+	 lCProlVbyTb5X1EODnbngHHDWGWrsb3uqenU267HXXp3p7GTk52ijSMSPzgf66JSA0InP
+	 DCriU0aMC4sHOEzGWT7TYGJyyhy3ljoh0iU2jDv9nbDYaHWahv7ltK1STLu9WwC/FVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794001671;
-	h=Received:DKIM-Signature:Received:Subject:From:In-Reply-To:References:
-	 X-PR-Tracked-List-Id:X-PR-Tracked-Message-Id:X-PR-Tracked-Remote:
-	 X-PR-Tracked-Commit-Id:X-PR-Merge-Tree:X-PR-Merge-Refname:
-	 X-PR-Merge-Commit-Id:Message-Id:Date:To:Cc;
-	bh=rc+O1mmDbRXdEcnVDNxHKphHB4yijI6X/3l/03/5Ex0=;
-	b=V5fMELNK4XvH1AfGum5XPSoGxNheC3sOHPKXtWZFXTo86mudy27yygTTvp00WvwZRPtg
-	 ZBFDX83chKoJeA0t/FaRrtb74Zcl3Kgyi3TBekh1WaCl3prwXvgoUXrn86UNfzPNAEwdT
-	 vjAtl8LpqQqNuEfCWvzXmebMd0Rh0YEHhUq4BByWbZ61m31wh12/8z+g651i8IF+OdaXU
-	 U+JIhKtVU/hv7ONFgrmkLp+NrEWZ72LUahVhdbwTA3OkALNs1shwM9S5Z75Bg8Ji8/Z5Y
-	 c+hXnlfOqCOtJbBt1Zo+muNkSkx0i8zP9o0xzV4TfK2z4CasH/iAu/t6HxmQb4XrfQQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794227492;
+	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Transfer-Encoding;
+	bh=fIXMPIsA/87cWvB95KQ+/8m1Qdamj/60DkL4G69W9RI=;
+	b=UKtv5KlRGKvKi59x6zIH/IFG/iw/csVA7af4XjeZY+y8Iu97hCl5bwDq8V0QTXLALE53
+	 2EMfFf15u69qRpiozJN8Zqxd5Sc3Q6+tAKj5hZS8BdMRGu+fl44qrkBvxa79BfPjdCbtK
+	 GRBJF+HAF69geE0YKCo/K+ywhPzKLOtmKsdbwgG49XvBc8vjVXwmPQ/2N6zR1mW8HaQjx
+	 oSTPBzqThmmfKOYOETVU+Vc4smvzoTcSibFwe0vNPa37/8dNfL9/DoCpyzDPJYJQfPzhO
+	 9/XB7ADXoZIWManv+VKz23dRLFa0EUdWxVjGjPZ2S4cTdMjBt1NsZAS4RFboT5YWJjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P9zkdYdN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=BVn6goM5;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=icg2C3zy;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 113C7606A326;
-	Fri,  6 Nov 2026 21:47:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D36F606A31C
+	for <printk@lists.linux.dev>; Mon,  9 Nov 2026 12:31:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D36F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P9zkdYdN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5A641F0089F;
-	Fri,  6 Nov 2026 21:47:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794001670;
-	bh=rc+O1mmDbRXdEcnVDNxHKphHB4yijI6X/3l/03/5Ex0=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=P9zkdYdNJS8U7gkvetvxioKi3sSZUrWpdLXxQ47x6vNfBKX5+1TwuH27brW7fsdE0
-	 rEbZKB8dE+3JXWjB6gSnDt24CCZWoxgOZOT11Fn/7Brh6uXNrhG4ayHZRnp45AZ28p
-	 pbL+Gzyi3cxLmNLPUX+702q9HG60RFjpmpFwb0gs3kbPRl8ToyXpADbJtNxhFjzQ4b
-	 FdcPqdhi5QfMGXKPFmw0MO9Y+vSHSkeAbYLhPx/ASfJcWTjncfKPwO+3Luzah4fEdL
-	 k6LNMU38rzBcM18eNQEQ8l4fjXV7xYnLGeetx23CuKo4hLPSTIsXocZ3IkwQa8J4nM
-	 dyhvILYUhMHrQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 9B3BA3A549B8;
-	Fri,  6 Nov 2026 21:47:50 +0000 (UTC)
-Subject: Re: [GIT PULL] Few printk fixups for 7.4
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <au2wcOTpkirvACU6@pathway.suse.cz>
-References: <au2wcOTpkirvACU6@pathway.suse.cz>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <au2wcOTpkirvACU6@pathway.suse.cz>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/printk/linux.git tags/printk-for-7.4-fixups
-X-PR-Tracked-Commit-Id: 8a7f26aa072a4e63bc3b1adfe649546709db722e
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: bdeb84ed24e543930487f03f5243bbf83aebaf31
-Message-Id: <179400166915.891032.9538037156695591653.pr-tracker-bot@kernel.org>
-Date: Fri, 06 Nov 2026 21:47:49 +0000
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=BVn6goM5;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=icg2C3zy
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1794227489;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=fIXMPIsA/87cWvB95KQ+/8m1Qdamj/60DkL4G69W9RI=;
+	b=BVn6goM5DdOyungF+KCccmht5x5GkRSV4guGwd3HLRCXTbHqP2RNiBFSjb1lRM13W51iy0
+	nY5UzEMxxhDgwT2yZpZWahcO/gFqmk3egT5469koNPX/h3rPNizr+IxKAMVVirbhfly6wZ
+	GbApcLMlTK56edrSa23nENBu4lALoN/Ok5UUwxPBZYFgFD7oMltFdIPLKmBFoHAyZIGP0j
+	cb4g0qnyjR42YZWtEp19Jh/oUNlIxTbjt+nejaridLx/hizJ/F3Xx4LHIMDbfB8aQOFq+s
+	DON4vr114yGTh1Dsj3tBOMazfCEaQiC5hHj1AzT8sR88fGghX5fUPWaOAyaCRQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1794227489;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=fIXMPIsA/87cWvB95KQ+/8m1Qdamj/60DkL4G69W9RI=;
+	b=icg2C3zy263T42rXs/vcrNrmpaVc6W/Byd9Lrj/krqLWZRCOZgtpnTqaiIvsOkFPEgixus
+	tgqbc4XsQzsLndDA==
 To: Petr Mladek <pmladek@suse.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, John Ogness <john.ogness@linutronix.de>, Sergey Senozhatsky <senozhatsky@chromium.org>, Steven Rostedt <rostedt@goodmis.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Rasmus Villemoes <linux@rasmusvillemoes.dk>, Peter Zijlstra <peterz@infradead.org>, Petr Mladek <pmladek@suse.com>, printk@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Breno Leitao <leitao@debian.org>,
+	printk@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Feng Tang <feng.tang@linux.alibaba.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Mukesh Kumar Chaurasiya <mchauras@linux.ibm.com>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Bradley Morgan <include@grrlz.net>,
+	"Christian Brauner (Amutable)" <brauner@kernel.org>,
+	"Cen Zhang (Microsoft)" <blbllhy@gmail.com>,
+	Petr Pavlu <petr.pavlu@suse.com>,
+	linuxppc-dev@lists.ozlabs.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rio <rioo.tsukatsukii@gmail.com>,
+	Aaron Tomlin <atomlin@atomlin.com>,
+	Bradley Morgan <brads@mainlining.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Alessandro Carminati <acarmina@redhat.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Pnina Feder <pnina.feder@mobileye.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Mike Rapoport <rppt@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Dave Young <ruirui.yang@linux.dev>,
+	kexec@lists.infradead.org,
+	Gustavo Luiz Duarte <gustavold@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org
+Subject: [PATCH printk 0/6] Introduce policies for unsafe flushing
+Date: Mon,  9 Nov 2026 13:37:17 +0106
+Message-ID: <20261109123127.489676-1-john.ogness@linutronix.de>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -67,16 +110,58 @@ List-Subscribe: <mailto:printk+subscribe@lists.linux.dev>
 List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-The pull request you sent on Fri, 6 Nov 2026 11:48:16 +0100:
+Until now unsafe flushing is only performed at the very end of
+panic(), before entering the infinite loop. For other situations
+(such as panic-kexec or panic-reboot or emergency-reboot) no
+unsafe flushing is performed. The reasoning for this is because
+an unsafe flush could lead to fireworks, which could prevent the
+kexec or reboot from occurring.
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/printk/linux.git tags/printk-for-7.4-fixups
+However, some users may be willing to take on such risks in order
+to see panic output. Indeed, for the netconsole (which does not
+support safe atomic printing) it is a regression that such unsafe
+printing does not occur. [0] 
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/bdeb84ed24e543930487f03f5243bbf83aebaf31
+This series adds unsafe flushing policy flags per-console to
+allow individual consoles to perform unsafe flushing for such
+scenarios. The unsafe flushing is hard-code-enabled for the
+netconsole in patch 6/6. The justification is that this is not
+less safe than the legacy netconsole.
 
-Thank you!
+Later these policy flags could be easily exposed to userspace
+via /sys/class/consoles/, once the sysfs per-console interface
+is available.
 
+John Ogness
+
+[0] https://lore.kernel.org/lkml/20260915100140.3631650-1-ryan.roberts@arm.com
+
+John Ogness (6):
+  printk: Introduce and specify flush reasons
+  console: Introduce unsafe flush policy flags
+  printk: Evaluate flush policy in nbcon_allow_unsafe_takeover()
+  printk: Remove nbcon_atomic_flush_unsafe()
+  printk: Add panic+kexec flush point
+  netconsole: Always perform unsafe flushing on panic/kdb/restart
+
+ arch/powerpc/kernel/watchdog.c |   2 +-
+ drivers/net/netconsole.c       |   4 ++
+ include/linux/console.h        |  37 ++++++++---
+ include/linux/printk.h         |  27 ++++++--
+ kernel/crash_core.c            |   1 +
+ kernel/panic.c                 |   2 +-
+ kernel/printk/internal.h       |   4 +-
+ kernel/printk/nbcon.c          | 117 ++++++++++++++++++++++-----------
+ kernel/printk/printk.c         |  16 ++---
+ kernel/reboot.c                |   2 +-
+ lib/nmi_backtrace.c            |   2 +-
+ 11 files changed, 146 insertions(+), 68 deletions(-)
+
+
+base-commit: d01f86a7da8161aac8c6304b377cf58fb75861ca
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+2.47.3
+
