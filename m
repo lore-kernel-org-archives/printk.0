@@ -1,62 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794313904;
-	b=d44abAHXNHTlQnY0Q0aQnbTkyiTghImVyCaqmXHajkN2w3Av7TpkxmlL1Zhqj8EsvatN
-	 jQ3/oQVwgo0NBZcFYHoGLNafnrXv0zWaJ1Gazi1p3i+hi1OC3CRwc+hzLoUpnjVqVlMct
-	 osjIbt9psIV55VihmIz8FxzLdwzX5BSkrlCwczqXQK96Zs7fWR6n1OkfoDtCblpp3FOz5
-	 qKMs7t8vLkhvlNaudeaCb6RydnZtqysMGqiTbtzb18MDGJunWR1fGDAk8ZgcYIUBB3QoM
-	 AWdCOQBfMnZiSDMHFimcgGc2eTQ0lxFJxSisxa8jFmKgeLE2vW1RijEC19vAwp8O7KQ==
+	t=1794313906;
+	b=bXyQzvNj6lK0FtO7oOC/rN9qHCsrIGer8sf8u5ETHBjCdt55cgsGBYwp7qnMrU35QYfu
+	 7m8kqH8AESu7dneEMKRfXGGXjTjF1Qv+nQ70+DAONIhFNmN4oEvTTilmwMYlBWBGcfXyS
+	 kxUWv17ejRm2djIimVCgVYfCbgz79jD8PGa6SRqaz7X0WdBh//7aMhjieGP9oj96EsJAs
+	 MG8OpILJ6C6bWmkZ7wCBHZImbP81kF6GssRVjYCnZBORXI9V798EIj6zsCV9F2KF6MTX7
+	 +/ap4e8/HmpVDQ9MzfhGqJM1RrtWD77x/5zcH9p44vGgz4aUrr54mY658gw2pVnzskA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794313904;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794313906;
 	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
 	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=Fz622Hv9HVeZOLezQmXK0HnRQS0e6/rI5mneSuo3pRM=;
-	b=vBeSoFl86fKLhoDahsgqrfHO7bDyJNQh9dmI37nVOPMZusIrQTZo8vs6Gtr/hKBLKcFD
-	 XLWD2yPSt+hld3IyTkNZPjX5EXlGQXp/RDg8SlKz6USEbklaCUYhG9gkw24S1RIGW4NiM
-	 NrB1v66bKFjX347pBN2kXFHQsczKaTS2jj54RGpr/SPmPLhx43ziJFbouMkxX9NlexLnn
-	 HSxUv1C0unYa2dcHpDV4KzfehWrIyXfHfIGgYbmx8GKU6xbOpbMhJ52+3TAAIvEuO9Ed5
-	 yiVDBxlXTJ+td2LS2YTU/4MIySm9h4JD7EnSjUtmpx9EIQJvuRWtkHBmr52f9Zmhfrg==
+	bh=dWJPBGThLFJByv2UkZ/VLruGGmqVFvQtuLEIC7nDM1E=;
+	b=ZsfV/VETRL2Ktrei+6DV1WwP9oB3Fc5VaSm1/BcQOnxiEJPnukldQ17pQRi+7bXh80JP
+	 O/1QdY3Nh2ZH6/JN5gJMquywJ9Z0UOebBbqzSXFdy4o3TD/ljMa64FslIQ0T93lcTFMzw
+	 dyzbIr6xyyA8P4YO6WW1bU//rPK5GUqPKBKD9Zyb3Jig0TZVPCqNS1Mqp8B1qu2tuy9v7
+	 VW4PoceMPEFjDMqYR6fWAqdcfa/4YdSFy7IbjFb7z47p8jL8I4XOBKmikw/zG+3M6soEG
+	 vxwcl1Ydb1UILlBVGIgSEORjLHbDPNDgOQtWeIxUBIob/6JFcDAINZzHmmsP/jZ5gQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BbW2GjUA;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lrj9KDVo;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 687B6606A31C
-	for <printk@lists.linux.dev>; Tue, 10 Nov 2026 12:31:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7746B606A31C
+	for <printk@lists.linux.dev>; Tue, 10 Nov 2026 12:31:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BbW2GjUA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BEF21F0089F;
-	Tue, 10 Nov 2026 12:31:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lrj9KDVo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5CB31F008A1;
+	Tue, 10 Nov 2026 12:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794313904;
-	bh=Fz622Hv9HVeZOLezQmXK0HnRQS0e6/rI5mneSuo3pRM=;
+	s=k20260515; t=1794313906;
+	bh=dWJPBGThLFJByv2UkZ/VLruGGmqVFvQtuLEIC7nDM1E=;
 	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=BbW2GjUADr4uW5llYz8hviCYMTSBHAlACQESW/yNq1AgaoQDzhY+3w8K25+eB1QgY
-	 breQ6HivS6AEOGrL6RyN2odSHpV1oekfP2vRa5ZYhqhK+bBxV1Ns/SNFYVi6M6BO1r
-	 UpFZrJYeTp/UucDS4QNEDQDBOUDy1wFsIc1wohXBQrX9oZttGDuiWWM507Vbzl6K5R
-	 NGWLmZD8g43/jzVelm5W6GbpMiSKyCLIbv9pxbJ3d6TUHTzBydj7R1rptI93P16IFf
-	 nsfy7oSmgtWorVArYEHIs6ubLLDDIT40n3CU8lm0YdR8CBat0dx0z/zpsvfBP55hlJ
-	 5nl+tqUUKb7pw==
-Message-ID: <sashiko-outbox-207025@kernel.org>
+	b=lrj9KDVo1dcPHlCCm7mVLutD/MJMCwlTVuor3x0r5I+hlE+x6sklLHKSfevQmMrOQ
+	 V5ppoCMasJpLNp2GRzDskcZOVtIvPaVnpUKI8ySPZ5wxi12RvUjWQVsci2wxhm/u++
+	 l1AmtdK1mojM4mzH1ETam/QRL4wmLNGxlJ+Jts3jziRR2OzSepmDJG30OPA8uP5Bde
+	 MlOtMELyInPGgwT77mrXEseWhz4Z8n8C8fXlUCOggA81gflsPehcz135+1ptYmdRBK
+	 Wi7JkMjj+iBxXeWWX9hfQhJ9BMPBZ5AiHg3JbZuJi5BcMkV/u7gTLq/Z4yZavQ+XBd
+	 WVWEP/9GnZcPQ==
+Message-ID: <sashiko-outbox-207027@kernel.org>
 From: sashiko-bot@kernel.org
-Subject: Re: [PATCH printk 4/6] printk: Remove nbcon_atomic_flush_unsafe()
+Subject: Re: [PATCH printk 6/6] netconsole: Always perform unsafe flushing
+ on panic/kdb/restart
 Reply-To: sashiko-reviews@lists.linux.dev
 To: "John Ogness" <john.ogness@linutronix.de>, "Petr Mladek" <pmladek@suse.com>
 Cc: "Sergey Senozhatsky" <senozhatsky@chromium.org>, "Steven Rostedt" <rostedt@goodmis.org>, "Ryan
- Roberts" <ryan.roberts@arm.com>, "Breno Leitao" <leitao@debian.org>, printk@lists.linux.dev, "Andrew
- Morton" <akpm@linux-foundation.org>, Rio <rioo.tsukatsukii@gmail.com>, "Aaron
- Tomlin" <atomlin@atomlin.com>, "Bradley Morgan" <brads@mainlining.org>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>, "Alessandro
- Carminati" <acarmina@redhat.com>, "Randy Dunlap" <rdunlap@infradead.org>, "Pnina
- Feder" <pnina.feder@mobileye.com>, "Petr Pavlu" <petr.pavlu@suse.com>
-In-Reply-To: <20261109123127.489676-5-john.ogness@linutronix.de>
+ Roberts" <ryan.roberts@arm.com>, "Breno Leitao" <leitao@debian.org>, printk@lists.linux.dev, "Gustavo
+ Luiz Duarte" <gustavold@gmail.com>, "Andrew Lunn" <andrew+netdev@lunn.ch>, "David
+ S. Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@kernel.org>, "Jakub
+ Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>
+In-Reply-To: <20261109123127.489676-7-john.ogness@linutronix.de>
 References: <20261109123127.489676-1-john.ogness@linutronix.de>
- <20261109123127.489676-5-john.ogness@linutronix.de>
+ <20261109123127.489676-7-john.ogness@linutronix.de>
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-Date: Tue, 10 Nov 2026 12:31:42 +0000
+Date: Tue, 10 Nov 2026 12:31:45 +0000
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -68,58 +67,120 @@ Precedence: list
 
 Thank you for your contribution! Sashiko AI review found 1 potential
 issue to consider:
-- [Medium] printk: vpanic() skips unsafe nbcon flush when boot console
-  is active
+- [Medium] netconsole: non-panic unsafe_flush_flags trigger WARN in
+  hostile takeover
+It also noticed 1 related pre-existing issue this patch does not
+introduce:
+- [Critical] netconsole: unsafe lockless list traversal in
+  netconsole_write() [1]
 --
 
-commit 6f37b0702a64fde38f7e7f4187ca677f41bb3307d
+commit 1e2f8b2c899dd40b8577d9ff311ebf00557f27b8
 Author: John Ogness <john.ogness@linutronix.de>
 
-printk: Remove nbcon_atomic_flush_unsafe()
+netconsole: Always perform unsafe flushing on panic/kdb/restart
 
-This commit removes nbcon_atomic_flush_unsafe() and replaces its call at
-the end of vpanic() with printk_trigger_flush(PR_FLUSH_HANG).
+This commit sets unsafe_flush_flags on the netconsole and netconsole_ext
+consoles to allow unsafe NBCON flushing during panic, kdb, and restart.
 
-> diff --git a/kernel/panic.c b/kernel/panic.c
-> index a4dbb6b8cd2bf..7c03a17ba1288 100644
-> --- a/kernel/panic.c
-> +++ b/kernel/panic.c
-> @@ -765,7 +765,7 @@ void vpanic(const char *fmt, va_list args)
->  	 * Explicitly flush the kernel log buffer one last time.
->  	 */
->  	console_flush_on_panic(CONSOLE_FLUSH_PENDING);
-> -	nbcon_atomic_flush_unsafe();
-> +	printk_trigger_flush(PR_FLUSH_HANG);
-> =20
->  	local_irq_enable();
->  	for (i =3D 0; ; i +=3D PANIC_TIMER_STEP) {
+> diff --git a/drivers/net/netconsole.c b/drivers/net/netconsole.c
+> index 267254f046de9..6c1587958e915 100644
+> --- a/drivers/net/netconsole.c
+> +++ b/drivers/net/netconsole.c
+> @@ -2695,6 +2695,8 @@ static void free_param_target(struct netconsole_tar=
+get *nt)
+>  static struct console netconsole_ext =3D {
+>  	.name =3D "netcon_ext",
+>  	.flags =3D CON_ENABLED | CON_EXTENDED | CON_NBCON | CON_NBCON_ATOMIC_UN=
+SAFE,
+> +	.unsafe_flush_flags =3D NBCON_PANIC_FLUSH | NBCON_PANIC_PRINTK | NBCON_=
+KDB |
+> +			      NBCON_NORMAL_NOTHREAD,
+>  	.write_thread =3D netconsole_write_ext,
+>  	.write_atomic =3D netconsole_write_ext,
+>  	.device_lock =3D netconsole_device_lock,
+> @@ -2704,6 +2706,8 @@ static struct console netconsole_ext =3D {
+>  static struct console netconsole =3D {
+>  	.name =3D "netcon",
+>  	.flags =3D CON_ENABLED | CON_NBCON | CON_NBCON_ATOMIC_UNSAFE,
+> +	.unsafe_flush_flags =3D NBCON_PANIC_FLUSH | NBCON_PANIC_PRINTK | NBCON_=
+KDB |
+> +			      NBCON_NORMAL_NOTHREAD,
 
 [Severity: Medium]
-Does replacing nbcon_atomic_flush_unsafe() with
-printk_trigger_flush(PR_FLUSH_HANG) skip the final unsafe nbcon flush when
-a boot console is still registered?
+Can enabling NBCON_KDB and NBCON_NORMAL_NOTHREAD trigger the WARN_ON_ONCE()
+in nbcon_context_try_acquire_hostile() and fail to flush?
 
-Previously, nbcon_atomic_flush_unsafe() unconditionally called
-__nbcon_atomic_flush_pending(PR_FLUSH_HANG, ...) for all nbcon consoles.
-printk_trigger_flush() only calls nbcon_atomic_flush_pending(reason) when
-ft.nbcon_atomic is set by printk_get_console_flush_type():
+__nbcon_atomic_flush_pending_con() and nbcon_kdb_try_acquire() set
+ctxt->allow_unsafe_takeover from nbcon_allow_unsafe_takeover(con, reason),
+which returns true for PR_FLUSH_KDB, PR_FLUSH_RESTART, and post-kthread
+PR_FLUSH_RUNTIME even when ctxt->prio is NBCON_PRIO_EMERGENCY or
+NBCON_PRIO_NORMAL:
 
-kernel/printk/internal.h:printk_get_console_flush_type() {
+kernel/printk/nbcon.c:nbcon_kdb_try_acquire() {
 	...
-	case NBCON_PRIO_PANIC:
-		if (have_nbcon_console && !have_boot_console)
-			ft->nbcon_atomic =3D true;
+	ctxt->prio			=3D NBCON_PRIO_EMERGENCY;
+	ctxt->allow_unsafe_takeover	=3D nbcon_allow_unsafe_takeover(con, PR_FLUSH_=
+KDB);
+}
+
+kernel/printk/nbcon.c:nbcon_context_try_acquire_hostile() {
+	...
+	if (!ctxt->allow_unsafe_takeover)
+		return -EPERM;
+
+	/* Ensure caller is allowed to perform unsafe hostile takeovers. */
+	if (WARN_ON_ONCE(ctxt->prio !=3D NBCON_PRIO_PANIC))
+		return -EPERM;
+}
+
+If KDB or emergency_restart() interrupts the netconsole kthread while it is
+inside the nbcon_enter_unsafe() section of netconsole_write(), direct and
+handover acquisition fail with -EBUSY and nbcon_context_try_acquire() falls
+through to nbcon_context_try_acquire_hostile(), hitting the warning and
+returning -EPERM without flushing.
+
+>  	.write_thread =3D netconsole_write_basic,
+>  	.write_atomic =3D netconsole_write_basic,
+
+[Severity: Critical]
+This problem wasn't introduced by this patch, but can netconsole_write()
+race with target list updates or device teardown [1] when called from
+write_atomic without target_list_lock?
+
+While write_thread holds target_list_lock via netconsole_device_lock(),
+write_atomic invokes netconsole_write() locklessly.  netconsole_write()
+traverses target_list with non-RCU list_for_each_entry() and dereferences
+nt->np.dev in netif_running(nt->np.dev) and netcons_skb_pop():
+
+drivers/net/netconsole.c:netconsole_write() {
+	...
+	list_for_each_entry(nt, &target_list, list) {
+		if (nt->extended !=3D extended || nt->state !=3D STATE_ENABLED ||
+		    !netif_running(nt->np.dev))
+			continue;
 	...
 }
 
-When have_boot_console is true (such as before printk_late_init() or with
-keep_bootcon), ft.nbcon_atomic is false.  The fallback ft.legacy_direct
-path in printk_trigger_flush() does not forward the flush reason to
-nbcon_legacy_emit_next_record(), leaving ctxt->allow_unsafe_takeover false
-(and does not run at all if console_trylock() fails or legacy printing is
-deferred), so an nbcon console held in an unsafe state will no longer be
-taken over and flushed at the end of panic.
+A concurrent target addition, removal, or device release on another CPU can
+corrupt the list traversal or cause a NULL pointer dereference or
+use-after-free on nt->np.dev:
+
+CPU0                                CPU1
+drop_netconsole_target()            netconsole_write()
+  spin_lock_irqsave(&target_list_lock)
+  list_del(&nt->list)
+                                      list_for_each_entry(nt, &target_list,=
+ ...)
+                                        <-- follows torn pointer / LIST_POI=
+SON
+netcons_release_dev()
+  nt->np.dev =3D NULL
+                                        netif_running(nt->np.dev)
+                                          <-- NULL pointer dereference
+
+[1] https://sashiko.dev/#/bug/linux-5d4ba9e4-a230-401f-bfcf-b5d9ed4aa3b5
 
 --=20
 Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261109123127.4896=
-76-1-john.ogness@linutronix.de?part=3D4
+76-1-john.ogness@linutronix.de?part=3D6
