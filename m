@@ -1,80 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794261955;
-	b=KfQqZCfoszxx5XLdh7QR6+sk6jAaR7++bdf+5m0JshxvF9Ypv0OWVgzsGpHrC445/IOU
-	 XR7PEzE/vznkzAQ9i74wVQfecdBXWN6lAYtu2o+1VRQI4lKRnKLyDZi32ujyCz+1AXuBe
-	 psDUEJausT3uSkFGOIk298HvZUA516PakFdFibAxiAdyutm6GNISHGAsFAndWSWQUDvLv
-	 s909Mdfib4583z7cRPv9zhhn9EN6aPjnl5DWojO8p+78kORyoHHZdaaUg3iQQkMyJBfgz
-	 cTq4hZL0pe3QIw8H26m4+1c3h4/DOST8/kGvenmnsMcQiHSNQaeiZvoeCBmRScMy2Sg==
+	t=1794300563;
+	b=AxGEH6ZegfLyl6TvOX+eWF8zO0aTJ5dKnYPEIxvgia+TRf+4V3MegAFWU9REpCautDYP
+	 9eciG5IQcjUVH1X+ILYQeEhR4DcT7Dsomd5NiRRuWYeQ6An2/4uy591ar2NHRLffRQq+i
+	 +TyB+Ie7BAW4oTk4nm/OpnmS9kKPVhRvtasC3i1NzHZtwIclsFl0o1+C9Ld9y3NU88GPF
+	 GLf2rUKW1RqbXPjzCpQiJuqfRt1auV418xfEr/Cp/csESVlmwQgOHmgTzMxYVHhB3aXNU
+	 JrSBpMve2nqR7zH8ToQAZDhSXnQdrJGpoMD7vZs9LjHtMLLRbwhpXD0HlbIool6REXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794261955;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=/t589UiWWwPBpeNap8eorpHvLnoEI38RS6Gj6TGU3T4=;
-	b=UjagvE8HCmES4BHxklaRAEzG6HJkxcfheaRTd49VepJnOzPBxPu/EWBYbkIjuuIQOF5H
-	 8GXVy7+QEFTkCvGr9QgXVHS0hEsvv2vQB9hgxStEFm/R2vjWO3q9lggWtdMNKci6ynhwx
-	 h7AeJWTG4zY6ghtEgHK8YSiwGHC9EvOVHwYld4GV5kpr90F9/wbm79nni09mKcbozdwYH
-	 OTTzbujAtcRZ+qfjJaU47cgmB6o7X/ofyCOCupn7U3/AihhvlYNKjaGB4TZRw+azNiNg9
-	 Q/cK901JleV9v5l6xlZaJdxXiTlPVyErjWRYVhCxzxtVHqRi1tSdgaSbuVxJziACHrg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794300563;
+	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:
+	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
+	bh=mA2kKVvz8Zo1bjkKdij3A3VIEQ8ORUrZ6l6fiNtUyi8=;
+	b=Xpz2UX19nb93yEF5GRiEymWSjxny+rzg9gtGDmM1KrMmt3GhD1AC8UuTh9EOXekWCOTd
+	 NWkolShP1wFeWnyU/t8zgWRgZrbrCdPLdvfU5P6zIJ1kS1yU4JWx2pdfIuhsuAl3Qe71w
+	 vKG2i+tkV/M0hm5L8u000K7DdTWR4srL+XCMaSgfCtl+y8UigesiNnPHIFDQR6rD6uxjR
+	 64nVwE6V453ILK9I6CD+XZH0WkKHWcTPZVkOjy+HaMhVP9tG6p/7Ml5KOf0OKBhmHYGsD
+	 POXIxFssDDKq96aSAw/yOAFV/nYf45zo3GSQlUTChRooBccCaj8J8eaxeaRYNB8B2hw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=dbuU83HV;
-	arc=none smtp.remote-ip=192.198.163.11
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=temperror header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=zay7kTVV;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=DJB3Lig9;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D47B5606A321
-	for <printk@lists.linux.dev>; Mon,  9 Nov 2026 22:05:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D47B5606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8BBA606A31C
+	for <printk@lists.linux.dev>; Tue, 10 Nov 2026 08:49:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8BBA606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=dbuU83HV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794261954; x=1825797954;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ym0jDnCGALxDNMgm30e0xqM905yi4RDT1pkp7/cO618=;
-  b=dbuU83HViS7y2oUzsqPk6e9rX60qxFWtPH7JLl5Y8aoS/5oPUrL+ZVAz
-   UR3zFGKU4VLNd3nHkkx9ZUPxS2yLwDT0z2QJkxnIF56pJZEDfB/X7Ioaz
-   xZDABmQH7IbGNKdpJt3tS0K2Y0UZ528gyjRjVAt0zqAWYnvUPDFluxIPM
-   m5RKZgwX3R+F7Hb3ZUEE2SscRAe7OHszqf1UalcoKzkfcMRCd0fFVsNwd
-   2Ux9aO4voN+zOD/y6EQdvlQnRaiue7bApzQM+6nKia2Yr/wnOGQulrq2e
-   32Iw4KOzQ4xnOLMM2/J1tzRX4Jb74VN8mWxu688OBsknupP3kA8GhmZX4
-   g==;
-X-CSE-ConnectionGUID: pT7bEel9S3WaK5DFAczvAA==
-X-CSE-MsgGUID: AURAv4ZWQ0eMFrX3LJ9Ing==
-X-IronPort-AV: E=McAfee;i="6800,10657,11961"; a="2913975"
-X-IronPort-AV: E=Sophos;i="6.27,204,1787036400"; 
-   d="scan'208";a="2913975"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Nov 2026 14:05:53 -0800
-X-CSE-ConnectionGUID: ZZ7Z3tNQTqyz7ThSlP12eQ==
-X-CSE-MsgGUID: iQUJfHslQumdJ0aw017jZA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,204,1787036400"; 
-   d="scan'208";a="8121387"
-Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.244.144])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Nov 2026 14:05:51 -0800
-Date: Tue, 10 Nov 2026 00:05:48 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: John Ogness <john.ogness@linutronix.de>
-Cc: Petr Mladek <pmladek@suse.com>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Breno Leitao <leitao@debian.org>, printk@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+	dkim=temperror header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=zay7kTVV;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=DJB3Lig9
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1794300556;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mA2kKVvz8Zo1bjkKdij3A3VIEQ8ORUrZ6l6fiNtUyi8=;
+	b=zay7kTVVp2m+o7JUTTJzwebW9g/+E+6XATtuJB9qSxEXtOhBN5CY7+Fk4Y64T6STe2Qei9
+	mLmc4lpsmshlbd8J7ktCjE3J7eUMg5LDD1Crt0z666v1ViWzpOK6yUtr0Fq6DkyGis1JAx
+	adpU+7bx9tL6Nn/kxSsU/cOVDhHTD2vPL/EWUFwi8GFhCnFghrfAuzAl+AopzrpndIP8Ok
+	YfXDUXhJi8qgCcV3xm6ln++rrqHpnfbp8XKaOdLJW5yxKFB7FQvA4OlpePC1MC3BlNl7HR
+	g3WlNx9zuEvV5H+H4zuGYd1hl4F/ApHE5ucOnWKzI2zox9a+HrbF4gFoGHp7Dw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1794300556;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mA2kKVvz8Zo1bjkKdij3A3VIEQ8ORUrZ6l6fiNtUyi8=;
+	b=DJB3Lig9c+2HLwJJWpCu0mz+rX2WorbSM7AdpdZYwKv5olp6yDiU8/HQrOa5VcFoejL2Bg
+	8nHObyL1Dxp5LsBg==
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Petr Mladek <pmladek@suse.com>, Sergey Senozhatsky
+ <senozhatsky@chromium.org>, Steven Rostedt <rostedt@goodmis.org>, Ryan
+ Roberts <ryan.roberts@arm.com>, Breno Leitao <leitao@debian.org>,
+ printk@lists.linux.dev, linux-kernel@vger.kernel.org, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>
 Subject: Re: [PATCH printk 2/6] console: Introduce unsafe flush policy flags
-Message-ID: <avJDvDl0Hcx_CEGY@ashevche-desk.local>
+In-Reply-To: <avJDvDl0Hcx_CEGY@ashevche-desk.local>
 References: <20261109123127.489676-1-john.ogness@linutronix.de>
  <20261109123127.489676-3-john.ogness@linutronix.de>
+ <avJDvDl0Hcx_CEGY@ashevche-desk.local>
+Date: Tue, 10 Nov 2026 09:55:15 +0106
+Message-ID: <87eccthy0k.fsf@jogness.linutronix.de>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -84,31 +76,29 @@ List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261109123127.489676-3-john.ogness@linutronix.de>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain
 
-On Mon, Nov 09, 2026 at 01:37:19PM +0106, John Ogness wrote:
-> Prepare for per-console atomic flushing policies by introducing a
-> new nbcon-specific console field @unsafe_flush_flags to store the
-> unsafe flush policies for a console. The policies are represented
-> by bits, specified by enum nbcon_unsafe_flush_flags.
-> 
-> Currently it is expected that any @unsafe_flush_flags bits are set
-> prior to console registration and do not change while registered.
-> 
-> No functional change.
+On 2026-11-10, Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+> On Mon, Nov 09, 2026 at 01:37:19PM +0106, John Ogness wrote:
+>> Prepare for per-console atomic flushing policies by introducing a
+>> new nbcon-specific console field @unsafe_flush_flags to store the
+>> unsafe flush policies for a console. The policies are represented
+>> by bits, specified by enum nbcon_unsafe_flush_flags.
+>> 
+>> Currently it is expected that any @unsafe_flush_flags bits are set
+>> prior to console registration and do not change while registered.
+>> 
+>> No functional change.
+>
+> ...
+>
+>> +	int			unsafe_flush_flags;
+>
+> Why are flags signed?
 
-...
+It is not relevant and all other flags in struct console are signed, so
+I figured it would blend in. I will change it to unsigned for v2.
 
-> +	int			unsafe_flush_flags;
+Thanks for taking a look.
 
-Why are flags signed?
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+John
