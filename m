@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794412169;
-	b=wvPb3E5eieyk9m9/M8sb/UNf2kNePCSs3WWyucQbXgQkbYVw9KGVdRwiXfRF8KL+QORp
-	 Trhs13RoIGZ+dr8LFbcBtEHXK+78SxnNOgrGA4I0skz10EsAIdr1hbO3qxJE+bVs+E4yW
-	 oHtteG8bCHcMDAK1NVemNZIQCSKCqX1Y38aKPD+OO3kyDoPgtk1juUqerDvpspIBTP5Ny
-	 ceScddOFXnRlDwlIy/KU+3JgdSJOIZ6mA8F9M6qRpnTeioOdv31zpfUcZ1v48bQGUBSPV
-	 icfULxfuujfodQPO0iDA+S08V6baCdSoibfsZESqP3PWKh8r5r2stnXybFCmyPV+I0Q==
+	t=1794412181;
+	b=EnQlFCtYKgb4Js8E9R/zGfrnCqBrbw7NHrk3C46OPMXivDVgZhwyKorYdEcx6DTYVeVU
+	 Ar8BDAMNMJZB/DfcKdgx3OznKqP0TN9WXjmC9iC7ltL+iV4P1RnEeGNu0W3CPxRGItMyQ
+	 3m6AZpeIsyTKR0LXDD1jK/j8rsHGbL8pxdO3gnZurKsd1TYTHZPPjN12LVw7XGqEEnN2F
+	 QH+M0W+g/mgyEOPr9UPZGK9IB89RJEeW9YkSurW2T8fv0oUDum+CJPOVLbi7WbehkMH4g
+	 BHT1rMQ7C2U7xNRma4ZhVEj8tZ9SVVnBLlXJrRohSihF7ueIYKw1Bz4NYNPv9ursVFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794412169;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794412181;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=n/olX1ECWtvPiVGgVf9lD7wfSWXuiytEwuoy8qrBu+8=;
-	b=DD0kE/ptaLc68jsutT552G5DjWqC/ja7UtZur60r1LPEiwqAgkFheYuMZOfz7AXqn6Yn
-	 8QhKOpfm/b29JCTIP7ZiqR6+/nQRKG93Hy7Rwl1xTeLsarowM4UBaJnHnRMSKMj80cyhT
-	 m5Tl7Fsyal8TDNNSl2VwMnmcdnMTz0GOcnzTlVh1SO/XM4v/37hD/pFT9cOQUcFxhhJzr
-	 f9llQSKBay/ROIjRrRMP9cE+X6QFKb2am8gASmZrCBZXzadKkkoUBNWd6NrIbQ1H26N5a
-	 Q1/3my7PUDaGsGAydAktRF1THjUUV0QCYPqu507Bd066bU2fcHLaYpIVKrvAyHV36hQ==
+	bh=zY/MYfFEjw2YFz6ONFSXVTOnks+S+fKlmAWumtYd/lg=;
+	b=ChFmBbsQEmf2a4+m3coisdbgdngbwffjnRDwFWraHvxO+rIdBmRvnWg3M4TeXtnKg0CZ
+	 bldpXplBsWNx61087+6zt3mehm9uDE5NJdbV/nHHv7tQroI0wgCdAWP2Emqkuw0MVJjRK
+	 aCMx//bk8fDrimf+IJTScs5n7w1I1GVcsgNPtwHsIsyhwgL0BGFo+oPsnQA7POBKh4WEu
+	 4X92OdMOov+5Kf6d/bvICW754joapsffiZA4faOXILxsnSUPvaGfglbonVKj2KmCal7mM
+	 KAEr74EJ4QizlFFg0NPiaW7zcAUDEaq3VaeW2rdDFZQaMbKdd0RqY2RfnoxtXuyndFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.com;
 	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=R9javIIa;
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=CJVWARTB;
+	arc=none smtp.remote-ip=209.85.221.49
+Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B16C606A326
-	for <printk@lists.linux.dev>; Wed, 11 Nov 2026 15:49:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B16C606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B95AA606A32D
+	for <printk@lists.linux.dev>; Wed, 11 Nov 2026 15:49:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B95AA606A32D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=R9javIIa
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-490a0e72588so1838551f8f.3
-        for <printk@lists.linux.dev>; Wed, 11 Nov 2026 07:49:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=CJVWARTB
+Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-49134c8509fso2724512f8f.1
+        for <printk@lists.linux.dev>; Wed, 11 Nov 2026 07:49:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1794412167; x=1795016967; darn=lists.linux.dev;
+        d=suse.com; s=google; t=1794412179; x=1795016979; darn=lists.linux.dev;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=n/olX1ECWtvPiVGgVf9lD7wfSWXuiytEwuoy8qrBu+8=;
-        b=R9javIIakNcBjs6YdSbYBvNz2hJ6/Jb6kT2m0k575z2YPDJhO8rDQPu426xAB75UN/
-         Yb8YFYuNRIk5rteWLHivR+vtjG0LyO1X39h1pCBYiq0ur5Qn3iQA5bkOXB5Y9JLqMX1H
-         6QJVs0x9koP0xGDx6Z4asiM4W+k31sbg1zW5+cQhIQ8uj56nHDNUrF+3KUHGEdUGas+0
-         tIdEA4zgA6piTYTARMHrrgS2nyv87h5Ubi2BBcCmnQmG1j6NEvS1wqyEpodEhpn6Dk9s
-         xnnApD2obqCljMq35TQwrcQGaGhBk8JOk+FE+hQ8yZDMPVlAgfeSNLuHG4K3JTd9Ii7U
-         cNEw==
+        bh=zY/MYfFEjw2YFz6ONFSXVTOnks+S+fKlmAWumtYd/lg=;
+        b=CJVWARTBLETugiFEJw2aKXJaRMnOSoActTvL57X3M2JAor34i0/72sTG2a422P+otc
+         sVK28nX1ZnAYUIQcEiGE8Y7QS1mSPIRYU3LEyEhz9yEghSyXLZ2XHPwi0TkQp2WbRiuD
+         023YaMcpzgzTaY1gTLS4gDnDh83yu6DIHi4itJs4R6a1kqx3udKCz1p8Z0iRofIA1DQs
+         s9QgKlvIzuLNI2Cg8vFGe0OLlOgw9/bDsInWDa6YoLMnVgjnxV7crMxjSDhlplgV6VMO
+         TAthxaf5cZFRHqnZEcJsS+RQTNJp/hnuOwRsAgs+AQjvsVcVog+z+EIZHWTHri/0FE5N
+         ceLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794412167; x=1795016967;
+        d=1e100.net; s=20260707; t=1794412179; x=1795016979;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=n/olX1ECWtvPiVGgVf9lD7wfSWXuiytEwuoy8qrBu+8=;
-        b=kcI1HAafn8hFGBi1fUhDp0DdPEMoOUPFqAgidpaeLkTQ54x1BmBZqFGpp6ZX1zNrN6
-         DLtyU8tOo7yb1ZlPymrTlhin+JnIroHJy3k4pPKffXccqTUPsI/kxVZ65SOFphfkKjeM
-         uVeEr+jRUdu68VqOBgKUV1Ug4rUynqn8bjUOjqMTPGhFSge3GutjIBEMYnFseZ/DAXQ0
-         jMqy6byWwly8OAMG5lT6YgI/zEzvl6CLeWE0MxWkZ/ie1/KXuzAqYK6bBaYZCIenHw2a
-         1p2PFSzsjBp9JbkmMTKCl35HeBom892046yByrUZ7U1gkjKOUZCOMG9Fi3KXakpVi+Vg
-         cRxg==
-X-Forwarded-Encrypted: i=1; AL+hErERMofFb15nrGWXLBApBwNZ4pcgey0cYk4pCpt3Oqp3cSzjrFIz7shHnZy3DS2jvhkWQbaJ3V8=@lists.linux.dev
-X-Gm-Message-State: APuU4Z8vRpIoHBOZoDvTP80DojMuLwde8+DITKtO6Pay9K2jvn8VO721
-	C8/+uIlbSWIv8x3wHiFDAMX59pd96qOm/7yIjk4aEeXM2oKpgi1FzLGVu6Ae8KuU1W0=
-X-Gm-Gg: AYBFou3kK5fZ2v/3Zp5ImRX1qi5Gbb4lf/qwYUU+e/IECCiWKIe3US+x3jpIs0Me2q2
-	OLqnKqfPe8GMVjtxkB32ULA5OPFyYPbW79DRbHeoJVqrENRWf6RrdViIzl0Ev7Gut6c9v/tugKv
-	F9dKPvJiAH3VpoXwUr1Rn1bt0R7O81acLISuYLhg4CTRO8azUbS1wK6JNdjbUuEcPsRqX0PLzNo
-	5RVL3nMzKEC1y1TNSJkCyM1LRUZayoCLF4zPGqN4DfNEEAuWRpKdzdIG/qpkrzSHr5Vjl/fQSot
-	Oy0qDPH7Z8bOtiKfcrtuRvQncjXAnNQGa/45rU+7vebh/kkw3b3if3DJ1QMgx7eBo+Drk+/xdKp
-	AnPelciayg1CUUTG6PUnTehpIA0WaqtQePHttW2ghcVDBRXEb2fbWl8+YdyV91c9TLC99hibsHM
-	i4MCpf6OdZv7I3woqe3zt38ixKngMbJpKtWBM4XC7ItXS4wV+DmObN/5TSkEV8vPJHj5SciHRlw
-	nVjs0oFaTh5Qr+w3KGWCKLqJyGEM3Qc2kgJMldqOReaZDAExlvR5nByhJtnMTgOZbNfNvLbCAnU
-	8ovBhyIzcRyTQPl4ToQb5WysQ69zOFE=
-X-Received: by 2002:a05:6000:25e2:b0:48e:68da:1c5c with SMTP id ffacd0b85a97d-499c764851dmr5225541f8f.16.1794412167157;
-        Wed, 11 Nov 2026 07:49:27 -0800 (PST)
+        bh=zY/MYfFEjw2YFz6ONFSXVTOnks+S+fKlmAWumtYd/lg=;
+        b=R0DbQngadm6YlRL5Na80G8p2EfhV6kVy5yjYByg7DSYD22puLMps/mmuS9C/8N9HK9
+         qzniX+vxn71sB3tV1gUk55gOHCDdPGcHLccynO34O8pV52P2gketk125gejQW1sQgnpI
+         mKHhwLuGUC92yYEXFB4DRUvoXakFQKkQdzvfDfRVnrFBHiLQyttoV3G0Vs3FHCMwYfjR
+         vAaW59WGRpyYLjP6Eq3rhbyugYzfuCQ/qDe8Qd030o9e2pJCaEbmVPxT7tqeF9P0vsSM
+         KsliWBh5GFu9n411uj/9hEYJkKPVpL9ve4dUdS2bX8D/EAxQGZMjrUhtvTKaEOfaNZ2p
+         rgWA==
+X-Forwarded-Encrypted: i=1; AL+hErFQ75vYrHJzHxCejfVM/d0+CvCKY11zvIsJGD7PjdXjrLshcj/yBaM/YvTcm76yQtQwy8PIj98=@lists.linux.dev
+X-Gm-Message-State: APuU4Z/aobM4mIFOypbCElsWDSixn7WsiNruKSOi/IKP6E3HTjQYClNL
+	Og7kPIAvwrj+o8pwYtIdh78K7lAWR210ZbrPzLdhHyem64fGzwIP0WXQ7MGqlXrZSVY=
+X-Gm-Gg: AYBFou3GoAuToEFj27IX4vh+o9NSLpx8ikoT3aE0fFbAVhcopE8tsMxazxUU3Ckl8wo
+	mc5dRZ8nrpNMYk0IFmFAlPGb/s0wWOFMedUtlljtQQSbdBop/2Uxole67PaBIaC0onU2jRpn9w3
+	FNZqCDIKG6yA9FHflSpa6YDT6PBUb7LbeZAG59Cb4pBXgdhoXg5PrgCIPyYvrUbjTSPThIve/DL
+	fBxHtR2ZQPJ9fdMHTdhE/Qu9LEZDPxuhLUfk5oKg/llNsI8Fd+3pacBT8ojJa9h+93LD3LBvQ45
+	/Sli93JvaflpbAzVLDKFhLiVM3vqeJmFhhLTHSnGuYuwpF0yzYoMtdK8R8RN0LlcBq0vfFDSZm4
+	1gZUbfkJu/xr+xuQTlvG/X+DGbV9Qzacexaad6kcyZvCZOAu25IL0yv0TMlAmFPJevLgWV50uJQ
+	ogfs9yOWxuZP23bDTjy6G2Y9z843oWETrsspkFdnHHujFA/MYxwX8CUz1vgTO2INk4wzZ9FQKFg
+	1SPffUOqvO8xrNbtd5+2b5m/5DwvkyILKHRPz0t+uPwyphG2PepGcRKrZr7FZ2Wd95k40e3rx5F
+	ug0IlqXRF6uu9VH8ZndPEcnzv5Bi26o=
+X-Received: by 2002:a05:6000:2411:b0:487:1ac0:32af with SMTP id ffacd0b85a97d-499c7dfca0cmr4870811f8f.51.1794412179165;
+        Wed, 11 Nov 2026 07:49:39 -0800 (PST)
 Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-499823761f5sm6728921f8f.2.2026.11.11.07.49.26
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-498363dffa1sm11265007f8f.39.2026.11.11.07.49.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Nov 2026 07:49:26 -0800 (PST)
+        Wed, 11 Nov 2026 07:49:38 -0800 (PST)
 From: Petr Mladek <pmladek@suse.com>
 To: John Ogness <john.ogness@linutronix.de>
 Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
@@ -88,9 +88,9 @@ Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
 	printk@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v7 05/17] printk: Do not accept an empty name or devname as a preferred console
-Date: Wed, 11 Nov 2026 16:48:04 +0100
-Message-ID: <20261111154816.71103-6-pmladek@suse.com>
+Subject: [PATCH v7 06/17] printk: Prefer the console either via name or devname exclusively
+Date: Wed, 11 Nov 2026 16:48:05 +0100
+Message-ID: <20261111154816.71103-7-pmladek@suse.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261111154816.71103-1-pmladek@suse.com>
 References: <20261111154816.71103-1-pmladek@suse.com>
@@ -105,39 +105,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The current code for storing preferred consoles does not expect
-the case when an empty string is passed via @name or @devname.
+The commit 7640f1a44eba ("printk: Add
+match_devname_and_update_preferred_console()") added the possibility
+to prefer a console driver via device name. The name of the console driver
+gets assigned when the device gets initialized and it tries whether
+it is eligible for a console.
 
-Empty console driver name does not make any sense. Avoid handling
-such entries completely.
+The above mentioned commit ensures that __add_preferred_console() is called
+at least with name or devname value. But it does not check whether
+both are defined which is a nonsense.
 
-Suggested-by: Chris Down <chris@chrisdown.name>
+Add the check and do not fail quietly.
+
 Signed-off-by: Petr Mladek <pmladek@suse.com>
 ---
- kernel/printk/printk.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ kernel/printk/printk.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 898e060a26a7..3ddbde5326d9 100644
+index 3ddbde5326d9..b139314eda70 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -2558,7 +2558,9 @@ asmlinkage __visible void early_printk(const char *fmt, ...)
+@@ -2561,6 +2561,12 @@ asmlinkage __visible void early_printk(const char *fmt, ...)
+  * in register_console(). Finally, it enforces some rules:
   *
-  * The function adds or updates an entry in preferred_consoles[] array. Also
-  * it updates some global variables which are used to make the right decisions
-- * in register_console().
-+ * in register_console(). Finally, it enforces some rules:
+  *   1. Do not accept empty @name or @devname.
 + *
-+ *   1. Do not accept empty @name or @devname.
++ *   2. Either @name OR @devname are allowed. [*]
++ *
++ *  [*] A valid @name and @idx will get assigned for a devname later when
++ *	@devname matches during the device initialization, see
++ *	match_devname_and_update_preferred_console().
   */
  static int add_or_update_preferred_console(unsigned int i,
  					   const char *name, const short idx,
-@@ -2576,6 +2578,11 @@ static int add_or_update_preferred_console(unsigned int i,
- 	if (!name && !devname)
+@@ -2583,6 +2589,12 @@ static int add_or_update_preferred_console(unsigned int i,
  		return -EINVAL;
+ 	}
  
-+	if ((name && !name[0]) || (devname && !devname[0])) {
-+		pr_err("Adding a preferred console with an empty name\n");
++	if (name && devname) {
++		pr_err("Adding a preferred console devname with a hard-coded console name: %s, %s\n",
++		       devname, name);
 +		return -EINVAL;
 +	}
 +
