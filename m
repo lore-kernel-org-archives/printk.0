@@ -1,59 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794416465;
-	b=QcI0dyKO/SHonsqmpXU8iG4toX3E6UwVsve+QbBLPXAZMYihd4yOE6OmBw1VtH38OYZH
-	 rEsDtlOBr39K2UI+c000RLFbraYiYdYvDoysLXOYtOeNFTAFlzkYfisDieKCeNSDczS7o
-	 BNmT8JZi7HWlgVLV//upBdqc84lNo9bKQcHNXVV4F4lfCzAhuEv2dYnOs5SKr1eUvIpNZ
-	 lnMswuD8xnvkhWmHVBx3SfKm/9Srn28GDiwldKrcKbeP7EFIYSVY1k112vuD5WR8voISi
-	 RKLeACMw2CYXPqo6HAy4D9UKyL5CYy7v6chA0YP1IloEuLZXTP1rxk86HrABgAcjO6Q==
+	t=1794418521;
+	b=tMlMEYX9w3DpZ7f9IakobbuLhVKTmb/cxwknM75qFR7ICLGIsZxUClMgU5msnpU1Proh
+	 nBwE2rxvEED39yoYAeRMBTsGpHK/eSUyU2NGHTRrMUosmuj2sk3iYnBKVEFndUatm9X6Y
+	 /ebf3IzPlCzfy460SVH4U+hC5q3AHwums/E1MUg68iSGzdVII7bgLrMtAO9Bavr58uoXX
+	 zAUwkKoKM8vqbx+xT8rJh9tiVATTHtLhpwydDdkjF2YIWYRz0+opg4A4MrG1JDLrxWcWQ
+	 Mw2x1JWEmEysw9IIXTz+DlXtX9LHgiDbFF7EXHCLl0Me+1XlfSzhhI/QOkE/RofvccQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794416465;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=30eYgvS3A73dBkxc3mOvRp8UHRdxyCfi7VWrfcpop+0=;
-	b=KWC5fe4ZOFD7o5HQuLrMywcHLV2z0N/Amm1qReLx7k0ybwOUxJYh8Oj8wf+FYtLlLckY
-	 BxT4mO4TVwTTCJQVH0j2IL0uVxG38dPDknbFMXGgbv5X8+O8KbO+tDUSNZX6crhPIj6sW
-	 PbSDE76g21wROM9uSEPRyUX6Yd7G8Eatbam7RC14NwimhKXQjlnmOEiBSXYuYPC5B8jyv
-	 Vv3t/6PA+61peTZQUWtO9nRy/FT/0m6yY+napXVfHY3a2VPUt8zIos4luz9ds/e77TIP4
-	 9lX9qMVspieopasJh11eL+ZJgcauHkAgw8O2jPPkfnbKpMNgZUkXeoT+dFxSDbKVOxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794418521;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Debian-User;
+	bh=SBjsNrGoXRYjHeYNxlw6XSlAt+wBO4QS9+w7Q2owwCA=;
+	b=ltVuoGGc0VvwAYdQU+eAelkCd7C68nm7V5usJ2glB7zrq9rzs6yb9//XtfacvCh/7tmh
+	 3QeQiUcne0HQrpzDCL6B3ST5sd2QRe4/PYC6TKhmaeY/ZofCMQYXUqXEkYRtzHrLvSn28
+	 43mvtR/yZ2LYkx3ZU7vXQYitxwiEEoMy2MtiGto3zHXMr1lAQXMefpRsOOQq+Vh7Bo0Rk
+	 dw4Rs4nR37uLgGVuU8OuBc5BJagTENVk70muGH0rdxBrUVQh+tmRPaVM99xal/fSNQO7T
+	 pVzNvIt9ogVTp2Y9EooucPPqXmC3cCTHKlLQPC2DnItD/3AdmK9oic4O37wgTYaGGPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=btrMJJg9;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=dFJ9mwDH;
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFFF3606A31C
-	for <printk@lists.linux.dev>; Wed, 11 Nov 2026 17:01:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59F05606A31C;
+	Wed, 11 Nov 2026 17:35:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59F05606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=btrMJJg9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A99401F00A08;
-	Wed, 11 Nov 2026 17:01:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794416465;
-	bh=30eYgvS3A73dBkxc3mOvRp8UHRdxyCfi7VWrfcpop+0=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=btrMJJg9BD8Yhm+BgCKw0qTrpSW22BIHPfCGyop5gokxDFiOtXLwEZi0zwWANrQqL
-	 PdQjENMOtuUQDtkVQ4h45bBWcOiXNM8k4Ir/Hs6iYF3l9JJX3YzZHqW1kFhbBbOs0B
-	 k4VZloFM9+LmEEG6x0Q1bsFKfMGeja4fl8M8vtXElxm7dHaRTwevH6pKxg6QhCFn44
-	 YKIzl12Nmt9S5uUWvwylzPwxa2nOw553WZ4g0DxrPdtfz6Ej95zjHHv8kk6OAHbLhP
-	 u/fW5DlwB1UE360fVfD2KSCXcp0ge3cH4Mdha+Ti0QxzBtWoRvA/apBCUSlVP00V1e
-	 aKQQybFSwp90g==
-Message-ID: <sashiko-outbox-209356@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v7 11/17] console/braille: Lock console->setup() call
- during the registration
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Petr Mladek" <pmladek@suse.com>, "John Ogness" <john.ogness@linutronix.de>
-Cc: "Sergey Senozhatsky" <senozhatsky@chromium.org>, "Steven Rostedt" <rostedt@goodmis.org>, "Marcos
- Paulo de Souza" <mpdesouza@suse.com>, "Chris Down" <chris@chrisdown.name>, "Naveen
- Kumar Chaudhary" <naveen.osdev@gmail.com>, printk@lists.linux.dev
-In-Reply-To: <20261111154816.71103-12-pmladek@suse.com>
-References: <20261111154816.71103-1-pmladek@suse.com>
- <20261111154816.71103-12-pmladek@suse.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 11 Nov 2026 17:01:04 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=dFJ9mwDH
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=SBjsNrGoXRYjHeYNxlw6XSlAt+wBO4QS9+w7Q2owwCA=; b=dFJ9mwDH7tr5QFpcqR3mvhWYzU
+	gqOVrUf6698CNa0sZlbCmngt5Hi5wiZ27BuiVZHIbWq29VRx7OnYn69+LSjm/wKlOZmcUCbe3of/r
+	WkVGzBJKDus1d91p/BvWJXvClForJAWDpkDwDy7L+cmPKYLjA04YPzHfCaKDT1gMaOpKoskmRUfr5
+	TDJ6/ihTQDEElJ2aInM5wCr9Y7Zi4xkwPV479vLHNRgjoNmHPqEaok/SjW5Dewyt/QiV5qX2pwrm5
+	Tp32oa3PBAoSXEgViXI9qf1TzqIHiCMIX322fLiXaPAuYXQsP6xMNPNMXTeDNLw+LlVaA3GiQgV4i
+	3m3MDZLg==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1xRCE1-00DLgV-2A;
+	Wed, 11 Nov 2026 17:35:14 +0000
+Date: Wed, 11 Nov 2026 09:35:03 -0800
+From: Breno Leitao <leitao@debian.org>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: sashiko-reviews@lists.linux.dev, Petr Mladek <pmladek@suse.com>, 
+	Sergey Senozhatsky <senozhatsky@chromium.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ryan Roberts <ryan.roberts@arm.com>, printk@lists.linux.dev, 
+	Gustavo Luiz Duarte <gustavold@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH printk 6/6] netconsole: Always perform unsafe flushing on
+ panic/kdb/restart
+Message-ID: <avSXwwYEXZ6qsL4g@gmail.com>
+References: <20261109123127.489676-1-john.ogness@linutronix.de>
+ <20261109123127.489676-7-john.ogness@linutronix.de>
+ <sashiko-outbox-207027@kernel.org>
+ <87qzgrmnql.fsf@jogness.linutronix.de>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -62,39 +73,68 @@ List-Subscribe: <mailto:printk+subscribe@lists.linux.dev>
 List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87qzgrmnql.fsf@jogness.linutronix.de>
+X-Debian-User: leitao
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue to consider:
-- [Low] console/braille: missing Fixes trailer for unlocked setup() call
---
+On Wed, Nov 11, 2026 at 03:50:34PM +0106, John Ogness wrote:
+> On 2026-11-10, sashiko-bot@kernel.org wrote:
+> >>  	.write_thread = netconsole_write_basic,
+> >>  	.write_atomic = netconsole_write_basic,
+> >
+> > [Severity: Critical]
+> > This problem wasn't introduced by this patch, but can netconsole_write()
+> > race with target list updates or device teardown [1] when called from
+> > write_atomic without target_list_lock?
+> >
+> > While write_thread holds target_list_lock via netconsole_device_lock(),
+> > write_atomic invokes netconsole_write() locklessly.  netconsole_write()
+> > traverses target_list with non-RCU list_for_each_entry() and dereferences
+> > nt->np.dev in netif_running(nt->np.dev) and netcons_skb_pop():
+> >
+> > drivers/net/netconsole.c:netconsole_write() {
+> > 	...
+> > 	list_for_each_entry(nt, &target_list, list) {
+> > 		if (nt->extended != extended || nt->state != STATE_ENABLED ||
+> > 		    !netif_running(nt->np.dev))
+> > 			continue;
+> > 	...
+> > }
+> >
+> > A concurrent target addition, removal, or device release on another CPU can
+> > corrupt the list traversal or cause a NULL pointer dereference or
+> > use-after-free on nt->np.dev:
+> >
+> > CPU0                                CPU1
+> > drop_netconsole_target()            netconsole_write()
+> >   spin_lock_irqsave(&target_list_lock)
+> >   list_del(&nt->list)
+> >                                       list_for_each_entry(nt, &target_list, ...)
+> >                                         <-- follows torn pointer / LIST_POISON
+> > netcons_release_dev()
+> >   nt->np.dev = NULL
+> >                                         netif_running(nt->np.dev)
+> >                                           <-- NULL pointer dereference
+> >
+> > [1] https://sashiko.dev/#/bug/linux-5d4ba9e4-a230-401f-bfcf-b5d9ed4aa3b5
+> 
+> @Breno:
+> 
+> One option would be to change @target_list to be an nmi-safe srcu
+> protected list, such as the @console_list. In your cover page [0] for
+> the RFC NBCON netconsole you mentioned it as a "next step". It is
+> important if we want to use unsafe flushes from non-panic situations.
+> 
+> Although, we could get that for free if your "one console per target"
+> patch [2] is merged. That would be an important additional benefit.
 
-commit b38dd583153412f19250e27165240271e50c6249
-Author: Petr Mladek <pmladek@suse.com>
+Right, and I've started to work on it with commit a9560343d4e9da
+("netconsole: publish the userdata payload with RCU"), and this is on my
+todo list.
 
-> console/braille: Lock console->setup() call during the registration
->
-> In braille_register_console(), the console->setup() callback must be
-> called while holding the console_lock. This prevents a race condition
-> with a possible active boot console that might be using the same hardware
-> registers.
->
-> See also the commit 801410b26a0e ("serial: Lock console when calling into
-> driver before registration").
->
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://sashiko.dev/#/patchset/20260423130015.85175-1-pmladek%40s=
-use.com
-> Suggested-by: John Ogness <john.ogness@linutronix.de>
-> Signed-off-by: Petr Mladek <pmladek@suse.com>
-> Acked-by: Chris Down <chris@chrisdown.name>
-
-[Severity: Low]
-This fixes a race condition in braille_register_console() where
-console->setup() was called without holding console_lock.  Should this
-include:
-
-  Fixes: f7511d5f66f0 ("Basic braille screen reader support")
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261111154816.7110=
-3-1-pmladek@suse.com?part=3D11
+IIRC the real problem is not target_list, which would be simple to move
+to RCU, but the TX lock on network side (__netpoll_send_skb() ->
+HARD_TX_TRYLOCK(dev, txq)), which seems to be incompatible with NMI
+context, even being a trylock?
