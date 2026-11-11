@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794411160;
-	b=kz2yMp3L53c3RdvJwI2hRRaYEkoFtveKmKK/hx6SznHbqysVCbTB7wMB3JZm1Vy+niQx
-	 gpzzVO9JmhsqkW8TIPpuULhN5svk5VGbks2FA3ANFpSvaWUmINT0feSsfjUoKanTsH12x
-	 TIdqJoMylAmVx24ejM3QitYKwtaeaeY+IrUU9pCcDZXnALvxzmQqbtqtf8hun8nfm7JCC
-	 xummD1Muya3X5aeS9gribLOH03+Ztj0fEqf2SxsX/xfF1q3jKX0ihiduWeKKzXkefhZ6V
-	 gysgIGfnh8KoFQ91ZedHLhU98TbjoaKQgNpUSVFnDX2oI5tDjHrSQBWDH6cbPvjOXMg==
+	t=1794411665;
+	b=UVMI4ZGwAtWKwJBx8V5RQC8c/VVD75ozbwHGYIvktOrHQMbQGRRovYMDa3srnx59UGGv
+	 uHO5WUQjtVXgaLt3BAB8Kv7ri1Vlua0M/JGJ31TktZmVjf9nNuFCP4DnwIbonimLFl5ro
+	 0TpJcFD7MPYm3eZ5QFuLasyTEeFX8rXlSdHuQnlBNzBT2FM4x3sqB7CNBzAR3yUGhWVG4
+	 rBFgA2MMMOnJBZ3FAzUdKAOpFnR29rdxe4PYxvrhuJ6NZ7jMncteKJwe3ad3aOk5clSQO
+	 wNVHppwjS2KmRvTz82ihFhWcFpeGvnO0dXJ8X4rz7EmNDJAF3N/ixTI8u9D9Hdf99qw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794411160;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794411665;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
 	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=PgP1qIz2w/OR/xuvf7y5aFs0i8Rdt5F7Eb+3pqImopk=;
-	b=xJAF/DwvM818BIkmwkxWtVVuvCu9getp0WPsHzuXJys9HPoGk9XISb62hdoT1sZ7HFf8
-	 jxfjI/XeyMBPAVP7DMcqUitHGHW2opyMT0l6Ihexo1MzzivNLalewn4+wlZc8/kxItIBW
-	 s9J+/3HgktatGhj7WY5HvgwJN/AWFNQBk+Jlgt2C7J3bcM+jO6IaWflIEBKHr7aipx3fr
-	 cTLiiZhDYGOnOLwgNbA6NP0ISZY+0+kcSqA0S40Yq5IgBrlDhld9tGohxRr8STqsXNn9y
-	 Q/oSWraJ3V7oEZI5OB+Egc7f/YKW4QDWi/SFW6oXcjg9iDGnszR67NLWqhzmmRSd/8A==
+	bh=Gumcpnox9RWZNFmJ4fGU2nbq4jZfZ90jzjsHQu9+HC8=;
+	b=euVtq/t8ElDyshm5yrZ8vKO53NzIDIpVzc2f2AopvSGyE7a9nQ38NKwXwyqeK5snStVX
+	 xyDhnylVHwDvGN4NosK1sOjqAeW4LKjm7ixkvtYp+fBZ224WeiDinY87Hp8AiE93mFycW
+	 TWnKDLH1utDTPozbsFi88qmyzI70lU1aOptMCpQHTu1ELue0NrzLzEmlvCVNhtuvb3IOm
+	 Ab5kMT4KWN4Un6YIA0CxvJE5JJvdeIRpLuY5fJqkDD7YItk0x7QLRXqBRYbViLS73k4m3
+	 L0yOGTLnoNRrJNk06C8tmin7we0Uzu/xs9N0l4E2A0Onuo3G5Ca7lOReNX+yIWemdHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.com;
 	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=CJcEmX2q;
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=RJlPqjKU;
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57A50606A324
-	for <printk@lists.linux.dev>; Wed, 11 Nov 2026 15:32:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57A50606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D5CC606A335
+	for <printk@lists.linux.dev>; Wed, 11 Nov 2026 15:41:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D5CC606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=CJcEmX2q
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4b7252a32c8so35371525e9.0
-        for <printk@lists.linux.dev>; Wed, 11 Nov 2026 07:32:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=RJlPqjKU
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-49318428d98so1799575f8f.1
+        for <printk@lists.linux.dev>; Wed, 11 Nov 2026 07:41:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1794411159; x=1795015959; darn=lists.linux.dev;
+        d=suse.com; s=google; t=1794411662; x=1795016462; darn=lists.linux.dev;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=PgP1qIz2w/OR/xuvf7y5aFs0i8Rdt5F7Eb+3pqImopk=;
-        b=CJcEmX2q+lUnjjs7YH/SUU/rum2yNhnbmYQqiE39Ucaj/3BSEB80Zchl5cgr/H6OMK
-         dKVr9MALtCo/9SUhwfMAWyYB9oX5iveHYUlNHguqiV4Bi17TgSxjNNkz9/xiif7Vw8HU
-         sAWGyGzAl1HGL96flg8epB1BMDoleksjY9unA8dFOc94SO1RE+vThhsBMYaU9iFtcPPP
-         D4hHyRkFj7Y9skQdymecdOrgi8ePJEZJr5r2j/RRA6twEN3fRv7MmevOvZY3vyM1U/uo
-         Bk/gh0RJGnHk5uKv1tRSDJ7PUzuLHi19NRnOu6it/pjN8r2m6+HP4NR/8oGJCjknR5Oz
-         LelA==
+        bh=Gumcpnox9RWZNFmJ4fGU2nbq4jZfZ90jzjsHQu9+HC8=;
+        b=RJlPqjKU4RXHKCXPbAYf0kd35hmZasr+7oa06a7137gbN3HQlqBtJBl0yZRU11HVgn
+         DySCWereWLUm7a7RooWHdsoLZ8GyfRu+TBdaY0qUWI1rSV6oMkkZ0AIuoqqI3LPETm4t
+         DGGv2LzDQU3hZEEWvSdoE90CENvh3akoqqVVjenDlLkIJD+FMw9+U96uBYIrWPkW/F7q
+         ib8ou1DAZ8jNE5rH4WtTuGaGIgmiT9ELOYRTRxFwOqzhKLsfDIdlPcy6ccxaOHlUdr8X
+         stBz39DAJ7nyRodSqgTvbWPW+U9Hdtv6c1eYftN/g0Pu5/mT+kykgl8kRnesvcfMy1TR
+         lTrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794411159; x=1795015959;
+        d=1e100.net; s=20260707; t=1794411662; x=1795016462;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PgP1qIz2w/OR/xuvf7y5aFs0i8Rdt5F7Eb+3pqImopk=;
-        b=1Rp8+yBVDf88UNz/iH6cFM5U2wiMSyPIrmwFKw2o516XGgnueMQvELs9ik1G1qSgGD
-         VEsMjruMlg9LklAVB2RITx0Uvdornr8czyFNklyG9OZYoVxAcBwEs11gRXcovoI75wn4
-         hqu4dQgV/DbByUtB3F9x/m1SB2SA738NP5OcCjHFW27UCiPGFQPt8Nccu+9kXLwV0n3H
-         XaxSbGdu177MrM0pw0xTgekeKqGzM7HWJ2NHfx6GVFCoefG4LsgxQF2NIZ5cOKlBesXo
-         M5ujNDHcjoWpP1v/K7V5Xc9hNvYKIiNZsmzVWg1pdgfpR9gVx6tOwDb8JL0S3mMvYPq6
-         rm1Q==
-X-Forwarded-Encrypted: i=1; AL+hErElYQESDHmYQeBDHeADidhe5m9al8IqCrVl7O9yGDQwGXB6pkF9SBjtQogFbyczdeWGyrOOX20=@lists.linux.dev
-X-Gm-Message-State: APuU4Z/t2K4o83ROLeZPcOFdVScGLW/fJBU2XyBSMYua+xwGHZA48F5l
-	o3hWPMKi5jIMxMD9cIGK+3axy9amsuXCtgjaCgeRZ2vY2uW0Cvck8qHHnad4cSOBL1Q=
-X-Gm-Gg: AYBFou1ITkeMZDRkMWxxlDARaMpIB/enTfzgxQjLw+5yjYBX/lgy2AQkwSCnzNLM9i2
-	ufwCZ0voKjTfhturBBMV//4mqGPIih+8+hJ8vWGa5M3CtEGwYjyGDNF+u65k3Q59qYVHiFNN43m
-	jRwLwDxqYahcvKEswtYyubtpkbQ4F0hct65vzZv1wWDu8aiK6teo9vghBNqja/PnS4YMGQ6DBDg
-	HVh2d3hnRwm7UgPsZ1NLwytOoOvXH1erTYVtLbWbPRvAHD48WDFHgIsIjlQASGgFFX8+0/2nxme
-	exQHopyZyXDm158cNRAdi2wusBehGqtcvFkYPkXmXtbO683L66sEeTxLZNlwtvPkeEhWLYSO2o1
-	VgiguG1btBXwcxuf0xsxbU+XneD6aFE3i+3kC6QR+6hOLbM/lRkg+zY+q3zf1hLsgXxG/xatkdO
-	CMo1XMxxCukAwzmuERX8z04+LKvABw4yGh3+lMzlx4qSC0AXE0UAc0sOLaJRCVwSxHfdTEZeFiy
-	nKzfT8Br372DNuJr9y4oRWOH4XzB0SrTe1diPytIZ4YEO/AgwiFUotF5gtZXFXVuM4GzVhDVU5o
-	pYE7wGOMI0chA2kbzaz9G33ueP3x7drf
-X-Received: by 2002:a05:600c:c11c:b0:4ba:4395:5755 with SMTP id 5b1f17b1804b1-4ba439563abmr31167145e9.5.1794411158644;
-        Wed, 11 Nov 2026 07:32:38 -0800 (PST)
+        bh=Gumcpnox9RWZNFmJ4fGU2nbq4jZfZ90jzjsHQu9+HC8=;
+        b=CLHnrfPqTWxmkgEJPBmCh+mM5tWGuAxVevTDsPCW2ATrU8dFVD2MyeUJuAgTUP9eZp
+         uwjBvaWyvt6U9mn+WSOxDhleqvLjKpvAuyk9yGenBRYbUgGLOTEeSRBlR/PeQ4FXmhd2
+         h4WQENSgzQWJJUMYIcJMKorm38+mCT+tAKp/xNcCdD4rOdhFNQTO/C/rOuMYJGXUMha5
+         NUHArlnZH4FA8kHfXCGn2wkWQVvLoUS4Hhl+Zos2eT1nyy3qcA93mpHKEWCbkfQ72UPA
+         N5a4dJcIZuAi9hWHQbiBjUR9t6xHEfZIc4/IawRBrXIk5gk2+27so170Yc2dyUeLUiW8
+         xtBg==
+X-Forwarded-Encrypted: i=1; AL+hErGeWmlDh/hcQU2Ppexr6dvXemBZq/PGmJeadUkqw8yeam2yiC7W4wdXSUKGK36RIGECZqsIXZI=@lists.linux.dev
+X-Gm-Message-State: APuU4Z8YyMDIpfMN7XxgAOwa6c7Lfj7b0eLwMnGj7G2K8s1Y7strZnUD
+	b0R4f6WWXX2rukSAfH2wY/ugM1blDk+IYWkPbV7AsbqCd1V1tvBdizW2ia7lzHpGRuU=
+X-Gm-Gg: AYBFou28rtkdNBe5ouxTDbSTFlCws0iVkFJ14NConramslNd94kSzEITw219HSaKY/a
+	oDuh2I8sqJGjQtVMgzD1puugXTdBpytJGIHIPgVLNdNuepLO0h4vwyVm1Gj/QRpcEtfJdaRRG3Y
+	FdUio+NnrZbTlpV9KMXQRF1NbmPHzkYlyS7u9Xg/djCzL4vPPZdNu+5Ix4fH6V6kzYOpxgRhLrZ
+	NU5qLrXGQovVNB8TGL3uFcMCFza34B9FZ5S5RxRbV/sXx6yTQTvEAzcXWm4e+E4fwpVIoRdhQTI
+	ETlT7P2fd9TB1yXI/YDjNmdB+cokCDwWy4+svD7sgxWB3lKXjm4g3j8jF0UyhU1qFT1tBKA4p0b
+	w8XVuuYXBeQTx1bQIH74X8JuYXO2SXNE28Q+JVZ/svyPD9J+kgN19D8xqj9r1ZVPNA457kTnuXg
+	LeIwM5PTYtpyao2uaTLzlIhaK5iR6lapY6oFkcRnUE3YlOB/UYsHC0UR7DKl7Sab0pYEhWJP5nO
+	/OoAuBUyY5Jb2ehGYJDeFLLPJAngkcJft7Lh9q/sG/7lKtX9cUwNixFIWdmOTfzh0LT2DE3AHP2
+	bBA+yDK2PV5tHUh7XePFYff4XHcP7rg=
+X-Received: by 2002:a05:6000:2c06:b0:48d:f36e:fbcb with SMTP id ffacd0b85a97d-499c5d46d91mr5111990f8f.14.1794411662491;
+        Wed, 11 Nov 2026 07:41:02 -0800 (PST)
 Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb4c53bb94sm3822685e9.8.2026.11.11.07.32.37
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4983600bc9asm10823768f8f.29.2026.11.11.07.41.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Nov 2026 07:32:38 -0800 (PST)
-Date: Wed, 11 Nov 2026 16:32:36 +0100
+        Wed, 11 Nov 2026 07:41:02 -0800 (PST)
+Date: Wed, 11 Nov 2026 16:40:59 +0100
 From: Petr Mladek <pmladek@suse.com>
 To: sashiko-reviews@lists.linux.dev
 Cc: John Ogness <john.ogness@linutronix.de>,
@@ -89,13 +89,14 @@ Cc: John Ogness <john.ogness@linutronix.de>,
 	Chris Down <chris@chrisdown.name>,
 	Naveen Kumar Chaudhary <naveen.osdev@gmail.com>,
 	printk@lists.linux.dev
-Subject: Re: [PATCH v6 08/16] printk: Ensure consistent name and devname when
- updating preferred console
-Message-ID: <avSKlPchC04gjpky@pathway.suse.cz>
+Subject: Re: [PATCH v6 14/16] printk: Do not set Braille console as
+ preferred_console
+Message-ID: <avSMiz0n0aXLC65_@pathway.suse.cz>
 References: <20261106171952.207909-1-pmladek@suse.com>
- <20261106171952.207909-9-pmladek@suse.com>
- <sashiko-outbox-201951@kernel.org>
- <avHTsnRan9cALOEu@pathway.suse.cz>
+ <20261106171952.207909-15-pmladek@suse.com>
+ <sashiko-outbox-201949@kernel.org>
+ <avHm3aYaDdcif-ss@pathway.suse.cz>
+ <avHpL7ojyapVvGlY@pathway.suse.cz>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -107,167 +108,59 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <avHTsnRan9cALOEu@pathway.suse.cz>
+In-Reply-To: <avHpL7ojyapVvGlY@pathway.suse.cz>
 
-On Mon 2026-11-09 15:07:46, Petr Mladek wrote:
-> On Fri 2026-11-06 17:37:13, sashiko-bot@kernel.org wrote:
-> > Thank you for your contribution! Sashiko AI review found 1 potential
-> > issue to consider:
-> > - [Low] printk: cross-type update corrupts entry in
-> >   add_or_update_preferred_console()
-> > --
-> > 
-> > commit dac2f22b5af57f05f13a7369b2af922602449749
-> > Author: Petr Mladek <pmladek@suse.com>
-> > 
-> > printk: Ensure consistent name and devname when updating preferred console
-> > 
-> > This commit adds validation in add_or_update_preferred_console() to check
-> > that existing preferred console entries match the provided devname or
-> > name and index when updated.
-> > 
-> > > diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-> > > index 26fab79c32c4b..ba644a0650910 100644
-> > > --- a/kernel/printk/printk.c
-> > > +++ b/kernel/printk/printk.c
-> > > @@ -2564,6 +2564,8 @@ asmlinkage __visible void early_printk(const char *fmt, ...)
-> > >   *
-> > >   *   2. Either @name and valid @idx OR @devname and @idx=-1 are allowed. [*]
-> > >   *
-> > > + *   3. Only matching entries can be updated.
-> > > + *
-> > >   *  [*] A valid @name and @idx will get assigned for a devname later when
-> > >   *	@devname matches during the device initialization, see
-> > >   *	match_devname_and_update_preferred_console().
-> > > @@ -2589,10 +2591,7 @@ static int add_or_update_preferred_console(unsigned int i,
-> > >  		return -EINVAL;
-> > >  	}
-> > >  
-> > > -	if (!pc->name[0] && !pc->devname[0])
-> > > -		is_new_entry = true;
-> > > -
-> > > -	if (is_new_entry && devname) {
-> > > +	if (devname) {
-> > >  		/*
-> > >  		 * A valid console name and index will get assigned when
-> > >  		 * a matching device gets registered.
-> > > @@ -2608,11 +2607,18 @@ static int add_or_update_preferred_console(unsigned int i,
-> > >  			return -EINVAL;
-> > >  		}
-> > >  
-> > > -		strscpy(pc->devname, devname);
-> > > -		pc->index = idx;
-> > > +		if (!pc->devname[0]) {
-> > > +			is_new_entry = true;
-> > > +			strscpy(pc->devname, devname);
-> > > +			pc->index = idx;
-> > > +		} else if (strcmp(pc->devname, devname) != 0) {
-> > > +			pr_err("Updating a preferred console with an invalid devname: %s vs. %s\n",
-> > > +			       pc->devname, devname);
-> > > +			return -EINVAL;
-> > > +		}
-> > >  	}
-> > >  
-> > > -	if (is_new_entry && name) {
-> > > +	if (name) {
-> > >  		/* A console name must be defined with a valid index. */
-> > >  		if (idx < 0) {
-> > >  			pr_err("Adding a preferred console with an invalid index: %s, %d\n",
-> > > @@ -2620,8 +2626,15 @@ static int add_or_update_preferred_console(unsigned int i,
-> > >  			return -EINVAL;
-> > >  		}
-> > >  
-> > > -		strscpy(pc->name, name);
-> > > -		pc->index = idx;
-> > > +		if (!pc->name[0]) {
-> > > +			is_new_entry = true;
-> > > +			strscpy(pc->name, name);
-> > > +			pc->index = idx;
-> > > +		} else if (strcmp(pc->name, name) != 0 || pc->index != idx) {
-> > > +			pr_err("Updating a preferred console with an invalid name or index: %s%d vs. %s%d\n",
-> > > +			       pc->name, pc->index, name, idx);
-> > > +			return -EINVAL;
-> > > +		}
-> > >  	}
-> > 
-> > [Severity: Low]
-> > As reported by Chris Down on v5 [1], does replacing the combined
-> > (!pc->name[0] && !pc->devname[0]) check with separate !pc->devname[0] and
-> > !pc->name[0] checks allow a cross-type update on an occupied slot to
-> > corrupt the entry instead of returning -EINVAL?
-> > 
-> > If preferred_consoles[i] was added by name (so pc->name[0] is set and
-> > pc->devname[0] is empty) and add_or_update_preferred_console() is called
-> > on that slot with a devname, !pc->devname[0] is true.  It treats the
-> > existing entry as new, sets pc->index to -1 while pc->name remains set,
-> > and overwrites pc->options and braille options.  The reverse also happens
-> > when a name update hits an unresolved devname entry where !pc->name[0] is
-> > still true.
-> > 
-> > Keeping is_new_entry = (!pc->name[0] && !pc->devname[0]) and checking
-> > if (is_new_entry) before the strcmp() branches would reject both
-> > mismatched updates with -EINVAL.
-> > 
-> > [1] https://lore.kernel.org/r/auLxQDWkHLV01D1t@chrisdown.name
+On Mon 2026-11-09 16:39:27, Petr Mladek wrote:
+> On Mon 2026-11-09 16:29:42, Petr Mladek wrote:
+> > On Fri 2026-11-06 17:36:30, sashiko-bot@kernel.org wrote:
+> > I would fix this inconsistency by a separate patch:
 > 
-> This problem currently does not exist because there is only one
-> caller in __add_preferred_console(). And it calls this function
-> only when "name+idx" or "devname" matched. And only "name+idx"
-> or "devname" could be defined.
+> Grr, I sent an older version of the patch. I later modified it to
+> update the entry only when it was not set before. I wanted to
+> send this version:
 > 
-> Well, this patch is supposed to add paranoid checks to make sure
-> that it is called correctly. So, we should catch these cross-update.
-> I would add two more checks:
+> >From b4e425390a42bedb5cd19a8bc959b6d1c4a61d49 Mon Sep 17 00:00:00 2001
+> From: Petr Mladek <pmladek@suse.com>
+> Date: Mon, 9 Nov 2026 16:01:35 +0100
+> Subject: [PATCH v2] printk: Update Braille options when preferred more times
 > 
+> The current behavior is not consistent when the same console driver
+> is preferred several times as Braille or non-Braille console.
+> 
+> In particular, preferred_dev_console is not updated when @brl_options
+> are passed. But @brl_options are stored only it is a new entry in
+> preferred_consoles[].
+> 
+> It is even more hairy because preferred_console[] entry is considered
+> a Braille entry only when .brl->options are defined.
+> 
+> Make the behavior consistent and always update pc->brl_options when
+> @brl_options are passed and they were not defined yet.
+> 
+> diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
+> index e248f2d0d01c..60423c765520 100644
 > --- a/kernel/printk/printk.c
 > +++ b/kernel/printk/printk.c
-> @@ -2606,6 +2606,11 @@ static int add_or_update_preferred_console(unsigned int i,
->  			       devname, idx);
->  			return -EINVAL;
->  		}
-> +		if (pc->name[0]) {
-> +			pr_err("Updating a preferred console via devname when name is already assigned: %s, %d for %s%d\n",
-> +			       devname, idx, pc->name, pc->index);
+> @@ -2665,10 +2665,10 @@ static int add_or_update_preferred_console(unsigned int i,
+>  	 * Historically, the preferred options are stored only by the first
+>  	 * caller who prefers the particular console.
+>  	 */
+> -	if (is_new_entry) {
+> +	if (is_new_entry)
+>  		pc->options = options;
+> -		braille_set_options(pc, brl_options);
+> -	}
+> +	else if (brl_options)
+> +		braille_update_options(pc, brl_options);
 
-I thought more about it and this check looks to strict.
-It might make sense to update the preferred_consoles[] entry
-even when it was already used to register a console. For example,
-someone might want to unregister the console and register it again
-with another options.
+JFYI, the "else" was wrong. It caused that the braille options
+were not stored for new entries. It should be:
 
-> +			return -EINVAL;
-> +		}
->  
->  		if (!pc->devname[0]) {
->  			is_new_entry = true;
-> @@ -2625,6 +2630,15 @@ static int add_or_update_preferred_console(unsigned int i,
->  			       name, idx);
->  			return -EINVAL;
->  		}
-> +		/*
-> +		 * The name should get assinged when matching the devname, see
-> +		 * match_devname_and_update_preferred_console().
-> +		 */
-> +		if (pc->devname[0]) {
-> +			pr_err("Updating a preferred console via name when it was preferred via devname: %s%d for %s, %d\n",
-> +			       name, idx, pc->devname, pc->index);
-> +			return -EINVAL;
+	if (is_new_entry)
+		pc->options = options;
 
-Same here.
-
-> +		}
->  
->  		if (!pc->name[0]) {
->  			is_new_entry = true;
-
-I am going to keep the check whether it is a new entry separate.
-I mean the check:
-
-	if (!pc->name[0] && !pc->devname[0])
-		is_new_entry = true;
-
-Sashiko should stop complaining that we miss cross-updates.
-It seems that it even makes the code more straightforward.
+	if (brl_options)
+		braille_update_options(pc, brl_options);
 
 Best Regards,
 Petr
