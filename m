@@ -1,55 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794451458;
-	b=ciT9Ip22oXm453bk6pb2khDnkm57PIZwvMZf9P7pXqf5U+6KuZwRdbeJESLIe93cPE/q
-	 6EN1touBoSzQuAlmEVBLtwA5PRVshnZ/kSZUqFW/IGysi7rjmVXQEQz37FjkeNerl756+
-	 DxUng6SyPU32hZ+OpHwBFktTajgIf6RJrVQU8xqzb5mGwciMWb8dyhYgqvNugCSIhTMhz
-	 7/Mt5MjtkKFSh6lCgw2rYa4aQVCmr1H4iak4RMYGsUB7DV1Wzkna2fW9cbwaM5kuo/Hh3
-	 KptncqD4dTAWFALnJR66HKzGrQLTiwAhNMeFBKTAsoYE9IkRA2SI4eI+NqRxVEafYQg==
+	t=1794453287;
+	b=q36sQbGkEzmecX/UCzpWBobxoqb6Fhc9Am84IiH2czevyXrovy+J1Us2BPUXp0pQJQfR
+	 NnspmQTl6OWKJXzlyuBGcJ7ulRlRVvaDHG8LF0Jb59tTSLlAlNLEojaEdRyWSO7HeoHkK
+	 /8OT4g8IAY7AnTULcKTe5CVohcg0CcVQPaj+uAeZ0hRBzTMrkETBjQQUGKrysnxQ+ZWag
+	 Vh9kHl7GExmR4lRMWdLHeejSU2x5da6VQbF2YmwivHHI43InSq7oQEjuH2oUu4ah3Fw8S
+	 gumPO2v2OIoNYeyLJqh6c/lZ7SKYPEINETqX68suLlLOa6wdV+fC09N2l6HQs6X3woQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794451458;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=uad5R2eNu3pr9Vs/IEk7rPF1CVJba69c/w3VjDE6Yw0=;
-	b=D7vClqMQtN71CJ62v1wjmaOP3YEzDDwKt6c2sk3tOrwDA0QbqKYXSVWW6EFZnwqZ1MBN
-	 RU+2VFcTcwaH894hHiIP/QcYe02cbKPP7EkV7SYCjKpL9rSma4zlF8pKD1A+FtfGXI8lM
-	 XalCs1QaKbypP4o0lVTjLFtBUxZkC1ZLUj2RhqEV6fTThvwclmiMVvZDMgzk4/Lw9PsPK
-	 6l6a+KGlEL3XD2FCLsp9h2bkeqmaYhBiYDSreYL6xTLkTCwnJiVNYIs5U74rTJzaeKcaZ
-	 teKg1kpOkyzeM6An9XeReoPol0c6Pi1uP/6hAPLjKJYD/bJ3rjNynLv1muPmX8n6krA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794453287;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=/30VWyBplrHuByc3jnpm/ewinby2W6T19rzhjR/lb94=;
+	b=E3nMC3uaZ1GfJi8PgeszcL1fi93vf/jsQRhVnBqANgkKtdSKgdsl+nQQ0skxVlj7cf66
+	 5jRQEIJqu96BDMtO6/UjweB7j3MmV2ybRC7dei+CljosBWIWs2RTHwmdDsCc74ZSnGNFj
+	 7aqaxfOORIg5e14DXbXmWUE/MB194iSuXqVy8BHkRoEEd6k5ddjz9CHOeh64ZgFIqYLoM
+	 XGJ+/+2+9PrOXuIJAEij2Rh1eJo54Fgi74SgrQoGt7EZQuteT74V+bomN3/pBRir+jhPh
+	 9F2UUV8lUW+vU1ZOHNkU1Rk22P3Kw8d0s3FJI7/y+SwelXXNL5wLHTSkSq79i8lzQ/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gBn2do9G;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A39CB606A31C
-	for <printk@lists.linux.dev>; Thu, 12 Nov 2026 02:44:18 +0000 (UTC)
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=Ey1jhzMo;
+	arc=none smtp.remote-ip=111.22.67.135
+Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9C889606A323
+	for <printk@lists.linux.dev>; Thu, 12 Nov 2026 03:14:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C889606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gBn2do9G
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 007C31F00A05;
-	Thu, 12 Nov 2026 02:44:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794451458;
-	bh=uad5R2eNu3pr9Vs/IEk7rPF1CVJba69c/w3VjDE6Yw0=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=gBn2do9GHAN0I0ioBL/zo2KP8R1ul9V3bXelY8jRZ/I7L7gq9qZN62negzUcPyTej
-	 oxl9UMf0mavmLs3NyB+lOwItjOT5BuZen9eyH3WIcD/s58flfi5TsiEOFIm2Ly3rRq
-	 4ZoGoM/XJ2cjNCSMsDj4s6pG4GXN2NdPi4SHB8bZUFPGcEZ2yVPZfTxEWg3yb4FC0G
-	 SEHWpCmVRTVt9qnRUDUWRzIefkj1ts0hZ7S4VEGhojvqEBqKlCAkgNqDpRHjfWSdKJ
-	 OyWTt1Mbynx5awUAMO/XAyV9VMw6b4etVqVt1SK2CxndQ7VWOI2YI+nMTEFrGxFBFI
-	 dJ+o3BZ7zVD/g==
-Message-ID: <sashiko-outbox-210216@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH] printk: ringbuffer: Annotate speculative record reads
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Zhu Jun" <zhujun2@cmss.chinamobile.com>, pmladek@suse.com
-Cc: john.ogness@linutronix.de, rostedt@goodmis.org, senozhatsky@chromium.org, printk@lists.linux.dev
-In-Reply-To: <20261112022940.118080-1-zhujun2@cmss.chinamobile.com>
-References: <20261112022940.118080-1-zhujun2@cmss.chinamobile.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 12 Nov 2026 02:44:17 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=Ey1jhzMo
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=Ey1jhzMoUiJ3GqO4Zw52/9rP5yP77vtL+oskHizqy+0Tsqp4q6nbD1HTIFU0pcqy3L3kBDOWaBW3s
+	 eOaGCqKjmv7KZ9LqtVWUvwuOTpi+zr12xiiuq+/XyXkotKm9yK9pYkDL6uzwRx6/51LISbrRa72jY3
+	 17evi/txqUCMBZq8=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app07-12007 (RichMail) with SMTP id 2ee76af52f232e1-ddd3f;
+	Thu, 12 Nov 2026 11:14:44 +0800 (CST)
+X-RM-TRANSID:2ee76af52f232e1-ddd3f
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from devin-VMware-Virtual-Platform.localdomain (unknown[10.55.1.72])
+	by rmsmtp-syy-appsvr06-12006 (RichMail) with SMTP id 2ee66af52f225ed-f0845;
+	Thu, 12 Nov 2026 11:14:44 +0800 (CST)
+X-RM-TRANSID:2ee66af52f225ed-f0845
+From: Zhu Jun <zhujun2@cmss.chinamobile.com>
+To: pmladek@suse.com
+Cc: john.ogness@linutronix.de,
+	rostedt@goodmis.org,
+	senozhatsky@chromium.org,
+	paulmck@kernel.org,
+	printk@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Zhu Jun <zhujun2@cmss.chinamobile.com>
+Subject: [PATCH v2] printk: ringbuffer: Annotate speculative record reads
+Date: Thu, 12 Nov 2026 11:14:41 +0800
+Message-ID: <20261112031441.120773-1-zhujun2@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.51.0
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -58,60 +71,89 @@ List-Subscribe: <mailto:printk+subscribe@lists.linux.dev>
 List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue to consider:
-- [Low] printk: ringbuffer: missing data_race() around
-  READ_ONCE(info->text_len)
---
+Readers may copy a finalized record while a writer recycles its storage.
+prb_read() checks the descriptor again after copying and rejects records
+that have changed, but the plain metadata and text accesses still trigger
+KCSAN reports.
 
-commit 7288fc8cb2d6c1c58a2fb9813dc051688ddc5e44
-Author: Zhu Jun <zhujun2@cmss.chinamobile.com>
+Annotate the speculative copies, line counting and length read with
+data_race(). Retain READ_ONCE() for text_len so that the size check and
+copy use one snapshot. The descriptor validation continues to determine
+whether the copied record can be used.
 
-printk: ringbuffer: Annotate speculative record reads
+OpenAI Codex assisted with analysis and patch preparation.
 
-This commit annotates speculative metadata, text copies, and line counting
-in prb_read() and copy_data() with data_race() and READ_ONCE() to suppress
-KCSAN reports when a writer concurrently recycles a record.
+Fixes: b6cf8b3f3312 ("printk: add lockless ringbuffer")
+Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
+---
+Changes in v2:
+- Mark the speculative text_len snapshot with data_race(), retaining
+  READ_ONCE() and documenting the reader-side validation.
 
-> diff --git a/kernel/printk/printk_ringbuffer.c b/kernel/printk/printk_rin=
-gbuffer.c
-> index 57cf6f4e298e8..10189a9d3cb49 100644
-> --- a/kernel/printk/printk_ringbuffer.c
-> +++ b/kernel/printk/printk_ringbuffer.c
+ kernel/printk/printk_ringbuffer.c | 22 ++++++++++++++--------
+ 1 file changed, 14 insertions(+), 8 deletions(-)
 
-[ ... ]
+diff --git a/kernel/printk/printk_ringbuffer.c b/kernel/printk/printk_ringbuffer.c
+index 46a79ec0940a..8a1075d00d0a 100644
+--- a/kernel/printk/printk_ringbuffer.c
++++ b/kernel/printk/printk_ringbuffer.c
+@@ -1894,9 +1894,10 @@ static bool copy_data(struct prb_data_ring *data_ring,
+ 	if (data_size < (unsigned int)len)
+ 		return false;
+ 
+-	/* Caller interested in the line count? */
+-	if (line_count)
+-		*line_count = count_lines(data, len);
++	if (line_count) {
++		/* Racing text is rejected by the caller's descriptor recheck. */
++		*line_count = data_race(count_lines(data, len));
++	}
+ 
+ 	/* Caller interested in the data content? */
+ 	if (!buf || !buf_size)
+@@ -1904,7 +1905,7 @@ static bool copy_data(struct prb_data_ring *data_ring,
+ 
+ 	data_size = min_t(unsigned int, buf_size, len);
+ 
+-	memcpy(&buf[0], data, data_size); /* LMM(copy_data:A) */
++	data_race(memcpy(&buf[0], data, data_size)); /* LMM(copy_data:A) */
+ 	return true;
+ }
+ 
+@@ -1969,6 +1970,7 @@ static int prb_read(struct printk_ringbuffer *rb, u64 seq,
+ 	atomic_long_t *state_var = &rdesc->state_var;
+ 	struct prb_desc desc;
+ 	unsigned long id;
++	u16 text_len;
+ 	int err;
+ 
+ 	/* Extract the ID, used to specify the descriptor to read. */
+@@ -1984,12 +1986,16 @@ static int prb_read(struct printk_ringbuffer *rb, u64 seq,
+ 	if (err || !r)
+ 		return err;
+ 
+-	/* If requested, copy meta data. */
+-	if (r->info)
+-		memcpy(r->info, info, sizeof(*(r->info)));
++	if (r->info) {
++		/* The record may be recycled; the descriptor is rechecked below. */
++		data_race(memcpy(r->info, info, sizeof(*r->info)));
++	}
++
++	/* The descriptor recheck below also rejects a raced length. */
++	text_len = data_race(READ_ONCE(info->text_len));
+ 
+ 	/* Copy text data. If it fails, this is a data-less record. */
+-	if (!copy_data(&rb->text_data_ring, &desc.text_blk_lpos, info->text_len,
++	if (!copy_data(&rb->text_data_ring, &desc.text_blk_lpos, text_len,
+ 		       r->text_buf, r->text_buf_size, line_count)) {
+ 		return -ENOENT;
+ 	}
+-- 
+2.51.0
 
-> @@ -1984,12 +1985,13 @@ static int prb_read(struct printk_ringbuffer *rb,=
- u64 seq,
->  	if (err || !r)
->  		return err;
-> =20
-> -	/* If requested, copy meta data. */
-> -	if (r->info)
-> -		memcpy(r->info, info, sizeof(*(r->info)));
-> +	if (r->info) {
-> +		/* The record may be recycled; the descriptor is rechecked below. */
-> +		data_race(memcpy(r->info, info, sizeof(*r->info)));
-> +	}
-> =20
->  	/* Copy text data. If it fails, this is a data-less record. */
-> -	if (!copy_data(&rb->text_data_ring, &desc.text_blk_lpos, info->text_len,
-> +	if (!copy_data(&rb->text_data_ring, &desc.text_blk_lpos, READ_ONCE(info=
-->text_len),
->  		       r->text_buf, r->text_buf_size, line_count)) {
->  		return -ENOENT;
->  	}
 
-[Severity: Low]
-Should READ_ONCE(info->text_len) also be wrapped in data_race(), i.e.
-data_race(READ_ONCE(info->text_len))?
 
-Under KCSAN, READ_ONCE() alone still checks for active writer watchpoints,
-so it can still report a data race against the unmarked
-memset(info, 0, sizeof(*info)) in prb_reserve() when a writer recycles the
-record.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261112022940.1180=
-80-1-zhujun2@cmss.chinamobile.com?part=3D1
