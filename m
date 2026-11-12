@@ -1,90 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794524700;
-	b=PPefOMkUFL91NLwvJh4EoobEjrsF4BEbT+DE2gpG4YFJh6W+UJvuKkO/aoKlWb6W0eeS
-	 j0umlhyUgRbRm05bxUgQcome/eSPUDRwca+xQcWSlPQTR11YfCJVWAzz1nHGc+Oz4znPS
-	 rTOaUnLseuSQRCylaAdnxdm8H8eIuCf6JQdG5rlU7AvLGOSYekRZQ+cvYBAuw56y29rv9
-	 LEdUA4oERS67SjNmwi/xu1pwq/rWWgmjJ5VWjhLGEu29WPBQ08eJAVZ/KGh+nKjYARVkq
-	 tz/ObMAD3YEYHIK//oOTYqQEk0SXnz5UHFIp0NHNxNO5C7anIcA/EAiqb4fP4t0LxkA==
+	t=1794527037;
+	b=bqJSD2GEDdQ2PRd2nrUCsIP1UmDxGABz4atGWisC57HB5byNFCVA4dle2feWImfkIFll
+	 8cdNX+kscDcsoN1IaDwaaTy2P0L1xfpkewfUwbKRQa/qUWbUgKNp8a1uDjyg+6ihp0Q5S
+	 6x37LOtmSLw7i7F7mU4utovGZWXbNU5sGMYzI09Af4BcZbLL8Z6Vmzfsafs/Pqup9j+hk
+	 pjShRTc3CDn+DFmdCwZefo5WlWVXh+iasZz0qiKk8XhEQrdDoitcbT2ZSHfNlvDDu9Qj3
+	 HCR7sOVY9jp/hWmFe88ZNQOzrQPGQDPuzXi2E9aBPdEAGYWKDSibZT8Me2sgUW97pVQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794524700;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Disposition:Message-ID:User-Agent;
-	bh=p/4lk02epaMR+IsZKZ+HoxMKqUc6qVIda0VOtHn3aEc=;
-	b=PKO2rBsdr1KiPTHMjBc4kxGnwkPob8GIcxghFGMLuqAItQl7LnWw2QGq5i5tvLBwjGUR
-	 gV1PlSSszGO5O42DP2kqiQb62HxeE3D0mpCEClZTMRDPszDa41vkVaEONFrjZ47jE0SYd
-	 l3luw6Q0JVSIl9TRTcAEcnNn81zP5uftErmQJ8C0ix2cNiwcnqTf+cAo/010StOFNpUJM
-	 52/Dkv9bcbTHP6P0E3FDhybg/I6hzW0W7rPXN5Rlj5uy4PLzOM5ENIwd0NS6ZylPv+SRm
-	 Tp39Hk/yFR21Xi77YUQ9YvDgJS2TQUc8fRKp78dsTWQJ7u3mggpzcpO/Sci/g5W+y/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794527037;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=Xo+H9lR23P0A0A4fib3m01tppo5IkRluvh2Z4UoFknA=;
+	b=rzvbxEhO8+xf2cU4u6GRcQGypmqm036Ru3jAu5r9M1uccadZnKBC1iERyPnPEXtjWLA/
+	 vwzEpd9ObI4+HNe1O7G/wQty0823LepM51iWbkzcqluLrDsMu1gnjhlz0/G1d/gNehxIK
+	 vyB9/pncT5F4Nw49jOm0WN3NdExDZw8wigjbwF9Nfa9NO6b5e2YtQpcmjP+5fW9lskqIh
+	 J6OoB4ZRdd461RO5ZwLNqx0cDu0euV64J8QWHQ+PJ3UiK01i6VmMNJ6RpGZep6Osi25eI
+	 y2sCGV9wZKhQ02FwIL0Fg637kQiSki3qZO4jt5S/MYhZTpyJnjItR9rVVen5Kh83giQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chrisdown.name;
-	spf=pass smtp.mailfrom=chrisdown.name;
-	dkim=pass header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=XVrIqwTa;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.199
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73C0D606A33A
-	for <printk@lists.linux.dev>; Thu, 12 Nov 2026 23:05:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73C0D606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=chrisdown.name
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrisdown.name
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=XVrIqwTa
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-4919a880834so140105f8f.0
-        for <printk@lists.linux.dev>; Thu, 12 Nov 2026 15:05:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chrisdown.name; s=google; t=1794524699; x=1795129499; darn=lists.linux.dev;
-        h=user-agent:message-id:content-disposition:content-type:mime-version
-         :references:in-reply-to:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=p/4lk02epaMR+IsZKZ+HoxMKqUc6qVIda0VOtHn3aEc=;
-        b=XVrIqwTaplBYtnPjmteoFY1hoSYMQLrcAoest1O9S91Kbso2NDrb0/GwvC9aGyesFY
-         UGWDdGxnbDOH9+GOa8giDO9uCxpG5lZ7qoNh51idplWisHbfF+/dsLdwkFFXVKtFzSek
-         XVLnx9Hh2/0qPigjBrt8XdnhCNqB7fGbw9n/U=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FBD6606A31C
+	for <printk@lists.linux.dev>; Thu, 12 Nov 2026 23:43:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FBD6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4c467e19391so578859b6e.3
+        for <printk@lists.linux.dev>; Thu, 12 Nov 2026 15:43:56 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794524699; x=1795129499;
-        h=user-agent:message-id:content-disposition:content-type:mime-version
-         :references:in-reply-to:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1794527036; x=1795131836;
+        h=content-type:to:from:subject:message-id:date:mime-version
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=p/4lk02epaMR+IsZKZ+HoxMKqUc6qVIda0VOtHn3aEc=;
-        b=Ui+1Y9JL+vq7lUC9cyKm/BrCm2aZHjyOYoS7xd6jRVsqj3sBpR7U5Z4Xr2sC5X5jJi
-         xtXTOp+348KQjS4iIS8EjzM0JSfM12KUkzUTNTNR3v/Q4+PupGOc+ujB5VPp1EIo362+
-         pemdAb6Uz2u3rt4iwIpDZh1+IrvEBO+FXP5jIN5pgmJgwC0NyllX3SegIYDSCMggNRTn
-         nQT2cOydngTpEnMVrcWeiXfDJth3w0hg7O9cB2Da95nh3jRLUaF1f8snOaA+JwtJ3aw3
-         lKjFIbKJOlLxgbE7vL3rKKkAHd6SHTyFVeEPH2CusIoRmPQF4RsejVyiqLZgtGggws4a
-         A7aA==
-X-Forwarded-Encrypted: i=1; AL+hErGwFC4kdwobDYRKbp/F7YT1ejEE4qLXkk/KyXw2BgTa4awKKszIAfNmwS78dMFBunQfntDDZdA=@lists.linux.dev
-X-Gm-Message-State: APuU4Z+qansAjAQC2LVHGiCJFPMuH7iJ1IPL5ilSxcj0pGuS1uZtPsJO
-	DxuMZ9aRjjj5mxExtmKPM+LMjLMX8zX1Hik+yvYF7YRTOJnDEXIGAsbyL35++e04xrQ=
-X-Gm-Gg: AYBFou0AFraf2pOZEgRmE7DqFxOXDElA8uEe3RcSQxDIj6Ko7+wxXIPZxuK+dlZrMSq
-	4CnEjJ0JAliTg8knBVI7ZA1a5dhk2C1I1la3Hh/sK8tToHui1F3jMiEfYm/ayHfOuexdTjGMsf6
-	2cYVN/JHUdRTgXihm8lxUkl6L02VIDmVyvaCD0SqadmqJ66eFcDsJ3+mHI630/o+0SElNjrR0IH
-	zkbmwFwuSWZgeh7qeCqM+lukjUEpMt2pjb8c13w9AYpu7sgopWkwnXoGedOFM9fgzWQiEjHpIB/
-	qygKeqQFLnGYj/2FNMYr3bnHaOZ49HIGoIrx3Hx+q+EDxwK5yp3JXehJpd3SxpiWleL/zBKeLVY
-	es6w1djJYy5qkuKTd9dOSr8atTzQnYXBgqK7GrlOCddl9AScaT0hKuldmn9fTahh3CflZypMXlQ
-	UcXv8mWD7WMJAqTbD8ajm2rSx0YrIrWJB7zVR3aq2TORrZhAZD6LMukWC9j2/AoPEQl3Db8iPOW
-	6lPDWi+im4tyJu/AGA9HXK4bP8H+qPi2nA4CFklV5sqYBCa3YN1kxVSpSIPKLCgc964lJtc+9tB
-	HR2XU1xGcIrRt7gWWQio6sftDqfZg4glfjJCv8ID5WEVpJdXTmy+JxgxH5opFPanlZtsHwnPNYL
-	fK3nfF0D+FlLcVT8j10OfWIBtIZTI2Ckd1qj/gxKMkNyRle7UA5Tx+vZ0L3oMyoomKpro3nhr1p
-	GhEV9G22EojiLDdmRB4PsfVm2M9FhJKqqTdkYm5fahTlneTrPsucWhdf1AmQ==
-X-Received: by 2002:a05:600c:4e13:b0:4ba:38a9:85e3 with SMTP id 5b1f17b1804b1-4bb55a47fabmr14344115e9.12.1794524698997;
-        Thu, 12 Nov 2026 15:04:58 -0800 (PST)
-Received: from [172.18.0.2] ([199.201.64.8])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb55ae501bsm15846805e9.10.2026.11.12.15.04.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Nov 2026 15:04:58 -0800 (PST)
-Date: Thu, 12 Nov 2026 15:04:53 -0800
-From: Chris Down <chris@chrisdown.name>
-To: Petr Mladek <pmladek@suse.com>
-Cc: John Ogness <john.ogness@linutronix.de>, Sergey Senozhatsky <senozhatsky@chromium.org>, Steven Rostedt <rostedt@goodmis.org>, Marcos Paulo de Souza <mpdesouza@suse.com>, Naveen Kumar Chaudhary <naveen.osdev@gmail.com>, printk@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 14/17] printk: Update Braille options when preferred more times
-In-Reply-To: <20261111154816.71103-15-pmladek@suse.com>
-References: <20261111154816.71103-1-pmladek@suse.com> <20261111154816.71103-15-pmladek@suse.com>
+        bh=Xo+H9lR23P0A0A4fib3m01tppo5IkRluvh2Z4UoFknA=;
+        b=oOK3YgqNcISUEQ2sAJBJlNSAWp6RenLD6rrR5bcSX+MkqSL0/F7e0uWfHAwB+ISu2y
+         ScKZmYwPZRdN0gOUEYfTEI1NLw3QmPDAq1SWVNGgH+VupRCio3epODg4X8DZx/7qSbii
+         MOO6UqC3X/Xc0ZgebmgqPUlXM/PAzA6Tpi/9TeI8aGGOMw3A81Grt5SnGp0e371mjekG
+         db2WXPN/5Vi2RjSWkEn985ir9qjlbGvefZZ7zViVOR5HMQnE+VxZz22oCgZKOLk5AIJY
+         j8tGGUwTGH+15j7tlWrRHBGFmdsMJAoi+Lm8y/IJSU1EnTEfu4G1ZDk6Kf9mPoeckxab
+         QpYw==
+X-Forwarded-Encrypted: i=1; AL+hErH0NkMVsW/i0RuYtKfN2uCVj7k9dbjlXeYUUYvkrUhuVvXHrMr+42dtJodviMlc6D4Ey0IYqnQ=@lists.linux.dev
+X-Gm-Message-State: APuU4Z/dfGH6hGjsX9oCnHa2dabFeTEBb8C81RofeSlSdudWDB7xWA+y
+	rUq2ZlRpUZR0Zs3wDFH2iAF8rst7WDlkvUrNAz2pszUhbPjTXRkB5DgSwO5FZGZYEhmKou+VNtR
+	WczB03ik8TMCCnMSFG05ATUtC6OiEy4ZMfC3oJNsvLnS/+Jzy+LGiOsPYX0g=
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -94,67 +58,209 @@ List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-Message-ID: <20261112150453.a18f9d1d0a874e96@chrisdown.name>
-User-Agent: Mutt/2.4.3 (cc9e3943) (2026-10-09)
+X-Received: by 2002:a05:6808:c125:b0:523:dee6:7ae0 with SMTP id
+ 5614622812f47-56e64df18a8mr745987b6e.58.1794527036137; Thu, 12 Nov 2026
+ 15:43:56 -0800 (PST)
+Date: Thu, 12 Nov 2026 15:43:56 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6af64f3c.29bc419b.2c18ce.0002.GAE@google.com>
+Subject: [syzbot] [kernel?] INFO: task hung in vhost_task_stop (3)
+From: syzbot <syzbot+f59eab881ec20d423ab0@syzkaller.appspotmail.com>
+To: john.ogness@linutronix.de, linux-kernel@vger.kernel.org, pmladek@suse.com, 
+	printk@lists.linux.dev, rostedt@goodmis.org, senozhatsky@chromium.org, 
+	syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Petr,
+Hello,
 
-Petr Mladek writes:
->Make the behavior consistent and always update pc->brl_options when
->@brl_options are passed and they were not defined yet.
+syzbot found the following issue on:
 
-This changes what users get for something like "console=ttyS0
-console=brl,ttyS0". Before, ttyS0 stayed a normal console with CON_CONSDEV
-and the Braille request was dropped. Now ttyS0 becomes the Braille console
-and, with 15/17, tty0 gets enabled as the default console instead. That
-fits with Braille always winning in 13/17, but could you say so here like
-you did there?
+HEAD commit:    fa4ad798f6f6 Merge tag 'for-7.4-rc1-tag' of git://git.kern..
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=101e0b69580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=d44b06612b68f56
+dashboard link: https://syzkaller.appspot.com/bug?extid=f59eab881ec20d423ab0
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+userspace arch: i386
+syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=1382f8ad580000
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=1782f8ad580000
 
-With only this patch applied, that command line also leaves the guest
-without a console until 15/17. preferred_dev_console still points at the
-ttyS0 entry after it turns into Braille, so tty0 is not enabled as the
-default console. ttyS0 itself is only enabled as the Braille console.
-That leaves only earlyser0 registered and "Warning: unable to open an
-initial console". Going by the code, the base already ends up there for
-the reverse order (console=brl,ttyS0 console=ttyS0), and both of these
-seem to be fixed in 15/17. So maybe squashing the two is the simplest way
-to keep bisect clean.
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/2bde23f56ff1/disk-fa4ad798.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/48017a7575e9/vmlinux-fa4ad798.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/c5dba52ab74d/bzImage-fa4ad798.xz
 
->+	/*
->+	 * Allow to override normal console with the Braille variant,
->+	 * for example when ttyS0 is preferred via SPCR brl,ttyS0
->+	 * via the command line.
->+	 */
->+	if (brl_options)
->+		braille_update_options(pc, brl_options);
+AI-generated root cause summary:
+When a KVM VM is initialized, kvm_mmu_start_lpage_recovery() creates the
+"kvm-nx-lpage-recovery" worker thread via vhost_task_create(). Because
+vhost_task_create() clones the calling process with CLONE_THREAD and
+.user_worker = 1 (PF_USER_WORKER) without PF_NOFREEZE, the worker inherits the
+caller's thread group and cgroup freezer state. If the cgroup is subsequently
+frozen (e.g. via cgroup1 freezer.state), the worker thread is trapped in
+__refrigerator() in the TASK_FROZEN state. When the VM file descriptor is
+closed, kvm_mmu_pre_destroy_vm() calls vhost_task_stop(), which sets
+VHOST_TASK_FLAGS_STOP, attempts to wake the worker using wake_up_process()
+(which only targets TASK_NORMAL), and blocks in
+wait_for_completion(&vtsk->exited). Because wake_up_process() cannot wake a task
+in TASK_FROZEN and freezing(current) remains true, the worker never exits,
+causing vhost_task_stop() to hang indefinitely in uninterruptible sleep.
 
-When an existing entry turns into Braille here, it keeps pc->options from
-whoever added it first, and braille_register_console() only falls back to
-"57600o8" when those are NULL. So the serial options given with the Braille
-request are dropped and the result depends on the order. The cflag of
-braille_co ends up as:
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=f59eab881ec20d423ab0
 
-     console=ttyS1,115200 console=brl,ttyS1,57600  -> B115200
-     console=brl,ttyS1,57600 console=ttyS1,115200  -> B57600
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+f59eab881ec20d423ab0@syzkaller.appspotmail.com
 
-Should the options from the Braille request win when the entry switches
-over here? Or would you rather leave that for the separate series about
-overriding options?
+INFO: task syz.0.17:5888 blocked for more than 143 seconds.
+      Not tainted syzkaller #0
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:syz.0.17        state:D stack:26216 pid:5888  tgid:5888  ppid:5825   task_flags:0x400040 flags:0x08080002
+Call Trace:
+ <TASK>
+ __schedu
+ context_switch kernel/sched/core.c:5583 [inline]
+ __schedule+0x17dd/0x5830 kernel/sched/core.c:7382
+ __schedule_loop kernel/sched/core.c:7459 [inline]
+ schedule+0x164/0x2b0 kernel/sched/core.c:7474
+ schedule_timeout+0xc0/0x2c0 kernel/time/sleep_timeout.c:75
+ do_wait_for_common kernel/sched/completion.c:100 [inline]
+ __wait_for_common kernel/sched/completion.c:121 [inline]
+ wait_for_common kernel/sched/completion.c:132 [inline]
+ wait_for_completion+0x2c5/0x5d0 kernel/sched/completion.c:153
+ vhost_task_stop+0xc0/0x170 kernel/vhost_task.c:102
+ kvm_arch_pre_destroy_vm+0x68/0x80 arch/x86/kvm/x86.c:10107
+ kvm_destroy_vm virt/kvm/kvm_main.c:1284 [inline]
+ kvm_put_kvm+0x377/0xb40 virt/kvm/kvm_main.c:1350
+ kvm_vm_release+0x6b/0x80 virt/kvm/kvm_main.c:1375
+ __fput+0x408/0xa40 fs/file_table.c:512
+ fput_close_sync+0x11f/0x240 fs/file_table.c:618
+ filp_close_sync+0x6e/0xa0 fs/open.c:1574
+ __range_close fs/file.c:919 [inline]
+ __do_sys_close_range fs/file.c:1003 [inline]
+ __se_sys_close_range+0xa77/0xef0 fs/file.c:954
+ do_syscall_32_irqs_on arch/x86/entry/syscall_32.c:79 [inline]
+ __do_fast_syscall_32+0x28b/0x6c0 arch/x86/entry/syscall_32.c:282
+ do_fast_syscall_32+0x33/0x70 arch/x86/entry/syscall_32.c:307
+ entry_SYSENTER_compat_after_hwframe+0x84/0x8e
+RIP: 0023:0xf7fb3f1c
+RSP: 002b:00000000ffe837dc EFLAGS: 00000206 ORIG_RAX: 00000000000001b4
+RAX: ffffffffffffffda RBX: 0000000000000003 RCX: 000000000000001e
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000206 R12: 0000000000000000
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ </TASK>
 
-Also, SPCR never adds a "ttyS" entry, it uses "uart", "pl011" and friends.
-For "uart", univ8250_console_match() succeeds when
-try_enable_braille_console() tries it, so that one ends up as a normal
-console anyway. Maybe use a second console= on the command line as the
-example. There's also an "and" missing before "brl,ttyS0".
+Showing all locks held in the system:
+locks held by khungtaskd/33: 1, last CPU#0:
+ #0: ffffffff9015a260 (rcu_read_lock){....}-{1:3}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
+ #0: ffffffff9015a260 (rcu_read_lock){....}-{1:3}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
+ #0: ffffffff9015a260 (rcu_read_lock){....}-{1:3}, at: debug_show_all_locks+0x2e/0x180 kernel/locking/lockdep.c:6871
+locks held by kworker/u8:9/1115: 4, last CPU#0:
+ #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
+ #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
+ #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3460 [inline]
+ #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x97a/0x1630 kernel/workqueue.c:3578
+ #1: ffff8880b8224708 (psi_seq){-.-.}-{0:0}, at: psi_task_switch+0x57/0x7d0 kernel/sched/psi.c:928
+ #2: ffff8880b8226498 (&base->lock){-.-.}-{2:2}, at: lock_timer_base kernel/time/timer.c:1005 [inline]
+ #2: ffff8880b8226498 (&base->lock){-.-.}-{2:2}, at: __mod_timer+0x1a9/0xed0 kernel/time/timer.c:1086
+ #3: ffffffff9c12ba00 (&obj_hash[i].lock){-.-.}-{2:2}, at: debug_object_activate+0xb7/0x420 lib/debugobjects.c:873
+locks held by kworker/u8:12/1168: 3, last CPU#0:
+ #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
+ #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
+ #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3460 [inline]
+ #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x97a/0x1630 kernel/workqueue.c:3578
+ #1: ffffc900050f7c40 ((work_completion)(&(&nsim_dev->trap_data->trap_report_dw)->work)){+.+.}-{0:0}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
+ #1: ffffc900050f7c40 ((work_completion)(&(&nsim_dev->trap_data->trap_report_dw)->work)){+.+.}-{0:0}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
+ #1: ffffc900050f7c40 ((work_completion)(&(&nsim_dev->trap_data->trap_report_dw)->work)){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3460 [inline]
+ #1: ffffc900050f7c40 ((work_completion)(&(&nsim_dev->trap_data->trap_report_dw)->work)){+.+.}-{0:0}, at: process_scheduled_works+0x97a/0x1630 kernel/workqueue.c:3578
+ #2: ffff888037387258 (&devlink->lock_key#9){+.+.}-{4:4}, at: nsim_dev_trap_report_work+0x57/0xb30 drivers/net/netdevsim/dev.c:834
+locks held by kworker/0:2/1216: 3, last CPU#0:
+ #0: ffff88813fe0dd48 ((wq_completion)events_power_efficient){+.+.}-{0:0}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
+ #0: ffff88813fe0dd48 ((wq_completion)events_power_efficient){+.+.}-{0:0}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
+ #0: ffff88813fe0dd48 ((wq_completion)events_power_efficient){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3460 [inline]
+ #0: ffff88813fe0dd48 ((wq_completion)events_power_efficient){+.+.}-{0:0}, at: process_scheduled_works+0x97a/0x1630 kernel/workqueue.c:3578
+ #1: ffffc90005487c40 ((work_completion)(&(&gc_work->dwork)->work)){+.+.}-{0:0}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
+ #1: ffffc90005487c40 ((work_completion)(&(&gc_work->dwork)->work)){+.+.}-{0:0}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
+ #1: ffffc90005487c40 ((work_completion)(&(&gc_work->dwork)->work)){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3460 [inline]
+ #1: ffffc90005487c40 ((work_completion)(&(&gc_work->dwork)->work)){+.+.}-{0:0}, at: process_scheduled_works+0x97a/0x1630 kernel/workqueue.c:3578
+ #2: ffffffff9015a260 (rcu_read_lock){....}-{1:3}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
+ #2: ffffffff9015a260 (rcu_read_lock){....}-{1:3}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
+ #2: ffffffff9015a260 (rcu_read_lock){....}-{1:3}, at: gc_worker+0x274/0x1890 net/netfilter/nf_conntrack_core.c:1530
+locks held by getty/5391: 2, on CPU#1:
+ #0: ffff8880385230a0 (&tty->ldisc_sem){++++}-{0:0}, at: tty_ldisc_ref_wait+0x25/0x70 drivers/tty/tty_ldisc.c:243
+ #1: ffffc900032362e8 (&ldata->atomic_read_lock){+.+.}-{4:4}, at: n_tty_read+0x45a/0x1360 drivers/tty/n_tty.c:2211
 
-A few changelog typos while you're there: "stored only it is a new entry"
--> "only when it is", "preferred_console[]" -> "preferred_consoles[]" and
-".brl->options" -> ".brl_options".
+=============================================
 
-Once those are fixed, please feel free to add:
+NMI backtrace for cpu 1
+CPU: 1 UID: 0 PID: 33 Comm: khungtaskd Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 10/15/2026
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
+ nmi_cpu_backtrace+0x274/0x2d0 lib/nmi_backtrace.c:123
+ nmi_trigger_cpumask_backtrace+0x17d/0x390 lib/nmi_backtrace.c:66
+ trigger_all_cpu_backtrace include/linux/nmi.h:164 [inline]
+ __sys_info lib/sys_info.c:157 [inline]
+ sys_info+0x135/0x170 lib/sys_info.c:165
+ check_hung_uninterruptible_tasks kernel/hung_task.c:377 [inline]
+ watchdog+0x1073/0x10f0 kernel/hung_task.c:598
+ kthread+0x38b/0x480 kernel/kthread.c:436
+ ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+ </TASK>
+Sending NMI from CPU 1 to CPUs 0:
+NMI backtrace for cpu 0
+CPU: 0 UID: 0 PID: 32 Comm: pr/ttyS0 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 10/15/2026
+RIP: 0010:io_serial_in+0x77/0xc0 drivers/tty/serial/8250/8250_port.c:425
+Code: e8 2e 6a 43 fc 44 89 f9 d3 e3 49 83 c6 40 4c 89 f0 48 c1 e8 03 42 80 3c 20 00 74 08 4c 89 f7 e8 2f f3 ba fc 41 03 1e 89 da ec <0f> b6 c0 5b 41 5c 41 5e 41 5f e9 9a 14 83 06 cc 44 89 f9 80 e1 07
+RSP: 0018:ffffc90000a878b8 EFLAGS: 00000002
+RAX: 1ffffffff3840b00 RBX: 00000000000003fd RCX: 0000000000000000
+RDX: 00000000000003fd RSI: 0000000000000000 RDI: 0000000000000020
+RBP: dffffc0000000000 R08: 0000000000000003 R09: 0000000000000004
+R10: dffffc0000000000 R11: ffffffff8585a440 R12: dffffc0000000000
+R13: 0000000000000000 R14: ffffffff9c205ec0 R15: 0000000000000000
+FS:  0000000000000000(0000) GS:ffff888123409000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000563e7aa97d08 CR3: 000000000ff48000 CR4: 00000000003526f0
+Call Trace:
+ <TASK>
+ serial_in drivers/tty/serial/8250/8250.h:134 [inline]
+ serial_lsr_in drivers/tty/serial/8250/8250.h:156 [inline]
+ wait_for_lsr+0x184/0x2f0 drivers/tty/serial/8250/8250_port.c:2036
+ serial8250_fifo_wait_for_lsr_thre drivers/tty/serial/8250/8250_port.c:3294 [inline]
+ __serial8250_console_fifo_write+0xcd/0x3e0 drivers/tty/serial/8250/8250_port.c:3369
+ serial8250_console_fifo_write drivers/tty/serial/8250/8250_port.c:3402 [inline]
+ __serial8250_console_write drivers/tty/serial/8250/8250_port.c:3456 [inline]
+ serial8250_console_write+0xa7e/0x1200 drivers/tty/serial/8250/8250_port.c:3520
+ nbcon_emit_next_record+0xef5/0x1a90 kernel/printk/nbcon.c:-1
+ nbcon_emit_one kernel/printk/nbcon.c:1157 [inline]
+ nbcon_kthread_func+0x6d9/0x8d0 kernel/printk/nbcon.c:1271
+ kthread+0x38b/0x480 kernel/kthread.c:436
+ ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+ </TASK>
 
-Reviewed-by: Chris Down <chris@chrisdown.name>
 
-Chris
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
