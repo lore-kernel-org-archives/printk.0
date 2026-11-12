@@ -1,68 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794472242;
-	b=v6qgtXoeIINTr/I025Qy8dDuKi8YqOW25/KUIkG4uw6nka9d3zFd8h9YylmGtJeBFyxf
-	 ea+7QlIztunvHaktLMcgJRLygJwi4JwJ7WKg4+LIaNOkvkcyuQkMZHLIzPJ0FAy2dxdRR
-	 xSqeIzhXuzNytStLhLCi3q2zYLROZMYmftn89OfOJcuBoWW4P+RaVbLf9gyk7mDb16TCZ
-	 TYAZo8qcDMkBt2H/nGPCW29NI058QCJGRU2EGpH1w5m9z6ELRUVPhL9UwhTfoaUxcAfAb
-	 hThUu3ksbJbVioFMYGTfMXNZalWlk9X13tiSSfIzpHIFY2eEQALiYuQKfxR6qlpE7rg==
+	t=1794507609;
+	b=GPBYbWp588U11gTO97maa1eyyTXnMqcXQEI8HRsv2WLmmGj3//64j8+ilycqC+iYW0SI
+	 1APkE98od7TI9b8ioTaOj1x8vYBEom1fTZPIInlehvSZT5/f9wJf7dn/RG/jQ6o5r2xXQ
+	 iu60qdZgCwWzIRAiiNLoNLRgBd7cpvF9rHdRBtPET+jNtRNCOxipnkwe1Al1K+kqhUtMo
+	 ToaJIm2AzNIyEx1He0Don1S6lzQIjMuCS/7JwZ58z2ukMOoQByv1Uag8C3qya6Xv/VNbY
+	 BNfher66+fdJYTSXIwYGZLyiSLZr8L+ynecPNy1rMl3Eex7H+mzSFDy3i6joO84hRFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794472242;
-	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:
-	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
-	bh=J1ZxmriRqQ9+61x/KiVxYgCraVJwWtPh71bpXSpp/vM=;
-	b=h6aowGfPGX2HfejimZ3vYd4YTOcSokkSubPEK+NL0qKP7maSavXIjGGDh65NwKkJrKYB
-	 FH8KQg0/jZw0msx1ujCBxclxDga+JQ5Ogycr13Bd1hkYjqlVGsDr+lDxfcoeVPRWzR0//
-	 2edsm0jzxGvZWkrKHKNJbtCLolY5EugJbN0uFgO9nh3TX25+qZIpMr4+5s3CEnRcDHqUQ
-	 m/QQIXK26sXk3DD7KVUF+YqeqmaWc4vFMQcCtH2ivVT9+E2eFJ6PQ5M58oAoYnXPp0e7H
-	 M8np20JFtLlnxjc+W5Pmpki73cKHaSN6Z2OcUbX9rSP6d5jCERAEbnhJH3737c1nT0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794507609;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=3O1V2oJvm8u78hih6pje80+qPGInGnWTWWr+FggbG4c=;
+	b=FA/FCMEXyPFnL3wRc36Rzy1qsVn5qkXklnvz8Aj/HnYpr88GxPvoG4vjJynxuY6+pFwr
+	 BCVK9abhlj9xL2WsWLR+8KGDaGzg8lQTYyFazf66IgE3DKq+Bjmsv5q0IjAQYRA3Hafvs
+	 LOfnAYrlJPRIUbxkX3Q4Gapb2fLiDhdDFHQPaeMR423s3smVCg0iSaIjgoLeEDlF9OEAr
+	 oJL6NOgZySq4spm7ikhpdp069TlIzvJDrE2Rv6D81b8NNDDXP4ivPkdza4182oKku3nyO
+	 Zvj8qne7t0BLcLJ7ZWU7BewmeCKXjT3wrBbQABLRyRsfsKIzPYC44mGCKCZpQyASMlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=zgboRtwD;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=n4fsSVxH;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RJX4178v;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9E1F606A327
-	for <printk@lists.linux.dev>; Thu, 12 Nov 2026 08:30:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9E1F606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D0C3606A31C
+	for <printk@lists.linux.dev>; Thu, 12 Nov 2026 18:20:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=zgboRtwD;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=n4fsSVxH
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1794472239;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=J1ZxmriRqQ9+61x/KiVxYgCraVJwWtPh71bpXSpp/vM=;
-	b=zgboRtwDlXPdubW6FP+TXnwTzg9cuCoi2bNi1WycLLB0WfukOGm+PVjzxmGlr4sT2Swt4r
-	lEg10MYTOIBEWIZ6u/xicw4PPf+xuKHQNcSnbn+7bh/2LUplXT4YX0pmtrCDnovCmK+50k
-	KWNhj2ZK/6EPX5EekIsMEFPnr7LnHjLxL4mbSx/ntsq+S4oDKUvyfii2ielIU9yXY5FRN7
-	F+bp07OfYjoITgduXQK9S6Lr6Z0qwCxzPQRZvoRA1wulBPZMOTs2zf3KcMoKJRtIr1Ofqo
-	TEOcMRzUQC0MB3cooRqXoaid4DyHWJpDTVWVJ0+7RgJrs0B0350eCt7sEXnc2Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1794472239;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=J1ZxmriRqQ9+61x/KiVxYgCraVJwWtPh71bpXSpp/vM=;
-	b=n4fsSVxHQCpoGUrSswAqR01TxjQMU7WRkZTHV4T+HNj6vMAE/KrCFqtWX3p0e4K1b296BY
-	6AEEPG806uO4nHDg==
-To: Zhu Jun <zhujun2@cmss.chinamobile.com>, pmladek@suse.com
-Cc: rostedt@goodmis.org, senozhatsky@chromium.org, paulmck@kernel.org,
- printk@lists.linux.dev, linux-kernel@vger.kernel.org, Zhu Jun
- <zhujun2@cmss.chinamobile.com>
-Subject: Re: [PATCH v2] printk: ringbuffer: Annotate speculative record reads
-In-Reply-To: <20261112031441.120773-1-zhujun2@cmss.chinamobile.com>
-References: <20261112031441.120773-1-zhujun2@cmss.chinamobile.com>
-Date: Thu, 12 Nov 2026 09:36:39 +0106
-Message-ID: <87pkwah2og.fsf@jogness.linutronix.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RJX4178v
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5763D1F000C4;
+	Thu, 12 Nov 2026 18:20:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794507608;
+	bh=3O1V2oJvm8u78hih6pje80+qPGInGnWTWWr+FggbG4c=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=RJX4178v+J+PwurmATSTjpDY5TgRniCJjUk8E8uFMfaF6xkju7tPjZnCHKGzhTOXy
+	 1Jz6BOVgH+/E0SQHWxbhQzezhtyErTQ8KqypuWO6zYa5vppU+bOOk75gT8dDSHgNa4
+	 Y3GbZIvFJ64IOLz/naUXmvpVpG1shGPKOFDoeElJsLsyCAHkH1EP6+UXawzFIavHxj
+	 56iVFwoDHwd7zeIEj+s9fjKNzdkj4smMKqdO7L8EZ32gn6od5gFHHingMsGtFFB0bV
+	 y4fCkUpyB10vjIOUgo+cSskZfX/PHqTMoATnZTy/qirD4pvjL2Hl3u47qxWdyAoVHB
+	 nKvad+WJ3X/EQ==
+Message-ID: <sashiko-outbox-211692@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH printk v2 1/6] printk: Introduce and specify flush
+ reasons
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "John Ogness" <john.ogness@linutronix.de>, "Petr Mladek" <pmladek@suse.com>
+Cc: "Sergey Senozhatsky" <senozhatsky@chromium.org>, "Steven Rostedt" <rostedt@goodmis.org>, "Ryan
+ Roberts" <ryan.roberts@arm.com>, "Breno Leitao" <leitao@debian.org>, printk@lists.linux.dev, "Huacai
+ Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>, "Madhavan
+ Srinivasan" <maddy@linux.ibm.com>, "Michael Ellerman" <mpe@ellerman.id.au>, "Nicholas
+ Piggin" <npiggin@gmail.com>, =?utf-8?b?Q2hyaXN0b3BoZSBMZXJveSAoQ1MgR1JP?=
+ =?utf-8?b?VVAp?= <chleroy@kernel.org>, =?utf-8?b?Uml0ZXNoIEhhcmphbmkg?=
+ =?utf-8?b?KElCTSk=?= <ritesh.list@gmail.com>, "Shrikanth Hegde" <sshegde@linux.ibm.com>, "Greg
+ Kroah-Hartman" <gregkh@linuxfoundation.org>, "Jason Wessel" <jason.wessel@windriver.com>, "Daniel
+ Thompson" <danielt@kernel.org>, "Douglas Anderson" <dianders@chromium.org>, "Andrew
+ Morton" <akpm@linux-foundation.org>, "Mukesh Kumar Chaurasiya" <mchauras@linux.ibm.com>, "Feng
+ Tang" <feng.tang@linux.alibaba.com>, Rio <rioo.tsukatsukii@gmail.com>, "Bradley
+ Morgan" <brads@mainlining.org>, "Pnina Feder" <pnina.feder@mobileye.com>, "Gal
+ Pressman" <gal@nvidia.com>, "Petr Pavlu" <petr.pavlu@suse.com>, "Pavel
+ Tikhomirov" <ptikhomirov@virtuozzo.com>, "Oleg Nesterov" <oleg@redhat.com>,
+ =?utf-8?b?Q2VuIFpoYW5nIChNaWNyb3NvZnQp?= <blbllhy@gmail.com>
+In-Reply-To: <20261111181942.593695-2-john.ogness@linutronix.de>
+References: <20261111181942.593695-1-john.ogness@linutronix.de>
+ <20261111181942.593695-2-john.ogness@linutronix.de>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 12 Nov 2026 18:20:06 +0000
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -71,68 +74,98 @@ List-Subscribe: <mailto:printk+subscribe@lists.linux.dev>
 List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain
 
-Hi Zhu,
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue to consider:
+- [Medium] printk: unlocked reset of legacy_flush_reason in
+  printk_trigger_flush()
+--
 
-On 2026-11-12, Zhu Jun <zhujun2@cmss.chinamobile.com> wrote:
-> diff --git a/kernel/printk/printk_ringbuffer.c b/kernel/printk/printk_ringbuffer.c
-> index 46a79ec0940a..8a1075d00d0a 100644
-> --- a/kernel/printk/printk_ringbuffer.c
-> +++ b/kernel/printk/printk_ringbuffer.c
-> @@ -1894,9 +1894,10 @@ static bool copy_data(struct prb_data_ring *data_ring,
->  	if (data_size < (unsigned int)len)
->  		return false;
->  
-> -	/* Caller interested in the line count? */
+commit 05bc755b72e7df0d3ba29e7530e04fba0747844c
+Author: John Ogness <john.ogness@linutronix.de>
 
-Please do not drop the above comment.
+printk: Introduce and specify flush reasons
 
-> -	if (line_count)
-> -		*line_count = count_lines(data, len);
-> +	if (line_count) {
-> +		/* Racing text is rejected by the caller's descriptor recheck. */
-> +		*line_count = data_race(count_lines(data, len));
-> +	}
->  
->  	/* Caller interested in the data content? */
->  	if (!buf || !buf_size)
-> @@ -1969,6 +1970,7 @@ static int prb_read(struct printk_ringbuffer *rb, u64 seq,
->  	atomic_long_t *state_var = &rdesc->state_var;
->  	struct prb_desc desc;
->  	unsigned long id;
-> +	u16 text_len;
->  	int err;
->  
->  	/* Extract the ID, used to specify the descriptor to read. */
-> @@ -1984,12 +1986,16 @@ static int prb_read(struct printk_ringbuffer *rb, u64 seq,
->  	if (err || !r)
->  		return err;
->  
-> -	/* If requested, copy meta data. */
+This commit introduces enum pr_flush_reason and propagates flush reasons
+through printk_trigger_flush(), console_flush_on_panic(), and the nbcon and
+legacy console flushing paths.
 
-Please do not drop the above comment.
-
-> -	if (r->info)
-> -		memcpy(r->info, info, sizeof(*(r->info)));
-> +	if (r->info) {
-> +		/* The record may be recycled; the descriptor is rechecked below. */
-> +		data_race(memcpy(r->info, info, sizeof(*r->info)));
-> +	}
+> diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
+> index 5dbcf8a9909bb..c059b40fc993c 100644
+> --- a/kernel/printk/printk.c
+> +++ b/kernel/printk/printk.c
+> @@ -464,6 +464,14 @@ bool have_boot_console;
+>  /* See printk_legacy_allow_panic_sync() for details. */
+>  bool legacy_allow_panic_sync;
+> =20
+> +/*
+> + * While some context is performing a backlog flush, track the reason for
+> + * the flush in case nbcon consoles are using legacy printing.
+> + * Synchronized by the console_lock, except in console_flush_on_panic()
+> + * when the console_lock is ignored.
+> + */
+> +enum pr_flush_reason legacy_flush_reason =3D PR_FLUSH_RUNTIME;
 > +
-> +	/* The descriptor recheck below also rejects a raced length. */
-> +	text_len = data_race(READ_ONCE(info->text_len));
+>  /* Avoid using irq_work when suspending. */
+>  bool console_irqwork_blocked;
 
-There is no need to prevent compiler optimization with
-READ_ONCE(). Using data_race() is enough.
+[ ... ]
 
->  
->  	/* Copy text data. If it fails, this is a data-less record. */
-> -	if (!copy_data(&rb->text_data_ring, &desc.text_blk_lpos, info->text_len,
-> +	if (!copy_data(&rb->text_data_ring, &desc.text_blk_lpos, text_len,
->  		       r->text_buf, r->text_buf_size, line_count)) {
->  		return -ENOENT;
+> @@ -4732,18 +4745,21 @@ void defer_console_output(void)
+>   * This is best effort. Depending on the system state, console states,
+>   * and caller context, no actual flushing may result from this call.
+>   */
+> -void printk_trigger_flush(void)
+> +void printk_trigger_flush(enum pr_flush_reason reason)
+>  {
+>  	struct console_flush_type ft;
+> =20
+>  	printk_get_console_flush_type(&ft);
+>  	if (ft.nbcon_atomic)
+> -		nbcon_atomic_flush_pending();
+> +		nbcon_atomic_flush_pending(reason);
+>  	if (ft.nbcon_offload)
+>  		nbcon_kthreads_wake();
+>  	if (ft.legacy_direct) {
+> -		if (console_trylock())
+> +		if (console_trylock()) {
+> +			legacy_flush_reason =3D reason;
+>  			console_unlock();
+> +			legacy_flush_reason =3D PR_FLUSH_RUNTIME;
+> +		}
 >  	}
+>  	if (ft.legacy_offload)
+>  		defer_console_output();
 
-John Ogness
+[Severity: Medium]
+Does resetting legacy_flush_reason after console_unlock() modify it outside
+console_lock and race with the next lock owner?
+
+console_unlock() either hands console_lock over to a spinning waiter or
+releases console_sem in __console_unlock() before returning:
+
+CPU0                                    CPU1
+printk_trigger_flush(PR_FLUSH_RUNTIME)
+  console_trylock()
+  legacy_flush_reason =3D PR_FLUSH_RUNTIME
+  console_unlock()
+    __console_unlock()
+                                        emergency_restart()
+                                          printk_trigger_flush(PR_FLUSH_RES=
+TART)
+                                            console_trylock()
+                                            legacy_flush_reason =3D PR_FLUS=
+H_RESTART
+  legacy_flush_reason =3D PR_FLUSH_RUNTIME
+                                            console_unlock()  <-- flushes w=
+ith PR_FLUSH_RUNTIME
+
+This overwrites the active flush reason while CPU1 holds console_lock (or
+while a spinning waiter that took over console_lock inside
+console_flush_all() is still flushing).  Could legacy_flush_reason be reset
+before __console_unlock() or inside __console_flush_and_unlock() while
+console_lock is still held?
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261111181942.5936=
+95-1-john.ogness@linutronix.de?part=3D1
