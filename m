@@ -1,61 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794507612;
-	b=YXpSBOHvmoL4FJ8GPBLgdwCP4pHwRlb8p6XROd9CjaivKlFm38H7guY9XKqf0Mfo1YsX
-	 /MvTrfbxfZ8of5QLXlYyNCFHDRKbqB+VDb1hK2NbX0c+u7H2/o5xxdWLvxkciaNfI0thD
-	 DKPljzvb1BPbsHyMfNkKS4QYqmWi4RoKpy3MXUKkyLH+Z6u+dfWGQoI3Ci9Jrs3vFCl/M
-	 gjmtQiZBfP4y7D/JKMObcVLDNLInyaQsOMnlbZ6qHndHECbopkjpVmtFgdCAlXOhmyYQ8
-	 FIpRvULOE3vJZ8JNfD3AVkdoD8dr953gQXOLClGOj1dWwThK6/bSi5LorTT1kKtPB5A==
+	t=1794524670;
+	b=PMa/WMpGHwpfP1TJCm+TZHjaU4pvzVR8sl+MrzELsBKQ9XtGvmIS0MrP+nt/W+wvKycG
+	 bYt8QF1SydDsQKYsi7yf4YAaTo9S8bej3gHLheJUdSaFxNqji3zocjfzFcLV5RmGBv+S8
+	 SmlHiqnio26Sdbx5eU2PrBUKZDkJ3ObIo0SO+6/7Yn98p4b7NAExyCTnk8lvVvarOFPiS
+	 cUgeNG8B7Akt/Sgbi0CMWFolGdvNUfEBQaEBmwyKPqpYy9of66rlqb+cj6P6Uj/h8iMw2
+	 q3qqWTVIY4GCRlCa+NsEfg0N9XDDRpdmUnafuTcRzsZJ+y3QtRu1wku1vVpcYDiA7AA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794507612;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=P+J/38KuwNd8GMYAaGXM1MniSlfDl5LCHBw4TiAEj30=;
-	b=eqSbThV9eESPlWA8MRHJSapiXCPhxZ/7BDwoOsGq/4zGV5TPZwuvTNIb+yR1Lr/is86Q
-	 tnBDbOU++zF8H1twijXaaxhO0rS6unF0NIZMX2BF0IC14XqIif8SHEPHU3eByHd3eJIUt
-	 1/hGDrZihJBaFwz5sD0BqCwx7a93Zus3mh1kr/DcorHqZRlLfq6n+U4/Yh32aZguN1WAZ
-	 94wdh3IpamGkQcKix+SANIPo4nuOnE7aMUaDChFBtSVTKzk7JdVST+Um3SNEZPgUt/+mA
-	 U839bZ/F/m3lQme/KeAZW+RJMzC+P6O78Fxm9jpNdiBoxduYwxLaTNDqSrVgNpBTyjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794524670;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Disposition:Message-ID:User-Agent;
+	bh=mDnpyhmjZp7ZSLr9QQCroWr4WLbm7A908FCsyv58FvQ=;
+	b=2YSUNdsfAnYJBSZvHJwuYHrXpYEVIM4Powy1iKsxBUnth6d/Pb/yKkwDmXyxP1mMrFnw
+	 UmYuTOdUw6P3GarnFqmFTY9IX2gUCVU6kW5VVhZxhudqZMVbeFnkghIRdKwSrJ+6y29GK
+	 9hHWK6FMEaQ3wyB4GcnHA9DDU5ex7cg7z5IR1796L74kUHVA3EvGBcINSqe0JgP4KvgGe
+	 VmX810trMbzDwJv1WpiJRnRdgYreGD1BO+x8GbDLwBwKO3MlnYJ+2b13IKPJT5oOb1srE
+	 YyWMZ36AUScXoOdYX4UzgfDwVK41EDg/YlsfQkfHN+hHG8gdeWGPz1K1To4Q7gNaoNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qn1Ea5yK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=chrisdown.name;
+	spf=pass smtp.mailfrom=chrisdown.name;
+	dkim=pass header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=BZAXL+ss;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7CC6606A321
-	for <printk@lists.linux.dev>; Thu, 12 Nov 2026 18:20:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A619F606A321
+	for <printk@lists.linux.dev>; Thu, 12 Nov 2026 23:04:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A619F606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=chrisdown.name
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrisdown.name
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qn1Ea5yK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA0C01F000C4;
-	Thu, 12 Nov 2026 18:20:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794507612;
-	bh=P+J/38KuwNd8GMYAaGXM1MniSlfDl5LCHBw4TiAEj30=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=Qn1Ea5yK9r3vdcEwTIa5MZgfu9Nysxo830gWUdtGaYtdtHiKP7oaPdvQKSdPk4kNp
-	 nUadNIs9kyzKeA+KwW9VPBKEdaVqb47uYqojsfy6E6nLND3c+ycmtSGHDF4xFNUa5T
-	 yJmfi0XB8/5FelV5tYPNoHrSVEFn9SJLVHEtyR2cHZFyspZbl2bihDt2Vx4drucia4
-	 LzLL/6u+7n9fE5Cpthc+Qn+rOWVUo2yTfZUsR993vvJBtng9TCNzwBYPAVFhKlJXaf
-	 TtbIGhdMSso2u6N8BF0guWeBl24t/KOUH27oa3XKVlKSuHkmAVdL/WzdKQYzNMq9IN
-	 COlX9Kan6PPHg==
-Message-ID: <sashiko-outbox-211697@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH printk v2 6/6] netconsole: Always perform unsafe
- flushing on panic/kdb/restart
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "John Ogness" <john.ogness@linutronix.de>, "Petr Mladek" <pmladek@suse.com>
-Cc: "Sergey Senozhatsky" <senozhatsky@chromium.org>, "Steven Rostedt" <rostedt@goodmis.org>, "Ryan
- Roberts" <ryan.roberts@arm.com>, "Breno Leitao" <leitao@debian.org>, printk@lists.linux.dev, "Gustavo
- Luiz Duarte" <gustavold@gmail.com>, "Andrew Lunn" <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@kernel.org>, "Jakub
- Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>
-In-Reply-To: <20261111181942.593695-7-john.ogness@linutronix.de>
-References: <20261111181942.593695-1-john.ogness@linutronix.de>
- <20261111181942.593695-7-john.ogness@linutronix.de>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 12 Nov 2026 18:20:11 +0000
+	dkim=pass (1024-bit key) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=BZAXL+ss
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a210470b49so2367335e9.2
+        for <printk@lists.linux.dev>; Thu, 12 Nov 2026 15:04:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chrisdown.name; s=google; t=1794524668; x=1795129468; darn=lists.linux.dev;
+        h=user-agent:message-id:content-disposition:content-type:mime-version
+         :references:in-reply-to:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mDnpyhmjZp7ZSLr9QQCroWr4WLbm7A908FCsyv58FvQ=;
+        b=BZAXL+ssNvJQdbAakQ4NCqVUTERo/lVf7r7+RNzakP6P7kH7idb2pFkbsCpeqjz7EN
+         f2oKHGvqUk0u/opbDtiUmV4+gonIhdCyXukLsvopF+1wTA3j23vXyVpKIY2EMMtw+loB
+         301+q7hh31dK4jynz4FYNDWOdz2Honiwb3h4E=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794524668; x=1795129468;
+        h=user-agent:message-id:content-disposition:content-type:mime-version
+         :references:in-reply-to:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mDnpyhmjZp7ZSLr9QQCroWr4WLbm7A908FCsyv58FvQ=;
+        b=pxdkjFabJGcwEBzRIPQuadkIsF3qwc2ZY5rOgyuSXzTYN2STCyrU1bh/kzT138NcFM
+         A7AVVG3YuM3qPXuJ7aCSk3ku+IhOVJS9bpwRQrSeRd/pOcvO0VAQcGWOS+psxKV2GRX7
+         v+teIKeIYk1+ft9NOy/kvAYR+fyclP1TX2BQjBgrqWfzgKfvYC0LYBf0Wx2HGiVtE1MF
+         LkFkjhI518awemUh78HOEYsUjj645SpIU3am8P8jc+WdD5MrM91PYNOv+9CFWDbkwCtw
+         eJoYrLQIE504dEgC5twSC43ZF974sDtKJqAoUTS5H8gY3ztQeQAxaGDHnzcY0Ym589Ej
+         JTkA==
+X-Forwarded-Encrypted: i=1; AL+hErGUTWiw00ZRNnYSLUgZLOR10EpWb8Ioq66s0WlJbTzLZmamavrR7Ul412etVq55LelktkZInTM=@lists.linux.dev
+X-Gm-Message-State: APuU4Z9RDkvuR8vUToqru3G2z/HaSA7iHBDgvJgXoLMNWyxT8ptW0qgo
+	Ejn13+sGzxUjk0n1IqOiDo8WuftwLWjzat1LwmdS9DqCOc0UyG9DY9Ulnlzfy8qKW8M=
+X-Gm-Gg: AYBFou1MEN6/vNSYLgiZGO8BjuVTpXrFSdColYiI1Mi9VGMtSA7kBP0914TLMv1QGur
+	8R/lDkk4GUzxtxQmGklo5vC/FE6ElWwZ/r1xdq5IvrAWKTydAPTo3cUa/InsXMzv48eL2oILO2G
+	55aL787kU9jrLFMaofgMA24mdE6V2eGiEP7GJ1SeWrGNQ7d4AGv7dPzYtyvOz05xYQtTCZGWMfZ
+	qxEnJ2x8L4CTewpsDeI8IOdU87JUGbXAlRHIb6F1N9WQvIPCgnMl06FEsEIfG+Ai/cIWupQQcvV
+	pzu0xs2kOGwk/ubXVNmOFtUcBiXBBNfht+B0eODxqgp1BY3ySVwWADKUUobk6o29esSBZxjbBLb
+	ISI0RQ38QfTh5IEmM0xuMeZs0YjcYV7vaHEuj3E1NmfgvbzgAdJb0GHdgZ4LjSTuumZS2QSlzGK
+	+Fs1W2k+2n+SYwW0oGPb069nxzkTuuzhK3SfmCpGeVMU40I+xQ+tq8QWNRlqQv2S+1Y3dFfLm4E
+	8F63Xvy0VP3gs4UgkU0kubYzTepxVGiw5yTLdy6TcqaL7p0xkIjFJsv23BOcQsPsvyCscc3hOoO
+	vEyLMe2piMCcDrYXLRQl0W1D4IIzmCGnLwOK2W0uwaMpx5YXPNlWc9KHlM6J2DxwJAXkMy5njUh
+	xiuxgXfA1R6ko1RQvCexF6wWFZ0rUVLENOUOCxOCOWMN2sRVOSvMD+cE5paXwSHaeFZGMBdQb+z
+	5s0paJv64LWPLhsvPFuTG8ooYg5+1JtF5WqOQxQxF8O0VNC7dp1oZYFLyfAA==
+X-Received: by 2002:a05:600c:19d2:b0:4a1:a45a:88f with SMTP id 5b1f17b1804b1-4bb55ab27afmr11503785e9.20.1794524668116;
+        Thu, 12 Nov 2026 15:04:28 -0800 (PST)
+Received: from [172.18.0.2] ([199.201.64.8])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb4e284339sm92882835e9.5.2026.11.12.15.04.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Nov 2026 15:04:27 -0800 (PST)
+Date: Thu, 12 Nov 2026 15:04:19 -0800
+From: Chris Down <chris@chrisdown.name>
+To: Petr Mladek <pmladek@suse.com>
+Cc: John Ogness <john.ogness@linutronix.de>, Sergey Senozhatsky <senozhatsky@chromium.org>, Steven Rostedt <rostedt@goodmis.org>, Marcos Paulo de Souza <mpdesouza@suse.com>, Naveen Kumar Chaudhary <naveen.osdev@gmail.com>, printk@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 04/17] printk: Separate code for adding/updating preferred console metadata
+In-Reply-To: <20261111154816.71103-5-pmladek@suse.com>
+References: <20261111154816.71103-1-pmladek@suse.com> <20261111154816.71103-5-pmladek@suse.com>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -64,103 +93,28 @@ List-Subscribe: <mailto:printk+subscribe@lists.linux.dev>
 List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+Message-ID: <20261112150419.35ac913379dae921@chrisdown.name>
+User-Agent: Mutt/2.4.3 (cc9e3943) (2026-10-09)
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issues to consider:
-- [High] netconsole: lockless target_list traversal in
-  netconsole_write()
-- [Low] netconsole: missing Fixes trailer for commit 7eab73b18630
---
+Hi Petr,
 
-commit fe1bd6625625f06f022158329127266eb9d033ce
-Author: John Ogness <john.ogness@linutronix.de>
+Petr Mladek writes:
+>+/**
+>+ * add_or_update_preferred_console - Add or update a given entry in
+>+ *	the preferred_consoles[] array.
+>+ * @i: index of the entry in @preferred_consoles table which should get updated.
 
-> netconsole: Always perform unsafe flushing on panic/kdb/restart
->
-> As a legacy console the netconsole would perform unsafe flushing
-> during panic/kdb/restart. With commit 7eab73b18630 ("netconsole:
-> convert to NBCON console infrastructure") the netconsole is now an
-> NBCON console, however it uses the CON_NBCON_ATOMIC_UNSAFE flag and
-> this prevents unsafe flushing except for at the very end of panic().
->
-> Enable unsafe flushing policies to allow the netconsole to perform
-> unsafe flushing during all panic/kdb/restart variations, just as it
-> did when it was a legacy console.
->
-> Signed-off-by: John Ogness <john.ogness@linutronix.de>
+kernel-doc picks the block up now, thanks. `scripts/kernel-doc -none -Wall`
+still says "No description found for return value of
+'add_or_update_preferred_console'" though, because it wants a "Return:" line.
+"@preferred_consoles" in the @i line also still reads as a parameter,
+maybe preferred_consoles[] would be better?
 
-[Severity: Low]
-Since this fixes a regression from the NBCON conversion, should it include:
+Fine to fix when applying.
 
-  Fixes: 7eab73b18630 ("netconsole: convert to NBCON console infrastructure=
-")
+Thanks!
 
-> diff --git a/drivers/net/netconsole.c b/drivers/net/netconsole.c
-> index 267254f046de9..6c1587958e915 100644
-> --- a/drivers/net/netconsole.c
-> +++ b/drivers/net/netconsole.c
-> @@ -2695,6 +2695,8 @@ static void free_param_target(struct netconsole_tar=
-get *nt)
->  static struct console netconsole_ext =3D {
->  	.name =3D "netcon_ext",
->  	.flags =3D CON_ENABLED | CON_EXTENDED | CON_NBCON | CON_NBCON_ATOMIC_UN=
-SAFE,
-> +	.unsafe_flush_flags =3D NBCON_PANIC_FLUSH | NBCON_PANIC_PRINTK | NBCON_=
-KDB |
-> +			      NBCON_NORMAL_NOTHREAD,
->  	.write_thread =3D netconsole_write_ext,
->  	.write_atomic =3D netconsole_write_ext,
->  	.device_lock =3D netconsole_device_lock,
-> @@ -2704,6 +2706,8 @@ static struct console netconsole_ext =3D {
->  static struct console netconsole =3D {
->  	.name =3D "netcon",
->  	.flags =3D CON_ENABLED | CON_NBCON | CON_NBCON_ATOMIC_UNSAFE,
-> +	.unsafe_flush_flags =3D NBCON_PANIC_FLUSH | NBCON_PANIC_PRINTK | NBCON_=
-KDB |
-> +			      NBCON_NORMAL_NOTHREAD,
->  	.write_thread =3D netconsole_write_basic,
->  	.write_atomic =3D netconsole_write_basic,
->  	.device_lock =3D netconsole_device_lock,
-
-[Severity: High]
-Can enabling these unsafe flush flags cause netconsole_write() to race with
-target_list modifications on another CPU?
-
-nbcon_emit_one() only calls con->device_lock() (which acquires
-target_list_lock) for the threaded path; when use_atomic is true, it invokes
-con->write_atomic() without holding target_list_lock.  Previously,
-CON_NBCON_ATOMIC_UNSAFE restricted write_atomic() to the end of vpanic()
-after panic_other_cpus_shutdown() had already stopped other CPUs.  With
-NBCON_PANIC_PRINTK, NBCON_PANIC_FLUSH, and NBCON_NORMAL_NOTHREAD set,
-write_atomic() runs during early vpanic() before other CPUs are stopped, as
-well as during emergency_restart() and post-printk_kthreads_shutdown()
-reboot/halt while other CPUs are still active:
-
-CPU0                                  CPU1
-vpanic() / kernel_restart()
-  ...
-  nbcon_emit_one(..., true)
-    netconsole_write()
-      list_for_each_entry(nt,
-          &target_list, list)
-                                      drop_netconsole_target()
-                                        spin_lock_irqsave(&target_list_lock)
-                                        list_del(&nt->list)
-                                        spin_unlock_irqrestore(...)
-                                        ...
-                                        netpoll_cleanup(&nt->np)
-                                          np->dev =3D NULL
-                                        config_item_put(&nt->item)
-                                          kfree(nt)
-        netif_running(nt->np.dev)  <-- NULL deref / use-after-free
-
-Because netconsole_write() traverses target_list with non-RCU
-list_for_each_entry() and dereferences nt->np.dev without target_list_lock,
-a concurrent target removal or disable in drop_netconsole_target(),
-enabled_store(), or netconsole_netdev_event() can cause a NULL pointer
-dereference, use-after-free, or LIST_POISON dereference during panic or
-reboot flushing.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261111181942.5936=
-95-1-john.ogness@linutronix.de?part=3D6
+Chris
