@@ -1,90 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794524688;
-	b=ITMPI/W/+g1NHR5ndyScydxE5L+ycax1wUt6FNSEUvzunWynXZZIeQnhGyo30Wk0mQ8d
-	 kjeptbcciISHYAJ47XauFKMFh2IayB0miftRFiKD6aSpRgZyaI2JBsb9R16DnjOVDcy34
-	 e/Q5F90YDUUrfjzFyuIXeqehZGdDAO8lfj9ron98SjE4hrdK7r1FAapk8rWZhRGmVrrRZ
-	 L8sC/8/idax52iOQcBVEWCW2JXE/yXSJioAURt252fLRe/kQXX/eqY4XSA2QRhSXkJ4bK
-	 cDK6gsD5GRZLbnVBq0wCsPXgJs0XyChy1Otu6vu7bKNQBgm8zB7YZUUYGzVkwl7hOBg==
+	t=1794524694;
+	b=kMyi0XcTLZI+B0KRdzISCsjuArm1wRUUk6AfpzLkQrg79FOEjS1QGfjHZqtVSluq9A4L
+	 ilUI6aIURPg2i2zbAg2no/4d5UPsrpvTsoXczXwyRJtfXG1DCe+5Dh27ActjibTz4edLk
+	 W52VkuM+DZItcXlKxaXURCWVPKlMMOqeAgO8VsKSvo6nO8xTbV2x7gyZCNiFX8TK0Eiki
+	 5VG2PGCGHRMvFWf651WLM709pZWzvrOGoboxQUKD5PTlnP1fdKjlhxASGQDhk5yx/agMd
+	 NgNEgow1wySc/TFQa3GMl3h2nILKxib1VrMKkEpX7qebHnp0ep3NeG63EJo3Xb0LaAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794524688;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794524694;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:From:To:Cc:Subject:In-Reply-To:References:MIME-Version:
 	 Content-Type:Content-Disposition:Message-ID:User-Agent;
-	bh=h/4ZmNZSkN5127BfeP/7xUQIBc4JFqpmLA7VTI9WLuY=;
-	b=jeSGJP/nTJakqeCgUg0SJ1u5yGHcZRPtIjRE7Nii1kAnQc7UHTHRwlZSF7dMNfwbMt7j
-	 WmLMlUdoa1cPO8El4oN3Ao4Y6SHjoIkIK71DmxTuNQOF7h6PZBm4g57cTpXKTcBu3U3t+
-	 TOiMkgWa0S6VqtCdhjb/VupQNpItL1vfy/tVmMK+U4z7/G3zYuxGJwP1USYsXsk1uddol
-	 d8lY1Ae6sqMXd1Bmhy0YbcQd1EfmzgmHIHl2m2Fu256QPj8ZSNTgzAid1E4g5IICC7Dad
-	 wNyueI2TXMLxN64tWoP7XVcOa8rS7MUkKbtb1T7X+JxB42h/lkUPEyIYXXt+uUfB04w==
+	bh=f+UcsNuMg4Yueaqy8xslzDAXYJR5HIy/+gngqmLcoZw=;
+	b=5r5JYQJqmNqN3r5lIyUf0H9f1ueTB1qr9DPZ7tuXyKRU0pXJWMQmusIjNA+4LI8ei4Dj
+	 E+wbQY6Y13cLonYaJZXelm+FOaUEyX2Z9QGGqGckZEpDmzyWsdmgNYMMR8PZ7bTMzPVug
+	 aoktHZL7XoNj9JWNg2QS36a8CNiOltAWp40Gjz0F7wuV0bGrklW6tTEkEupz1jWO3WLok
+	 8QLaVWH8554dMqDfOFjwyiVtAPkTx8x5rDZ9ptPkrrDq4V7G9SCtotp665Xv8Z6w+VntG
+	 s/2VKcJC6hHNMEyk/snOpjqxnfAHQfUPo+bgCywcLky9ppDKW9iNl8T7xnbbugqEYLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=chrisdown.name;
 	spf=pass smtp.mailfrom=chrisdown.name;
-	dkim=pass header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=oaqjexM0;
-	arc=none smtp.remote-ip=209.85.221.45
-Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
+	dkim=pass header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=QfAKdMbs;
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D052606A8B5
-	for <printk@lists.linux.dev>; Thu, 12 Nov 2026 23:04:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D052606A8B5
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71DC8606A899
+	for <printk@lists.linux.dev>; Thu, 12 Nov 2026 23:04:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71DC8606A899
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=chrisdown.name
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrisdown.name
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=oaqjexM0
-Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-48e3b22e971so126793f8f.0
-        for <printk@lists.linux.dev>; Thu, 12 Nov 2026 15:04:48 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=QfAKdMbs
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4b4571ff080so4094605e9.1
+        for <printk@lists.linux.dev>; Thu, 12 Nov 2026 15:04:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chrisdown.name; s=google; t=1794524687; x=1795129487; darn=lists.linux.dev;
+        d=chrisdown.name; s=google; t=1794524693; x=1795129493; darn=lists.linux.dev;
         h=user-agent:message-id:content-disposition:content-type:mime-version
          :references:in-reply-to:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=h/4ZmNZSkN5127BfeP/7xUQIBc4JFqpmLA7VTI9WLuY=;
-        b=oaqjexM0FYzwkCNnXDm0fhpUiNsCJdJSxOe9NvOIZd+eMrkMvgXa/HMOrb16qow03B
-         LyrlnIbzSmZMkkyOn2EHaA43uIz5aiYE2AjdFhdxdRWojfH63Tg8e8k46wMrhzqsiVUo
-         t/tdZ+oI/EBqvnvTxOWAoWYn76onyUUJoPLEM=
+        bh=f+UcsNuMg4Yueaqy8xslzDAXYJR5HIy/+gngqmLcoZw=;
+        b=QfAKdMbsJJP5YdPQXOOqRrz3K+zj2lfE5QT2SXt5n4Is3m3B0aCGF2tV73KMvOr1BK
+         i6wQLSgMYMIg+mUkE6bvThJ7XCDEUxCrNWhMB97wDR/kGqSMKKJQVgIkjvX0eJ6b0b6q
+         Lh6ZmgWFN4OXvNwnRyhN9CZAbavjidIqm/foE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794524687; x=1795129487;
+        d=1e100.net; s=20260707; t=1794524693; x=1795129493;
         h=user-agent:message-id:content-disposition:content-type:mime-version
          :references:in-reply-to:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=h/4ZmNZSkN5127BfeP/7xUQIBc4JFqpmLA7VTI9WLuY=;
-        b=pMmA5VVCCA8dzACvYVGB5b+vtLbdrw41YDmLm8WIVplfmOoU8ZY1tDNN2IZtHX8C+E
-         g7TDJk39EzqhdA2gaVke6Rxe9yoTqIF5/Y+I5kj0W/tzM+7nF+vNVgoZ70GST6xfoqlc
-         tV1GYN/dC0OhRCZwpmIX9h4UHyuSTlIeQ1OgH7D5FarYoV3PqMb28LH9IoWt+1xCQVOQ
-         LAYQ6zGffljTRK62Xid6BldTdFBdIe8f9GWvyXUZ9Ac2dt1a+Nyz8ta9iStEA4RsUEz0
-         rC1UP21uyjIzW40TbAPs61suQ53KQ43d+8i1fjftXFGlMG81L0J2tiPQVhuleErZ7+jO
-         3bEw==
-X-Forwarded-Encrypted: i=1; AL+hErGLtAjHD/bh86RQ0x6kPcLLnQnpfhISr/A+3xRpS1/yDo87TLLp3rRkK/wC78X7qyzZlBHX8fw=@lists.linux.dev
-X-Gm-Message-State: APuU4Z/gvBhUhVY6nS0zWv2veMb4WRafZd4iurIobFuRl2JsVbLW43Fw
-	oqBSo7Z2+R38B5LRDh0GurlUuU8a5R+9tdspZn4W1DQDbDrhg4JI7RpuBrrvZ9a2Ch4=
-X-Gm-Gg: AYBFou08IMWH2GT6Jrr++uN7XIB9klxaoBt3k6OFpY45AXVxVxQFubXOaMGmKpXUAwu
-	U/6Coen6QwEQRFLTZ1dkSUDU5BfovtWJ+oxP8fL1iYaLN9uuYQ53q6UnqaEtyaMZGsldU0dQ5y4
-	WjwKAZxcE/aJvxLy5qEXvuNNQATf2cCeUuBb9vGLJqXEUpAHXc3f2z3W7vpeo+Zr0HucM8OR995
-	PyWI7hKw+1Et7Oa+86jyISUA9CL6JxztivKoFvIiRxGN6eUtB2uBJl4byk4BXaaMcOa9twivn0F
-	LCfpek4GRS7jhajPD3Pz8dChXtuPkqx+hIWxn+hH4mbZs/aXGbfTqf72sF5E7YlRx/ZOXHP89eU
-	AzWAHibrCFAkcg+9vkV6Gf6mlY9MeLQiZV/QuiiKz6hHWbVtwHaWlAuZiuX7wpzbopr9y4E2LnH
-	bqOUshdTfB89VGSt9aOoG9TyyCnLZ9YYP4x/K81jfmPTwfGqoXanH2fYBe3QkR4NgPPHG0VOPA2
-	e0YtslcG5Up1PQiNmWEVCgwS8IJauvnhhXbsHEJRC13/hvVDdDzTqhmim7JR8EaoFqn4FPpduwZ
-	F05nyccPXPtxY4Q2uCszzdMGhFd/YGyb2N2EXZ/a+KolGxzT3qyARhLHQ0IgDiNAQXnzpXVrN13
-	YaRIYi4k29yf8XUwzcvpTfz6FaRdDFJ2vjVYnOfnzQgD961qrKru4xwiDb77BtyAqv9vpT8ec40
-	xAOaAcaQiy9EXBDlwQ3uwdOrMMDjll5vHk6wqdmDmQ0/yYfeQV1qf0lWSBrg==
-X-Received: by 2002:a05:6000:3102:b0:48e:4300:c6d4 with SMTP id ffacd0b85a97d-49c747700e5mr1949772f8f.53.1794524686961;
-        Thu, 12 Nov 2026 15:04:46 -0800 (PST)
+        bh=f+UcsNuMg4Yueaqy8xslzDAXYJR5HIy/+gngqmLcoZw=;
+        b=vehxW4KWLb4iySsO7mMtdbSnZYxJmfzHGNNqdAkLhe+UVZjr3hYcdes7noFxsbkRfp
+         x6NdYjLDxu/uV1XWiV7h+/4lzfewYicLyarpeB00gDclffyawGko8pk3lzA4y/vpolNW
+         S3voC4GBq8QfAiWgHuem28JTpEI78EgawTyrkf5ONScFRLgLqBDnfuVSZJJlWOjLyREi
+         7Jy+TLeaanpqiyxvHsVd05GvBMjy+D30YCrGSUZi5WPyzrQIzWtDdkgoiKrcvL6HUkPp
+         0McfrWHewe12U3Wp7fE1jMAGmAoc+MWwVzaizeLggSz9dKxpWKaG5ix8O2AmAGA30MUN
+         zLKQ==
+X-Forwarded-Encrypted: i=1; AL+hErG/OJKmVQH7mcktR49sTpfflNRajJ7rCeHCNWK0+cB5Lmf8ZjCmYr5Gkb35DjShERfgWZk73n0=@lists.linux.dev
+X-Gm-Message-State: APuU4Z9Dp7vUCUa/zzJtpOOPx9zZqxgEFHWA2vGqCadmEEDswVnSj7DP
+	EYKWHc0DYDSgFegwqDkcHf+8yixy8Jgg0TkDVzTH8k3wJcc08OkzZQ+wrc/Qo0tjiJU=
+X-Gm-Gg: AYBFou0Yi3r44GHdVxlk3nlHvNKp3JDH8drHcMHRKpVf6BVC0+C/GeHnrosB0a5/cjE
+	/iHSjXorzEOEl01pI/vEsEsq0rxO//24e1Wd+I1ZtscYTN7PVKNYvRhAij5IyoAJxFSsuyQYKV0
+	46G5JsjdbAXb4KiugGAZIhJ+FAyMe3yAMRbnPiJ7tjKoJF9QgxIoiio25aWJ4ZC7jNeDvnTRHbI
+	GIfG9VwcgKBNHnAAqanzUZxOiKer0UcKTw1zZYRxRPzboSLGNlDHUYHxhZDzr3wePB9j6Z3g1+z
+	tJXfFTCS3XUk42aAawsph97ijrfE9bAOrKkIYUXcaVqMUkWGIgBPRwFSb4Bnzf9fk/S87D5w1B3
+	yaYJW6DAkfeuGPc5nIxLryB6Yb8n1pZ04UB3H2D63g8XkKQwaNIwnxlfJHiIeEkBO2FdzqeQqVk
+	vyZnDB/pVo/fcnHr6j2daNvT6aYvHgmdFZ4I0NQd2i6y/08+Gt8P9IsmCEf4brYrx7IFab6eT/w
+	Hijyd9teaoQUsyUghQ/QF+9Lglv32ulUsVhtUUKHfgx+S6ZbQdnJ7Y3Pd5Iuv9EIbzJO6lp0+MG
+	Z76LBG5sfk0Il26mD2U+5Oq2X/zKItOtU0bdcQdO4ii3DvsR+YMaP7t3uhMV6e+Kz98i/U0B7TK
+	GUmw2v8ngUbWSSD88n5LICeCQHEBiOeDrGkyf5tUIZ2Krxy4vMaM5lf3RaZB4nCnagFU8CXghRx
+	zipPvuWkKDObCao6R6eISKZXrnw8XIvD6xffnTFKFnB9Wacui+1zv0xqt/eKsS+SSAPWD/IAs3/
+	AB+YBE=
+X-Received: by 2002:a05:6000:2402:b0:493:8847:841e with SMTP id ffacd0b85a97d-49c6fd933b7mr1670741f8f.16.1794524692875;
+        Thu, 12 Nov 2026 15:04:52 -0800 (PST)
 Received: from [172.18.0.2] ([199.201.64.8])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c60da0a03sm1356260f8f.53.2026.11.12.15.04.44
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c603f4e2esm1589884f8f.36.2026.11.12.15.04.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Nov 2026 15:04:46 -0800 (PST)
-Date: Thu, 12 Nov 2026 15:04:41 -0800
+        Thu, 12 Nov 2026 15:04:52 -0800 (PST)
+Date: Thu, 12 Nov 2026 15:04:47 -0800
 From: Chris Down <chris@chrisdown.name>
 To: Petr Mladek <pmladek@suse.com>
 Cc: John Ogness <john.ogness@linutronix.de>, Sergey Senozhatsky <senozhatsky@chromium.org>, Steven Rostedt <rostedt@goodmis.org>, Marcos Paulo de Souza <mpdesouza@suse.com>, Naveen Kumar Chaudhary <naveen.osdev@gmail.com>, printk@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 07/17] printk: Check that index is not defined when a console is preferred via devname
-In-Reply-To: <20261111154816.71103-8-pmladek@suse.com>
-References: <20261111154816.71103-1-pmladek@suse.com> <20261111154816.71103-8-pmladek@suse.com>
+Subject: Re: [PATCH v7 08/17] printk: Ensure consistent name and devname when updating preferred console
+In-Reply-To: <20261111154816.71103-9-pmladek@suse.com>
+References: <20261111154816.71103-1-pmladek@suse.com> <20261111154816.71103-9-pmladek@suse.com>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -96,20 +97,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Disposition: inline
-Message-ID: <20261112150441.4fbbb20509665746@chrisdown.name>
+Message-ID: <20261112150447.cd6d7098fc4dfe5b@chrisdown.name>
 User-Agent: Mutt/2.4.3 (cc9e3943) (2026-10-09)
 
-Hi Petr,
-
-Petr Mladek writes:
->- *   2. Either @name OR @devname are allowed. [*]
->+ *   2. Either @name and valid @idx OR @devname and @idx=-1 are allowed. [*]
-
-The check below now rejects only idx >= 0 for @devname, so this could say
-"negative @idx" instead of "@idx=-1" to match it.
-
-With that (fine to do when applying):
-
 Reviewed-by: Chris Down <chris@chrisdown.name>
-
-Chris
