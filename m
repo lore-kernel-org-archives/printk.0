@@ -1,110 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794421186;
-	b=V8RXO87EF4oFqX5wnonNBm8qQxOWhVzgNMV8KjMaQW46Wj/rSjzT5E7Q0q92lhqg0f6d
-	 Mjib7ccBSy1QgTXSC9OyOfiWcpYTTwIVfliFzKjDyF8XdAY0f3b+Q7ZD5+Op73CfaYrhW
-	 A73Iae4DESr/pHH0Ak+R46rXfbmYEHkHEZBAuXTSZCeZm+zNIBGdrWfBfb/mll2m9z91n
-	 Pj+lrdWgItHXtRsMz8EXtZUK+NNjM7rZVwKZoN1Dyt65pHyZgDouYKT/2URwxol7tPzDW
-	 GHeKEhtE4LSQ2RorQUHAupDpOQaIrnUQ50Zo/qWLmliCBvez5hficPY2DnGFc5Djzmw==
+	t=1794450584;
+	b=K3icfNN10iOfWbYe9vcAlqlmE93ihFSlxYHJzVTLHItxqmcD8YGuVzB5dMvZ1VIC/O8H
+	 jlSu1B6Jmcwaqn38O07SwBGDoCoMiEa4TqHQDm08CT+uRmldpwRnK5C6ZjA9uEuNuvRlb
+	 QwcgqYKS7iEQW5fRJ7jLFMDRsCiE8B1drtCbJybNau2eLwgQSLeXFiS16GKMC1MdwWiSr
+	 KOVTcKMzLVFARuAl3cYmWmI/RUlNMcDJbk9snqeb2FCpzJJcgIq87se8UFr7LmcCHrPqe
+	 6zkJxs8nkBaody+OPdHwQmcQCIxNc0ltin0KLxiUou43O6BBYMhkKa1ujMucUmxeCZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794421186;
-	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:Date:
-	 Message-ID:MIME-Version:Content-Transfer-Encoding;
-	bh=miHmWkTPhUcAEvpsJtGNKtqPm0O9WXg4DLHkHhO3x30=;
-	b=VGFyMyheViHK/30V1OfOREY9aaC9gvNerXVyR2YSfhdR5RkrkynOopeHwpXsDCIhGlL1
-	 EPwH7p7vVMzDOexWkKRWNvZt70KCbmXZuGhXrTPe1J6wcTQaJFO5fj0BK/5bXT+7ItUib
-	 OGi++b17kAQX5+BmpTsgIsBf6BqsjuBYe3V65Aa6TnFPhSerPQ/5OmJy7DjsjPrGxUtZx
-	 PP2fNMl01RspU0eaOsICZP6/UHaNaAiSgZbKuIyjGaiDZBrnkUlV6CrMc/RLKr69aLhtn
-	 lKFCX+3F/fLl47SxEhZU3oIu4bg1cahVUC37uCHpX1duQwOTmRm8DBIMEmI/AhTyEXw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794450584;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=3iloLVp+MdOfHSiAG7FWE9RZU0xMne9BbzFysEHDF+4=;
+	b=xaPYRL9cKXuug/34xdv/Q6SlAfJA9YUq3iKydH8qq6Kw+20sZxGOiVNQ5YeHPUXWYolm
+	 fTdlBGHcUHPBN23b34k8HF9M9Iu6kTdCbmqyuywojvdPaobULIuKrNIaervLruhXk/1g3
+	 HKINucD7oRHtpYaHSJcBWFLfPM3U8attZ6qb9DRu3riNZh11QRqAQa924ObqdGgXeamIq
+	 CdMTnM6tb49tBgS00E8W9tQJqFPb09ccAtNix85g5GnJTuAqi9Zvw3b0ObkGRG6aeBnXr
+	 S5zOyPiPmA687+C9ebiVTBeSGOKYUklaBn8EmxLIMVA1eOCGwNM4SvlnZRQJ5WpPOnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=rXyV+V8m;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="67f/wVrW";
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F9AF606AE1F;
-	Wed, 11 Nov 2026 18:19:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F9AF606AE1F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=X+EvqbIE;
+	arc=none smtp.remote-ip=111.22.67.137
+Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 310F6606A31C
+	for <printk@lists.linux.dev>; Thu, 12 Nov 2026 02:29:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 310F6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=rXyV+V8m;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=67f/wVrW
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1794421184;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=miHmWkTPhUcAEvpsJtGNKtqPm0O9WXg4DLHkHhO3x30=;
-	b=rXyV+V8mB3WGQYt0D1cbKm+3TdQH5P7EkBB0BuarwzijqP3FTDgXeDtU+702Qha3Vjesjd
-	ZOM+Cs2Cjqf95W9HPfwGmTijj2qXHfWvu2anJBtqLqoaWKO9FjvL7fGv6zbAmkaqKvsvsQ
-	RLNM7MfGFGooJ30UY9ORSGfoi0Y4Pd/bLfBvxxCuZ0XnCWN6lhknFqGFfTdjfbjgodCXyL
-	9khOfeXGPBb8Che0NlD4shfupUeTEen9ahuAZgPlfkyLNV7YY0wetUpUm0wM8itMWW7+PD
-	8f+X28nEXLQlCNh1FQ2LsARwu+5HxRkTrDJVnz2voRACc/e1f7hBk3Crxa9Caw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1794421184;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=miHmWkTPhUcAEvpsJtGNKtqPm0O9WXg4DLHkHhO3x30=;
-	b=67f/wVrWqykxVxVPvO3YPpqenX7yBp2KyE+jBcUbzvEX+HrwwBjv1vgxB6QxoqLtZqXPOF
-	cVUFfC/MqkcyEyAw==
-To: Petr Mladek <pmladek@suse.com>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Breno Leitao <leitao@debian.org>,
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=X+EvqbIE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=X+EvqbIEcbQ2M4ftPqcIwRjuDnGa/LYANqq9oNal+OR4EMTFQXAycmbivOhBy6prQoNECYKIzdR5K
+	 iIp5l6V4VTaRNwdvZO31xtwP3PISeYQ+V53VompU2OYVEw0AdHIKhe7RWciiJ8JdcZBDmYU54b3TO3
+	 9QrAUTNv2hloesSE=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app08-12008 (RichMail) with SMTP id 2ee86af52494525-7c791;
+	Thu, 12 Nov 2026 10:29:41 +0800 (CST)
+X-RM-TRANSID:2ee86af52494525-7c791
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from devin-VMware-Virtual-Platform (unknown[10.55.1.72])
+	by rmsmtp-syy-appsvr02-12002 (RichMail) with SMTP id 2ee26af5249318b-ef5a3;
+	Thu, 12 Nov 2026 10:29:41 +0800 (CST)
+X-RM-TRANSID:2ee26af5249318b-ef5a3
+From: Zhu Jun <zhujun2@cmss.chinamobile.com>
+To: pmladek@suse.com
+Cc: john.ogness@linutronix.de,
+	rostedt@goodmis.org,
+	senozhatsky@chromium.org,
 	printk@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jason Wessel <jason.wessel@windriver.com>,
-	Daniel Thompson <danielt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mukesh Kumar Chaurasiya <mchauras@linux.ibm.com>,
-	Feng Tang <feng.tang@linux.alibaba.com>,
-	Rio <rioo.tsukatsukii@gmail.com>,
-	Bradley Morgan <brads@mainlining.org>,
-	Pnina Feder <pnina.feder@mobileye.com>,
-	Gal Pressman <gal@nvidia.com>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
-	Oleg Nesterov <oleg@redhat.com>,
-	"Cen Zhang (Microsoft)" <blbllhy@gmail.com>,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	kgdb-bugreport@lists.sourceforge.net,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Alessandro Carminati <acarmina@redhat.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Mike Rapoport <rppt@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Dave Young <ruirui.yang@linux.dev>,
-	kexec@lists.infradead.org,
-	Gustavo Luiz Duarte <gustavold@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org
-Subject: [PATCH printk v2 0/6] Introduce policies for unsafe flushing
-Date: Wed, 11 Nov 2026 19:25:16 +0106
-Message-ID: <20261111181942.593695-1-john.ogness@linutronix.de>
+	Zhu Jun <zhujun2@cmss.chinamobile.com>
+Subject: [PATCH] printk: ringbuffer: Annotate speculative record reads
+Date: Thu, 12 Nov 2026 10:29:40 +0800
+Message-ID: <20261112022940.118080-1-zhujun2@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.51.0
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -116,86 +73,70 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-v1 is here [0].
+Readers may copy a finalized record while a writer recycles its storage.
+prb_read() checks the descriptor again after copying and rejects records
+that have changed, but the plain metadata and text accesses still trigger
+KCSAN reports.
 
-Until now unsafe flushing is only performed at the very end of
-panic(), before entering the infinite loop. For other situations
-(such as panic-kexec or panic-reboot or emergency-reboot) no
-unsafe flushing is performed. The reasoning for this is because
-an unsafe flush could lead to fireworks, which could prevent the
-kexec or reboot from occurring.
+Annotate the speculative copies and line counting with data_race(), and
+sample text_len with READ_ONCE(). The descriptor validation continues to
+determine whether the copied record can be used.
 
-However, some users may be willing to take on such risks in order
-to see panic output. Indeed, for the netconsole (which does not
-support safe atomic printing) it is a regression that such unsafe
-printing does not occur. [1] 
+OpenAI Codex assisted with analysis and patch preparation.
 
-This series adds unsafe flushing policy flags per-console to
-allow individual consoles to perform unsafe flushing for such
-scenarios. The unsafe flushing is hard-code-enabled for the
-netconsole in patch 6/6. The justification is that this is not
-less safe than the legacy netconsole.
+Fixes: b6cf8b3f3312 ("printk: add lockless ringbuffer")
+Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
+---
+ kernel/printk/printk_ringbuffer.c | 18 ++++++++++--------
+ 1 file changed, 10 insertions(+), 8 deletions(-)
 
-Later these policy flags could be easily exposed to userspace
-via /sys/class/consoles/, once the sysfs per-console interface
-is available.
-
-Changes since v1:
-
-- Make console.unsafe_flush_flags unsigned.
-
-- Add missing kerneldoc description for printk_trigger_flush().
-
-- Remove the WARN_ON_ONCE() in
-  nbcon_context_try_acquire_hostile() since hostile takeovers
-  are now possible from non-panic contexts.
-
-- Also provide a flush reason for console_flush_on_panic().
-
-- Add a global variable @legacy_flush_reason to track reason
-  for legacy flushing.
-
-- Explicitly set PR_FLUSH_RUNTIME to 0 since it is now used to
-  initialize @legacy_flush_reason.
-
-- Temporarily set @legacy_flush_reason during legacy flushing
-  of console_flush_on_panic() and printk_trigger_flush().
-
-- Also set/check ctxt->allow_unsafe_takeover in
-  nbcon_legacy_emit_next_record() to enforce flush policies
-  for legacy flushing.
-
-John Ogness
-
-[0] https://lore.kernel.org/lkml/20261109123127.489676-1-john.ogness@linutronix.de
-[1] https://lore.kernel.org/lkml/20260915100140.3631650-1-ryan.roberts@arm.com
-
-John Ogness (6):
-  printk: Introduce and specify flush reasons
-  console: Introduce unsafe flush policy flags
-  printk: Evaluate flush policy in nbcon_allow_unsafe_takeover()
-  printk: Remove nbcon_atomic_flush_unsafe()
-  printk: Add panic+kexec flush point
-  netconsole: Always perform unsafe flushing on panic/kdb/restart
-
- arch/loongarch/kernel/reset.c  |   2 +-
- arch/powerpc/kernel/traps.c    |   2 +-
- arch/powerpc/kernel/watchdog.c |   2 +-
- drivers/net/netconsole.c       |   4 +
- include/linux/console.h        |  39 +++++++---
- include/linux/printk.h         |  27 +++++--
- kernel/crash_core.c            |   1 +
- kernel/debug/debug_core.c      |   2 +-
- kernel/panic.c                 |   8 +-
- kernel/printk/internal.h       |   5 +-
- kernel/printk/nbcon.c          | 129 ++++++++++++++++++++++-----------
- kernel/printk/printk.c         |  38 +++++++---
- kernel/reboot.c                |   2 +-
- lib/nmi_backtrace.c            |   2 +-
- 14 files changed, 181 insertions(+), 82 deletions(-)
-
-
-base-commit: d01f86a7da8161aac8c6304b377cf58fb75861ca
+diff --git a/kernel/printk/printk_ringbuffer.c b/kernel/printk/printk_ringbuffer.c
+index 46a79ec0940a..077721608099 100644
+--- a/kernel/printk/printk_ringbuffer.c
++++ b/kernel/printk/printk_ringbuffer.c
+@@ -1894,9 +1894,10 @@ static bool copy_data(struct prb_data_ring *data_ring,
+ 	if (data_size < (unsigned int)len)
+ 		return false;
+ 
+-	/* Caller interested in the line count? */
+-	if (line_count)
+-		*line_count = count_lines(data, len);
++	if (line_count) {
++		/* Racing text is rejected by the caller's descriptor recheck. */
++		*line_count = data_race(count_lines(data, len));
++	}
+ 
+ 	/* Caller interested in the data content? */
+ 	if (!buf || !buf_size)
+@@ -1904,7 +1905,7 @@ static bool copy_data(struct prb_data_ring *data_ring,
+ 
+ 	data_size = min_t(unsigned int, buf_size, len);
+ 
+-	memcpy(&buf[0], data, data_size); /* LMM(copy_data:A) */
++	data_race(memcpy(&buf[0], data, data_size)); /* LMM(copy_data:A) */
+ 	return true;
+ }
+ 
+@@ -1984,12 +1985,13 @@ static int prb_read(struct printk_ringbuffer *rb, u64 seq,
+ 	if (err || !r)
+ 		return err;
+ 
+-	/* If requested, copy meta data. */
+-	if (r->info)
+-		memcpy(r->info, info, sizeof(*(r->info)));
++	if (r->info) {
++		/* The record may be recycled; the descriptor is rechecked below. */
++		data_race(memcpy(r->info, info, sizeof(*r->info)));
++	}
+ 
+ 	/* Copy text data. If it fails, this is a data-less record. */
+-	if (!copy_data(&rb->text_data_ring, &desc.text_blk_lpos, info->text_len,
++	if (!copy_data(&rb->text_data_ring, &desc.text_blk_lpos, READ_ONCE(info->text_len),
+ 		       r->text_buf, r->text_buf_size, line_count)) {
+ 		return -ENOENT;
+ 	}
 -- 
-2.47.3
+2.51.0
+
+
 
