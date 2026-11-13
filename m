@@ -1,83 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794571605;
-	b=sVZ8mPXMKSKHqiQ2uY5aG0NAnDMIFT5Hg1RuARSI7LL2ow6Yphmns6eg3w7UfUNFlXAj
-	 x80hKX8lISiwN940b1IjyxSUmWNFZ6ZCYwqXa1+Xq4hVUVfXUWgB7K2ewZ8YN8ptYf44f
-	 /0F5NvUaetR6qdgLVUugiTeCB8kHeFabWWw3o/PdNgi0jn2T1ORZWbThYxHggWOy4wzXP
-	 n2G+thrLK1msnEUT3BSEQKLqnycJHNY8s1nmLPEEI8SIn9Y71YB/fIG7VxLTDPc1ZXSpr
-	 zlJjb+ZEvn3QQEzdGd5aft0QD60ltz2WATzemg15Vq7IajzDOT738f/fBuXT2UK1Wog==
+	t=1794571671;
+	b=VgfO4vctUc1pGvMOHarlMZY3O/oD6HNdP7A+b4BfyQqUp4Qz+Du7NwSMt9P0MiPdLZbx
+	 AtkzIdG/DF8otonW6ujk5SlfvqDaSdKt2Sq9HEV7mQ6jp8xxVbWhg907hENLk2N7ydn6J
+	 6hE8UX29Qhos17EVLhBueR5sSudLwsahxviy8Wvs4HfoY/TSB34K7qj+nKVKs+Nh6aOkH
+	 Zuy08mLEneiaTzb0IA+DPtRcPdyvXvU2mH6KSxspAsimO17Nn65bnvgZ7hA9yr3ik3id2
+	 Te/qP5maJQdLcAhJce3v5SQbMkt+aJn1Z8wNcDEA3g73m1Nf50IuJn8zUPeu9/HG9fw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794571605;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=XibVR4++0ano1k7EIcQQTi4/DKaQXvRKUIMoLRVIUuM=;
-	b=5emSWazs6AVM53+OI5K7dyY6W7MtOS4pubfOsdNgfk4OYW3ExvawOx16b0/qqiV9d4yF
-	 4ijg69VXjEpT7AA264q9iOV1FmCB54dwXTtPeo6l9rZkgVsRVhfOBN4GtqgsIQhmInzvG
-	 X3MMXITciJQyL9yuxdDqzWcJU5cjBx/J5+hCgqbWOr6Ih1+aQspem9QR1LFoXP6zsMFpi
-	 tnPD2VqJV47u1zDhWrkG5rgtnvM0n4RB07+rVeh5aZjACnFnThKgAp29iMocnULASCllM
-	 O23SIiWeT+sJf92BHU0HIUlC96H7ACvaT9MG9cFwk0fsB+cQJ++IEr4c6fKJ4s+sbJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794571671;
+	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:
+	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
+	bh=zhfoN8norVHiHI9bD4jaoMKp9FFXhFPanvK9fbLLCgQ=;
+	b=rSLNzq8U5+IKstuvS7/C03MRQ/nT84AWys8VEdyntgJ1GpxKRId0lP3CRSc0n1QpHriP
+	 0e+ySphNvzD5GGIVpxverTckrasYgXmrdad7Te8DArnq7PQbgNrJAOzEe9IfZSeKazABa
+	 u4N2pMAGMUx0SWMHG2lQBi9JfW/ycf2ckrlr4MfL96aPq1lojsvu9Zql9r4gJaX1toZsA
+	 QKMx2UtdnVH73wcMugGD/Iil9KjN1ebzjPRk7CcZ1LXwEDtToLbzh+s8FlVp+9uaUlYYd
+	 inev8ShJxH7Vkv1izCRisXos/dsp99B9ogI3iIB4SWzCxeHhek2m3s8OHSvAkGeMG8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LymYneI+;
-	arc=none smtp.remote-ip=198.175.65.11
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b="c/g3guVI";
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=V0lO6HQJ;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3773F606B589
-	for <printk@lists.linux.dev>; Fri, 13 Nov 2026 12:06:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3773F606B589
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B59BB606A31C
+	for <printk@lists.linux.dev>; Fri, 13 Nov 2026 12:07:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B59BB606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LymYneI+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794571604; x=1826107604;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=rMnI9A8xhlz38ZEYNoRJ55L/QF/MRz2aXw+RPPOOULI=;
-  b=LymYneI+3HC0mzrC98wOQINV9ebjaYrB1OFSK8QahZYSCDtEEQyheyuQ
-   o4/hIECIOsO2TM3hMJxZo58BcfUWaB527ib8cuCyYXWqr2fXRgk9G6g1Y
-   +MvKFCcEy4qcWqjIUPX7csLeN2A758G8SD314jCTS0+XeZBxYBe8bGyf7
-   vZnaN9qyURLaEROvimLCGCrnYKCC6MvxM+wDyII7Ta4bPp8gfsHETlonf
-   Bt5t6MdUETOYihJx1iKX7s3vS1/MCyP+u0jNsHUmvYfxWIIHN4IN4kQNV
-   pXVnsb7rgv1h7b/M+lSfLv6gZyNX5yB7qOasxcgWYzr/fdcWvh5Z9rddH
-   g==;
-X-CSE-ConnectionGUID: eDhom+BaQYCqalfx5evfig==
-X-CSE-MsgGUID: 64f+Lm4MQduPX/CKtawZ/Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11964"; a="3264445"
-X-IronPort-AV: E=Sophos;i="6.27,211,1787036400"; 
-   d="scan'208";a="3264445"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Nov 2026 04:06:43 -0800
-X-CSE-ConnectionGUID: tNYvX78rTMult5cdsZEPXg==
-X-CSE-MsgGUID: QJ9b0fGMRuykyNSa/ndn/A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,211,1787036400"; 
-   d="scan'208";a="9325987"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.148])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Nov 2026 04:06:40 -0800
-Date: Fri, 13 Nov 2026 14:06:38 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Safocl Stollmannovic <safocl88@gmail.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Will Deacon <will@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Waiman Long <longman@redhat.com>, Petr Mladek <pmladek@suse.com>,
-	John Ogness <john.ogness@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Pavel Machek <pavel@kernel.org>, Len Brown <lenb@kernel.org>,
-	linux-kernel@vger.kernel.org, printk@lists.linux.dev,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH v2 10/10] kernel: fix duplicate extern declarations
-Message-ID: <avb9Tg9_pCNjAPOV@ashevche-desk.local>
-References: <20261113010631.139191-1-safocl88@gmail.com>
- <20261113010631.139191-11-safocl88@gmail.com>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=c/g3guVI;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=V0lO6HQJ
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1794571668;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zhfoN8norVHiHI9bD4jaoMKp9FFXhFPanvK9fbLLCgQ=;
+	b=c/g3guVInrZ62aChjGsNMm6JqaNL5J1eyxwZDMGrTRB/uJYOJePAg5LbcLhe4lVYp+IsX3
+	Kb7O82eVNIadsA4tHVXFryRE441Ug1MHi9ysQcUoSO84+5qmKfVw7rPDE39SUJ0A15Ce4y
+	jw16R5sdtgH5NSb8k+gk6z3OQjthz5990prLRgpiMj7hlRHAV4QrIXN87yofITXQCSqO7u
+	IgtJg482+4aeARircyUSxJu3Z6pQ6JFu4+6e5KhH2TC0AcLdHhHl7S3vZTN0/CNQLCW7Gf
+	mfizeyMX4ago6ymjIXP3sTQGkBOubd8rZnILIT0VOCvS9nC2MYstabLE2LvB4g==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1794571668;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zhfoN8norVHiHI9bD4jaoMKp9FFXhFPanvK9fbLLCgQ=;
+	b=V0lO6HQJZ9EbUBg4kZ4FRlJOFSx4C7+0ZUjvbqNU81iZYzRm3DQjOqGeuUReizoVofefUE
+	Cxyid5vnVS8VBlBQ==
+To: Zhu Jun <zhujun2@cmss.chinamobile.com>, pmladek@suse.com
+Cc: rostedt@goodmis.org, senozhatsky@chromium.org, paulmck@kernel.org,
+ printk@lists.linux.dev, linux-kernel@vger.kernel.org,
+ zhujun2@cmss.chinamobile.com
+Subject: Re: [PATCH v3] printk: ringbuffer: Annotate speculative record reads
+In-Reply-To: <20261113075039.172176-1-zhujun2@cmss.chinamobile.com>
+References: <20261113075039.172176-1-zhujun2@cmss.chinamobile.com>
+Date: Fri, 13 Nov 2026 13:13:48 +0106
+Message-ID: <87tsllvsrv.fsf@jogness.linutronix.de>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -87,42 +72,21 @@ List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261113010631.139191-11-safocl88@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain
 
-On Fri, Nov 13, 2026 at 05:06:15AM +0400, Safocl Stollmannovic wrote:
-> Compiling a kernel module with a C++ compiler results in a "duplicate
-> extern specifier" error.
-> This occurs because the code contains `extern asmlinkage`, and `asmlinkage`
-> expands to `extern C` when processed by a C++ compiler.
-> Since the code already contains sections that respond to a C++ compiler,
-> I believe it is a perfectly valid approach to gradually move toward a state
-> where kernel modules can be compiled by a C++ compiler without any issues.
-> The `extern` specifier must be removed.
+On 2026-11-13, Zhu Jun <zhujun2@cmss.chinamobile.com> wrote:
+> Readers may copy a finalized record while a writer recycles its storage.
+> prb_read() checks the descriptor again after copying and rejects records
+> that have changed, but the plain metadata and text accesses still trigger
+> KCSAN reports.
+>
+> Annotate the speculative copies, line counting and length read with
+> data_race(). The descriptor validation continues to determine whether
+> the copied record can be used.
+>
+> Fixes: b6cf8b3f3312 ("printk: add lockless ringbuffer")
+> Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
 
-Do you have any use case in mind?
+Reviewed-by: John Ogness <john.ogness@linutronix.de>
 
-> Link: https://bugzilla.kernel.org/show_bug.cgi?id=222257
-
-> 
-
-No blank line in a tag block.
-
-> Signed-off-by: Safocl Stollmannovic <safocl88@gmail.com>
-> ---
->  include/linux/lockdep.h      | 2 +-
->  include/linux/printk.h       | 6 +++---
->  include/linux/sched/task.h   | 2 +-
->  include/linux/start_kernel.h | 2 +-
->  include/linux/suspend.h      | 4 ++--
-
-This should be 5 patches I think.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Thanks!
