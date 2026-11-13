@@ -1,106 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794532052;
-	b=Yv7utRU5ITO3Ag/Iaky19P3y4jCcjhLVPRo8dNrSFGBPSM6E6A10/97pELOrKNDOm1ow
-	 c0o2jEy+OzYq+indDvw356C2xp/Qz3BD9iWhutiFeyQWoRm4/zrt2ooobTppMCAnJpdnZ
-	 xU+3G2DFI6nAm2ZvR42+QcD6zTsi2cn9tDGXj9s7Gsz8+k+Ge9GbpQcq3hQVL5NsWr1lA
-	 oLzlvsEpjafe9Pvif11N9BtZtMIS0YmoK2NsT1+04njPG2I2FYzLC0oPcPKBkdfQNpPHt
-	 mH5S32M3AAXi36uQnfbbykCktouNYV99ZFpM3KTwGESAl8L/l10art/IYcUqowmzjlg==
+	t=1794556245;
+	b=CJMlJTo+pleN5JPXWy9U3adfS/j1LGSakweDf+zvNlXIOow/xJqcNZ9JVFp5U29NE/OM
+	 bdWL6QfVe3Jk6TGUMG4wo/mkwiCNcMl78mOlf82wojIvPIMx0NOpawEp9MP3OYcy+Aghv
+	 YL5kBnb4FQuUr5qmtAcSeVOf9b21EHmrkzS4tIT5CWmmAN0mVAxIODxRbaDIS73ealNLG
+	 DqaQadGMB4YCPWhydeuxT0Afb8z29AJ+riMqPhOWOKkTqHnsa9uj7p5FR8kj2cK6zlVyc
+	 m2bVgeuTuwEJo1hggmbhw/MyleCQEPZxGyLsJ739Exj5B9+kGJCdo6GTFgrHrGTy6jg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794532052;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=y5dvtWN48Of2Ff8r0NZmrMSivJ/dH4bQ2NUxOe+Y+iM=;
-	b=XAoJH4gakF8WFA9YHFKvBisXYSK5hJtUADHV7uKmX//D39HrCCBwBVVhbw5fU8VpqLQG
-	 VwaenVeqlmcCis6j7hz5VF2n5NHkPhL+Y/ugT6n07pAWecVMB1u/xcp8Zhw0XXlj7Tfex
-	 celTzRokzufPCZYuwSiDJ6wMwKUCdkygSY7FbnedD8I3t0Cihy4pch68SrbmgudYJHBYB
-	 09rGEihMOJpEtYf1zDU3R+GJZD0DA/qe8Moy23AINv5nmMqhFIQAu0PKUp+EvPhLA8CT/
-	 nN28iM2U7b3GfrVVOa0RkigaYr7RCkM7hddTKlyP9qG+XzUi5BealaKbOyRs/CPqjNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794556245;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=KwPhUcOErJIrsiBQ1/zpDZ2+QQBH7o/+ZMZ3ZAjgmc4=;
+	b=5GYUkftZ8wyd3i8WR3w79kiwfgLxP0XC4t98Hxruk/qeDUnK7r7/4hZSKaREaMjY9h2t
+	 /QJfXLJ2mR0aA/N3l3UKEVthmy5ksSChzHoi8kGBVsZ7kGSRWefuy38EsFZVuN+ct8e/g
+	 0a89OlxVZkXX6TjwsuoiwwiIcjMZoYoqIQkPqmoppR5ahMLZQ522Js6KxYz37Apgijghu
+	 XaD44RJhEVUVxcySsLR/cx+04YMiBG1vp8OK0iZfyiegbC8rIj00cK37ECR2iRHTW9qVI
+	 G36HXr8RTFfk5rhNbRB8/dsf4gcs6EuJiMC4w1+v6aydu9OswOWLt3kdIuWp0jg3NZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Yk6PueZ3;
-	arc=none smtp.remote-ip=209.85.208.181
-Received: from mail-lj1-f181.google.com (mail-lj1-f181.google.com [209.85.208.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4277E606A881
-	for <printk@lists.linux.dev>; Fri, 13 Nov 2026 01:07:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4277E606A881
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=YqT0VwHI;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2E49D606A33E
+	for <printk@lists.linux.dev>; Fri, 13 Nov 2026 07:50:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E49D606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Yk6PueZ3
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-3ae25c84207so3461111fa.3
-        for <printk@lists.linux.dev>; Thu, 12 Nov 2026 17:07:32 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=YqT0VwHI
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794532050; x=1795136850; darn=lists.linux.dev;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=y5dvtWN48Of2Ff8r0NZmrMSivJ/dH4bQ2NUxOe+Y+iM=;
-        b=Yk6PueZ3X2XG3SgPj5VLK8Y6VTzGamNQVSyAPcoDKLz18mQ6O13dEA1Lsp+wI0BUAk
-         nQOR6dpX736gyRZTBf64MQPW+5JgrHa+enNsc2UNudFA7Gn7OWrRvmpGlYrXPY/0rjjr
-         ZFpF0w3hGuMh2W1qyUhm5mCYNb1LcyEY0bAg0H25/t0Q39becnL11oxUIXftOddDmfsl
-         0CBHiEcoXiUwv0+GUYTPc1wXOqYC2XM8RAXtR00IO4lgZeqR4rLuFc/s41ipMgD6BrBB
-         Uvtz8Uh480996Y2ThQx2fKx9/Tqqx2zYaPehCC7G4XRWOktvGaQLuVj6N8Oef+372inM
-         4jMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794532050; x=1795136850;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=y5dvtWN48Of2Ff8r0NZmrMSivJ/dH4bQ2NUxOe+Y+iM=;
-        b=HjChHYyyXOAQimdlAqvGcCztG/2jftWlytLbVI6HIhrRcQ1So0+VDJn0nCkI0y4SYm
-         YIUW5PfFbZqEVA9SSZ++8iTeHQjG9wG6NaShqIWxuDkLv+PFh0qcY26lNOUZZ6S/JJ1Z
-         dD8txDnta41itn/y2UGbaJoKFKw3argTfWZ6/mywmkhm4WIFpCKXbzeiA6+IvslLK0VF
-         DymbCb6PMxvPrZPHNmCDLkIc7SwZIe1c2BuT0hdNDApSR4FvWe531DsdrCxaNAr+tcHU
-         cFBe/DigfYw/YIILf/QrOFmDWtHV0DN3YTzEpuK/aXV1/m4RIMZwwG5yykUOx20xwsQ5
-         8g6A==
-X-Forwarded-Encrypted: i=1; AL+hErEbVMPvSCGmnTn6xtgYcUAl3HiGn9IC6nTfqXIOhcPeGF3eNg6bZLz6Z71W3COaqy5Facrf0KA=@lists.linux.dev
-X-Gm-Message-State: APuU4Z9ZrBSUzozIc5+ZjWiaQo+B4BXudLWMLIiJgT4ga7vlP15ViRLB
-	kcmKgkYuJwo41gL1nvBc360sQoMYcQYIqcWGz9bx7x+tHmQ13SMRklc/
-X-Gm-Gg: AYBFou3CnJxPV/n9NoFFJz1MXKnmrE9iG1YLuzFdArhtQPRKyc6UTY3Sx50oitJR0o0
-	GNsYpgYnq4x/zW4YbF2MMTcZWl6ujk6twqXo4OurqZFJDZZQReOld8h6/YpBdWciDhqPBNHHqjS
-	mgdxxGN5PIlBE2pECHJoSn2mzJECyV977nrwpRF6UU7/D0MlRf1W1tOv+nLfO8IqrP40UuVFw3p
-	oj/6dUU5TwwSRuXUMKP2nRVcsBjUCEQD94Biu7cFDcyYIFoG5FaYZ67WfX1D3Nd+s8X9lXnofn5
-	4LlypEmUY0xoKS/GUGk+3nmCRVeDMchOmWOZq97tkKb98GRg2z39QZFApEobO4gA67l3pM+2MFA
-	FuPOzOga7nq5wateQxfjUA1jzM3rodOf+9KFGviTVpBVPnGjQ5kmwS+0Ouq51G7WHr+ib0JnxL7
-	snx1Y8rtnK2BZnBVL2NwqADudbtvLrnTNy75MY4ZVgwCUbZOZ7E5ClGPSZR4TC6OzzyeT/w7NtS
-	W266aux8y7H3A2j2fTy/InIpnGcRrbHgtu6oPtMAHnNsq45vf9xRG4HIHOs56rZYTzSd/6FFMtf
-	2RKqweXVyAjJj3PTsIW+xxbrXDBRThBFMyBVUOTGE7VSexJfH2/5eCMDRqYvWzG/YFXr9W8mJFQ
-	rdJdvlQHhCGeT2NSQKGkZAfjX6I5Ksrc=
-X-Received: by 2002:a2e:ac0b:0:b0:3a9:abd6:1acd with SMTP id 38308e7fff4ca-3ae2b4b5d4bmr3909171fa.6.1794532050397;
-        Thu, 12 Nov 2026 17:07:30 -0800 (PST)
-Received: from SafoStation ([31.40.65.49])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae2b7d183bsm3133941fa.31.2026.11.12.17.07.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Nov 2026 17:07:28 -0800 (PST)
-From: Safocl Stollmannovic <safocl88@gmail.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Will Deacon <will@kernel.org>,
-	Boqun Feng <boqun@kernel.org>,
-	Waiman Long <longman@redhat.com>,
-	Petr Mladek <pmladek@suse.com>,
-	John Ogness <john.ogness@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Pavel Machek <pavel@kernel.org>,
-	Len Brown <lenb@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=YqT0VwHIB0giCTUvvUm27XFGpXsSbp0F7DQ7gE0JQYFIukXnGgIG0M/SGeDmVwnAMBW+LijmYDSaB
+	 GrJry5smEGmHYzcGiXcYWEGPvZ+t0NNVsmbm7V8yKEi+38w66XLpvJgGwHClDTNurCdYiUFZ6Ij2NC
+	 r0/q+kS/sL//aHNM=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee96af6c151b95-ef053;
+	Fri, 13 Nov 2026 15:50:41 +0800 (CST)
+X-RM-TRANSID:2ee96af6c151b95-ef053
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from devin-VMware-Virtual-Platform.localdomain (unknown[10.55.1.72])
+	by rmsmtp-syy-appsvr07-12007 (RichMail) with SMTP id 2ee76af6c14f819-1d082;
+	Fri, 13 Nov 2026 15:50:40 +0800 (CST)
+X-RM-TRANSID:2ee76af6c14f819-1d082
+From: Zhu Jun <zhujun2@cmss.chinamobile.com>
+To: pmladek@suse.com
+Cc: john.ogness@linutronix.de,
+	rostedt@goodmis.org,
+	senozhatsky@chromium.org,
+	paulmck@kernel.org,
 	printk@lists.linux.dev,
-	linux-pm@vger.kernel.org
-Subject: [PATCH v2 10/10] kernel: fix duplicate extern declarations
-Date: Fri, 13 Nov 2026 05:06:15 +0400
-Message-ID: <20261113010631.139191-11-safocl88@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261113010631.139191-1-safocl88@gmail.com>
-References: <20261113010631.139191-1-safocl88@gmail.com>
+	linux-kernel@vger.kernel.org,
+	zhujun2@cmss.chinamobile.com
+Subject: [PATCH v3] printk: ringbuffer: Annotate speculative record reads
+Date: Fri, 13 Nov 2026 15:50:38 +0800
+Message-ID: <20261113075039.172176-1-zhujun2@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.51.0
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -112,103 +74,85 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Compiling a kernel module with a C++ compiler results in a "duplicate
-extern specifier" error.
-This occurs because the code contains `extern asmlinkage`, and `asmlinkage`
-expands to `extern C` when processed by a C++ compiler.
-Since the code already contains sections that respond to a C++ compiler,
-I believe it is a perfectly valid approach to gradually move toward a state
-where kernel modules can be compiled by a C++ compiler without any issues.
-The `extern` specifier must be removed.
+Readers may copy a finalized record while a writer recycles its storage.
+prb_read() checks the descriptor again after copying and rejects records
+that have changed, but the plain metadata and text accesses still trigger
+KCSAN reports.
 
-Link: https://bugzilla.kernel.org/show_bug.cgi?id=222257
+Annotate the speculative copies, line counting and length read with
+data_race(). The descriptor validation continues to determine whether
+the copied record can be used.
 
-Signed-off-by: Safocl Stollmannovic <safocl88@gmail.com>
+Fixes: b6cf8b3f3312 ("printk: add lockless ringbuffer")
+Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
 ---
- include/linux/lockdep.h      | 2 +-
- include/linux/printk.h       | 6 +++---
- include/linux/sched/task.h   | 2 +-
- include/linux/start_kernel.h | 2 +-
- include/linux/suspend.h      | 4 ++--
- 5 files changed, 8 insertions(+), 8 deletions(-)
+Changes in v3:
+- Preserve the original comments for line counting and metadata copying.
+- Use data_race() alone for text_len, as requested by John Ogness.
 
-diff --git a/include/linux/lockdep.h b/include/linux/lockdep.h
-index a6451ecbb..f436eab07 100644
---- a/include/linux/lockdep.h
-+++ b/include/linux/lockdep.h
-@@ -89,7 +89,7 @@ extern void lockdep_init(void);
- extern void lockdep_reset(void);
- extern void lockdep_reset_lock(struct lockdep_map *lock);
- extern void lockdep_free_key_range(void *start, unsigned long size);
--extern asmlinkage void lockdep_sys_exit(void);
-+asmlinkage void lockdep_sys_exit(void);
- extern void lockdep_set_selftest_task(struct task_struct *task);
+Changes in v2:
+- Mark the speculative text_len snapshot with data_race(), retaining
+  READ_ONCE() and documenting the reader-side validation.
+
+ kernel/printk/printk_ringbuffer.c | 20 ++++++++++++++------
+ 1 file changed, 14 insertions(+), 6 deletions(-)
+
+diff --git a/kernel/printk/printk_ringbuffer.c b/kernel/printk/printk_ringbuffer.c
+index 46a79ec0940a..e1828eda0e0c 100644
+--- a/kernel/printk/printk_ringbuffer.c
++++ b/kernel/printk/printk_ringbuffer.c
+@@ -1895,8 +1895,10 @@ static bool copy_data(struct prb_data_ring *data_ring,
+ 		return false;
  
- extern void lockdep_init_task(struct task_struct *task);
-diff --git a/include/linux/printk.h b/include/linux/printk.h
-index f594c1266..09a28181e 100644
---- a/include/linux/printk.h
-+++ b/include/linux/printk.h
-@@ -136,7 +136,7 @@ struct va_format {
- })
+ 	/* Caller interested in the line count? */
+-	if (line_count)
+-		*line_count = count_lines(data, len);
++	if (line_count) {
++		/* Racing text is rejected by the caller's descriptor recheck. */
++		*line_count = data_race(count_lines(data, len));
++	}
  
- #ifdef CONFIG_EARLY_PRINTK
--extern asmlinkage __printf(1, 2)
-+asmlinkage __printf(1, 2)
- void early_printk(const char *fmt, ...);
- #else
- static inline __printf(1, 2) __cold
-@@ -200,8 +200,8 @@ void __init setup_log_buf(int early);
- __printf(1, 2) void dump_stack_set_arch_desc(const char *fmt, ...);
- void dump_stack_print_info(const char *log_lvl);
- void show_regs_print_info(const char *log_lvl);
--extern asmlinkage void dump_stack_lvl(const char *log_lvl) __cold;
--extern asmlinkage void dump_stack(void) __cold;
-+asmlinkage void dump_stack_lvl(const char *log_lvl) __cold;
-+asmlinkage void dump_stack(void) __cold;
- void printk_trigger_flush(void);
- void console_try_replay_all(void);
- void printk_legacy_allow_panic_sync(void);
-diff --git a/include/linux/sched/task.h b/include/linux/sched/task.h
-index 90ed5bc3c..5cdef6b0f 100644
---- a/include/linux/sched/task.h
-+++ b/include/linux/sched/task.h
-@@ -61,7 +61,7 @@ extern struct task_struct init_task;
+ 	/* Caller interested in the data content? */
+ 	if (!buf || !buf_size)
+@@ -1904,7 +1906,7 @@ static bool copy_data(struct prb_data_ring *data_ring,
  
- extern int lockdep_tasklist_lock_is_held(void);
+ 	data_size = min_t(unsigned int, buf_size, len);
  
--extern asmlinkage void schedule_tail(struct task_struct *prev);
-+asmlinkage void schedule_tail(struct task_struct *prev);
- extern void init_idle(struct task_struct *idle, int cpu);
+-	memcpy(&buf[0], data, data_size); /* LMM(copy_data:A) */
++	data_race(memcpy(&buf[0], data, data_size)); /* LMM(copy_data:A) */
+ 	return true;
+ }
  
- extern int sched_fork(u64 clone_flags, struct task_struct *p);
-diff --git a/include/linux/start_kernel.h b/include/linux/start_kernel.h
-index 09f994ac8..5855467ca 100644
---- a/include/linux/start_kernel.h
-+++ b/include/linux/start_kernel.h
-@@ -8,6 +8,6 @@
- /* Define the prototype for start_kernel here, rather than cluttering
-    up something else. */
+@@ -1969,6 +1971,7 @@ static int prb_read(struct printk_ringbuffer *rb, u64 seq,
+ 	atomic_long_t *state_var = &rdesc->state_var;
+ 	struct prb_desc desc;
+ 	unsigned long id;
++	u16 text_len;
+ 	int err;
  
--extern asmlinkage void __init __noreturn start_kernel(void);
-+asmlinkage void __init __noreturn start_kernel(void);
+ 	/* Extract the ID, used to specify the descriptor to read. */
+@@ -1985,11 +1988,16 @@ static int prb_read(struct printk_ringbuffer *rb, u64 seq,
+ 		return err;
  
- #endif /* _LINUX_START_KERNEL_H */
-diff --git a/include/linux/suspend.h b/include/linux/suspend.h
-index a38150277..b97af3420 100644
---- a/include/linux/suspend.h
-+++ b/include/linux/suspend.h
-@@ -385,8 +385,8 @@ extern int swsusp_page_is_forbidden(struct page *);
- extern void swsusp_set_page_free(struct page *);
- extern void swsusp_unset_page_free(struct page *);
- extern unsigned long get_safe_page(gfp_t gfp_mask);
--extern asmlinkage int swsusp_arch_suspend(void);
--extern asmlinkage int swsusp_arch_resume(void);
-+asmlinkage int swsusp_arch_suspend(void);
-+asmlinkage int swsusp_arch_resume(void);
+ 	/* If requested, copy meta data. */
+-	if (r->info)
+-		memcpy(r->info, info, sizeof(*(r->info)));
++	if (r->info) {
++		/* The record may be recycled; the descriptor is rechecked below. */
++		data_race(memcpy(r->info, info, sizeof(*r->info)));
++	}
++
++	/* The descriptor recheck below also rejects a raced length. */
++	text_len = data_race(info->text_len);
  
- extern u32 swsusp_hardware_signature;
- extern void hibernation_set_ops(const struct platform_hibernation_ops *ops);
+ 	/* Copy text data. If it fails, this is a data-less record. */
+-	if (!copy_data(&rb->text_data_ring, &desc.text_blk_lpos, info->text_len,
++	if (!copy_data(&rb->text_data_ring, &desc.text_blk_lpos, text_len,
+ 		       r->text_buf, r->text_buf_size, line_count)) {
+ 		return -ENOENT;
+ 	}
 -- 
-2.56.1
+2.51.0
+
+
 
