@@ -1,54 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794527037;
-	b=bqJSD2GEDdQ2PRd2nrUCsIP1UmDxGABz4atGWisC57HB5byNFCVA4dle2feWImfkIFll
-	 8cdNX+kscDcsoN1IaDwaaTy2P0L1xfpkewfUwbKRQa/qUWbUgKNp8a1uDjyg+6ihp0Q5S
-	 6x37LOtmSLw7i7F7mU4utovGZWXbNU5sGMYzI09Af4BcZbLL8Z6Vmzfsafs/Pqup9j+hk
-	 pjShRTc3CDn+DFmdCwZefo5WlWVXh+iasZz0qiKk8XhEQrdDoitcbT2ZSHfNlvDDu9Qj3
-	 HCR7sOVY9jp/hWmFe88ZNQOzrQPGQDPuzXi2E9aBPdEAGYWKDSibZT8Me2sgUW97pVQ==
+	t=1794528938;
+	b=OWuSBZ5KrtRMrU4wD2h1G064U7Ju1IAN5PL2A3mLW/F44eWH0gayY5PKcY4FQJTtKRKD
+	 3cutGYXDvO0lp1aZg6tI75F//j1SpLKHAxhvHZhmzGFeZHwuMJNO2rmScmrvi/MS2rUPv
+	 1GwzORQPEW/6RBN6f+K8mgKsdtcAwOCxE4bIxjtYVZ56v7cSGU+aD/nawdhWpMVL21rnQ
+	 iNX98eo7KvEzJWMZO6ahKL98I+1WFPuC/yiNTT0KZ3GiePFth9REOZOGfLZRRsM3uJ19R
+	 y7gyBbLdtbPPSDI6ltgYXYghYh8s2avMtGaW5muqw5DqCjhTO3VhgKZ1unacqQmHHAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794527037;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=Xo+H9lR23P0A0A4fib3m01tppo5IkRluvh2Z4UoFknA=;
-	b=rzvbxEhO8+xf2cU4u6GRcQGypmqm036Ru3jAu5r9M1uccadZnKBC1iERyPnPEXtjWLA/
-	 vwzEpd9ObI4+HNe1O7G/wQty0823LepM51iWbkzcqluLrDsMu1gnjhlz0/G1d/gNehxIK
-	 vyB9/pncT5F4Nw49jOm0WN3NdExDZw8wigjbwF9Nfa9NO6b5e2YtQpcmjP+5fW9lskqIh
-	 J6OoB4ZRdd461RO5ZwLNqx0cDu0euV64J8QWHQ+PJ3UiK01i6VmMNJ6RpGZep6Osi25eI
-	 y2sCGV9wZKhQ02FwIL0Fg637kQiSki3qZO4jt5S/MYhZTpyJnjItR9rVVen5Kh83giQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794528938;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=Fy4WFW4Td97IvBSVlIHdYeCc7+bBQ4nJWzT+60QtQBo=;
+	b=asp5R9XQ0pvRKiA3Q1Pw0V4hje7Mv2pYFIBKC3U8ixfXywICXvyt0lfuWNEhzcCorGar
+	 AMyU5SrzJ7WkCRJO624t3KBt+BjgIyPluCKZfoLNZi30cxMZQy2ujsxIEWdCdMeYrexuf
+	 a4DkK6CA7Hfp3PvI7FwaRUB6Fo0tGBSmi70putKKrIZft00B4HmptmkTuYMtN/oDY21lj
+	 QnhK1TN2N2MnOB/IifPGnFTxC0/uwc7/tq8evjvZWR75lnsXgWpCZN2tpfz4Wje4rI0eQ
+	 ZCymzdmnn/lXjvZr7l7/ACxa5DjljsOHcPHUvILtJbD9uNg+EmOIXd8ITOR4kZoOAhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.199
-Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lUICjCye;
+	arc=none smtp.remote-ip=209.85.167.54
+Received: from mail-lf1-f54.google.com (mail-lf1-f54.google.com [209.85.167.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FBD6606A31C
-	for <printk@lists.linux.dev>; Thu, 12 Nov 2026 23:43:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FBD6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4c467e19391so578859b6e.3
-        for <printk@lists.linux.dev>; Thu, 12 Nov 2026 15:43:56 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B522260A261C
+	for <printk@lists.linux.dev>; Fri, 13 Nov 2026 00:15:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B522260A261C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lUICjCye
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5c10dc41270so483013e87.2
+        for <printk@lists.linux.dev>; Thu, 12 Nov 2026 16:15:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794528936; x=1795133736; darn=lists.linux.dev;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Fy4WFW4Td97IvBSVlIHdYeCc7+bBQ4nJWzT+60QtQBo=;
+        b=lUICjCyet9vHGq+v34a1o39S9ZJQ4MvQm/V2bbzR7F3ZipQnUJmndrCDQamR+HRXH5
+         R8XALEhaXJ/MtlJXVA+gmpJ3fzHXDCFUsAoYIN63Ftoz5roN1x/3tRJBZ1mqXbNr4rDa
+         XkFCWGLHttyJvk6vTc/i/meG+/lzGSNSRwOgDnAcU67iYe4U1aibSK91dyd/mx52uC/w
+         zqxAUc/YSXLnmjWBEIa770YWxxZXFHWFEqt6S2nMEQ1lAzyQM+MieGZYEC/mpvxrJa7V
+         2A5ITTupDzApfWcuDL739BawixK8iF/kmevG0FsozSQjEVuh+xSVyRCBvv/PlwkQBvar
+         ETCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794527036; x=1795131836;
-        h=content-type:to:from:subject:message-id:date:mime-version
+        d=1e100.net; s=20260707; t=1794528936; x=1795133736;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Xo+H9lR23P0A0A4fib3m01tppo5IkRluvh2Z4UoFknA=;
-        b=oOK3YgqNcISUEQ2sAJBJlNSAWp6RenLD6rrR5bcSX+MkqSL0/F7e0uWfHAwB+ISu2y
-         ScKZmYwPZRdN0gOUEYfTEI1NLw3QmPDAq1SWVNGgH+VupRCio3epODg4X8DZx/7qSbii
-         MOO6UqC3X/Xc0ZgebmgqPUlXM/PAzA6Tpi/9TeI8aGGOMw3A81Grt5SnGp0e371mjekG
-         db2WXPN/5Vi2RjSWkEn985ir9qjlbGvefZZ7zViVOR5HMQnE+VxZz22oCgZKOLk5AIJY
-         j8tGGUwTGH+15j7tlWrRHBGFmdsMJAoi+Lm8y/IJSU1EnTEfu4G1ZDk6Kf9mPoeckxab
-         QpYw==
-X-Forwarded-Encrypted: i=1; AL+hErH0NkMVsW/i0RuYtKfN2uCVj7k9dbjlXeYUUYvkrUhuVvXHrMr+42dtJodviMlc6D4Ey0IYqnQ=@lists.linux.dev
-X-Gm-Message-State: APuU4Z/dfGH6hGjsX9oCnHa2dabFeTEBb8C81RofeSlSdudWDB7xWA+y
-	rUq2ZlRpUZR0Zs3wDFH2iAF8rst7WDlkvUrNAz2pszUhbPjTXRkB5DgSwO5FZGZYEhmKou+VNtR
-	WczB03ik8TMCCnMSFG05ATUtC6OiEy4ZMfC3oJNsvLnS/+Jzy+LGiOsPYX0g=
+        bh=Fy4WFW4Td97IvBSVlIHdYeCc7+bBQ4nJWzT+60QtQBo=;
+        b=r3lCHTMGCvUMXhC22jbxa2HvH25tSI2sfUk7htVSIuHn1GtCqgB0c1nYla9PKNOhnX
+         8p+tBHzlY6iq7xFItfuL/2XBZT+p3eYLZ7oehWO5W6/OcVxm9RmaK3B4qJ0TyJXjTv/P
+         WCXM0GcIGK7P7xgqjm7AUP8tdh5Tt6eD67LANdVf3wpoaocTzeBgw7uWADmmARMPzw38
+         RFatAaSYPGifbc+xvzpLXlJDxoVocn++pvfvgvr/XbfMQt1em7yZV31yA6tDiFQA74Sg
+         cUIMaFV1IL9V/SGrUClycI/ljVl6J4uMG53tATpdOs3YKvtmspdhgs9+2D0ARN7Kfzek
+         94fQ==
+X-Forwarded-Encrypted: i=1; AL+hErFfl1/VQYoT0a9ZN/tu9suisLCQc/gdcYiWlOKKANMgwRYOCCikBRsN67JJcxXXAOftsdzCjsM=@lists.linux.dev
+X-Gm-Message-State: APuU4Z/Ll8Hu7IXOrIxU6rLArmzT5rM3eJ+P/6QlemJAJvA8mgI7wZhx
+	k+lO9ZhsxVcWPssY7Ilfb2mKnBNKdZkSac8U2l71GD+A3IboTTDbhv0c
+X-Gm-Gg: AYBFou20MD6UK/20ohnExlwN+DfwHZ3S0Zfig8PCaCUBs7U3cmyywDFDsKAwisX923x
+	TM8p98rqwIrnoHbZy0Aoh4rYRNQi7OJfkYzrhzRBJjZN6skRF5yeCneDBrHVesJrkstxmosmg+w
+	BS5ee8QyWL7GW5EqeTGRLn9VUebsm0TxR90ASP3/a1MZ6GroiJ3vC5wABH/Gb0qD1eN24mQAkhO
+	CJfuAovFxj4a6w4OXhbECqEKEfSLMLYq8W/aOKoC64/RF3OugOhZGIE/z/kturpASCJ0S+Ljt5/
+	9PpPOZAs1Jt3T3oAlA1VC7R+xw4DEK+W4yw/hO/DhrTlgZ7SncHE50j/K8SO+QQdQH31IcoGeaO
+	TJAho+W70b43aeHN9h+0S5IJONxfn636vcW77r11YJRuJpliHxg0tVESkmbGuvsBgceTqFo3XkE
+	e60ZToJfBETnoQMIOeUQLJpopSYrhnYQmA0sFd16+EdzW37oaOTaJrsgpEeKWGLPV4qQg45YoFJ
+	FGlBrCfPoUsISdUww32E63tdKhiZyxeqe3PkJFEP+rNB3WsD9V0G9U3LlPChBlZPQZL4a8INQKG
+	b9pkA8Ur0PpD32Nn03nDs3TEb+zHzsQbZuHGTlT8sIwFl2FXgXnJbHw/+BK3fb40M/w8eACC5MO
+	QSdFPCByWZg==
+X-Received: by 2002:a05:6512:a8c:b0:5bf:ce85:50e3 with SMTP id 2adb3069b0e04-5c170a0f613mr334159e87.42.1794528935920;
+        Thu, 12 Nov 2026 16:15:35 -0800 (PST)
+Received: from SafoStation ([31.40.65.49])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c17133ca01sm200968e87.36.2026.11.12.16.15.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Nov 2026 16:15:35 -0800 (PST)
+From: Safocl Stollmannovic <safocl88@gmail.com>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Will Deacon <will@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	Petr Mladek <pmladek@suse.com>,
+	John Ogness <john.ogness@linutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Pavel Machek <pavel@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	printk@lists.linux.dev,
+	linux-pm@vger.kernel.org
+Subject: [PATCH 10/10] kernel: fix duplicate extern declarations
+Date: Fri, 13 Nov 2026 04:14:16 +0400
+Message-ID: <20261113001432.128201-11-safocl88@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261113001432.128201-1-safocl88@gmail.com>
+References: <20261113001432.128201-1-safocl88@gmail.com>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -58,209 +111,102 @@ List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:c125:b0:523:dee6:7ae0 with SMTP id
- 5614622812f47-56e64df18a8mr745987b6e.58.1794527036137; Thu, 12 Nov 2026
- 15:43:56 -0800 (PST)
-Date: Thu, 12 Nov 2026 15:43:56 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6af64f3c.29bc419b.2c18ce.0002.GAE@google.com>
-Subject: [syzbot] [kernel?] INFO: task hung in vhost_task_stop (3)
-From: syzbot <syzbot+f59eab881ec20d423ab0@syzkaller.appspotmail.com>
-To: john.ogness@linutronix.de, linux-kernel@vger.kernel.org, pmladek@suse.com, 
-	printk@lists.linux.dev, rostedt@goodmis.org, senozhatsky@chromium.org, 
-	syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hello,
+Compiling a kernel module with a C++ compiler results in a duplicate
+echo ‘extern’ specifier error.
+This occurs because the code contains , and
+expands to  when processed by a C++ compiler.
+The  specifier must be removed.
+https://bugzilla.kernel.org/show_bug.cgi?id=222257
 
-syzbot found the following issue on:
-
-HEAD commit:    fa4ad798f6f6 Merge tag 'for-7.4-rc1-tag' of git://git.kern..
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=101e0b69580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=d44b06612b68f56
-dashboard link: https://syzkaller.appspot.com/bug?extid=f59eab881ec20d423ab0
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-userspace arch: i386
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=1382f8ad580000
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=1782f8ad580000
-
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/2bde23f56ff1/disk-fa4ad798.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/48017a7575e9/vmlinux-fa4ad798.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/c5dba52ab74d/bzImage-fa4ad798.xz
-
-AI-generated root cause summary:
-When a KVM VM is initialized, kvm_mmu_start_lpage_recovery() creates the
-"kvm-nx-lpage-recovery" worker thread via vhost_task_create(). Because
-vhost_task_create() clones the calling process with CLONE_THREAD and
-.user_worker = 1 (PF_USER_WORKER) without PF_NOFREEZE, the worker inherits the
-caller's thread group and cgroup freezer state. If the cgroup is subsequently
-frozen (e.g. via cgroup1 freezer.state), the worker thread is trapped in
-__refrigerator() in the TASK_FROZEN state. When the VM file descriptor is
-closed, kvm_mmu_pre_destroy_vm() calls vhost_task_stop(), which sets
-VHOST_TASK_FLAGS_STOP, attempts to wake the worker using wake_up_process()
-(which only targets TASK_NORMAL), and blocks in
-wait_for_completion(&vtsk->exited). Because wake_up_process() cannot wake a task
-in TASK_FROZEN and freezing(current) remains true, the worker never exits,
-causing vhost_task_stop() to hang indefinitely in uninterruptible sleep.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=f59eab881ec20d423ab0
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+f59eab881ec20d423ab0@syzkaller.appspotmail.com
-
-INFO: task syz.0.17:5888 blocked for more than 143 seconds.
-      Not tainted syzkaller #0
-"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
-task:syz.0.17        state:D stack:26216 pid:5888  tgid:5888  ppid:5825   task_flags:0x400040 flags:0x08080002
-Call Trace:
- <TASK>
- __schedu
- context_switch kernel/sched/core.c:5583 [inline]
- __schedule+0x17dd/0x5830 kernel/sched/core.c:7382
- __schedule_loop kernel/sched/core.c:7459 [inline]
- schedule+0x164/0x2b0 kernel/sched/core.c:7474
- schedule_timeout+0xc0/0x2c0 kernel/time/sleep_timeout.c:75
- do_wait_for_common kernel/sched/completion.c:100 [inline]
- __wait_for_common kernel/sched/completion.c:121 [inline]
- wait_for_common kernel/sched/completion.c:132 [inline]
- wait_for_completion+0x2c5/0x5d0 kernel/sched/completion.c:153
- vhost_task_stop+0xc0/0x170 kernel/vhost_task.c:102
- kvm_arch_pre_destroy_vm+0x68/0x80 arch/x86/kvm/x86.c:10107
- kvm_destroy_vm virt/kvm/kvm_main.c:1284 [inline]
- kvm_put_kvm+0x377/0xb40 virt/kvm/kvm_main.c:1350
- kvm_vm_release+0x6b/0x80 virt/kvm/kvm_main.c:1375
- __fput+0x408/0xa40 fs/file_table.c:512
- fput_close_sync+0x11f/0x240 fs/file_table.c:618
- filp_close_sync+0x6e/0xa0 fs/open.c:1574
- __range_close fs/file.c:919 [inline]
- __do_sys_close_range fs/file.c:1003 [inline]
- __se_sys_close_range+0xa77/0xef0 fs/file.c:954
- do_syscall_32_irqs_on arch/x86/entry/syscall_32.c:79 [inline]
- __do_fast_syscall_32+0x28b/0x6c0 arch/x86/entry/syscall_32.c:282
- do_fast_syscall_32+0x33/0x70 arch/x86/entry/syscall_32.c:307
- entry_SYSENTER_compat_after_hwframe+0x84/0x8e
-RIP: 0023:0xf7fb3f1c
-RSP: 002b:00000000ffe837dc EFLAGS: 00000206 ORIG_RAX: 00000000000001b4
-RAX: ffffffffffffffda RBX: 0000000000000003 RCX: 000000000000001e
-RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
-RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000206 R12: 0000000000000000
-R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
- </TASK>
-
-Showing all locks held in the system:
-locks held by khungtaskd/33: 1, last CPU#0:
- #0: ffffffff9015a260 (rcu_read_lock){....}-{1:3}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
- #0: ffffffff9015a260 (rcu_read_lock){....}-{1:3}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
- #0: ffffffff9015a260 (rcu_read_lock){....}-{1:3}, at: debug_show_all_locks+0x2e/0x180 kernel/locking/lockdep.c:6871
-locks held by kworker/u8:9/1115: 4, last CPU#0:
- #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
- #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
- #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3460 [inline]
- #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x97a/0x1630 kernel/workqueue.c:3578
- #1: ffff8880b8224708 (psi_seq){-.-.}-{0:0}, at: psi_task_switch+0x57/0x7d0 kernel/sched/psi.c:928
- #2: ffff8880b8226498 (&base->lock){-.-.}-{2:2}, at: lock_timer_base kernel/time/timer.c:1005 [inline]
- #2: ffff8880b8226498 (&base->lock){-.-.}-{2:2}, at: __mod_timer+0x1a9/0xed0 kernel/time/timer.c:1086
- #3: ffffffff9c12ba00 (&obj_hash[i].lock){-.-.}-{2:2}, at: debug_object_activate+0xb7/0x420 lib/debugobjects.c:873
-locks held by kworker/u8:12/1168: 3, last CPU#0:
- #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
- #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
- #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3460 [inline]
- #0: ffff88813fe4c148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x97a/0x1630 kernel/workqueue.c:3578
- #1: ffffc900050f7c40 ((work_completion)(&(&nsim_dev->trap_data->trap_report_dw)->work)){+.+.}-{0:0}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
- #1: ffffc900050f7c40 ((work_completion)(&(&nsim_dev->trap_data->trap_report_dw)->work)){+.+.}-{0:0}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
- #1: ffffc900050f7c40 ((work_completion)(&(&nsim_dev->trap_data->trap_report_dw)->work)){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3460 [inline]
- #1: ffffc900050f7c40 ((work_completion)(&(&nsim_dev->trap_data->trap_report_dw)->work)){+.+.}-{0:0}, at: process_scheduled_works+0x97a/0x1630 kernel/workqueue.c:3578
- #2: ffff888037387258 (&devlink->lock_key#9){+.+.}-{4:4}, at: nsim_dev_trap_report_work+0x57/0xb30 drivers/net/netdevsim/dev.c:834
-locks held by kworker/0:2/1216: 3, last CPU#0:
- #0: ffff88813fe0dd48 ((wq_completion)events_power_efficient){+.+.}-{0:0}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
- #0: ffff88813fe0dd48 ((wq_completion)events_power_efficient){+.+.}-{0:0}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
- #0: ffff88813fe0dd48 ((wq_completion)events_power_efficient){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3460 [inline]
- #0: ffff88813fe0dd48 ((wq_completion)events_power_efficient){+.+.}-{0:0}, at: process_scheduled_works+0x97a/0x1630 kernel/workqueue.c:3578
- #1: ffffc90005487c40 ((work_completion)(&(&gc_work->dwork)->work)){+.+.}-{0:0}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
- #1: ffffc90005487c40 ((work_completion)(&(&gc_work->dwork)->work)){+.+.}-{0:0}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
- #1: ffffc90005487c40 ((work_completion)(&(&gc_work->dwork)->work)){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3460 [inline]
- #1: ffffc90005487c40 ((work_completion)(&(&gc_work->dwork)->work)){+.+.}-{0:0}, at: process_scheduled_works+0x97a/0x1630 kernel/workqueue.c:3578
- #2: ffffffff9015a260 (rcu_read_lock){....}-{1:3}, at: rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
- #2: ffffffff9015a260 (rcu_read_lock){....}-{1:3}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
- #2: ffffffff9015a260 (rcu_read_lock){....}-{1:3}, at: gc_worker+0x274/0x1890 net/netfilter/nf_conntrack_core.c:1530
-locks held by getty/5391: 2, on CPU#1:
- #0: ffff8880385230a0 (&tty->ldisc_sem){++++}-{0:0}, at: tty_ldisc_ref_wait+0x25/0x70 drivers/tty/tty_ldisc.c:243
- #1: ffffc900032362e8 (&ldata->atomic_read_lock){+.+.}-{4:4}, at: n_tty_read+0x45a/0x1360 drivers/tty/n_tty.c:2211
-
-=============================================
-
-NMI backtrace for cpu 1
-CPU: 1 UID: 0 PID: 33 Comm: khungtaskd Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 10/15/2026
-Call Trace:
- <TASK>
- dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
- nmi_cpu_backtrace+0x274/0x2d0 lib/nmi_backtrace.c:123
- nmi_trigger_cpumask_backtrace+0x17d/0x390 lib/nmi_backtrace.c:66
- trigger_all_cpu_backtrace include/linux/nmi.h:164 [inline]
- __sys_info lib/sys_info.c:157 [inline]
- sys_info+0x135/0x170 lib/sys_info.c:165
- check_hung_uninterruptible_tasks kernel/hung_task.c:377 [inline]
- watchdog+0x1073/0x10f0 kernel/hung_task.c:598
- kthread+0x38b/0x480 kernel/kthread.c:436
- ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
- </TASK>
-Sending NMI from CPU 1 to CPUs 0:
-NMI backtrace for cpu 0
-CPU: 0 UID: 0 PID: 32 Comm: pr/ttyS0 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 10/15/2026
-RIP: 0010:io_serial_in+0x77/0xc0 drivers/tty/serial/8250/8250_port.c:425
-Code: e8 2e 6a 43 fc 44 89 f9 d3 e3 49 83 c6 40 4c 89 f0 48 c1 e8 03 42 80 3c 20 00 74 08 4c 89 f7 e8 2f f3 ba fc 41 03 1e 89 da ec <0f> b6 c0 5b 41 5c 41 5e 41 5f e9 9a 14 83 06 cc 44 89 f9 80 e1 07
-RSP: 0018:ffffc90000a878b8 EFLAGS: 00000002
-RAX: 1ffffffff3840b00 RBX: 00000000000003fd RCX: 0000000000000000
-RDX: 00000000000003fd RSI: 0000000000000000 RDI: 0000000000000020
-RBP: dffffc0000000000 R08: 0000000000000003 R09: 0000000000000004
-R10: dffffc0000000000 R11: ffffffff8585a440 R12: dffffc0000000000
-R13: 0000000000000000 R14: ffffffff9c205ec0 R15: 0000000000000000
-FS:  0000000000000000(0000) GS:ffff888123409000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 0000563e7aa97d08 CR3: 000000000ff48000 CR4: 00000000003526f0
-Call Trace:
- <TASK>
- serial_in drivers/tty/serial/8250/8250.h:134 [inline]
- serial_lsr_in drivers/tty/serial/8250/8250.h:156 [inline]
- wait_for_lsr+0x184/0x2f0 drivers/tty/serial/8250/8250_port.c:2036
- serial8250_fifo_wait_for_lsr_thre drivers/tty/serial/8250/8250_port.c:3294 [inline]
- __serial8250_console_fifo_write+0xcd/0x3e0 drivers/tty/serial/8250/8250_port.c:3369
- serial8250_console_fifo_write drivers/tty/serial/8250/8250_port.c:3402 [inline]
- __serial8250_console_write drivers/tty/serial/8250/8250_port.c:3456 [inline]
- serial8250_console_write+0xa7e/0x1200 drivers/tty/serial/8250/8250_port.c:3520
- nbcon_emit_next_record+0xef5/0x1a90 kernel/printk/nbcon.c:-1
- nbcon_emit_one kernel/printk/nbcon.c:1157 [inline]
- nbcon_kthread_func+0x6d9/0x8d0 kernel/printk/nbcon.c:1271
- kthread+0x38b/0x480 kernel/kthread.c:436
- ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
- </TASK>
-
-
+Signed-off-by: Safocl Stollmannovic <safocl88@gmail.com>
 ---
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+ include/linux/lockdep.h      | 2 +-
+ include/linux/printk.h       | 6 +++---
+ include/linux/sched/task.h   | 2 +-
+ include/linux/start_kernel.h | 2 +-
+ include/linux/suspend.h      | 4 ++--
+ 5 files changed, 8 insertions(+), 8 deletions(-)
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+diff --git a/include/linux/lockdep.h b/include/linux/lockdep.h
+index a6451ecbb..f436eab07 100644
+--- a/include/linux/lockdep.h
++++ b/include/linux/lockdep.h
+@@ -89,7 +89,7 @@ extern void lockdep_init(void);
+ extern void lockdep_reset(void);
+ extern void lockdep_reset_lock(struct lockdep_map *lock);
+ extern void lockdep_free_key_range(void *start, unsigned long size);
+-extern asmlinkage void lockdep_sys_exit(void);
++asmlinkage void lockdep_sys_exit(void);
+ extern void lockdep_set_selftest_task(struct task_struct *task);
+ 
+ extern void lockdep_init_task(struct task_struct *task);
+diff --git a/include/linux/printk.h b/include/linux/printk.h
+index f594c1266..09a28181e 100644
+--- a/include/linux/printk.h
++++ b/include/linux/printk.h
+@@ -136,7 +136,7 @@ struct va_format {
+ })
+ 
+ #ifdef CONFIG_EARLY_PRINTK
+-extern asmlinkage __printf(1, 2)
++asmlinkage __printf(1, 2)
+ void early_printk(const char *fmt, ...);
+ #else
+ static inline __printf(1, 2) __cold
+@@ -200,8 +200,8 @@ void __init setup_log_buf(int early);
+ __printf(1, 2) void dump_stack_set_arch_desc(const char *fmt, ...);
+ void dump_stack_print_info(const char *log_lvl);
+ void show_regs_print_info(const char *log_lvl);
+-extern asmlinkage void dump_stack_lvl(const char *log_lvl) __cold;
+-extern asmlinkage void dump_stack(void) __cold;
++asmlinkage void dump_stack_lvl(const char *log_lvl) __cold;
++asmlinkage void dump_stack(void) __cold;
+ void printk_trigger_flush(void);
+ void console_try_replay_all(void);
+ void printk_legacy_allow_panic_sync(void);
+diff --git a/include/linux/sched/task.h b/include/linux/sched/task.h
+index 90ed5bc3c..5cdef6b0f 100644
+--- a/include/linux/sched/task.h
++++ b/include/linux/sched/task.h
+@@ -61,7 +61,7 @@ extern struct task_struct init_task;
+ 
+ extern int lockdep_tasklist_lock_is_held(void);
+ 
+-extern asmlinkage void schedule_tail(struct task_struct *prev);
++asmlinkage void schedule_tail(struct task_struct *prev);
+ extern void init_idle(struct task_struct *idle, int cpu);
+ 
+ extern int sched_fork(u64 clone_flags, struct task_struct *p);
+diff --git a/include/linux/start_kernel.h b/include/linux/start_kernel.h
+index 09f994ac8..5855467ca 100644
+--- a/include/linux/start_kernel.h
++++ b/include/linux/start_kernel.h
+@@ -8,6 +8,6 @@
+ /* Define the prototype for start_kernel here, rather than cluttering
+    up something else. */
+ 
+-extern asmlinkage void __init __noreturn start_kernel(void);
++asmlinkage void __init __noreturn start_kernel(void);
+ 
+ #endif /* _LINUX_START_KERNEL_H */
+diff --git a/include/linux/suspend.h b/include/linux/suspend.h
+index a38150277..b97af3420 100644
+--- a/include/linux/suspend.h
++++ b/include/linux/suspend.h
+@@ -385,8 +385,8 @@ extern int swsusp_page_is_forbidden(struct page *);
+ extern void swsusp_set_page_free(struct page *);
+ extern void swsusp_unset_page_free(struct page *);
+ extern unsigned long get_safe_page(gfp_t gfp_mask);
+-extern asmlinkage int swsusp_arch_suspend(void);
+-extern asmlinkage int swsusp_arch_resume(void);
++asmlinkage int swsusp_arch_suspend(void);
++asmlinkage int swsusp_arch_resume(void);
+ 
+ extern u32 swsusp_hardware_signature;
+ extern void hibernation_set_ops(const struct platform_hibernation_ops *ops);
+-- 
+2.56.1
 
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
