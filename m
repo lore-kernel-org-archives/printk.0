@@ -1,77 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794820509;
-	b=qBrA5bV+k0fejBnQRIE2AGhCXirTnYBfEdYU0dqnX9jI/J3ueR+jjeePZtc3fK7fiNZl
-	 aWa15TLH8S0vE1ByeX27eriO/IbDO+TxXbSIZ8etN5KaAawF1v1XABPiXg3wsb6FZqRkb
-	 829tByn+eGQUCKZ965Ptkt7RcvqNk+aRM+/0wQRy65oGLAvmbX2PqAsXfvoJS8odGO3uB
-	 HdRWGkvdIR3ykIy9WSoqESzzXwqQuOkNv2gD3RY4m+yACZgtZ5fyU+EWD6Ig2jGroKEwb
-	 FuTNiJfmiM9Y+CgKWH8CB4IRbN2fWFkPQjBCqtBbzTGXmIzvThmXNsT/7XKDnaJ+bmg==
+	t=1794844349;
+	b=VLR6wPdINjc3dWGRpKdx1T2CHLm1CV8shFG0zKlu4hARCdq5FKBaS/vzUpXokhV6t/TH
+	 29USojaic3ykJDIhjFugRoh1JgtRzHKVuHdB2Ijx0zg8rz6b+VljC09aPfkh5TIR6TGR6
+	 HLLwzElROhiPjL0XJS3F7KesiRZVna9iyo6Xaja4vUrFr8BxR2S8p8VaL9UvtvQupOzTU
+	 k/hivPkIM2OMP4lNroKfOKeXui3DD5Lctbby7oXCl3VREvRNC9DBkTonV1genzWiDMEkB
+	 Gn2W/cKWoXnYDBRIfZuFRcTVbQGuhuA6KSGVIcCRjffCmDNV6OSzaFhoPLIgDw0InYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794820509;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=6Ig7jYUgxdgeyk8a8VW3h/phXinUIjqelDPYCG389ew=;
-	b=cAFX5eQa+mwxZtYNoINNPiLZp5gd79uyKlFC88QK2Xsd07dwjYt9duB5uKmmVsSl4+Sw
-	 +uf8D0wnm2CRavVYxuQz+aaclAtN2rcuqikSne7GT/E20Ki7DqJpDc555e1lw5W6wWKxf
-	 FohdZSEUuKrILMd/QdDjcRU4elBZeDzswpoePKBYZILsvYrZ/GTZFwkcGghUUUUARBSaQ
-	 /gFgYsPFF0hyivwZazi+W87N5evkXaTlw8jyF/rUZ47RPls9bMI4gZmybOttfIlsTmt0I
-	 ooRpU7L5SeyIHCCfJDftFdLRdVx+ydco9E0n2li/sS1OD8/P+Ax+C5Ldm8D5di0o9dw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794844349;
+	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:
+	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
+	bh=WPIgPkplQXYcdgIP2HZXNUASrSQ30h2/EQrrK2TSh2g=;
+	b=tMFztf6dC6iAX3Q3kNFXuPvks8dhZ8+KmSyVuDxQQOs259Kpg/nLoNRF/yCmIOhklcVo
+	 LkIifrw2JvE422uG3TVQfAkk9QXMrC0BwhKS2L6HvRnfxzkhHMFaIU+dwPdDIQRC04VxS
+	 g8eHe9klXf3LI6VH7ohmnxzewrVqWZtz0RsFJODXshTU3Mhid6/yo84A6GG3NQzKbvxyC
+	 f4/+sLTcTVAJJbl6Yi9t46Kuj5IaYH2VR74r5elnvnhqPTSxiTJCjwT2nuTHB8eeEk6tL
+	 TxpNart5inAIxDPcBKfcRxupYv1RkGf9Si6wJdY/5dNHfVkkdxDBk2MAxzDvoajHBjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=deep8vfp;
-	arc=none smtp.remote-ip=198.175.65.18
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=xxGaSkpO;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=bqJxEwMP;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2122606A323
-	for <printk@lists.linux.dev>; Mon, 16 Nov 2026 09:15:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2122606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CB53606A329
+	for <printk@lists.linux.dev>; Mon, 16 Nov 2026 15:52:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CB53606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=deep8vfp
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794820509; x=1826356509;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jdE1Oz+ifYWLMAah7BbEsOquxhgEGzyzeD+Dta8gPn4=;
-  b=deep8vfpPg7Td+nMMxOqXVIPQ9i6rCR3DfGSaL/4ntpOzyHfQnbi6dV6
-   X8NJ2enXgXgT2nJrsa9FkDhGZk77HCRqO/eLzT40jMW+/w+iRSIUHk9Is
-   IlHzf1PgxcubfNVPWRz6RqoKSkbEaSCiaFgJfx1F1fqeAWMFiaw/fj8dJ
-   4zD3KhDyjRjxHm4fl0HZhBXeOkkdb472eeQvURBkVcMTneqGx2Npq0/33
-   7DRnyj2Z57IDDLUtBn8jxDcKlSVm8WgoKnv/5g+0Q13NIcnrdTZRBAwro
-   Y4ycl4SsDLzrnHR4sCJbLpAR1W1FAjL7LE7B31NT+rqCtov6AKYR5iHep
-   Q==;
-X-CSE-ConnectionGUID: 0GYFSeEaRHinAd1MgpbhpQ==
-X-CSE-MsgGUID: li4No4dKTrifbKuC8pAPdw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11967"; a="3562762"
-X-IronPort-AV: E=Sophos;i="6.27,216,1787036400"; 
-   d="scan'208";a="3562762"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2026 01:15:08 -0800
-X-CSE-ConnectionGUID: 3ejOdWhUTn2/NwARFU6/Ew==
-X-CSE-MsgGUID: qfJcMm7HTpSY9ogZMp5t0g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,216,1787036400"; 
-   d="scan'208";a="11280847"
-Received: from smoticic-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.90])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2026 01:15:05 -0800
-Date: Mon, 16 Nov 2026 11:15:03 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Avi Weiss <thnkslprpt@gmail.com>
-Cc: Chris Down <chris@chrisdown.name>, Petr Mladek <pmladek@suse.com>,
-	John Ogness <john.ogness@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	printk@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] printk: Fix skipped entries after index iterator restart
-Message-ID: <avrJl4lYirh_7oQ-@ashevche-desk.local>
-References: <20261116085609.476250-2-thnkslprpt@gmail.com>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=xxGaSkpO;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=bqJxEwMP
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1794844347;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WPIgPkplQXYcdgIP2HZXNUASrSQ30h2/EQrrK2TSh2g=;
+	b=xxGaSkpOIXcLNPTFf6AkudcAhEr78jeua8vlh/m7m1mxCzy5+2QevqqUFGNwx2hkLUG8D7
+	TEM5gRnnLL7STjx78ypyEgHSv1/ax2kOR1fCtMZO1dMQbgjAuAYkavj6Sy7Rhb1ouJYLe2
+	tW3NR94LXsr3jmRZRUWXsWTLaDKOO5vOr/u+52EODWHl0q0ZGxxrHDPESeh7B3DDRc6Se0
+	t8b5M4Ki8QbLlikW8ZmnA/oI7qUHDxc9ujiks0qXnuX+buv9kX0RKnRJn7oAK5zd2Sf3Cl
+	UMPAoLtJMYY0zjt11Oea0ORMysOzGTKfGOMDZXLcgtKW0domVcJ++vWDfaC0dw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1794844347;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WPIgPkplQXYcdgIP2HZXNUASrSQ30h2/EQrrK2TSh2g=;
+	b=bqJxEwMPxKYdmx2Eo+k88h/knBfiFt4y1s/FS+gZ/VQINVWcad+mfRbyLysUGRy5CiPr1A
+	l3QNcb1iXzwkpIBw==
+To: Breno Leitao <leitao@debian.org>, pmladek@suse.com, kuba@kernel.org,
+ gustavold@gmail.com
+Cc: linux-kernel@vger.kernel.org, printk@lists.linux.dev,
+ netdev@vger.kernel.org
+Subject: Re: [RFC] netconsole: plan for a safe atomic write
+In-Reply-To: <avcI9gVR7brRHQSQ@gmail.com>
+References: <avcI9gVR7brRHQSQ@gmail.com>
+Date: Mon, 16 Nov 2026 16:58:26 +0106
+Message-ID: <87h5hgyds5.fsf@jogness.linutronix.de>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -81,35 +72,78 @@ List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116085609.476250-2-thnkslprpt@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain
 
-On Mon, Nov 16, 2026 at 10:56:10AM +0200, Avi Weiss wrote:
-> seq_read_iter() can advance the iterator before the next record
-> fits in the read buffer. When iteration resumes, pi_start() calls
-> pi_next() at the saved position and advances past the pending printk
-> index entry. As a result, index reads can silently omit formats.
-> 
-> Return the entry corresponding to the saved position without
-> advancing the iterator.
+Hi Breno,
 
-...
+On 2026-11-13, Breno Leitao <leitao@debian.org> wrote:
+> netconsole is CON_NBCON_ATOMIC_UNSAFE, so write_atomic() only runs at
+> the very end of panic. There is a desired to have called safe atomic
+> printing[1].
+>
+> This is the plan I would like to agree on before posting patches:
+>
+> 1. Now that we have one console per target, use one lock per
+>    console/target.
+>    - printk holds the target's device_lock around write_thread(),
+>      write_atomic() runs under the console ownership, and stopping
+>      a target takes both. target_list_lock and the cleanup list go away:
+>      the list changes under dynamic_netconsole_mutex and RTNL, and is
+>      walked under either.
 
-> -	return pi_next(s, NULL, pos);
-> +	return pi_get_entry(s->file->f_inode->i_private, *pos - 1);
+This synchronizes the console against itself and the user interface
+(netconsole configuration). IIUC it does not provide any synchronization
+against non-netconsole usage of the port.
 
-Side note (because it seems used more in the same form), we have file_inode()
-helper and this should idiomatically look as
+> 2. A per-target field to track atomic writes.
+>    - In that mode, skbs come only from a pool popped without a lock and
+>      refilled through irq_work.
 
-	return pi_get_entry(file_inode(s->file)->i_private, *pos - 1);
+IIUC the risk here is that the garbage collector is deferred and there
+may not be skbs available. In that case, what do you expect to happen?
+The printk record is dropped? Or the console disables itself from printk
+flushing until some (hopefully) later time when skbs are ready and it
+can enable itself, thus resuming the flush?
 
-But I haven't checked if the file_inode() is recommended or deprecated API.
+> 3. A try-once netpoll transmit, as Jakub outlined [2]:
+>    - One HARD_TX_TRYLOCK, then busy, with no polling, freeing or
+>      wakeups, which can deadlock under rq->lock[3].
+>    - It refuses when this CPU owns the queue (netif_tx_owned()), is in
+>      the device's NAPI poll (netpoll_owner_active()), or is in NMI on
+>      PREEMPT_RT.
 
--- 
-With Best Regards,
-Andy Shevchenko
+Same question. What happens when the trylock fails or it refuses?
 
+As I have mentioned before [4], UART atomic printing uses the console
+ownership to synchronize against _all_ port activity. What if the
+_xmit_lock had console ownership underneath it (only for txq's shared
+with a netconsole)? Then it would be enough to acquire console
+ownership.
 
+See, for example, include/linux/serial_core.h:uart_port_trylock().
+
+> This does not make ndo_start_xmit() safe, so the flag stays until
+> drivers can opt in to atomic transmit.
+
+IIUC it makes it safe, but not reliable. It is more reliable than
+kthreads, which can still be considered a win.
+
+> It is still unclear to me whether write_atomic() should depend on the
+> context (regular NMI/panic): 
+>  * For regular NMI use the try lock as best effort
+
+HARD_TX_TRYLOCK() is not NMI-safe.
+
+>  * Ignore the locks only in the final panic flush. (unclear if this is
+>    an option)
+
+As a final unsafe flush before an infinite loop, this is always an
+option.
+
+John
+
+> [1] https://lore.kernel.org/all/874ie4y5mw.fsf@jogness.linutronix.de/
+> [2] https://lore.kernel.org/all/20260617132127.645534d1@kernel.org/
+> [3] https://lore.kernel.org/all/20260610183621.3915271-1-vlad.wing@gmail.com/
+
+[4] https://lore.kernel.org/all/87tsr1m6y5.fsf@jogness.linutronix.de/
