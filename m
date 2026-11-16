@@ -1,95 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794819376;
-	b=XRTkVS3f5hzHGp+kpyCOPcBt5nJ9LCeG0TR7bdAB40H5bReZKyXS7HJlhza3g4A47Cxt
-	 N1QSlBRGMW2rwK+n11vOIjQhXMwo0tIKcLG5e3qWAM9pGfyJBgBTS8AGCjgFEPbkGfBR/
-	 GmTrj0EjPNSnWttIX4xHl/6kKCygtNSW6ORc6xuGMTdYwP+NKxlWB377Wo2AIABBo50dO
-	 OJVOMrcdqJxF3XYQ04bOQMD+z7rcVrX8cDND7n0jg5yaRbzywcBX9722wQiJgqDZThVTb
-	 VC1u1CytgvWU8ghr+I8F5+mN2vyD6DlA8rC73XClE6M0kEWWGYJqpVIEe5uRKWIXVTA==
+	t=1794820509;
+	b=qBrA5bV+k0fejBnQRIE2AGhCXirTnYBfEdYU0dqnX9jI/J3ueR+jjeePZtc3fK7fiNZl
+	 aWa15TLH8S0vE1ByeX27eriO/IbDO+TxXbSIZ8etN5KaAawF1v1XABPiXg3wsb6FZqRkb
+	 829tByn+eGQUCKZ965Ptkt7RcvqNk+aRM+/0wQRy65oGLAvmbX2PqAsXfvoJS8odGO3uB
+	 HdRWGkvdIR3ykIy9WSoqESzzXwqQuOkNv2gD3RY4m+yACZgtZ5fyU+EWD6Ig2jGroKEwb
+	 FuTNiJfmiM9Y+CgKWH8CB4IRbN2fWFkPQjBCqtBbzTGXmIzvThmXNsT/7XKDnaJ+bmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794819376;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=m7jLssS4b6/Hj/S1vChj9ooMCseYQvI7tiM2Tbkwxew=;
-	b=fVV2exttWNqPXIY80EEjhpBZsltY7XsvqG/taL7ZqG82+x5d0iN8Vbun3WkU7tLoRJkE
-	 IbR9wf5DrThLL6WCbSt6P/mr7eHy0FBR0aX0U4WxFJ+VqRKeiCkUiZJY7OHcZWkt2KHGl
-	 jgSFYQmc2OkkniUeH533ma04jMnB2YX02y7kC3DaVTK5cZBX9+BvQOgE7FpnOwqmHUGAH
-	 oCdZolo56oasUSUTM1A4DtMwNtrdr0cxYn2p1KWlb1g2kmgAYK+eIKCBCxtRxEqh3pNXp
-	 fUEIRUB/qTWfTeY7EOvjFphj27C8c7cieGee3yJBGatF4VK5xHhatDwVEHkIQdhX3VA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794820509;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=6Ig7jYUgxdgeyk8a8VW3h/phXinUIjqelDPYCG389ew=;
+	b=cAFX5eQa+mwxZtYNoINNPiLZp5gd79uyKlFC88QK2Xsd07dwjYt9duB5uKmmVsSl4+Sw
+	 +uf8D0wnm2CRavVYxuQz+aaclAtN2rcuqikSne7GT/E20Ki7DqJpDc555e1lw5W6wWKxf
+	 FohdZSEUuKrILMd/QdDjcRU4elBZeDzswpoePKBYZILsvYrZ/GTZFwkcGghUUUUARBSaQ
+	 /gFgYsPFF0hyivwZazi+W87N5evkXaTlw8jyF/rUZ47RPls9bMI4gZmybOttfIlsTmt0I
+	 ooRpU7L5SeyIHCCfJDftFdLRdVx+ydco9E0n2li/sS1OD8/P+Ax+C5Ldm8D5di0o9dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rNdGyrCt;
-	arc=none smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=deep8vfp;
+	arc=none smtp.remote-ip=198.175.65.18
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F650606A31C
-	for <printk@lists.linux.dev>; Mon, 16 Nov 2026 08:56:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F650606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2122606A323
+	for <printk@lists.linux.dev>; Mon, 16 Nov 2026 09:15:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2122606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rNdGyrCt
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-490a0e72588so1417196f8f.3
-        for <printk@lists.linux.dev>; Mon, 16 Nov 2026 00:56:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794819374; x=1795424174; darn=lists.linux.dev;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=m7jLssS4b6/Hj/S1vChj9ooMCseYQvI7tiM2Tbkwxew=;
-        b=rNdGyrCt/I/sDTG9kyh1SMxq48+xYnJM7DsYMor7I4LbrWokkaGZWy7IJZeC6W34Bg
-         8XfG3DjzMjSt0pQK3YFYcI9qwkv4dXoIU1Rb9T173hzgFKWhfOxxBZR1bnVdsdLcTbcR
-         1+uIdV2M0na/Y2jnuIEzopXiRaZGjpL56Vry4YP7Pi6D6jcKQBOEY/iLQfpZbMvDM5FU
-         ePDwLQWPw4t34P7h5c0h6QOFcJNw+Znjam6tuJ9kXoCpL/zFiCTH19mRJoU7Kw6Z+Fzn
-         4W5NaqhVc9Z7LKG2eGo0WwD/qLZUaJtAIzrVMFulCQTdq8AbEVmWqHWziOK323885ZHf
-         vQEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794819374; x=1795424174;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=m7jLssS4b6/Hj/S1vChj9ooMCseYQvI7tiM2Tbkwxew=;
-        b=BkA4zgLZFPVk82YDZmrvIxBc5QvouyPs+Sap9gu57NpEJJchWp9BHlpagaa+ZJ/ZsB
-         5HiyPlqpxKGT8mag1y42H3GYHG5Q9dJV1HTwUrzDDHZNJRHmWkMAZyrxd5/8rqoNhE/m
-         uNYbNb9T13Nnw8jOTUyWWViQc07roVMbmdO/+Wybbm6fDjIyHfvfKX0NzyRA2y6fetwg
-         1tcYWU34fp+8gSkMNebW2AJJipP4fKa8ndU/vh8HKw1K4JeAD7r3Zmv46HBEIwEBNcMK
-         AA3i2ELcqhQS2iON2sxkjICGJUER45PR8qAmXMGO5QircpEflTEgFtngrTBoB4mkNrrQ
-         tFqg==
-X-Forwarded-Encrypted: i=1; AL+hErFuBbN8LMrbAlKOLvAe21XAQUJVuHNJXKNwdoSvfkIWcH/tVolR47C49ko6kTS1Vc7QII4oWpU=@lists.linux.dev
-X-Gm-Message-State: APuU4Z9mD9TS3IKMPSiTgfLy6qOfg/AHC4SnrwAWKiqBdZIPa1M4eCCZ
-	M33v3cewpPFyKOi0dfAUBE9PLwXdv1ixLIUDldkTtqoibDuNirsz/wXz
-X-Gm-Gg: AZFdTZdKnW0ErEBhF0y+BlS/jCnVTMNTkq+XmdvSvvLB47auMf/78+vhKjoEFzSQsmS
-	MghhP/BURDA176uIVcpYJPddCwdQ4E2Uj6kkqj7/yfK1TQDOeIxuS3csiYyXQ4XWrVVwUQ+VdD6
-	0olZDLi8Q7i+MBtFmzmLPsdVT4Wou86CJKnRAJNSMza9TJsxZ961Y9QfGaD3fGn120i13pT5y65
-	28s2v5KFUjt26QsGL/yVoo70DjC5tG2cAkI0zkaTXe23ys1ZHkbxnQ2SPugzGmcOwLWcNTOUj4H
-	TuYleUUm2iOFtrA2/RTS64bZophRCuoXG0FMqsYuVNW6Zs/VXNxL7CnTpcyW8pdllpS+y+9rO0a
-	v16T0AV/sGN3fE2Zl3wJk/OoTvYxm+MVy/HBCtfJdrv72VPyxS12NNx4Oc19PafkIkxGXzAk02O
-	LzQ7rK2rJguRg7eHcjdLpxfq2XcGjlMJGkMtXgAuj7Zo+YxkW/00XWPLZ67z5p5j4T//1NQ/+Hk
-	kfl548VR5pOc+TzHwyopekr/kweRu7Y6sEPLC+mF/1YLamMxHO/wnpcbAKWatZIDt+XDfOY3+ui
-	UwXSEwbOmdM3sdUXUfzgVJeWY6L2lMTsjJA=
-X-Received: by 2002:a05:6000:220a:b0:490:a481:7ac8 with SMTP id ffacd0b85a97d-49c71d49137mr17428762f8f.29.1794819374287;
-        Mon, 16 Nov 2026 00:56:14 -0800 (PST)
-Received: from LAPTOP-AVI.lan ([2a06:c701:474b:1700:1c3:e2b2:8068:e97d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c609c6451sm22439034f8f.45.2026.11.16.00.56.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 00:56:13 -0800 (PST)
-From: Avi Weiss <thnkslprpt@gmail.com>
-To: Chris Down <chris@chrisdown.name>,
-	Petr Mladek <pmladek@suse.com>,
-	John Ogness <john.ogness@linutronix.de>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=deep8vfp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794820509; x=1826356509;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=jdE1Oz+ifYWLMAah7BbEsOquxhgEGzyzeD+Dta8gPn4=;
+  b=deep8vfpPg7Td+nMMxOqXVIPQ9i6rCR3DfGSaL/4ntpOzyHfQnbi6dV6
+   X8NJ2enXgXgT2nJrsa9FkDhGZk77HCRqO/eLzT40jMW+/w+iRSIUHk9Is
+   IlHzf1PgxcubfNVPWRz6RqoKSkbEaSCiaFgJfx1F1fqeAWMFiaw/fj8dJ
+   4zD3KhDyjRjxHm4fl0HZhBXeOkkdb472eeQvURBkVcMTneqGx2Npq0/33
+   7DRnyj2Z57IDDLUtBn8jxDcKlSVm8WgoKnv/5g+0Q13NIcnrdTZRBAwro
+   Y4ycl4SsDLzrnHR4sCJbLpAR1W1FAjL7LE7B31NT+rqCtov6AKYR5iHep
+   Q==;
+X-CSE-ConnectionGUID: 0GYFSeEaRHinAd1MgpbhpQ==
+X-CSE-MsgGUID: li4No4dKTrifbKuC8pAPdw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11967"; a="3562762"
+X-IronPort-AV: E=Sophos;i="6.27,216,1787036400"; 
+   d="scan'208";a="3562762"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2026 01:15:08 -0800
+X-CSE-ConnectionGUID: 3ejOdWhUTn2/NwARFU6/Ew==
+X-CSE-MsgGUID: qfJcMm7HTpSY9ogZMp5t0g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,216,1787036400"; 
+   d="scan'208";a="11280847"
+Received: from smoticic-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.90])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2026 01:15:05 -0800
+Date: Mon, 16 Nov 2026 11:15:03 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Avi Weiss <thnkslprpt@gmail.com>
+Cc: Chris Down <chris@chrisdown.name>, Petr Mladek <pmladek@suse.com>,
+	John Ogness <john.ogness@linutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>,
 	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	printk@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Avi Weiss <thnkslprpt@gmail.com>
-Subject: [PATCH] printk: Fix skipped entries after index iterator restart
-Date: Mon, 16 Nov 2026 10:56:10 +0200
-Message-ID: <20261116085609.476250-2-thnkslprpt@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	printk@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] printk: Fix skipped entries after index iterator restart
+Message-ID: <avrJl4lYirh_7oQ-@ashevche-desk.local>
+References: <20261116085609.476250-2-thnkslprpt@gmail.com>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -99,37 +81,35 @@ List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116085609.476250-2-thnkslprpt@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-seq_read_iter() can advance the iterator before the next record
-fits in the read buffer. When iteration resumes, pi_start() calls
-pi_next() at the saved position and advances past the pending printk
-index entry. As a result, index reads can silently omit formats.
+On Mon, Nov 16, 2026 at 10:56:10AM +0200, Avi Weiss wrote:
+> seq_read_iter() can advance the iterator before the next record
+> fits in the read buffer. When iteration resumes, pi_start() calls
+> pi_next() at the saved position and advances past the pending printk
+> index entry. As a result, index reads can silently omit formats.
+> 
+> Return the entry corresponding to the saved position without
+> advancing the iterator.
 
-Return the entry corresponding to the saved position without
-advancing the iterator.
+...
 
-Fixes: 337015573718 ("printk: Userspace format indexing support")
-Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
----
- kernel/printk/index.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> -	return pi_next(s, NULL, pos);
+> +	return pi_get_entry(s->file->f_inode->i_private, *pos - 1);
 
-diff --git a/kernel/printk/index.c b/kernel/printk/index.c
-index a6b27526baaf6..642640a36abe1 100644
---- a/kernel/printk/index.c
-+++ b/kernel/printk/index.c
-@@ -59,7 +59,7 @@ static void *pi_start(struct seq_file *s, loff_t *pos)
- 	if (*pos == 0)
- 		return SEQ_START_TOKEN;
- 
--	return pi_next(s, NULL, pos);
-+	return pi_get_entry(s->file->f_inode->i_private, *pos - 1);
- }
- 
- /*
+Side note (because it seems used more in the same form), we have file_inode()
+helper and this should idiomatically look as
 
-base-commit: 97d73c8251226cf27cc6656b4c542869bb8c69fa
+	return pi_get_entry(file_inode(s->file)->i_private, *pos - 1);
+
+But I haven't checked if the file_inode() is recommended or deprecated API.
+
 -- 
-2.43.0
+With Best Regards,
+Andy Shevchenko
+
 
