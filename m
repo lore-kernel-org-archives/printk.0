@@ -1,68 +1,86 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794844349;
-	b=VLR6wPdINjc3dWGRpKdx1T2CHLm1CV8shFG0zKlu4hARCdq5FKBaS/vzUpXokhV6t/TH
-	 29USojaic3ykJDIhjFugRoh1JgtRzHKVuHdB2Ijx0zg8rz6b+VljC09aPfkh5TIR6TGR6
-	 HLLwzElROhiPjL0XJS3F7KesiRZVna9iyo6Xaja4vUrFr8BxR2S8p8VaL9UvtvQupOzTU
-	 k/hivPkIM2OMP4lNroKfOKeXui3DD5Lctbby7oXCl3VREvRNC9DBkTonV1genzWiDMEkB
-	 Gn2W/cKWoXnYDBRIfZuFRcTVbQGuhuA6KSGVIcCRjffCmDNV6OSzaFhoPLIgDw0InYg==
+	t=1794849625;
+	b=KL494rlUO8FlA1zmL2c3+Bo5JsueJbxyXMmCjEFTikY1rf2670QAQYUEIbbhiESaWvZO
+	 6qZxx9snSHUJUMggwSz3dLkot9Joj0ztrpxcVvJRfpKkoIjuf6t7mM2etYxK8a3EOEUFh
+	 RI40xsmoUInfw3ObTbIaYtJaXGANsNW1M/6dSqBkNGAnvhbb1V2ZxdFthUGMdEhVO0sgq
+	 5xAjG+aLuk8fVwDzjhhRREIizWnUpN/wBETHKEHA4FKIn+LX3sc279BqrZIS1H60K6w2D
+	 9jdxSIL+AOvzlfknauePX71JcY1ddLMw54lOylRcBckfiQtdjqAX+K7VjKaS5JrUNBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794844349;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794849625;
 	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:
 	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
-	bh=WPIgPkplQXYcdgIP2HZXNUASrSQ30h2/EQrrK2TSh2g=;
-	b=tMFztf6dC6iAX3Q3kNFXuPvks8dhZ8+KmSyVuDxQQOs259Kpg/nLoNRF/yCmIOhklcVo
-	 LkIifrw2JvE422uG3TVQfAkk9QXMrC0BwhKS2L6HvRnfxzkhHMFaIU+dwPdDIQRC04VxS
-	 g8eHe9klXf3LI6VH7ohmnxzewrVqWZtz0RsFJODXshTU3Mhid6/yo84A6GG3NQzKbvxyC
-	 f4/+sLTcTVAJJbl6Yi9t46Kuj5IaYH2VR74r5elnvnhqPTSxiTJCjwT2nuTHB8eeEk6tL
-	 TxpNart5inAIxDPcBKfcRxupYv1RkGf9Si6wJdY/5dNHfVkkdxDBk2MAxzDvoajHBjQ==
+	bh=Uhn3Xh440rrzv0xOTkiny4cGS6bsXvzVeqcYJ4nwTDs=;
+	b=loxiTedk1+fvIMpRyE/Gy2pWW08a1sIVnaTgtpX9pxgf5xNiFbYhLvA7J3zM4DOF1vB+
+	 JnIfVrLiThcnfGte74YDSWIRvMWv6kG8rR+hWV9YpmFL86R52uuIRtC1ZvFmbtdK2Ju/h
+	 VfXMtaAeyr+eYxhgtohSHZ6Kyx+oEoN3bhXs2kUOAS2VjU58JpvoWxF7l9bWEJ7OWIPMm
+	 d4QARd0xCbuTHDT1h91MHl7Smg8Btkk5ZR8sQpHG0jDnBJKx1VU88HTGXzazE6vzYd/a6
+	 MavDmEtF/pT4Rxoz8+F6uNsOIMrB/u4Rl1X/CNQ95ZBilwAJoDPAxJxE4ACqon8gYbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=xxGaSkpO;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=bqJxEwMP;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=aX5WK4VM;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=IwT+AooZ;
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CB53606A329
-	for <printk@lists.linux.dev>; Mon, 16 Nov 2026 15:52:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CB53606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53459606A323;
+	Mon, 16 Nov 2026 17:20:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53459606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=xxGaSkpO;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=bqJxEwMP
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=aX5WK4VM;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=IwT+AooZ
 From: John Ogness <john.ogness@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1794844347;
+	s=2020; t=1794849622;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=WPIgPkplQXYcdgIP2HZXNUASrSQ30h2/EQrrK2TSh2g=;
-	b=xxGaSkpOIXcLNPTFf6AkudcAhEr78jeua8vlh/m7m1mxCzy5+2QevqqUFGNwx2hkLUG8D7
-	TEM5gRnnLL7STjx78ypyEgHSv1/ax2kOR1fCtMZO1dMQbgjAuAYkavj6Sy7Rhb1ouJYLe2
-	tW3NR94LXsr3jmRZRUWXsWTLaDKOO5vOr/u+52EODWHl0q0ZGxxrHDPESeh7B3DDRc6Se0
-	t8b5M4Ki8QbLlikW8ZmnA/oI7qUHDxc9ujiks0qXnuX+buv9kX0RKnRJn7oAK5zd2Sf3Cl
-	UMPAoLtJMYY0zjt11Oea0ORMysOzGTKfGOMDZXLcgtKW0domVcJ++vWDfaC0dw==
+	bh=Uhn3Xh440rrzv0xOTkiny4cGS6bsXvzVeqcYJ4nwTDs=;
+	b=aX5WK4VMEnjF9i1VKVQSHFX2GLhbxsGh0rUUEpq16akWX/oza8TC2x4U2Wc5M2cea5s+pr
+	FG7n6wly3PaZ/Mq8S4XaUkpXwJXmNwINcQe529CM2y8TtfwdUsQI7umWEMC/Y6npD4Rv5b
+	NKWunLOmi55uB+seqegTvmwiHNVscAexBW+ovmpj5P+GxXl0MDs14cFZ1Vso7OS8RUyUxE
+	CMJFtuouBK/6+19icelMId62QdTq41y3v+LEABahmYc2lUj3TT9bSVBO5W49uxQurGRjp+
+	JzpHZoiHSeL3p9a67NtjbjE0DjZmidChXhXxBYZxCcPAa1JbWT3+OPcJ41ujFA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1794844347;
+	s=2020e; t=1794849622;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=WPIgPkplQXYcdgIP2HZXNUASrSQ30h2/EQrrK2TSh2g=;
-	b=bqJxEwMPxKYdmx2Eo+k88h/knBfiFt4y1s/FS+gZ/VQINVWcad+mfRbyLysUGRy5CiPr1A
-	l3QNcb1iXzwkpIBw==
-To: Breno Leitao <leitao@debian.org>, pmladek@suse.com, kuba@kernel.org,
- gustavold@gmail.com
-Cc: linux-kernel@vger.kernel.org, printk@lists.linux.dev,
- netdev@vger.kernel.org
-Subject: Re: [RFC] netconsole: plan for a safe atomic write
-In-Reply-To: <avcI9gVR7brRHQSQ@gmail.com>
-References: <avcI9gVR7brRHQSQ@gmail.com>
-Date: Mon, 16 Nov 2026 16:58:26 +0106
-Message-ID: <87h5hgyds5.fsf@jogness.linutronix.de>
+	bh=Uhn3Xh440rrzv0xOTkiny4cGS6bsXvzVeqcYJ4nwTDs=;
+	b=IwT+AooZ8H8ysTr1pAwAVYo/Aex9uA3/+R34PP1Hz0Mquv2Mb6PM8k4ReFej4Va7RWRgfC
+	3kUcg2AomgSL65DA==
+To: Petr Mladek <pmladek@suse.com>
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>, Steven Rostedt
+ <rostedt@goodmis.org>, Ryan Roberts <ryan.roberts@arm.com>, Breno Leitao
+ <leitao@debian.org>, printk@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
+ <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, "Christophe
+ Leroy (CS GROUP)" <chleroy@kernel.org>, "Ritesh Harjani (IBM)"
+ <ritesh.list@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Jason Wessel
+ <jason.wessel@windriver.com>, Daniel Thompson <danielt@kernel.org>,
+ Douglas Anderson <dianders@chromium.org>, Andrew Morton
+ <akpm@linux-foundation.org>, Mukesh Kumar Chaurasiya
+ <mchauras@linux.ibm.com>, Feng Tang <feng.tang@linux.alibaba.com>, Rio
+ <rioo.tsukatsukii@gmail.com>, Bradley Morgan <brads@mainlining.org>, Pnina
+ Feder <pnina.feder@mobileye.com>, Gal Pressman <gal@nvidia.com>, Petr
+ Pavlu <petr.pavlu@suse.com>, Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+ Oleg Nesterov <oleg@redhat.com>, "Cen Zhang (Microsoft)"
+ <blbllhy@gmail.com>, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, kgdb-bugreport@lists.sourceforge.net
+Subject: Re: [PATCH printk v2 1/6] printk: Introduce and specify flush reasons
+In-Reply-To: <avcnSjj2P9UfsBn7@pathway.suse.cz>
+References: <20261111181942.593695-1-john.ogness@linutronix.de>
+ <20261111181942.593695-2-john.ogness@linutronix.de>
+ <avcnSjj2P9UfsBn7@pathway.suse.cz>
+Date: Mon, 16 Nov 2026 18:26:21 +0106
+Message-ID: <87cxs4y9pm.fsf@jogness.linutronix.de>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -74,76 +92,60 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain
 
-Hi Breno,
-
-On 2026-11-13, Breno Leitao <leitao@debian.org> wrote:
-> netconsole is CON_NBCON_ATOMIC_UNSAFE, so write_atomic() only runs at
-> the very end of panic. There is a desired to have called safe atomic
-> printing[1].
+On 2026-11-13, Petr Mladek <pmladek@suse.com> wrote:
+> This entire patchset adds a lot of complexity just to enable all
+> 4 new policy flags for netconsole in the last patch.
 >
-> This is the plan I would like to agree on before posting patches:
+> There already have few dimensions which affect console flushing:
 >
-> 1. Now that we have one console per target, use one lock per
->    console/target.
->    - printk holds the target's device_lock around write_thread(),
->      write_atomic() runs under the console ownership, and stopping
->      a target takes both. target_list_lock and the cleanup list go away:
->      the list changes under dynamic_netconsole_mutex and RTNL, and is
->      walked under either.
+>    + console_loglevel
+>    + nbcon_prio
 
-This synchronizes the console against itself and the user interface
-(netconsole configuration). IIUC it does not provide any synchronization
-against non-netconsole usage of the port.
+"Dimensions" is the correct word. These are orthogonal:
 
-> 2. A per-target field to track atomic writes.
->    - In that mode, skbs come only from a pool popped without a lock and
->      refilled through irq_work.
+  + console_loglevel: which messages to print
+  + nbcon_prio: which context is allowed access to hardware
+  + pr_flush_reason: reason for atomic flushing
+  + unsafe_flush_flags: policy when unsafe flushing is acceptable
 
-IIUC the risk here is that the garbage collector is deferred and there
-may not be skbs available. In that case, what do you expect to happen?
-The printk record is dropped? Or the console disables itself from printk
-flushing until some (hopefully) later time when skbs are ready and it
-can enable itself, thus resuming the flush?
+I do not see a single property above where a value in one implies a
+value in another.
 
-> 3. A try-once netpoll transmit, as Jakub outlined [2]:
->    - One HARD_TX_TRYLOCK, then busy, with no polling, freeing or
->      wakeups, which can deadlock under rq->lock[3].
->    - It refuses when this CPU owns the queue (netif_tx_owned()), is in
->      the device's NAPI poll (netpoll_owner_active()), or is in NMI on
->      PREEMPT_RT.
+> This patchset adds 8 new terms in pr_flush_reason and
+> nbcon_unsafe_flush_flags just to explicitly set all
+> flush_flags in netconsole.
+>
+> Let's start with pr_flush_reason. I am not sure if it is worth it:
+>
+>   + PR_FLUSH_RUNTIME is the default
+>
+>   + PR_FLUSH_RESTART can be detected by system_state > SYSTEM_RUNNING
 
-Same question. What happens when the trylock fails or it refuses?
+This does not cover the panic-restart case.
 
-As I have mentioned before [4], UART atomic printing uses the console
-ownership to synchronize against _all_ port activity. What if the
-_xmit_lock had console ownership underneath it (only for txq's shared
-with a netconsole)? Then it would be enough to acquire console
-ownership.
+>   + PR_FLUSH_HANG has only one caller currently distinguished by
+> 	the global panic_nbcon_allow_unsafe_takeover
 
-See, for example, include/linux/serial_core.h:uart_port_trylock().
+In my series there is another user:
 
-> This does not make ndo_start_xmit() safe, so the flag stays until
-> drivers can opt in to atomic transmit.
+arch/loongarch/kernel/reset.c:machine_halt()
 
-IIUC it makes it safe, but not reliable. It is more reliable than
-kthreads, which can still be considered a win.
+>   +  PR_FLUSH_KDB can be detected by kdb_trap_printk and
+>      kdb_printf_cpu, see vprintk() implementation.
 
-> It is still unclear to me whether write_atomic() should depend on the
-> context (regular NMI/panic): 
->  * For regular NMI use the try lock as best effort
+Ack. PR_FLUSH_RUNTIME could cover this case.
 
-HARD_TX_TRYLOCK() is not NMI-safe.
+> IMHO, it makes things worse because nbcon_atomic_flush_pending() has
+> to use PR_FLUSH_RUNTIME in vprintk_emit(). But I think that we
+> would like to flush it the same way as an explicit flush called
+> in the given context.
 
->  * Ignore the locks only in the final panic flush. (unclear if this is
->    an option)
+You write it backwards. vprintk_emit() uses
+nbcon_atomic_flush_pending(). Calling printk() (a single record) is
+quite different than calling printk_trigger_flush() (flushing a
+backlog).
 
-As a final unsafe flush before an infinite loop, this is always an
-option.
+Let us discuss this after I respond to your comments on patch 2/6. There
+you include many details and suggestions that require closer inspection.
 
 John
-
-> [1] https://lore.kernel.org/all/874ie4y5mw.fsf@jogness.linutronix.de/
-> [2] https://lore.kernel.org/all/20260617132127.645534d1@kernel.org/
-> [3] https://lore.kernel.org/all/20260610183621.3915271-1-vlad.wing@gmail.com/
-
-[4] https://lore.kernel.org/all/87tsr1m6y5.fsf@jogness.linutronix.de/
