@@ -1,97 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794675430;
-	b=Mm6Jtux27KOyKUDtr1mjiiF+CHvyGrc+WK1KkWWoM6GyiOMzRcxdjbnxbcysp+NURJeC
-	 7K2Lp2ZZY2ayMmrKfTwxI42egOeheGPqKCwU+9jXslbS3ByokOt+/e0Kbzj5sBNgPtbCc
-	 wNYRMtab/P2HL5UpUK6MS37kQn7KNbGWyjYzJqY5odkC44SAvG41M3QPUoVpBVIZlA4gp
-	 R0vFdkcwkt/ltB3c2gmigHsNFCSSCQvHNmsOlZtannprf4VR9KzfH0iq2xUZwdPshogDK
-	 +eimNElLzPVn1f/OYhaSK1tqT7kinFxshzq73aTqWvlIFtXsi/8ODHavkPyU/SjLz1Q==
+	t=1794819376;
+	b=XRTkVS3f5hzHGp+kpyCOPcBt5nJ9LCeG0TR7bdAB40H5bReZKyXS7HJlhza3g4A47Cxt
+	 N1QSlBRGMW2rwK+n11vOIjQhXMwo0tIKcLG5e3qWAM9pGfyJBgBTS8AGCjgFEPbkGfBR/
+	 GmTrj0EjPNSnWttIX4xHl/6kKCygtNSW6ORc6xuGMTdYwP+NKxlWB377Wo2AIABBo50dO
+	 OJVOMrcdqJxF3XYQ04bOQMD+z7rcVrX8cDND7n0jg5yaRbzywcBX9722wQiJgqDZThVTb
+	 VC1u1CytgvWU8ghr+I8F5+mN2vyD6DlA8rC73XClE6M0kEWWGYJqpVIEe5uRKWIXVTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794675430;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794819376;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=HNEqvmwAaJcQQT0bJS+96+mgAm147FSeb9nql8qeRUo=;
-	b=HyVu9LgjZFcDw2a4AXtPuK7fcLzM5vrqg21lTBYyWwD/bseavZsZD3b8FHAKfvYEzXMb
-	 IXjDtzoxWPJiugwJAGzSJmq9ahXdsJp5OE3Rrwf7KhkWWSygZj3SID53QCMMUqy7MJhAt
-	 67ZkuvrNS3YAtHmROXlv7ngL05pOuW38dqoOoBbI9bIJUwBKT7Wjq2c0DStJD6/JHeKBi
-	 Ubi+IDDdW8q91Xox5ByB3MZ2oO2Z/pJRyEPhOO4l/GTvFY7G2OGAcq6Oi3CS2RCRKF7zH
-	 e5G0wtSq7vrWIETcJCPI0cbNkLhwvISEMeQdYm3lW1c92euMxdLpwYBB/L0qr9yIh/w==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=m7jLssS4b6/Hj/S1vChj9ooMCseYQvI7tiM2Tbkwxew=;
+	b=fVV2exttWNqPXIY80EEjhpBZsltY7XsvqG/taL7ZqG82+x5d0iN8Vbun3WkU7tLoRJkE
+	 IbR9wf5DrThLL6WCbSt6P/mr7eHy0FBR0aX0U4WxFJ+VqRKeiCkUiZJY7OHcZWkt2KHGl
+	 jgSFYQmc2OkkniUeH533ma04jMnB2YX02y7kC3DaVTK5cZBX9+BvQOgE7FpnOwqmHUGAH
+	 oCdZolo56oasUSUTM1A4DtMwNtrdr0cxYn2p1KWlb1g2kmgAYK+eIKCBCxtRxEqh3pNXp
+	 fUEIRUB/qTWfTeY7EOvjFphj27C8c7cieGee3yJBGatF4VK5xHhatDwVEHkIQdhX3VA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Oin5xr4E;
-	arc=none smtp.remote-ip=209.85.167.51
-Received: from mail-lf1-f51.google.com (mail-lf1-f51.google.com [209.85.167.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rNdGyrCt;
+	arc=none smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E05E160A2622
-	for <printk@lists.linux.dev>; Sat, 14 Nov 2026 16:57:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E05E160A2622
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F650606A31C
+	for <printk@lists.linux.dev>; Mon, 16 Nov 2026 08:56:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F650606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Oin5xr4E
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5c0a520df2eso2436963e87.0
-        for <printk@lists.linux.dev>; Sat, 14 Nov 2026 08:57:09 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rNdGyrCt
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-490a0e72588so1417196f8f.3
+        for <printk@lists.linux.dev>; Mon, 16 Nov 2026 00:56:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794675428; x=1795280228; darn=lists.linux.dev;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HNEqvmwAaJcQQT0bJS+96+mgAm147FSeb9nql8qeRUo=;
-        b=Oin5xr4EbarYtVeRpyFImb6z5nPZJb4pE82+rtBvRqxSWIWQFnEWubc+xNsECBz04c
-         hHtYLWl9YyfwhcgjiS4fa3UrnEfftpQq8v5z34g25fOCe9b/adImm8yqx7XpPRc+xSqH
-         /9sK29INB/AdHeTNLAihozjEjcxIgaxCnX/lXKReDv263qOnyzKrHdBOavqnYQFWRdB+
-         9RGC8V7g8mtsflvY0YOkcTkI/BnVe2F88ZeJbePW2BM8naK7lzjqeZhE9hDuQeMuYCWs
-         NC5WnHNIAnSUkXoG58Z2Z3la6aaCmGL4zpYN9RH5AkluOzOfz1b5jYX7/UazGy89ervS
-         QhZg==
+        d=gmail.com; s=20260707; t=1794819374; x=1795424174; darn=lists.linux.dev;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=m7jLssS4b6/Hj/S1vChj9ooMCseYQvI7tiM2Tbkwxew=;
+        b=rNdGyrCt/I/sDTG9kyh1SMxq48+xYnJM7DsYMor7I4LbrWokkaGZWy7IJZeC6W34Bg
+         8XfG3DjzMjSt0pQK3YFYcI9qwkv4dXoIU1Rb9T173hzgFKWhfOxxBZR1bnVdsdLcTbcR
+         1+uIdV2M0na/Y2jnuIEzopXiRaZGjpL56Vry4YP7Pi6D6jcKQBOEY/iLQfpZbMvDM5FU
+         ePDwLQWPw4t34P7h5c0h6QOFcJNw+Znjam6tuJ9kXoCpL/zFiCTH19mRJoU7Kw6Z+Fzn
+         4W5NaqhVc9Z7LKG2eGo0WwD/qLZUaJtAIzrVMFulCQTdq8AbEVmWqHWziOK323885ZHf
+         vQEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794675428; x=1795280228;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HNEqvmwAaJcQQT0bJS+96+mgAm147FSeb9nql8qeRUo=;
-        b=ZloOHFmFDNb4Vlb+joVKNRwcQGx3bMjjoiMCJ/IUPhv0a7CLQrNdSECgR/ZmfQG2t5
-         s0lslHQhqfhOVqjsFVFcH+G+IKXnkfrg2A9yB/Ijed5xgDL5cnxPQxeYJpznziojrOQ8
-         qcmGWfek1Vz+ijgpNZz4sEGOjumTdY66AVw0Rh0wsa9kwYKGvZritV1t0x0if8LFyn8/
-         BNYHqUc/QMMtO385Jw0C0r0gQsCGv5X2qRHXAr/toQa6j8pcH9Hor355+ost4aDsqziL
-         4fdZdwB+fpVBudTsdb58cbLscL418TjZSLum5VJzRNbFR2AHEAVe8Z1/TA6QlBJnO2Jb
-         UxVQ==
-X-Forwarded-Encrypted: i=1; AL+hErFbKcAFIgPve3mBmiuNQC46T77XWjPq1hB+T0ZYbsyVpzIECRRoV8zRph3HNJl+LPP8AhH/hEs=@lists.linux.dev
-X-Gm-Message-State: APuU4Z82xGSgAq9hLOItWCY4EUjKMFh0Jlic0MJgVpZdP1RvR4JiySZt
-	i/ZhcuMNXfWksNunn/EdAVRvTQx+CsevoJWD5IPXB7u6GPUB3ESa+c/j
-X-Gm-Gg: AYBFou1SzbmXz9co+w+uQKwtFhxVZZYFP9d2uHMaqhRlVClrZqIVmWfdp834ZpVZ5cu
-	BgBHBHf/9/mU8wT88WhlE/s0jQBq4zDs7UDJd/mXG3549VgWx5LHK2n8f6Qr/ZqQH835Z4l0HsI
-	mS80r0mB8FqRrCIEzsV6mnQH/lqCsShjGepTzBi9OTcQDgjR7EI65IQg2yb5Rzz0Wi6A1aPMxYF
-	h84EzKCOLKHIQB7WsjJxkXGCps1E3ErF6Q3LoJ+P6iYpsYoL0xHeMG2vQEMgqoJmm4Edao2m6AP
-	ayXFP8v5N/O+oOnPlWOLFZ/VyJVZXHY2E5ZX39W5bK0Sy3gnkR0XV8JkyPTKV4rEHFSolHwu+Mj
-	u+6yTYgA2Fprq4GocaDkcHKjRqBjoE5qt/m/t7r6vfevLPR3u5kWFahxBkzZw5Hrdy3Bm6eB+Qc
-	f8RM4dY37dIEpCpOxRkNZOM3uM+gAhugReJyKWZV5uVdSY+No67sdMPSxGMTBV4I+uxtT8UXAja
-	ftn7FigSDnMHgmlwNMa2eiVvdXlv+9sf8CTgua52M8LRcNAeyUhqPQ+KoS2TDX36dYKRJZSYy/j
-	+Zj/Dn7l22vznbSVE7w2ghJieyciylbA5VRh5hsBHrqVFmHj3R3tHmhRZ181TxYQDcRopNnXz/w
-	iLYo6JJ1xoGA=
-X-Received: by 2002:a05:6512:3f0a:b0:5c1:57cd:50b with SMTP id 2adb3069b0e04-5c17079a9e0mr2059501e87.14.1794675427912;
-        Sat, 14 Nov 2026 08:57:07 -0800 (PST)
-Received: from SafoStation ([31.40.65.49])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1712dad26sm1792051e87.8.2026.11.14.08.57.06
+        d=1e100.net; s=20260707; t=1794819374; x=1795424174;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=m7jLssS4b6/Hj/S1vChj9ooMCseYQvI7tiM2Tbkwxew=;
+        b=BkA4zgLZFPVk82YDZmrvIxBc5QvouyPs+Sap9gu57NpEJJchWp9BHlpagaa+ZJ/ZsB
+         5HiyPlqpxKGT8mag1y42H3GYHG5Q9dJV1HTwUrzDDHZNJRHmWkMAZyrxd5/8rqoNhE/m
+         uNYbNb9T13Nnw8jOTUyWWViQc07roVMbmdO/+Wybbm6fDjIyHfvfKX0NzyRA2y6fetwg
+         1tcYWU34fp+8gSkMNebW2AJJipP4fKa8ndU/vh8HKw1K4JeAD7r3Zmv46HBEIwEBNcMK
+         AA3i2ELcqhQS2iON2sxkjICGJUER45PR8qAmXMGO5QircpEflTEgFtngrTBoB4mkNrrQ
+         tFqg==
+X-Forwarded-Encrypted: i=1; AL+hErFuBbN8LMrbAlKOLvAe21XAQUJVuHNJXKNwdoSvfkIWcH/tVolR47C49ko6kTS1Vc7QII4oWpU=@lists.linux.dev
+X-Gm-Message-State: APuU4Z9mD9TS3IKMPSiTgfLy6qOfg/AHC4SnrwAWKiqBdZIPa1M4eCCZ
+	M33v3cewpPFyKOi0dfAUBE9PLwXdv1ixLIUDldkTtqoibDuNirsz/wXz
+X-Gm-Gg: AZFdTZdKnW0ErEBhF0y+BlS/jCnVTMNTkq+XmdvSvvLB47auMf/78+vhKjoEFzSQsmS
+	MghhP/BURDA176uIVcpYJPddCwdQ4E2Uj6kkqj7/yfK1TQDOeIxuS3csiYyXQ4XWrVVwUQ+VdD6
+	0olZDLi8Q7i+MBtFmzmLPsdVT4Wou86CJKnRAJNSMza9TJsxZ961Y9QfGaD3fGn120i13pT5y65
+	28s2v5KFUjt26QsGL/yVoo70DjC5tG2cAkI0zkaTXe23ys1ZHkbxnQ2SPugzGmcOwLWcNTOUj4H
+	TuYleUUm2iOFtrA2/RTS64bZophRCuoXG0FMqsYuVNW6Zs/VXNxL7CnTpcyW8pdllpS+y+9rO0a
+	v16T0AV/sGN3fE2Zl3wJk/OoTvYxm+MVy/HBCtfJdrv72VPyxS12NNx4Oc19PafkIkxGXzAk02O
+	LzQ7rK2rJguRg7eHcjdLpxfq2XcGjlMJGkMtXgAuj7Zo+YxkW/00XWPLZ67z5p5j4T//1NQ/+Hk
+	kfl548VR5pOc+TzHwyopekr/kweRu7Y6sEPLC+mF/1YLamMxHO/wnpcbAKWatZIDt+XDfOY3+ui
+	UwXSEwbOmdM3sdUXUfzgVJeWY6L2lMTsjJA=
+X-Received: by 2002:a05:6000:220a:b0:490:a481:7ac8 with SMTP id ffacd0b85a97d-49c71d49137mr17428762f8f.29.1794819374287;
+        Mon, 16 Nov 2026 00:56:14 -0800 (PST)
+Received: from LAPTOP-AVI.lan ([2a06:c701:474b:1700:1c3:e2b2:8068:e97d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c609c6451sm22439034f8f.45.2026.11.16.00.56.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 08:57:07 -0800 (PST)
-From: Safocl Stollmannovic <safocl88@gmail.com>
-To: Petr Mladek <pmladek@suse.com>,
-	John Ogness <john.ogness@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: linux-kernel@vger.kernel.org,
-	printk@lists.linux.dev
-Subject: [PATCH v3 11/14] printk: fix duplicate extern declarations
-Date: Sat, 14 Nov 2026 20:55:51 +0400
-Message-ID: <20261114165612.368785-12-safocl88@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261114165612.368785-1-safocl88@gmail.com>
-References: <20261114165612.368785-1-safocl88@gmail.com>
+        Mon, 16 Nov 2026 00:56:13 -0800 (PST)
+From: Avi Weiss <thnkslprpt@gmail.com>
+To: Chris Down <chris@chrisdown.name>,
+	Petr Mladek <pmladek@suse.com>,
+	John Ogness <john.ogness@linutronix.de>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	printk@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Avi Weiss <thnkslprpt@gmail.com>
+Subject: [PATCH] printk: Fix skipped entries after index iterator restart
+Date: Mon, 16 Nov 2026 10:56:10 +0200
+Message-ID: <20261116085609.476250-2-thnkslprpt@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -103,45 +101,35 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Compiling a kernel module with a C++ compiler results in a "duplicate
-extern specifier" error.
-This occurs because the code contains `extern asmlinkage`, and `asmlinkage`
-expands to `extern C` when processed by a C++ compiler.
-Since the code already contains sections that respond to a C++ compiler,
-I believe it is a perfectly valid approach to gradually move toward a state
-where kernel modules can be compiled by a C++ compiler without any issues.
-The `extern` specifier must be removed.
+seq_read_iter() can advance the iterator before the next record
+fits in the read buffer. When iteration resumes, pi_start() calls
+pi_next() at the saved position and advances past the pending printk
+index entry. As a result, index reads can silently omit formats.
 
-Link: https://bugzilla.kernel.org/show_bug.cgi?id=222257
-Signed-off-by: Safocl Stollmannovic <safocl88@gmail.com>
+Return the entry corresponding to the saved position without
+advancing the iterator.
+
+Fixes: 337015573718 ("printk: Userspace format indexing support")
+Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
 ---
- include/linux/printk.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ kernel/printk/index.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/linux/printk.h b/include/linux/printk.h
-index f594c1266..09a28181e 100644
---- a/include/linux/printk.h
-+++ b/include/linux/printk.h
-@@ -136,7 +136,7 @@ struct va_format {
- })
+diff --git a/kernel/printk/index.c b/kernel/printk/index.c
+index a6b27526baaf6..642640a36abe1 100644
+--- a/kernel/printk/index.c
++++ b/kernel/printk/index.c
+@@ -59,7 +59,7 @@ static void *pi_start(struct seq_file *s, loff_t *pos)
+ 	if (*pos == 0)
+ 		return SEQ_START_TOKEN;
  
- #ifdef CONFIG_EARLY_PRINTK
--extern asmlinkage __printf(1, 2)
-+asmlinkage __printf(1, 2)
- void early_printk(const char *fmt, ...);
- #else
- static inline __printf(1, 2) __cold
-@@ -200,8 +200,8 @@ void __init setup_log_buf(int early);
- __printf(1, 2) void dump_stack_set_arch_desc(const char *fmt, ...);
- void dump_stack_print_info(const char *log_lvl);
- void show_regs_print_info(const char *log_lvl);
--extern asmlinkage void dump_stack_lvl(const char *log_lvl) __cold;
--extern asmlinkage void dump_stack(void) __cold;
-+asmlinkage void dump_stack_lvl(const char *log_lvl) __cold;
-+asmlinkage void dump_stack(void) __cold;
- void printk_trigger_flush(void);
- void console_try_replay_all(void);
- void printk_legacy_allow_panic_sync(void);
+-	return pi_next(s, NULL, pos);
++	return pi_get_entry(s->file->f_inode->i_private, *pos - 1);
+ }
+ 
+ /*
+
+base-commit: 97d73c8251226cf27cc6656b4c542869bb8c69fa
 -- 
-2.56.1
+2.43.0
 
