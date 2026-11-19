@@ -1,59 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795129438;
-	b=GU7KL2PYhSxT8Jjp18yGExuJ0hWa8M/FMrXK/6ZMaCsem8uLymnraD7+iH84CR/vLE7M
-	 QuMRr9psiA32gLs2P6pPe0ZZ4h2/fpg3FFxFIoHguMMPHndFeYQyanExGE4qVv15RsdwC
-	 x0txUgnFiBduF60GKIw8VkJdTksbRjm+xPxkOH3i8DizhGvYVw1d/5Bz3Zgy+An4tcxNy
-	 88EUdvvoeGS1gKgsXd0V8kyQrRRLi+HuZDML7MNzftZAVsSYnOsmLmDXX/v/0eOCLqV//
-	 h7EXbBaTzP77f52CESt4Bm2qcgx6qV5Yxv6q2UJaoKeUNoDp9kokAHNk757kvaURf/A==
+	t=1795129440;
+	b=XQrT6+AaXtLFccksmh7dpylEBKMYYrgOzw/UriSOVrZV1OAdeDG9QWb45pV6tCRX2l6m
+	 Cz7j9vjhCiQNHA1mZ9miCZ9snTql7p/VPVWuPULc8p6ClliWbEBzx7YkHmUqChi+A0wm5
+	 KEOQoYJfD2UVcYbxUSKdf2Hm7JzJmlSovnY8UiQUU81Xd/AG0iwbj75iO/W+swbP6C4mx
+	 nYhWM/x7JHbxTgAM7QjDWpRd19qO+4h2AKRVxNtpmSSpxpYEKiYfd+/6H1c96KnmGMrXg
+	 2QA9hxZxjEkaAtdXjrZerfsS0FKeTNv5kEPGfWS+1dqUsk6S6783a784lfb6f3jr3AQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795129438;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795129440;
 	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
 	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=oxsnfpGaJr5SWa3V8bh6fla61YluMPIBmH5n76Pa7XM=;
-	b=bC4jSoTrwk9W6mG79OUxYIfAYlJKZmGQ3A3LVcXKDe51fWi5VBdtH0YqohFy9XcUjBOi
-	 F7gT5jsSPej/CUk9iTUPkviTohGrGmBg1LSHxbfLsUr+/mwCS2m5rCDcA30TCJtuNvaWZ
-	 eDTQ6GQTjP1WQ6cbr3WGkX7/BzJ3mpNa2UAPPrAmOFICxLsD7L0zLuqdkXFF0eYzUJZ4x
-	 voxn0YL7XeIpehmoAgUYvuHXzWr6GL3BvfFx8NyyIltBqCCtDqGpDtDEdeRP6Y1YB8Z/H
-	 uNLs0hBIFxuH8EuEyynHjm3hlCfghgYpYdqivsjOJtNoLPRDZJQ//tVWf6JOyWTSX5A==
+	bh=bN14zBhVa6ehM2qoqvgVakYsuLN6hYwejnbYVzR1c/A=;
+	b=J4hjBHWDdwFuhRtkxS3OUu6WyVdS7ktnk7WRV39B1HgI/zHwIp3zlPtMfSVop3cyaB1B
+	 YV7f42IxmpsFgin5fAnWg5Fh8nqiVX57jY4+VZV16cDkcjC/BxyUh8n3m/5TGlQSSEr0r
+	 t7zI3M56oxTXeiKttQjpZookofNEvga3F1/fQ9WmUjck9B4TUmfi3fYUhaRJKbxurdL5C
+	 Xmy0X3pOPflX3qH48eb8a/beGVys3a5JFnXj64CE8vNAdAITsL5gMqwWYv1iTIPDAH+xe
+	 fmgD4U0Q7OJt8Ybt5WedYYb4aRMN9bvQLd9AurXqZbSBuW+/d/ZHCmegJJawDUIbb0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="F5RlWeO/";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HTvovdIg;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58257606A320
-	for <printk@lists.linux.dev>; Thu, 19 Nov 2026 23:03:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 256CE606A330
+	for <printk@lists.linux.dev>; Thu, 19 Nov 2026 23:03:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F5RlWeO/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90C231F000C4;
-	Thu, 19 Nov 2026 23:03:57 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HTvovdIg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE4AE1F000C4;
+	Thu, 19 Nov 2026 23:03:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795129438;
-	bh=oxsnfpGaJr5SWa3V8bh6fla61YluMPIBmH5n76Pa7XM=;
+	s=k20260515; t=1795129439;
+	bh=bN14zBhVa6ehM2qoqvgVakYsuLN6hYwejnbYVzR1c/A=;
 	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=F5RlWeO/bnjblL8OyAzoWftJJ30yHNjE9xp7YDc50n+bwaUAAt5iyvGE2L9IZQOPT
-	 DdxYD3SaJrIgBGLDqiCyXZugqNNaOWsEp6ME/GU9krxlNfH3cg4Gq+giqohp0JVtOw
-	 ngUZLeZAVf/8CG1zCi5o7dwspZW1MBmejY4P/d+yZKrlTwsfWcPF7mwM46Uk9H4Uy5
-	 SuyB2jyWXClLQeNzEFjbL3hkI1aB6h9R7cjVf2XhJpOrWDh4jufNhu10HlOoC9ln3f
-	 2KZegN8BiAl0s+be8jFzpvrvGwhfOd1Yw/K4+KuY3x9aZjAmsZVvQ/OS3Nl3UZG1lY
-	 ZZlDANeqqFprw==
-Message-ID: <sashiko-outbox-224168@kernel.org>
+	b=HTvovdIgeZG09l5qIayYNdav8+t7sy6uO4lcU7QFH3xO8d3wRK3cvjvGrNXbJ5y5F
+	 dneu/gQOL9jdOlbVdsxfInPNalgaVPlHzf880gIL7v4JDwMba5KEyV3mAm4NZG5F56
+	 x3AzWUzrrbXH0awSMDqTajduy82cmM8oVCROO/yiu1CAMyQ/jXGQzmk5DJjSwxoWRv
+	 9IKqY5BOUZILGdORShhFF4Y3mo7XdCy2Egk1Op+Cf6kO3N7RDlJ9AqrDGFULPOEO8Z
+	 1b/4es3SAxwvxjGbprhlig9sVzycTop75LECYgwgLqEB5SYkl5D8+hqg1ry6yOA+8h
+	 wGji4vccknGJw==
+Message-ID: <sashiko-outbox-224169@kernel.org>
 From: sashiko-bot@kernel.org
-Subject: Re: [PATCH printk v3 5/7] console: Support unsafe flushing for
- panic/emergency restarts
+Subject: Re: [PATCH printk v3 6/7] printk: Add unsafe flush points for
+ panic+kexec and emergency_restart
 Reply-To: sashiko-reviews@lists.linux.dev
 To: "John Ogness" <john.ogness@linutronix.de>, "Petr Mladek" <pmladek@suse.com>
 Cc: "Sergey Senozhatsky" <senozhatsky@chromium.org>, "Steven Rostedt" <rostedt@goodmis.org>, "Ryan
- Roberts" <ryan.roberts@arm.com>, "Breno Leitao" <leitao@debian.org>, printk@lists.linux.dev, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>
-In-Reply-To: <20261118230345.808560-6-john.ogness@linutronix.de>
+ Roberts" <ryan.roberts@arm.com>, "Breno Leitao" <leitao@debian.org>, printk@lists.linux.dev, "Andrew
+ Morton" <akpm@linux-foundation.org>, "Baoquan He" <baoquan.he@linux.dev>, "Mike
+ Rapoport" <rppt@kernel.org>, "Pasha Tatashin" <pasha.tatashin@soleen.com>, "Pratyush
+ Yadav" <pratyush@kernel.org>, "Dave Young" <ruirui.yang@linux.dev>, "Bradley
+ Morgan" <include@grrlz.net>, "Oleg Nesterov" <oleg@redhat.com>, "Pavel
+ Tikhomirov" <ptikhomirov@virtuozzo.com>, "Petr Pavlu" <petr.pavlu@suse.com>,
+ =?utf-8?b?Q2VuIFpoYW5nIChNaWNyb3NvZnQp?= <blbllhy@gmail.com>, kexec@lists.infradead.org
+In-Reply-To: <20261118230345.808560-7-john.ogness@linutronix.de>
 References: <20261118230345.808560-1-john.ogness@linutronix.de>
- <20261118230345.808560-6-john.ogness@linutronix.de>
+ <20261118230345.808560-7-john.ogness@linutronix.de>
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-Date: Thu, 19 Nov 2026 23:03:57 +0000
+Date: Thu, 19 Nov 2026 23:03:58 +0000
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -63,160 +68,78 @@ List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issues to consider:
-- [Medium] printk: nbcon: shared con->pbufs race in
-  nbcon_context_try_acquire()
-- [Medium] printk: nbcon: missing state checks in
-  nbcon_context_try_acquire_hostile()
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue to consider:
+- [Medium] printk: nbcon: con->pbufs corruption on hostile takeover in
+  emergency_restart()
 --
 
-commit f5fa2c4aaf37e7c2f76889c2c2f671c2bb7b3a1a
+commit bc98e7fe84227c1b12eaff8bf1021023be510742
 Author: John Ogness <john.ogness@linutronix.de>
 
-console: Support unsafe flushing for panic/emergency restarts
+printk: Add unsafe flush points for panic+kexec and emergency_restart
 
-This commit introduces per-console unsafe atomic flush policy flags and a
-PR_FLUSH_RESTART flush reason so consoles can opt into unsafe hostile
-takeovers during panic or emergency restarts.
+This commit adds nbcon_atomic_flush_unsafe(PR_FLUSH_RESTART) calls to
+__crash_kexec() and emergency_restart() so that CON_NBCON_ATOMIC_UNSAFE
+consoles can flush when permitted by their unsafe policy.
 
-> diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
-> index c3307b5b2c922..daf1fe8522117 100644
-> --- a/kernel/printk/nbcon.c
-> +++ b/kernel/printk/nbcon.c
-> @@ -557,10 +557,6 @@ static int nbcon_context_try_acquire_hostile(struct =
-nbcon_context *ctxt,
->  	if (!ctxt->allow_unsafe_takeover)
->  		return -EPERM;
+> diff --git a/kernel/reboot.c b/kernel/reboot.c
+> index a93c23b9e1948..b26d131c54151 100644
+> --- a/kernel/reboot.c
+> +++ b/kernel/reboot.c
+> @@ -102,6 +102,7 @@ void emergency_restart(void)
+>  	 */
+>  	nbcon_cpu_emergency_enter();
+>  	printk_trigger_flush();
+> +	nbcon_atomic_flush_unsafe(PR_FLUSH_RESTART);
 > =20
-> -	/* Ensure caller is allowed to perform unsafe hostile takeovers. */
-> -	if (WARN_ON_ONCE(ctxt->prio !=3D NBCON_PRIO_PANIC))
-> -		return -EPERM;
-> -
->  	/*
->  	 * Check that try_acquire_direct() and try_acquire_handover() returned
->  	 * -EBUSY in the right situation.
+>  	machine_emergency_restart();
+>  }
 
 [Severity: Medium]
-Can an NBCON_PRIO_EMERGENCY hostile takeover clobber con->pbufs while the
-interrupted NBCON_PRIO_NORMAL owner is still using it?
+Can this corrupt con->pbufs when emergency_restart() performs a hostile
+takeover outside of panic()?
 
-NBCON_PRIO_NORMAL and NBCON_PRIO_EMERGENCY share con->pbufs and rely on
-the unsafe section in nbcon_emit_next_record() to keep them from writing
-to it at the same time.  Previously only NBCON_PRIO_PANIC could perform a
-hostile takeover of an unsafe section, and nbcon_context_try_acquire()
-switched to panic_nbcon_pbufs when panic_on_this_cpu() was true:
+When emergency_restart() is invoked directly (for example via SysRq-b)
+rather than from panic(), panic_on_this_cpu() is false and other CPUs remain
+active.  If a console permits unsafe takeover on PR_FLUSH_RESTART (such as
+netconsole with NBCON_EMERGENCY_RESTART_FLUSH) while an NBCON_PRIO_NORMAL
+context holds it inside an unsafe section, nbcon_context_try_acquire()
+performs an unsafe hostile takeover at NBCON_PRIO_EMERGENCY but still
+assigns con->pbufs instead of panic_nbcon_pbufs:
 
 kernel/printk/nbcon.c:nbcon_context_try_acquire() {
-    ...
+	...
 	/* Assign the appropriate buffer for this context. */
 	if (panic_on_this_cpu())
 		ctxt->pbufs =3D &panic_nbcon_pbufs;
 	else
 		ctxt->pbufs =3D con->pbufs;
-    ...
+	...
 }
 
-During an emergency_restart() flush at NBCON_PRIO_EMERGENCY,
-panic_on_this_cpu() is false, so a hostile takeover assigns con->pbufs to
-the emergency context while the interrupted NBCON_PRIO_NORMAL context may
- still be formatting into or transmitting from con->pbufs:
+CPU0 (NBCON_PRIO_NORMAL)          CPU1 (emergency_restart)
+nbcon_emit_next_record()
+  nbcon_context_enter_unsafe()
+  printk_get_next_message()
+    // writes con->pbufs->outbuf
+                                  nbcon_atomic_flush_unsafe(PR_FLUSH_RESTAR=
+T)
+                                    ...
+                                    nbcon_context_try_acquire_hostile()
+                                    ctxt->pbufs =3D con->pbufs
+                                    nbcon_emit_next_record()
+                                      printk_get_next_message()
+                                        // overwrites con->pbufs->outbuf
+  con->write_thread()
+    // reads corrupted con->pbufs->outbuf  <-- buffer corruption
 
-CPU0                                  CPU1
-nbcon_kthread_func()
-  nbcon_emit_next_record()
-    nbcon_context_enter_unsafe()
-    printk_get_next_message()
-      /* writes con->pbufs */
-                                      nbcon_atomic_flush_unsafe()
-                                        /* PR_FLUSH_RESTART,
-                                           NBCON_PRIO_EMERGENCY */
-                                        nbcon_context_try_acquire()
-                                          nbcon_context_try_acquire_hostile=
-()
-                                          ctxt->pbufs =3D con->pbufs
-                                        nbcon_emit_next_record()
-                                          printk_get_next_message()
-                                            /* overwrites con->pbufs */
-    con->write_thread()
-      /* reads corrupted con->pbufs */
-
-> @@ -1465,12 +1461,19 @@ enum nbcon_prio nbcon_get_default_prio(void)
->  static bool nbcon_allow_unsafe_takeover(struct console *con, enum pr_flu=
-sh_reason reason)
->  {
->  	enum nbcon_prio prio =3D nbcon_get_default_prio();
-> +	int unsafe_policy =3D con->allow_unsafe_policy;
->  	bool allow =3D false;
-> =20
->  	switch (reason) {
->  	case PR_FLUSH_RUNTIME:
->  		/* Never unsafe flush during runtime. */
->  		break;
-> +	case PR_FLUSH_RESTART:
-> +		if (prio =3D=3D NBCON_PRIO_PANIC)
-> +			allow =3D (unsafe_policy & NBCON_PANIC_RESTART_FLUSH);
-> +		else if (prio =3D=3D NBCON_PRIO_EMERGENCY)
-> +			allow =3D (unsafe_policy & NBCON_EMERGENCY_RESTART_FLUSH);
-> +		break;
-
-[Severity: Medium]
-Can an NBCON_PRIO_EMERGENCY caller in nbcon_context_try_acquire_hostile()
-steal console ownership from a concurrent NBCON_PRIO_PANIC or
-NBCON_PRIO_EMERGENCY owner if con->nbcon_state changes before the cmpxchg?
-
-When only NBCON_PRIO_PANIC could enter nbcon_context_try_acquire_hostile(),
-panic_on_other_cpu() blocked all other CPUs from acquiring the console or
-raising cur->prio or cur->req_prio.  With NBCON_PRIO_EMERGENCY allowed to
-perform a hostile takeover while other CPUs are still active, the retry
-loop in nbcon_context_try_acquire_hostile() does not re-check cur after a
-failed cmpxchg:
-
-kernel/printk/nbcon.c:nbcon_context_try_acquire_hostile() {
-    ...
-	WARN_ON_ONCE(ctxt->prio <=3D cur->prio || ctxt->prio <=3D cur->req_prio);
-	WARN_ON_ONCE(cur->unsafe !=3D true);
-
-	do {
-		new.atom =3D cur->atom;
-		new.cpu			=3D cpu;
-		new.prio		=3D ctxt->prio;
-		new.unsafe		|=3D cur->unsafe_takeover;
-		new.unsafe_takeover	|=3D cur->unsafe;
-
-	} while (!nbcon_state_try_cmpxchg(con, cur, &new));
-    ...
-}
-
-If the previous NBCON_PRIO_NORMAL owner releases the console and another
-CPU acquires it at NBCON_PRIO_PANIC or NBCON_PRIO_EMERGENCY before CPU1's
-first cmpxchg, the cmpxchg reloads cur and the next iteration overwrites
-new.prio with NBCON_PRIO_EMERGENCY:
-
-CPU0                            CPU1                      CPU2
-/* owns con at
-   NBCON_PRIO_NORMAL,
-   cur.unsafe =3D=3D 1 */
-                                /* NBCON_PRIO_EMERGENCY */
-                                try_acquire_direct()
-                                  -> -EBUSY
-                                try_acquire_handover()
-                                  -> -EBUSY
-                                try_acquire_hostile()
-nbcon_context_exit_unsafe()
-nbcon_context_release()
-                                                          panic()
-                                                            try_acquire_dir=
-ect()
-                                                              /* acquires at
-                                                                 NBCON_PRIO=
-_PANIC */
-                                  try_cmpxchg() fails,
-                                  reloads cur.prio =3D PANIC
-                                  try_cmpxchg() succeeds
-                                  /* sets prio =3D EMERGENCY,
-                                     stealing con from PANIC */
+Both contexts then concurrently read and write con->pbufs->outbuf and
+con->pbufs->scratchbuf.  For netconsole_ext, overwriting the formatted
+message while send_msg_fragmented() is scanning wctxt->outbuf for the ';'
+header delimiter can trigger WARN_ON_ONCE(!msgbody) or match a ';' past
+MAX_PRINT_CHUNK, overflowing nt->buf[].
 
 --=20
 Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261118230345.8085=
-60-1-john.ogness@linutronix.de?part=3D5
+60-1-john.ogness@linutronix.de?part=3D6
