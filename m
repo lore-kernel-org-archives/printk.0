@@ -1,93 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180189;
-	b=dx9ze2KLOFeHdnNKuAATRV0KTpamQMeFHIM81DAFrzIjK8Liq7h2UrNiufb6cQsePK4n
-	 hgRIUTSlyHycVs6sOnUgunQ9I88CjqiduWdsjog8eZjsNbZBi6MWsJvozfom8SYFRokKN
-	 FxIg9obqa5Ki6zwRDv3h00FbXq4deuJbo+1JOG9AzZ8BCMR8dDAFKPYzy2T18fg4TpFhn
-	 M2yG1Whg2ee4jMmEviLRrcHEvRKtJSrQFWgR6u6sEoxBNBp3p0gpXiSIE/ajUi7nMBvKu
-	 xLBuVgZitqs62DoZF17hEi1W0o8HJzPvbx2GYZQVKTOYY73wzZvTb0LVE+KObD6b37g==
+	t=1795278967;
+	b=s3KyVgSAFyLJP+gVOCVFdiKeo4RkG27HWp3ZGxXuRUgnGkZcZWECGaO1N5F0/tE6d0bx
+	 LUaHWMcPDn8prKrk7MMmKBHtCdfq7tbRKHjOcNpnWfm1QL6W7jA1jVeSTkCnzFSIKDGbQ
+	 hhocsNPiXzRGwkA9ks2v3Kg/rHMDsI3vUF2uBk8ghRiKMqWgPb+yf+hvfomMGY11hoPhy
+	 hu1RNvhGHi0pgYvePQlwM0vmO2u5slI5U63YGcK0ntTk2yADh3RnPpGoKMO35FMA+yyQX
+	 KINggLYe4Hzta831iu/IdldeAMf8/8T4fhj3bgcDTIlYbxGb1O124cm+K2Q1oKQ2WFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180189;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=PCl9o2L0h4hjzIUzxQ9Hw7xDucu8RfGeY02waG4S6Mk=;
-	b=UwYPMjsMz8gDaonymHQq1y2cU7tnrBrYIi5oFs1ZQVLiU4HnLtF/NGmIbU6rydwzB/1w
-	 npr+6j49yA9bVF/mlBZgFIPk4kb/0HMUZ90eEE08on2hZP0nmkOrhfb7LPjZj0rUiwG7N
-	 Iqzr7JBbzozAMAqw1EVs8d4R9X6tkXXu2lCRPzNVY6bKe2oaJ7t2GRXV3ywJweTz93WdG
-	 Cpg4XwfDBopbc6j0V7MWjp7thE+I5mfHUGtHP0s/LSvr5COXC7eF8aC+cdu0wQ2wr2PhR
-	 g/x47e90W8l41hqlnrketJ1iJLQNNhEgPz+POOF3mWh2ShFPsK3z5wABmy7jfpfzYCw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795278967;
+	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Transfer-Encoding;
+	bh=gsY52QypeM8c+C0yp8+SKsiWC6bxLPvGiy93DlD6Rc8=;
+	b=TME7md/KH0/3VfVqNcJkOdzwceHNnX47iO3ADOrxuEvp55LTtYs8aaelmdB02PQMP3Vt
+	 iU4MPq6R3cYA51eiU4vb04YZipAnc8SVTGBNXayuMgpaFhSZI8T+OdyiMWDCFLrHDlviX
+	 wu7Q3b1rIBi10oLjwhPPTAhYy5ESnyEfinOlHNLokeZVDukaDNOqNxJYL0iGe7CQx8s6J
+	 r0ceKL/Lcnfiq0jD8FcV0ZhYAEPKk41ckvH08f6aAmju8FF/+HVKhFmRl86exuohouNTf
+	 9DcE+S6IKPXuMsJ3QRA63zwYC/voyZQxp86WfFGXPzNmnVaB5xq+U6gNayd/99IiEGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=SgrI0hht;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=BCL39XsV;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=0iwsuRgQ;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3EB0606A326
-	for <printk@lists.linux.dev>; Fri, 20 Nov 2026 13:09:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3EB0606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54405606A330
+	for <printk@lists.linux.dev>; Sat, 21 Nov 2026 16:36:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54405606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=SgrI0hht
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb606491faso4484595e9.3
-        for <printk@lists.linux.dev>; Fri, 20 Nov 2026 05:09:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795180187; x=1795784987; darn=lists.linux.dev;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=PCl9o2L0h4hjzIUzxQ9Hw7xDucu8RfGeY02waG4S6Mk=;
-        b=SgrI0hhtkfSd7jwW6eV2cVtzOnpTh0Q304JkdS4WIcNvSdzCxfWvGOKCPxFstk9KWh
-         EXbNmbO4ngl3j3wI3AhE9p0/qY6C7f9O27g3Ry8XAi1gdrYTZk8QsfDD/xmlcf7de6Ve
-         ZHcI5NXLnNfi0WIzK3ztVe9V4X+smdSJF2URtX3otOqv2VlSsjVAdX79lVJmkf4xHbkF
-         PX8PKSP65G8LIPKVxOH7kstB7wuqSW5NvQJvYCailyaoMiCd8LgOdwZIZZacmIYV2xEZ
-         ldRWZf0yPA+HnEWSiJkyWjjHwTF886XTzTLzx6D4IVuSsRZKh4vDQkHE5ncJnw8O+8HI
-         nmJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795180187; x=1795784987;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PCl9o2L0h4hjzIUzxQ9Hw7xDucu8RfGeY02waG4S6Mk=;
-        b=f0sXTBxES0X1mxsbcSIvUYL0/byttIbHm9+5zDwLAWCbWOSbay5XC9h8ZJrop0KOkJ
-         aUlupmLChXklsmCMoCE1HoGAT89nKvX4dPTdOAglgbuC58NlTcDSRQCSKmnwOG0CtgCG
-         q4GrAZJ/eCM5/my1r/hHZDhUKHEFY114aAf8Jw3mVKwRE4inNUyhZwH+zFuHploczbe4
-         SAMegCyr99+btpZbqvhVqCnuc/yVlabKn9WS/GS2FuMQ1oWk1hR0iW9FQztdgUZfhC/5
-         wU6S9PusBozsITRs/HIeLUktZka00xVKy3/keBPoHQ7O8NAbAnOuJ1YCpQ7rSAGe7Y3e
-         scTw==
-X-Forwarded-Encrypted: i=1; AL+hErGpdnFTVBDLGjOcgRuubJ35IrrgLdQNlz5V8kaD08JSPubNcUfymj/7ZS/+n34a3ilmnL/XQYY=@lists.linux.dev
-X-Gm-Message-State: APuU4Z/ZWOxQ3jWk5RFsdFIGBbikZb5ZXPs7xv8IeFjhJXbYwfOAopmc
-	uKdI/fL8Cds0HpQe8ZDm0fNOUPnHqdtbq7SvVaPEzMbLeJz2gZAoXWconUInC6bzkWg=
-X-Gm-Gg: AYBFou28hiSYAZArdF0s+6lmx90Tygf6P6uL78SEVg46u22yqlLjrp17UMJlaHlhXlg
-	gzs1Zpoa7Z6SJuH9cbn9B8935c8OTuXnljI+IN/a0HRE8yinEvB6ZXpx+C/tA8lkR6QJBJZBt9n
-	ndgDieWfcS23XX1MpQ/7WwPGkfI5Gq7+0wWBI3voiMQd6t5sJxA5XmblcmlS0sGXAQOuaoloodv
-	ije1UWBn2SOJR96DvLE9zwhE8ziDUN1V927Gpgw3Alz0FAhTRdwOOnfe9/pLs7GF9blrso2LxHk
-	pNf0J3d0AMCi2/ha/duuDNClV9nvE72LwcGQcsUJ4hb5cHDtFlnPOUTWXfxpJYunNVKessO8vFF
-	AmPtj+lp0hD6Xnce+/VMei6IWPmKrSm8DvsQuSuqPUqEsZzQRVwomd4iC8D5FE228fXBTTHf+pS
-	ljr/g8PEsGd3HklMao3JlJj8LJAIUFdbVi8YdiQaM406czJ6dG2JQePZLHVwZQ111WOMzpcchXl
-	ReNYQYuJYdBzVgI8Mj059ovvPWgw9NTwzgOrSFEs11JmI8A1qepILSH6kN45osRy5CNKQ75p07e
-	eZiBhiD6NrVju++NwDZmvBndzBP0CFg=
-X-Received: by 2002:a05:600c:8210:b0:4a1:dbdf:17a8 with SMTP id 5b1f17b1804b1-4bb887e25e8mr70450305e9.2.1795180187116;
-        Fri, 20 Nov 2026 05:09:47 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b8429sm129169365e9.14.2026.11.20.05.09.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 05:09:46 -0800 (PST)
-Date: Fri, 20 Nov 2026 14:09:43 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Zhu Jun <zhujun2@cmss.chinamobile.com>
-Cc: john.ogness@linutronix.de, rostedt@goodmis.org,
-	senozhatsky@chromium.org, paulmck@kernel.org,
-	printk@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] printk: ringbuffer: Annotate speculative record reads
-Message-ID: <awBGl4wZKT6tmgqG@pathway.suse.cz>
-References: <20261113075039.172176-1-zhujun2@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=BCL39XsV;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=0iwsuRgQ
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795278959;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=gsY52QypeM8c+C0yp8+SKsiWC6bxLPvGiy93DlD6Rc8=;
+	b=BCL39XsVRlrz6KdxJFHHebR55BJvQHoCt8ZxPc7K8/ttdBwSNTGCtlptjA1cW4BY0+wBj4
+	RH3WLbAaHmM0H+2IWsKQLwMcfFUzA6JTDaNt1T4rz01Ts6WJzvfd4Jp3POKAPsertmLMRM
+	tzkAS+Hp3MRejMVTPR7dq4F2uwEdJiRQLcw4h3GZM5cxk5FJ8f9CrM+Fa49IHe/1hd9UWl
+	zovlcNHQyrda5Ck/Kmhlmymz+vNuccTIuAJ+4mMVYWU+8YseGXDKwBNtZT4AWGHRvUSP5M
+	zCM6eiVmVszGQdEr3HHzvsin4z6Blo74uU5/QX2ZdrxPsyrwKvzDn/ijzTq4/A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795278959;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=gsY52QypeM8c+C0yp8+SKsiWC6bxLPvGiy93DlD6Rc8=;
+	b=0iwsuRgQbQpmYxaVF/OaVWMavCV4vkXiwwuaaTU6NvadceOzaAC4RhVgvi9Bx+KiHBoRIo
+	2JY6r0MKGTTfSzBQ==
+To: Petr Mladek <pmladek@suse.com>
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Breno Leitao <leitao@debian.org>,
+	printk@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Rio <rioo.tsukatsukii@gmail.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Bradley Morgan <brads@mainlining.org>,
+	Pnina Feder <pnina.feder@mobileye.com>,
+	Alessandro Carminati <acarmina@redhat.com>,
+	Gal Pressman <gal@nvidia.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Mike Rapoport <rppt@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Dave Young <ruirui.yang@linux.dev>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Bradley Morgan <include@grrlz.net>,
+	Alex Elder <elder@riscstar.com>,
+	"Cen Zhang (Microsoft)" <blbllhy@gmail.com>,
+	Petr Pavlu <petr.pavlu@suse.com>,
+	kexec@lists.infradead.org,
+	Gustavo Luiz Duarte <gustavold@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org
+Subject: [PATCH printk v4 0/8] Introduce policies for unsafe flushing
+Date: Sat, 21 Nov 2026 17:41:48 +0106
+Message-ID: <20261121163557.963029-1-john.ogness@linutronix.de>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -97,25 +100,74 @@ List-Unsubscribe: <mailto:printk+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:printk+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261113075039.172176-1-zhujun2@cmss.chinamobile.com>
+Content-Transfer-Encoding: 8bit
 
-On Fri 2026-11-13 15:50:38, Zhu Jun wrote:
-> Readers may copy a finalized record while a writer recycles its storage.
-> prb_read() checks the descriptor again after copying and rejects records
-> that have changed, but the plain metadata and text accesses still trigger
-> KCSAN reports.
-> 
-> Annotate the speculative copies, line counting and length read with
-> data_race(). The descriptor validation continues to determine whether
-> the copied record can be used.
-> 
-> Fixes: b6cf8b3f3312 ("printk: add lockless ringbuffer")
-> Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
+v3 is here [0].
 
-JFYI, the patch has been committed into printk/linux.git,
-branch for-7.5-trivial.
+Until now unsafe flushing is only performed at the very end of
+panic(), before entering the infinite loop. For other situations
+(such as panic-kexec or panic-reboot or emergency-reboot) no
+unsafe flushing is performed. The reasoning for this is because
+an unsafe flush could lead to fireworks, which could prevent the
+kexec or reboot from occurring.
 
-Best Regards,
-Petr
+However, some users may be willing to take on such risks in order
+to see panic output. Indeed, for the netconsole (which does not
+support safe atomic printing) it is a regression that such unsafe
+printing does not occur. [1] 
+
+This series adds unsafe flushing policy flags per-console to
+allow individual consoles to perform unsafe flushing for such
+scenarios. The unsafe flushing is hard-code-enabled for the
+netconsole in patch 8/8. The justification is that this is not
+less safe than the legacy netconsole.
+
+Later these policy flags could be easily exposed to userspace
+via /sys/class/consoles/, once the sysfs per-console interface
+is available.
+
+The first 5 patches have no functional changes.
+
+Changes since v3:
+
+- Restore WARN for non-panic hostile takeover attempts and
+  expand the comment so I don't attempt this again.
+
+- Rename nbcon_allow_unsafe_takeover() to nbcon_allow_unsafe()
+  because it now allows general unsafe usage and not
+  specifically hostile takeovers.
+
+- In __nbcon_atomic_flush_pending(), additionally use
+  panic_on_this_cpu() to determine if a hostile takeover is
+  allowed.
+
+John Ogness
+
+[0] https://lore.kernel.org/lkml/20261118230345.808560-1-john.ogness@linutronix.de
+[1] https://lore.kernel.org/lkml/20260915100140.3631650-1-ryan.roberts@arm.com
+
+John Ogness (8):
+  printk: Introduce and specify flush reasons
+  printk: nbcon: Move unsafe takeover check to higher level
+  printk: Move unsafe takeover check out of console_is_usable()
+  printk: nbcon: Use @reason instead of global variable to check flush
+    policy
+  printk: nbcon: Expand unsafe takeover check for general unsafe
+  console: Support unsafe flushing for panic/emergency restarts
+  printk: Add unsafe flush points for panic+kexec and emergency_restart
+  netconsole: Perform unsafe flushing on panic and emergency restart
+
+ drivers/net/netconsole.c |   2 +
+ include/linux/console.h  |  60 +++++++++++++++++-----
+ include/linux/printk.h   |  20 +++++++-
+ kernel/crash_core.c      |   1 +
+ kernel/panic.c           |   2 +-
+ kernel/printk/nbcon.c    | 105 ++++++++++++++++++++++++++++-----------
+ kernel/reboot.c          |   1 +
+ 7 files changed, 147 insertions(+), 44 deletions(-)
+
+
+base-commit: 52904cd86a5f8c83fd956d1b2b9cd12593597e7b
+-- 
+2.47.3
+
