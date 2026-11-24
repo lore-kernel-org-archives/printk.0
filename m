@@ -1,96 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795515580;
-	b=pDd3vN9h+6s3W2VDVF91oRR75at6vPyAA++rmoYhMGtunvjs3IhBhQDIMNVmN6P3SzzO
-	 eqC7lKOrTWnUp4nHWPzz7uS3YOusEdf6Hw/tQ1mUKF5BRIawpH0Wjpu5fqF3eintSyd3p
-	 W866iVk++bEXTomnREnaHdmKNUkJj1vyLpwfxOcyEVh4xjov7YDIFW92RMGRGxG30YOvA
-	 VQszldz67HW6ag9ptQ3zuaH+Rsdg+xSn18ynGq1I61ttrataePCj7DpOQtIaK7v4aBqp2
-	 84hAfFyHTk2RHrSS9q+Yd1SSfk9A2AqeVfMKNbhqNLHRZlUGHk/9ERchJM26rC+VN6A==
+	t=1795516085;
+	b=PNxgI8XO/RR6WPcV1BChsTGF1UeWj9lmyH8JLxUHhNrt1QlCJNqHCTryvdxmeyQqT4lx
+	 TIegJgg5o2E8ryc7Kdn6n1l8nNSzUfSAUh0CnmkeOEeKBSaukWJgSNwOMW1lkdPun+aLn
+	 l5kLJ+QPNBstKyA8AloUV0AUNhsyn0lZI81chf0QemfLZoZx6dPD+sRF6stgis6GLp9dM
+	 8ZrWIj197RATiQUSGjw/I4Yyb4u+6QTBLCrNwqXeOXS8woVzfMM6JznBbYWgaiof22XjR
+	 4bzTkwXwAgrKS90SsvdWUCC78r01uRzUpHa99tgsEd6xayp3pLEKl3C0OydajHDeY+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795515580;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795516085;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
 	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=vH6drgK9ot5njBsE/YZMMEhVCDG/kWSIdnxHYLHlo8o=;
-	b=2vbsUc80n7JvYKSnJ3tyYoMho3U8tDzKKeX5cTU//X4b0HleyIL6XsUHBxg0jyXPKMnr
-	 lSYxRX/9T6WpUdCJ0er+Wdxd8HGPfSzqmHUsY0qnezuciu5olIPAAvCI37v8reeMYYXIM
-	 nTsLsvmiUjtsYsRljtX86pKMjA3R0s3ng7pgYUm7mfSMIZ7I5HY+AOR2JTgQWVklGhlmY
-	 vTzTorZkUsKGm5ib8CkksHahyPSf5Og6aQplX3pbSzIn0OegzAlxNfL4auc6oWG6U/zI7
-	 t6AoKMDW7LLMgU1TA1LkTPDqczxj2gUfapvixe/NiWokcrDpr4eaomp/+80ziM3KvhA==
+	bh=ihHHp6CHAYuyA3mpHXEe6HKUU0f2ZnmE4/lD0pXu6/o=;
+	b=o2Q6CmX8uPX7QoyOc/WGgBImZJGlV5eDpqzZp0Id8GUm3bTQ0S+dNr4THhTi2roJ8ih5
+	 0TF63i9WN7I07R04nsmBopF0/GerieQJaY61gIYM3seo5LEu7ttrfYKlOnxqXCgedFEF2
+	 sWdfjMu7ByP/ofw5dAtZFLdLbXCTQvYf+pHyFpL6jbmy3PPu+QDFLzvEE3aSkXV6NwWLx
+	 xs65BRPgXm7Z6sq5oXSLVOWo4vpJ7b4YODFJHwooZOpc2wWHW6TOOgPDdQ+eDJkr5eV+L
+	 GzYahhmYTb2eA1JXpmhG0s3HCiPZpNOwoTUTIFFz8EUaGZeZmQgH9XRGG+8XL1aI9AA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.com;
 	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=L5WcZ9Gy;
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b="ZmlOEuz/";
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73962606A32C
-	for <printk@lists.linux.dev>; Tue, 24 Nov 2026 10:19:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73962606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0ADBC606A33F
+	for <printk@lists.linux.dev>; Tue, 24 Nov 2026 10:28:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0ADBC606A33F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=L5WcZ9Gy
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso52371565e9.1
-        for <printk@lists.linux.dev>; Tue, 24 Nov 2026 02:19:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ZmlOEuz/
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-491846221ffso3663062f8f.3
+        for <printk@lists.linux.dev>; Tue, 24 Nov 2026 02:28:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795515579; x=1796120379; darn=lists.linux.dev;
+        d=suse.com; s=google; t=1795516083; x=1796120883; darn=lists.linux.dev;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=vH6drgK9ot5njBsE/YZMMEhVCDG/kWSIdnxHYLHlo8o=;
-        b=L5WcZ9GyGmrGy3tyHJ6Nx5H3SXB7GqNG665Aghq0w2EOLxZSiJ6fy0U0qt5PJYOuLU
-         XE5XrwMXfJyjpivkW4vrx6trVqsyfv/ypdpdUpZfaAoxWtmC0uJaI0KF7qj7A5eqI7uD
-         buVn+3J/y3hRduc3NNkglV/SQzZwzKMXQqjQTUEu1yhHBLoZP9yib4F580YtfJkk87tO
-         OK8O4cr38im92/A0aOoSGCoTRkZg+bzjzLZ5g2J2dXdmCWCjcDT+jfMl2tYXNGouBdv8
-         jQViakZZIyeaauI7pD0qN/zlDXbO8WbSxCT5DhDkWqmzjDC7KnZS0tvnU+domuPutsOc
-         CiIQ==
+        bh=ihHHp6CHAYuyA3mpHXEe6HKUU0f2ZnmE4/lD0pXu6/o=;
+        b=ZmlOEuz/fNdBXr7fkXPV9EsgL9+TBuBH4GqYbtnpq7c57FR3Ej6pPn1tnm8wvPbpM0
+         grq+n8A8r/qqHlR0/6i0K/RPtHTx8RBh+OVGSIUmNOUBY6e3Uh71PGsPTzuQfq1VqgF2
+         bExdsbSPJ19/rnx14XsZFABRO0Y+bkMGiuWM5Tdw1KH+RzV4Fa1u95+EJrumwAWxMqM6
+         grRWpUYsPr804eZQ65qTZE8jdyCWFjaegU6VapHuiiHwtIoc9iNA6AJLjqz/tIxFXQiA
+         mJWiK41GwLccLjSmD0LxL660ZO3vDf7wC2XyPTldrxvyNMcLMWKJzYQAvXYtjToy0bD1
+         SxMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795515579; x=1796120379;
+        d=1e100.net; s=20260707; t=1795516083; x=1796120883;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=vH6drgK9ot5njBsE/YZMMEhVCDG/kWSIdnxHYLHlo8o=;
-        b=zsYYfS+mJvvoNOG4+MunuKXG9VvoKQRCkrMTwUFAfLwIC3lYEI+RutSQJD/vuTXJ/A
-         UFvW9K+fPjmNLqEpo7nKQDZM7Ps6wY/sNog+L/l7fvXgbqrO56HIhYhHNEDHK2/KuUNE
-         lYmoHIj/Yr1FR4gmebMz9vMCqAYA4Bb2CdPATaK58FgnsFZf/eG2DIliEXzfeatVBPAW
-         EUA9F9WxDeFASegGsrYAWI5jjS9inYKNKeqXqKCC4icSEKEISgfQFqnB/BAKXWNdvmsn
-         JFTLd4By1fvIfg4osSh1dgyR/ICNFbfTbk6RSbuwfHwSOReDjDr7gwOoSyKPRn4UhCrz
-         Mpfw==
-X-Forwarded-Encrypted: i=1; AL+hErFT9udg+iIzJXL366T4WVeWQKrMN1Z7wmc2yjT/u2S5w1TVm2uS0zmE6qN4ZSKjTjynxepkXTo=@lists.linux.dev
-X-Gm-Message-State: APuU4Z9061tCQ38tYM+6VnyEqEwY/q+nSUuau4/TdM0VcZtiHlt5tkc2
-	dG1idYUtPCCsoUAklcAvgTmvbQN45L9fqIuM7qRdfMDXYiSecGZDr9TbLMso7YvnjQGyIMZEgKW
-	8Lj68VE4=
-X-Gm-Gg: AZFdTZd6b33s2dcWwEsk9NA8aMgBiEYLXqtMRNkD6y34Ragu4mGmrhKb7wk2yxM1zRQ
-	+/xzUNWuotqTf0rfpRCU7VoJ83HOBuq2CO/n0bVH/9dO9D+ybLkkJ3kz/ThFq724Pu+WzElDJQ1
-	4Fpv9Ny3/tBRKPLJhoZhYkAXhTYs8jsAvN476b3je+fbHrBKDCgLjgQm8s4bkWIVnygDHWha1VG
-	to6cX46moMSBUIYvTZ+se68F4SLHg2j1wGAb/0cl1rVjiiI3kh2o4nVqN5rlLYYBaBaVoUo1mwr
-	AQMkkshKiZa2bB+sOW3TG8XNKjDNRUNg+0aSs+PouSczPf39q4006muKYdEvAstXB8rxQsqMYkk
-	W5DEYwHtINF/bTkstIY1oaQCt3/+aFCV7WaPkUrGjUcg7V8V5HiJzYP8ywf1crm7PSPhpvCNmvy
-	+DwEZuCRjfMHZjJToCZxgtaRScynKPcKydhvNvGixq4TPnA4v6GY5GlT1CkGxz/QrUw+/llh0fs
-	nubN9hpWouhgnYl2bmdZQqPMs948YHJwtEv52jtcEORn/CLMlk5eiPEsmJOK0DR4UkiFiuGRn53
-	KKzPJMEiD1uDU6SCILjZ4uKKwkidhv4=
-X-Received: by 2002:a05:600c:4f50:b0:4a2:1612:637a with SMTP id 5b1f17b1804b1-4bb888063f3mr353813745e9.16.1795515578920;
-        Tue, 24 Nov 2026 02:19:38 -0800 (PST)
+        bh=ihHHp6CHAYuyA3mpHXEe6HKUU0f2ZnmE4/lD0pXu6/o=;
+        b=xrtP7mzzYt/8xwVwnR26yYADq/hs+XM+a9CKtX3wihW1WWgId1R5oTh4lVGppCN+0t
+         xNTkBI/dEGQAs49rPP1PkGnAxRl3QE3tgCtBZjkt6MmXzikvkmJ8VQGe4UKFyudJSjkd
+         WUvvl/nY62xq8TN6kjYWX0c7etyyD+kQPBhHIBZr6RGz+1bGRPr7RPWSfm6JrplGTTd7
+         X/UcM+81Gnl5kQBBTVwZHj8UVKVB1Otox91+p0m+0/zlIWp94Tw+gfBbt1LfZjSkXmL+
+         l2ie7LLNr1g/6IXP6cmsAfL6zrM+OOjZkECer2GATy+3zHRXKtr8kqB+rucECl+qG2/j
+         lDbA==
+X-Forwarded-Encrypted: i=1; AL+hErHINKIowDgSCa6FNGdI7JQaO8yC4G+vWdqZPP6YNWEgdGxKa+btlPwUi/FUZ/A41Up8hOxa2sE=@lists.linux.dev
+X-Gm-Message-State: APuU4Z9ZBMJNnQtgBzpKDBTgb7MEfhLDcQKSUI4uDSpeqJlR9JNsg7fY
+	YDuGjGQvRY+yrfPEW6xKIUHalHgCrtGnAxewCco6KVI1UYoG13LZ/On0vEOCo0Dh7gA=
+X-Gm-Gg: AZFdTZd99/qqs4akVqm/YUFt4SY5WaCwWmugNUqyvTgpECi+rgRsmvy9UxOdDTyilnt
+	dwbFXEE8umHLKISua2dkBsg7akf3WBzN6JRKhes66OiKxMXSkyDzDybHFzzIyB0xp3dIyCYmRUz
+	pWq8oMLpIIVDziIiACHikSC4OgLI8fOZJ62eHjRlEXbROqktVmruBL2gG8vqcTtrdxuaiUbNMT3
+	FqSBUpKJtCD5HyWFgCPynzWpLJ35eLO9QWGR7pDQM5+4EYWa3g2qHabmSX4D+4wXUmTB+CFcY8n
+	H5NcI2elujC4nkbQpAg31xkN1nz3E4BlFbRE57fsC9tR40hgD3W9SNUEFSEE9YZlOrf5WHuKaH+
+	XS5mSU+NpA+xwe2j4+VIZyPegQPy67mlO9v3mFPwWJmM2AmEo8gt/R40BzEn84Vrl711fIx9ksS
+	LrKnQMPSj09fILwdvaFbGufkYZwAtfJYults2cQxGF/TTwleKsAf+kjaYEuT+TQs/OjbnKeL8ja
+	ZDCkaZyByvAlZ2RBvk7AObItXXBG5dsqA9VpXpVohYmBMI0sUd+fOOyIDBfy2i/TWKph6cmfVcr
+	Fb7xFyfhn4hMrm6eJz2NvEkrAz2R6Cw=
+X-Received: by 2002:a05:6000:29d5:b0:4aa:5833:c0fd with SMTP id ffacd0b85a97d-4abb58ec23cmr15948598f8f.52.1795516083446;
+        Tue, 24 Nov 2026 02:28:03 -0800 (PST)
 Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88442995sm437410945e9.2.2026.11.24.02.19.38
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm26231621f8f.56.2026.11.24.02.28.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 02:19:38 -0800 (PST)
-Date: Tue, 24 Nov 2026 11:19:36 +0100
+        Tue, 24 Nov 2026 02:28:03 -0800 (PST)
+Date: Tue, 24 Nov 2026 11:28:01 +0100
 From: Petr Mladek <pmladek@suse.com>
-To: Avi Weiss <thnkslprpt@gmail.com>
-Cc: Chris Down <chris@chrisdown.name>,
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Avi Weiss <thnkslprpt@gmail.com>, Chris Down <chris@chrisdown.name>,
 	John Ogness <john.ogness@linutronix.de>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Sergey Senozhatsky <senozhatsky@chromium.org>,
 	printk@lists.linux.dev, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH] printk: Fix skipped entries after index iterator restart
-Message-ID: <awVkuPWD6DHnuV98@pathway.suse.cz>
+Message-ID: <awVmsdsIa9niLarO@pathway.suse.cz>
 References: <20261116085609.476250-2-thnkslprpt@gmail.com>
+ <avrJl4lYirh_7oQ-@ashevche-desk.local>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -102,53 +102,32 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261116085609.476250-2-thnkslprpt@gmail.com>
+In-Reply-To: <avrJl4lYirh_7oQ-@ashevche-desk.local>
 
-On Mon 2026-11-16 10:56:10, Avi Weiss wrote:
-> seq_read_iter() can advance the iterator before the next record
-> fits in the read buffer. When iteration resumes, pi_start() calls
-> pi_next() at the saved position and advances past the pending printk
-> index entry. As a result, index reads can silently omit formats.
+On Mon 2026-11-16 11:15:03, Andy Shevchenko wrote:
+> On Mon, Nov 16, 2026 at 10:56:10AM +0200, Avi Weiss wrote:
+> > seq_read_iter() can advance the iterator before the next record
+> > fits in the read buffer. When iteration resumes, pi_start() calls
+> > pi_next() at the saved position and advances past the pending printk
+> > index entry. As a result, index reads can silently omit formats.
+> > 
+> > Return the entry corresponding to the saved position without
+> > advancing the iterator.
+> 
+> ...
+> 
+> > -	return pi_next(s, NULL, pos);
+> > +	return pi_get_entry(s->file->f_inode->i_private, *pos - 1);
+> 
+> Side note (because it seems used more in the same form), we have file_inode()
+> helper and this should idiomatically look as
+> 
+> 	return pi_get_entry(file_inode(s->file)->i_private, *pos - 1);
 >
-> Return the entry corresponding to the saved position without
-> advancing the iterator.
+> But I haven't checked if the file_inode() is recommended or deprecated API.
 
-Great catch!
-
-But honestly, I was a bit confused by the description. I think that
-it is not easy to describe it a reasonable way. Well, I wonder
-if the following is more clear:
-
-<proposal>
-seq_read_iter() calls pi_next() until it reads the last entry or until
-the given read buffer gets full. The it calls pi_stop() in both
-situations.
-
-The next seq_read_iter() calls pi_start() to (re)start the session.
-pi_start() is supposed to either start from the the beginning or
-return the last entry which did not fit into the read buffer.
-
-By other words, pi_start() should not call pi_next() which would return
-the next entry. Instead it should return the entry which did not fit
-into the buffer last time. Otherwise, the entry would get skipped.
-
-Note that *pos is off-by-one because "0" position is used for the
-title string (struct seq_operations). So that pr_start() should
-return the *pos - 1 entry.
-</proposal>
-
-> Fixes: 337015573718 ("printk: Userspace format indexing support")
-> Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
-
-Otherwise the patch looks good to me. With the updated commit
-message:
-
-Reviewed-by: Petr Mladek <pmladek@suse.com>
+Good to know. But honestly, the variant with file_inode(s->file) looks
+less readable to me. IMHO, it is not worth it.
 
 Best Regards,
 Petr
-
-PS: I am going to wait few days for potential feedback. Then I will
-    commit the patch with the updated commit messages unless anyone
-    complains in the meantime.
-
