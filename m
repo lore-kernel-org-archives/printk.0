@@ -1,99 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795536832;
-	b=tTeUO+6uwsYAWXhMcNFpi0/Qo5kUXV3AtVjinbEE8So+PC5uOHQYtxkLqQ0HRPRv5Q18
-	 pU0UIANflpvTxrA14nmVUAdKPb8MTDOmeYoxl5d6HfGVg5PRs0qORE1jQeSuiSTkCFMuA
-	 3MVJMHXDSkNZKF4vgR6V/FPz754GOrvE9bIzn70TbuDjh9mvGXZI7ghyupPQNAFTMDTQg
-	 TJ3y32t7ZSLwigGBwqIb5EY4KZ4yGsZ2S7NkK1nszhg+hjFB+lkG4DWWdhkEeJW6ww2oa
-	 hvzz3olq2xvsKaeCuSZ/4DxkaAkadGu3fcNoTU5WZTx/Ccbt8TkxmPtdPdrThxuuSEw==
+	t=1795537670;
+	b=XIeM6079reJ1/mH/2ofdJX8/bns9IkaxwHT1DE/jNLT8FOXkJ8+i3Ws2gzBihMnDAOn5
+	 FWiINdkCJK+KZ9G1S7xXYRl1wmezmdBXB2lbycUE8e2Wwbu/a24jG5qm2qHGoJUuyI53I
+	 FhKx8DQg6WllgyNS+v7KGTxXHc1F0HTJwrMQ4fbf+aWw/u8oWolO45N3ddBN6CwvMQ3hS
+	 4/5jbWs/wIxV/u9yEBnQ0cGUahyOfPnnsEwjh4wZv8vr+5sV9CQWBbRRnV9At9dXY+I00
+	 6T0Lz3yliE7Z1qZrqnQFTgLwrR5+nzxL5Xbt6WFH9BEamyss47Y3hbSZKjTJNzhJmmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795536832;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537670;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
 	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=LBJUeeLBd/j2UQXVukjFGjfTw0JwauIgVax6uPLXyWQ=;
-	b=mAhSaGVwzMuR8Lfg46xYolF/sRSVprt7DUCu3pXow8Xe6ZXvqcx+cOdsL1UqgdipWe5G
-	 7njAeonNgMMD1aUsMhIktW1Ij2qulSXsfrMuE8Nb0Tq3sem8pXbzFT5gEiLrqeu0J0N7T
-	 nVn/9g5srSkyduYhAUvnWg/5/PpS67y+PLdPQ9tdKbv1K/kBSGSZ7Xh7W5/7b8JJA66qk
-	 MeLeVBDfgM1Fdukv3H1ipDyU1QxIZuHmxECknuVYxJROHuNa+Wh1AqLdZ+XMdVJbrS+7u
-	 7hooQ0beFgAQSWssONsnuDgWTu2y/NZah2is5LDo55ZUuPQWVs9agfMeePvAUEhKzDQ==
+	bh=R3zuLxf28X0H/xa7T47tiKvpemvGGgA/Y2mqSnzT7Gc=;
+	b=wDEPwommgrYAjC6U4HhF62LRZ32kJxSFIdA82ytPmQxqU7rPPqzsumH4jpvWjhSRcKlp
+	 hDA62pnDFyfdTGPdQ7oXWKKDyQo2bF8HZXYTuR1SowaK3iqSnxrcouuG3fdRkGbuFbFUL
+	 65Ksu3/y0J4pxw4/i83egJFtTRCSsZJyX4pELK6ZzGaCnwO2IodsA0UCy7nNhfGIKotcF
+	 4RhSEV5WT+0k4PWtj/zEeukzU0WZlY6TMGnwj9Bd78lK8EJF55jtcd5weD/wsPSZPpKMj
+	 FNXoJ5eM9SwZUQZCOf8oe3rEA88W+M1f25YzJ6WaEexutN5EI7FADURhZ847zqvEPZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.com;
 	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=KiNpaa68;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=PxHkQywh;
+	arc=none smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B482A606A692
-	for <printk@lists.linux.dev>; Tue, 24 Nov 2026 16:13:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B482A606A692
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7922E606A31E
+	for <printk@lists.linux.dev>; Tue, 24 Nov 2026 16:27:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7922E606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=KiNpaa68
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so45867785e9.2
-        for <printk@lists.linux.dev>; Tue, 24 Nov 2026 08:13:51 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=PxHkQywh
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-4acb44dcd7bso4075371f8f.0
+        for <printk@lists.linux.dev>; Tue, 24 Nov 2026 08:27:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795536830; x=1796141630; darn=lists.linux.dev;
+        d=suse.com; s=google; t=1795537668; x=1796142468; darn=lists.linux.dev;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=LBJUeeLBd/j2UQXVukjFGjfTw0JwauIgVax6uPLXyWQ=;
-        b=KiNpaa684UQ4iKD3SAMqX/uNKyj1Up7dYLY3O7y0xesR3SJwajn2KUv8cZl/3wB+nI
-         ruJgnHHC6FFTMoO0GrkH4LoyZV2z2UUD+ihtAqxxDoWjOTI6oiGDjWMrfFlveP1kRZXq
-         XLYod/gcAtZL9snHkqWQFRrVCn3zerJh73xsl4UBWi7VhjuShvW5BP/pY8EWFeFy2Dtd
-         ZCu5hkLpQQiNyJFogth9/zCR0zKhxVm0w7gdwlINhCHAnl0KtdOgeyn5RpQjAt6fO4au
-         lAAuyBxv2vElJlpBbCmL5dXT+zsKqxHATUMN4ZMthK+/voU3aQaetg8dIm9y3htBOP+c
-         YW4Q==
+        bh=R3zuLxf28X0H/xa7T47tiKvpemvGGgA/Y2mqSnzT7Gc=;
+        b=PxHkQywhtXv0mTEeVgmvoRc4jCCdz+O2EIRjwF5e+aASrFExkccv1koWqN1bvq+M7U
+         BpoeduYDNdP/L1cRc70FpGRldnqhYUKh3yJd8+db39kq6r8BeL90Mf+iM4WT1LBz9Uq1
+         +8JiyHZOCXhBwaT2fkbYvskS4kTNxVdNORTFUg/ZD08LQqdcd+sl/mD+M3QPf8wzP7f+
+         RXPAlj+pqu4Zm/MwF2jQnLjYKFIHqXHSh1AryQi00t9UwNWRyFj5vTddBDwIjDh4SQO9
+         /Oob/TVf8u7huooJlJHy2Xx3aefW/mh1DLsLRE9swQUEgaaLEUFg7ZCFuO3Ker2iO3pv
+         NfAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795536830; x=1796141630;
+        d=1e100.net; s=20260707; t=1795537668; x=1796142468;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=LBJUeeLBd/j2UQXVukjFGjfTw0JwauIgVax6uPLXyWQ=;
-        b=MJf3bds9J7z72z+T0SK/tJO3wNNr9JrFVd/SWxPGXPvl1UR4dVvPQthUPGaf9SSYht
-         J4xv0UVEz3QNsKLa4i9qMytUdphXwVg7EIWKXUb+6k4uNjtJns+GvWfvkh9rRFrVGU6T
-         1VUI6fXmvOWIekYXys2+yIZ1NLCkyncPbXw5xGuxFS1t709sFrgs3ymqh2xTG2V3vTb7
-         yY+3qX8jdJcaO/T50iNX1Kw8G1ZQGu+ygXP0qMFSihukn8x2tMXrDiGygNp2XQW5Ze+f
-         1g/Jb8ZhyELKrQUdum86YUh6/KAjXVQNzidp7U52etphqWB7KGSgw6pgwKSZIWTxX9V1
-         SrZg==
-X-Forwarded-Encrypted: i=1; AL+hErHC7vNayHxgN4cnh8hXYBpJIxnfMSqnI89nWlDMiIyRmFiaWIX/4eF9oUu9++rpTpS9uBxcYLU=@lists.linux.dev
-X-Gm-Message-State: APuU4Z+u2IPDLZbVZJG0jvFXt1o5mbXiYJdRSBz0gxx81podvTK1UTfG
-	vXztNFXvoc/yJuWcH2/n11HZGQjSonCC0cLWaAvVafI9YkqDk1gmFigStEZ1PHKA9QKFLDq7M8R
-	ts3Bcoxw=
-X-Gm-Gg: AZFdTZeP6VVyoyBiukYN0WT3zJ94dg5aa0WaSLtYp6zIoZetlV3jGmGUnnz2cx0Ltec
-	xD1kHcbox/bGqOX535gqsnG/lLBTKgl/l9dauc4e0gNu1PiylUFeF1GEYV4S4x/BIi38Fe1uytN
-	q9HF72G/WyT4/Zblp7cVqkkTELxpL/plXZJnlxEnDDs7w0iT7zHFMOpJs2zPB3Be2wdo6kWShHw
-	5DGyeTZz6RGzjnTI/M/MV3Wr6mVpx1647PsKJyHov4zte1Snl8hHQHkfn2AmlV+RAZbW5k9IIJt
-	+KkRx3HGBPVNEnO4Jcvx8lnvx4F9wqsVE4A4RVaLwIIACaK9+kQYGYwzziCP3ka4ggTUBghs3FK
-	ObIcE57Kj8B32H53GO9I7NRXFsByJKagmFkzEWJybSxgTDdLjhoaY8UhuVgjDyiU5uRA6BZVOQX
-	jxMY0dv7QhkUijQqp++Ll3raNiqDf3dM0rd8MpxiXnScJALUVF8CrVG0kMX4sdPQF63rsnfzyc0
-	wASFpxO+NLphzsXRBTR/90b1nwrkf9wdJDotGr2iE1vqN19OoaEldaUAZdXZ09lahEJX+lqvGV6
-	nEFVG8s+ddK1MutWavEjVUH7J4+FXnQo
-X-Received: by 2002:a05:600c:4f4a:b0:4bb:6752:8413 with SMTP id 5b1f17b1804b1-4bb8880015bmr348896465e9.8.1795536830015;
-        Tue, 24 Nov 2026 08:13:50 -0800 (PST)
+        bh=R3zuLxf28X0H/xa7T47tiKvpemvGGgA/Y2mqSnzT7Gc=;
+        b=wwqfY6XFB/iYI0fcqGtz0U2omLLBwQkE8ENRQZM25hUZtyDUEkxLaTH4jR5RA6Mb2T
+         eWA6umDJSbuNkdncsoMn07DQp0PX+wo9tUOxXjjXXEVffNGkkdILqn6pgsz3I1uoT3HR
+         pyIDooyvJm0lIzgi1ioUG/m0teQyicQ3pINfgANYbQYq9fhejoUyTeBiWy8FEHaIplgZ
+         hn9XO4OYwutKm0LIowO+KhDwsxxYtUq688Yn1XPWgjbWrcfdTCrp7w9x7LQ1YTomwYlC
+         xOA5lawGS4Xiumoyjeh0Ay5gy+xdKbyriak3VQCRIcm7BxpGsdmXPzXMdHgz3o13NiGz
+         yXmA==
+X-Forwarded-Encrypted: i=1; AL+hErH8HLCKFRaed/hryv39IeLZNZeEej1fYwMukIGemD77v00BxIDQPYzYa+ZU8ZCGndjltn8EeyY=@lists.linux.dev
+X-Gm-Message-State: APuU4Z9VUhwg59zDwcT4XozH0oiFXyD6v+GD5krS9d72j3Fq+9+r7ig2
+	75w0AUHtGOszeQfQuFU1aGz1H8phLtvIqN1HzlBy1qX3yHNfvUR4ioVXqCJeQH5t2nM=
+X-Gm-Gg: AZFdTZfRTG7sjl6kZLvRS/tkDRZ8MeSgZrpw9MT/jV7ysWJfmb7r0UtAb+NFl7cxUpV
+	wIkl1412YoQ2B2dMjDWlLigX17MBDtGCog0uMDLsA+oRK/Ag5efois4Ly+/GjpWFO/EfZMeywGB
+	znFYfHv409YIPEqociea4A578E8HUhjLl4ySe8ZP/pXuGTyM3jU/Rk7/InjkCHgUwAHE1EvLUxk
+	ler0c1FauMTABmL/xrWq0cc0i4EEV7qf4DfDA5sEIwLDGD6LXhS/iEz6vSVic0hVKy27X5UTg1D
+	JiAhbCDy+88Xt4Ef1jmzV/oAnu3GvkmgH8Ync9hKSYRiVHiVI6/OaJKmg0uLolxz4HkZXPlljLa
+	FtGrJ+aGHjOrJMosyfQhPzVzYF81j/tBQvgiTHd/3xqS71btSlTTnS5ZxJZwuqzdZnEVwfNHyLS
+	ePPuCtQBD82oGAd/67sg7b6TLyQuNnBNLo6j7E8bQd7DFYYQtKmEikI+5tA5w8uFfNXcW3qULaA
+	daKQGRaxoCglDvwI06zS/qyCYEtDwr4xUkkSTqX5W9/IbNb4TlO40IyJv4PAquLhLm2lWLyWzrQ
+	ZAOq/Jq8ltGOj4h/JCZN79SDi6pGMgA=
+X-Received: by 2002:a05:600c:8b11:b0:4a1:df52:3e36 with SMTP id 5b1f17b1804b1-4bb8881d194mr319287845e9.27.1795537667763;
+        Tue, 24 Nov 2026 08:27:47 -0800 (PST)
 Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb905f1489sm265449965e9.0.2026.11.24.08.13.49
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989eesm29083209f8f.50.2026.11.24.08.27.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 08:13:49 -0800 (PST)
-Date: Tue, 24 Nov 2026 17:13:47 +0100
+        Tue, 24 Nov 2026 08:27:46 -0800 (PST)
+Date: Tue, 24 Nov 2026 17:27:44 +0100
 From: Petr Mladek <pmladek@suse.com>
 To: John Ogness <john.ogness@linutronix.de>
 Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Ryan Roberts <ryan.roberts@arm.com>,
 	Breno Leitao <leitao@debian.org>, printk@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH printk v4 3/8] printk: Move unsafe takeover check out of
- console_is_usable()
-Message-ID: <awW3u4xEwwbQARPl@pathway.suse.cz>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH printk v4 4/8] printk: nbcon: Use @reason instead of
+ global variable to check flush policy
+Message-ID: <awW7AFsiUkhRWdqy@pathway.suse.cz>
 References: <20261121163557.963029-1-john.ogness@linutronix.de>
- <20261121163557.963029-4-john.ogness@linutronix.de>
+ <20261121163557.963029-5-john.ogness@linutronix.de>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -105,171 +103,84 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261121163557.963029-4-john.ogness@linutronix.de>
+In-Reply-To: <20261121163557.963029-5-john.ogness@linutronix.de>
 
-On Sat 2026-11-21 17:41:51, John Ogness wrote:
-> Change console_is_usable() to never claim a console with
-> CON_NBCON_ATOMIC_UNSAFE is usable since that is the normal use
-> case. This allows moving nbcon_allow_unsafe_takeover() out of
-> console_is_usable().
+On Sat 2026-11-21 17:41:52, John Ogness wrote:
+> Currently nbcon_allow_unsafe_takeover() is a hack, relying on the
+> temporary setting of a global variable @panic_nbcon_allow_unsafe_takeover
+> as a gate to determine if unsafe flushing is allowed. This hack works
+> because unsafe flushing is only performed at the end of panic().
+> However, this hack is _not_ sufficient if unsafe flushing is to be
+> allowed in other contexts.
 > 
-> To support unsafe atomic flushing, provide a variant of
-> console_is_usable() called nbcon_is_unsafe_usable() that accepts
-> CON_NBCON_ATOMIC_UNSAFE consoles as usable. However, this adds
-> responsibility to the caller to determine if unsafe atomic printing
-> should occur.
+> Since at the end of panic() nbcon_atomic_flush_unsafe() is called with
+> the @reason PR_FLUSH_HANG, it is possible to identify when unsafe
+> atomic flushing is allowed using:
 > 
-> __nbcon_atomic_flush_pending() is the only function that enables
-> unsafe atomic printing by calling nbcon_allow_unsafe_takeover().
-> Rather that using console_is_usable() to select atomic printing
-> consoles, use nbcon_is_unsafe_usable() and only select
-> CON_NBCON_ATOMIC_UNSAFE consoles if the unsafe takeover is allowed.
+> 	PR_FLUSH_HANG && panic_on_this_cpu()
 > 
-> These changes effectively move the nbcon_allow_unsafe_takeover()
-> check from console_is_usable() to __nbcon_atomic_flush_pending().
-> This has no external functional change. Internally within
-> __nbcon_atomic_flush_pending() it means that
-> nbcon_allow_unsafe_takeover() is evaluated after the usable check
-> rather than during. The result is the same.
+> rather than:
 > 
-> Since __nbcon_atomic_flush_pending() also knows the @reason for
-> the flush, this opens the door for the unsafe atomic flushing
-> policy to be enforced in __nbcon_atomic_flush_pending().
+> 	panic_nbcon_allow_unsafe_takeover && panic_on_this_cpu()
 > 
-> --- a/include/linux/console.h
-> +++ b/include/linux/console.h
-> @@ -625,13 +624,8 @@ static inline bool nbcon_is_braille(struct console *con)
->  	return con && (con->flags & CON_BRL);
+> This allows removing the global variable hack and opens the door for
+> unsafe flushing to be allowed in other contexts.
+> 
+> Provide nbcon_allow_unsafe_takeover() the flush @reason to implement
+> the check.
+> 
+> No functional change.
+> 
+> --- a/kernel/printk/nbcon.c
+> +++ b/kernel/printk/nbcon.c
+> @@ -1453,24 +1453,31 @@ enum nbcon_prio nbcon_get_default_prio(void)
+>  	return NBCON_PRIO_NORMAL;
 >  }
 >  
 > -/*
-> - * Check if the given console is currently capable and allowed to print
-> - * records. Note that this function does not consider the current context,
-> - * which can also play a role in deciding if @con can be used to print
-> - * records.
+> - * Track if it is allowed to perform unsafe hostile takeovers of console
+> - * ownership. When true, console drivers might perform unsafe actions while
+> - * printing. It is externally available via nbcon_allow_unsafe_takeover().
 > - */
-> -static inline bool console_is_usable(struct console *con, short flags, bool use_atomic)
-> +static inline bool __console_is_usable(struct console *con, short flags, bool use_atomic,
-> +				       bool allow_atomic_unsafe)
->  {
->  	if (!(flags & CON_ENABLED))
->  		return false;
-> @@ -645,11 +639,7 @@ static inline bool console_is_usable(struct console *con, short flags, bool use_
->  			if (!con->write_atomic)
->  				return false;
->  
-> -			/*
-> -			 * An unsafe write_atomic() callback is only usable
-> -			 * when unsafe takeovers are allowed.
-> -			 */
-> -			if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !nbcon_allow_unsafe_takeover())
-> +			if (!allow_atomic_unsafe && (flags & CON_NBCON_ATOMIC_UNSAFE))
-
-This is a good example that different people have different mental mode and
-prefers another ordering of the checks ;-)
-
->  				return false;
->  		}
->  
-> @@ -675,6 +665,29 @@ static inline bool console_is_usable(struct console *con, short flags, bool use_
->  	return true;
->  }
->  
-> +/*
-> + * Check if the given console is currently capable and allowed to print
-> + * records. Note that this function does not consider the current context,
-> + * which can also play a role in deciding if @con can be used to print
-> + * records.
-> + */
-> +static inline bool console_is_usable(struct console *con, short flags, bool use_atomic)
-> +{
-> +	return __console_is_usable(con, flags, use_atomic, false);
-> +}
-> +
-> +/*
-> + * Similar to console_is_usable(), but allows atomic unsafe consoles. This is
-> + * only interesting for nbcon unsafe atomic printing.
-> + *
-> + * Note: It is the responsibility of the caller to decide if unsafe printing
-> + *       should actually occur.
-> + */
-> +static inline bool nbcon_is_unsafe_usable(struct console *con, short flags)
-> +{
-> +	return __console_is_usable(con, flags, true, true);
-> +}
-> +
->  #else
->  static inline void nbcon_cpu_emergency_enter(void) { }
->  static inline void nbcon_cpu_emergency_exit(void) { }
-> --- a/kernel/printk/nbcon.c
-> +++ b/kernel/printk/nbcon.c
-> @@ -1468,7 +1468,7 @@ static bool panic_nbcon_allow_unsafe_takeover;
->   * This is also used by console_is_usable() to determine if it is allowed to
->   * call write_atomic() callbacks flagged as unsafe (CON_NBCON_ATOMIC_UNSAFE).
+> -static bool panic_nbcon_allow_unsafe_takeover;
+> -
+>  /**
+>   * nbcon_allow_unsafe_takeover - Check if unsafe console takeovers are allowed
+> + *					for a specified console and reason
+>   *
+> - * Return:	True, when it is permitted to perform unsafe console printing
+> + * @con:	The console to check
+> + * @reason:	The reason for the unsafe takeover
+>   *
+> - * This is also used by console_is_usable() to determine if it is allowed to
+> - * call write_atomic() callbacks flagged as unsafe (CON_NBCON_ATOMIC_UNSAFE).
+> + * Return:	True, when @con is allowed to perform unsafe console printing
 >   */
-> -bool nbcon_allow_unsafe_takeover(void)
-> +static bool nbcon_allow_unsafe_takeover(void)
+> -static bool nbcon_allow_unsafe_takeover(void)
+> +static bool nbcon_allow_unsafe_takeover(struct console *con, enum pr_flush_reason reason)
+
+Nit: It seems that the @con parameter is not used in this version.
+     So, it might trigger a warning during bisection.
+
 >  {
->  	return panic_on_this_cpu() && panic_nbcon_allow_unsafe_takeover;
->  }
-> @@ -1672,11 +1672,24 @@ static void __nbcon_atomic_flush_pending(enum pr_flush_reason reason, u64 stop_s
->  		if (!(flags & CON_NBCON))
->  			continue;
->  
-> -		if (!console_is_usable(con, flags, true))
-> +		/*
-> +		 * Using variant of console_is_usable() to include consoles
-> +		 * with unsafe write_atomic() implementations. They might be
-> +		 * allowed depending on nbcon_allow_unsafe_takeover().
-> +		 */
-> +		if (!nbcon_is_unsafe_usable(con, flags))
->  			continue;
-
-The above function pretends that an unsafe takeover is enabled.
-
-
->  		allow_unsafe_takeover = nbcon_allow_unsafe_takeover();
-
-Here we get the information whether it is actually allowed.
-
-> +		/*
-> +		 * Since nbcon_is_unsafe_usable() was used, ensure @con does
-> +		 * not have an unsafe write_atomic() if this context expects
-> +		 * safe printing.
-> +		 */
-> +		if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !allow_unsafe_takeover)
-> +			continue;
-
-Here we duplicate the check from __console_is_usable() using the updated
-information.
-
-It is a bit hairy. It might be better to use the up-to-date
-information in console_is_usable*().
-
-I suggest to rename __console_is_usable() -> console_is_usable_unsafe().
-It would take 4 parameters, including @allow_unsafe_takeover.
-
-It would be used to implement the most commonly used variant:
-
-/* Variant used where the unsafe_takeover is never allowed. */
-static inline bool console_is_usable(struct console *con, short flags, bool use_atomic)
-{
-	return console_is_usable_unsafe(con, flags, use_atomic, false);
-}
-
-And this would be the only location where the longer variant is needed:
-
-		/* unsafe_takeover might be allowed in this code path. */
-		allow_unsafe_takeover = nbcon_allow_unsafe_takeover();
-		if (!nbcon_is_usable_unsafe(con, flags, true, allow_unsafe_takeover))
-			continue;
-
+> -	return panic_on_this_cpu() && panic_nbcon_allow_unsafe_takeover;
+> +	enum nbcon_prio prio = nbcon_get_default_prio();
+> +	bool allow = false;
 > +
->  		if (nbcon_seq_read(con) >= stop_seq)
->  			continue;
+> +	switch (reason) {
+> +	case PR_FLUSH_RUNTIME:
+> +		/* Never unsafe flush during runtime. */
+> +		break;
+> +	case PR_FLUSH_HANG:
+> +		/* Always unsafe flush on panic hang. */
+> +		allow = (prio == NBCON_PRIO_PANIC);
+> +		break;
+> +	}
+> +
+> +	return allow;
+>  }
 
-Note that I have not seen the rest of the patchset yet. It is possible
-that I miss something.
+Otherwise, the logic looks correct.
 
 Best Regards,
 Petr
