@@ -1,71 +1,72 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684667;
-	b=L2xvMoXxYjrW7AxBW72FE+7nkNYM+cV1wREea6q1pOfhiGNxbFDVdmOW2z+7HhgBtH0B
-	 hG8Sb3FqSE4uQk6sksLLlrPpuGZOMKzxAZRVYpyrCq/v8sFcJr8H2IziQvz07Zn06oU40
-	 0YiopbGoi03yjnrp/+gur2Ilj/UcIbfjwVUKpenoOCiamCFN52QCZnrTFuyQqMnVuDZkj
-	 keDbnNy/VtAXTBfVt4cgzJHoSi116hQD7PzA0HHfbWEizJqKiKpqyvDdvlHO8FAOmfkjN
-	 EselZa8aQhUDiMcQl0VPn+dQ7kkdzKk8JQ8yrJyiBiLEEYZRh1SbUlvupIYs5GSNLVg==
+	t=1795686684;
+	b=A0K9HtlybuLW8sz+Lka/6w76zmdWTqQzDGDQ+VM1nMEh5CQnjhMrMy4vtbOHf6aN0i4G
+	 BehQm3cgV1QPcUGLCdaZph45ot4x4uAd4rACv65TnejBRovg5KUJiNuxieFyFS/yarXF2
+	 MvgPt1o4cBm4WjorLEq/iHIterU2NYAeEDmr67CwYKEX4x4qbnQt0O128rR3xdC2LCJUs
+	 9iEs5CeIi7flmVenX4tr2uFxpIsfr0UhkCVdQpz1ztrPXZz/u6HdnwX6ghP2ea+OYC92k
+	 7O/8qpVCYLjAy97IjspEBUTAQHldeBF8hDwO/IyEYTGsLfT0qiwZtG3VcEdDGAMa1TA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684667;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686684;
 	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:
 	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
-	bh=Vs361lXj+ccNg7scnBDY+PPWxIYArALWaEjIZmnxvHk=;
-	b=iIRpYCfm8W+HdiJEOLnBkqHfwOzDdTZS4Lvr+9tm6v2PoXepLZd7UJc71aEa9WCPagL8
-	 WtKdwZfIHa/x+WMJ8dCPAbsaZrIq4pujileew8t5hMDOBKgGnWvxqi0cHo+1Cino89aU9
-	 3wqfFqHApCT4JUMni8bHhy0S+cNTumNEvr10j7yXliC/zKNufrdE/3lY/urRiRt8oKbFB
-	 llRg8AA9TZdkfXH0ZNn6ze0rmHaCtY3oMf8sjsNlLWn83ObiSStKXLPeCgNMtY8btDN1y
-	 eL2tcysaqXfsHPTdO0agq0JwXeYf220oI3Ahy/bAEWyK2VrgCjCJzOlnNd32yrAPkPg==
+	bh=ui+mQBeZjuiXLe6iiFq6l4jBGumd9YivK17br+RnUvE=;
+	b=pvPCaifVkiOkmAzM14h382IJQgyYQAAVlcUJcWwJT96TOm5RfMsv3D83m2nFCB6lBDpO
+	 pmzoztfRP7bbPwZIQy1RfAghf83KAfv9kE88rynDf9RipYxttYPypaFVo7+ZDmkIoB+Mz
+	 g3gfSGYIHcCE0BswS0FGPp+EyLmcrBBft2+IMwDVAP/lszP2mcgkQRphgDdSBNUXx+lcH
+	 6PBo81+ULtKbh7K4RZjS6wTV5QfWchtn5PuvtFgvlVZ2rxTY+68bewHpTtW6mVHjkfH86
+	 u8HQWuuElMoRolFL9wQ/xNDu8NoahUmg/buP37gQkT4nHew6plrgEiFfM4B+KAmB51g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ugpoMvB1;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=R0l4rrrh;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b="sZeHJW9/";
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=qcwnLsAt;
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A01DA606A31C
-	for <printk@lists.linux.dev>; Thu, 26 Nov 2026 09:17:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A01DA606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C32FC606A323
+	for <printk@lists.linux.dev>; Thu, 26 Nov 2026 09:51:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C32FC606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ugpoMvB1;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=R0l4rrrh
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=sZeHJW9/;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=qcwnLsAt
 From: John Ogness <john.ogness@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795684658;
+	s=2020; t=1795686681;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Vs361lXj+ccNg7scnBDY+PPWxIYArALWaEjIZmnxvHk=;
-	b=ugpoMvB104v1IFEPAMKVK12DkzSBS6mF8OgMJD4beo3Q9zmHyRBKj5wgupOe+dSpS/CmFr
-	7HHTs2DnbSPuXsZtJSH/tFhXL4xlnoWHkfuwAmciudzmz9CoN3lgp1CxsbRguAGcXPpLXG
-	WS43r5N15ykgZ1FkRuIcymrUfzYl343S3tA7AgeB2Ejb8oImA53Tl2f+34OQok+JHMhYME
-	4/aqZ/9wNDSeN6Nyu/l3xJ7RUX/5ZxFVX0VV7TD5bCoFDopxNp2O7s6nxBXWMeSo3CxkAj
-	p3yaD7Zy22AtW5j/J9AJL0kx0jTyBlpM759r5bppOLP6AEuzaCw22oLVOBcFEQ==
+	bh=ui+mQBeZjuiXLe6iiFq6l4jBGumd9YivK17br+RnUvE=;
+	b=sZeHJW9/xzagjXOTRGpO3Smr/hxJdadjl/ZCdmFQ3zPHqSBMDwg0DbkNelnK1WCuD42RO6
+	dq8NsGRAIN4fnZlWhIXa6dpJLl3htu5aBqCArK7RwCmkYlWvXNREJmJDx9OGP+TpYU++h3
+	harLGKrgogQr2I3M3tfQvmaU7UNOpwi7xfAKr+5fhrlPiBVfXMKnaPwqdcJ1noq1KckBo3
+	wNouQnHdajwq3hw7bccQWC5dmZxmRQhzhPO6epdULF8vejfB/yS9bMYTQYo7Ynj5B6t1be
+	jLLt+avHHcNnxO3Q3ze/0TqdQNBjQIkuW3x71D5X3caoS3HqN+wxPUOw7S2zyg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795684658;
+	s=2020e; t=1795686681;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Vs361lXj+ccNg7scnBDY+PPWxIYArALWaEjIZmnxvHk=;
-	b=R0l4rrrhC9f0SV5yuoPTLTCiphRf0KYxzJvKAZ3GhHzaOWsX2yx4+SDKWplkhjsBF7GFCG
-	29az0nrU8mWqIwBg==
-To: Jim Cromie via B4 Relay <devnull+jim.cromie.gmail.com@kernel.org>, Petr
- Mladek <pmladek@suse.com>, Steven Rostedt <rostedt@goodmis.org>, Sergey
- Senozhatsky <senozhatsky@chromium.org>, Jason Baron <jbaron@akamai.com>,
- Andrew Morton <akpm@linux-foundation.org>, "Jason A. Donenfeld"
- <Jason@zx2c4.com>
-Cc: printk@lists.linux.dev, linux-kernel@vger.kernel.org, Philipp Hahn
- <phahn-oss@avm.de>, Jim Cromie <jim.cromie@gmail.com>
-Subject: Re: [PATCH] printk.h: fix overzealous pr_fmt in pr_debug_ratelimited
-In-Reply-To: <20261125-pr-fmt-v1-1-3ff6832f5a50@gmail.com>
-References: <20261125-pr-fmt-v1-1-3ff6832f5a50@gmail.com>
-Date: Thu, 26 Nov 2026 10:23:38 +0106
-Message-ID: <87qzg86jf1.fsf@jogness.linutronix.de>
+	bh=ui+mQBeZjuiXLe6iiFq6l4jBGumd9YivK17br+RnUvE=;
+	b=qcwnLsAt//oR6mAWhAkdgtyBrXvyrpzLrbSRQsSDnUlNHHTsS4nR0Ws8DnGfia1vRj5YJ1
+	UraM1qVsy/n5xXCA==
+To: Petr Mladek <pmladek@suse.com>
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>, Steven Rostedt
+ <rostedt@goodmis.org>, Ryan Roberts <ryan.roberts@arm.com>, Breno Leitao
+ <leitao@debian.org>, printk@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [PATCH printk v4 3/8] printk: Move unsafe takeover check out of
+ console_is_usable()
+In-Reply-To: <awW3u4xEwwbQARPl@pathway.suse.cz>
+References: <20261121163557.963029-1-john.ogness@linutronix.de>
+ <20261121163557.963029-4-john.ogness@linutronix.de>
+ <awW3u4xEwwbQARPl@pathway.suse.cz>
+Date: Thu, 26 Nov 2026 10:57:20 +0106
+Message-ID: <87o6bb7wfb.fsf@jogness.linutronix.de>
 X-Mailing-List: printk@lists.linux.dev
 List-Id: <printk.lists.linux.dev>
 List-Post: <mailto:printk@lists.linux.dev>
@@ -77,49 +78,87 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain
 
-On 2026-11-25, Jim Cromie via B4 Relay <devnull+jim.cromie.gmail.com@kernel.org> wrote:
-> From: Jim Cromie <jim.cromie@gmail.com>
+On 2026-11-24, Petr Mladek <pmladek@suse.com> wrote:
+>> @@ -645,11 +639,7 @@ static inline bool console_is_usable(struct console *con, short flags, bool use_
+>>  			if (!con->write_atomic)
+>>  				return false;
+>>  
+>> -			/*
+>> -			 * An unsafe write_atomic() callback is only usable
+>> -			 * when unsafe takeovers are allowed.
+>> -			 */
+>> -			if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !nbcon_allow_unsafe_takeover())
+>> +			if (!allow_atomic_unsafe && (flags & CON_NBCON_ATOMIC_UNSAFE))
 >
-> Historically, the CONFIG_DYNAMIC_DEBUG implementation of
-> pr_debug_ratelimited() passed raw fmt to both metadata and runtime:
->
->   DEFINE_DYNAMIC_DEBUG_METADATA(descriptor, fmt);
->   if (unlikely(...) && __ratelimit(&_rs))
->      __dynamic_pr_debug(&descriptor, fmt, ##__VA_ARGS__);
->
-> While descriptor metadata was clean, emitted dmesg records lacked the
-> pr_fmt prefix present in the !CONFIG_DYNAMIC_DEBUG fallbacks.
->
-> In 2015, commit 515a9adce0f0 ("include/linux/printk.h: include pr_fmt
-> in pr_debug_ratelimited") fixed the missing prefix by wrapping fmt in
-> __dynamic_pr_debug() with pr_fmt().  However, it also wrapped fmt in
-> the metadata macro:
->
->   DEFINE_DYNAMIC_DEBUG_METADATA(descriptor, pr_fmt(fmt));
->
-> This causes two problems:
->
->   1. Build failure when pr_fmt() expands to multiple arguments, e.g.:
->        #define pr_fmt(fmt) KBUILD_MODNAME ".%s " fmt, __func__
->      Passing pr_fmt(fmt) into DEFINE_DYNAMIC_DEBUG_METADATA() expands
->      across the comma in DEFINE_DYNAMIC_DEBUG_METADATA_CLS(), supplying
->      4 arguments where it takes 3.
->
->   2. Metadata pollution even for single-argument pr_fmt(): baking the
->      prefix into .format breaks anchored queries such as:
->        echo format "^foo" > /proc/dynamic_debug/control
->
-> Drop the pr_fmt() wrapper from DEFINE_DYNAMIC_DEBUG_METADATA() in
-> pr_debug_ratelimited(), restoring consistency with dynamic_pr_debug,
-> dev_dbg_ratelimited, and net_dbg_ratelimited.  Update
-> lib/test_dynamic_debug.c to exercise pr_fmt() with __func__ in
-> pr_debug_ratelimited().
->
-> Reported-by: Philipp Hahn <phahn-oss@avm.de>
-> Link: https://lore.kernel.org/lkml/a5e3c89fe5f4126873d58dd3472e66c56550ff91.1773779753.git.phahn-oss@avm.de/
-> Fixes: 515a9adce0f0 ("include/linux/printk.h: include pr_fmt in pr_debug_ratelimited")
-> Cc: Jason A. Donenfeld <Jason@zx2c4.com>
-> Cc: Petr Mladek <pmladek@suse.com>
-> Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
+> This is a good example that different people have different mental mode and
+> prefers another ordering of the checks ;-)
 
-Reviewed-by: John Ogness <john.ogness@linutronix.de>
+The reason for the switch was because this function becomes a helper
+that operates in 2 modes: with atomic_unsafe, without atomic_unsafe. So
+I felt it was appropriate to make the "mode of operation" the primary
+component of the condition. But since you suggest to move away from
+making this a helper, I will switch it back.
+
+>> --- a/kernel/printk/nbcon.c
+>> +++ b/kernel/printk/nbcon.c
+>> @@ -1468,7 +1468,7 @@ static bool panic_nbcon_allow_unsafe_takeover;
+>>   * This is also used by console_is_usable() to determine if it is allowed to
+>>   * call write_atomic() callbacks flagged as unsafe (CON_NBCON_ATOMIC_UNSAFE).
+>>   */
+>> -bool nbcon_allow_unsafe_takeover(void)
+>> +static bool nbcon_allow_unsafe_takeover(void)
+>>  {
+>>  	return panic_on_this_cpu() && panic_nbcon_allow_unsafe_takeover;
+>>  }
+>> @@ -1672,11 +1672,24 @@ static void __nbcon_atomic_flush_pending(enum pr_flush_reason reason, u64 stop_s
+>>  		if (!(flags & CON_NBCON))
+>>  			continue;
+>>  
+>> -		if (!console_is_usable(con, flags, true))
+>> +		/*
+>> +		 * Using variant of console_is_usable() to include consoles
+>> +		 * with unsafe write_atomic() implementations. They might be
+>> +		 * allowed depending on nbcon_allow_unsafe_takeover().
+>> +		 */
+>> +		if (!nbcon_is_unsafe_usable(con, flags))
+>>  			continue;
+>
+> The above function pretends that an unsafe takeover is enabled.
+
+This series establishes that:
+
+unsafe takeover != unsafe usage
+
+At this point in the series that distinction is not yet possible. I was
+attempting to:
+
+- keep patch sizes small
+- have as many "no functional changes" steps as possible
+
+I will see what I can do here. It might be easier after following your
+suggestions.
+
+>>  		allow_unsafe_takeover = nbcon_allow_unsafe_takeover();
+>
+> Here we get the information whether it is actually allowed.
+>
+>> +		/*
+>> +		 * Since nbcon_is_unsafe_usable() was used, ensure @con does
+>> +		 * not have an unsafe write_atomic() if this context expects
+>> +		 * safe printing.
+>> +		 */
+>> +		if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !allow_unsafe_takeover)
+>> +			continue;
+>
+> Here we duplicate the check from __console_is_usable() using the updated
+> information.
+>
+> It is a bit hairy. It might be better to use the up-to-date
+> information in console_is_usable*().
+>
+> I suggest to rename __console_is_usable() -> console_is_usable_unsafe().
+> It would take 4 parameters, including @allow_unsafe_takeover.
+
+Agreed. That is clean and fits the end of the series as well.
+
+John
